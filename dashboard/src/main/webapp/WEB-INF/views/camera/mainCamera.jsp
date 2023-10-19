@@ -45,9 +45,13 @@
 
 				<!-- 좌측 네비.S -->
 				<div class="btn-navi" >
-					<button type="button" class="btn_object" onClick="OnClickCtrl();">M A I N</button>
+					<a href="/main">
+						<button type="button" class="btn_object">M A I N</button>
+					</a>
 					<!-- <button type="button" class="btn_evnet" onClick="OnClickEvent();">E V E N T</button> -->
-					<button type="button" class="btn_camera_on" onClick="OnClickDivide();">C A M E R A</button>
+					<a href="/mainCamera">
+						<button type="button" class="btn_camera_on">C A M E R A</button>
+					</a>
 				</div>
 				<!-- 좌측 네비.E -->
 
