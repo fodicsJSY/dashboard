@@ -1,0 +1,14 @@
+@import url('../event.css');
+
+
+.text_cam_name {margin-left: 20px; margin-top: -5px; background-color:#333333; height: 28px; border-style: none ;}
+
+
+
+/* #grid_object {font-size:34px;} */
+/* table {font-family: NanumSquareEB; font-size: 11pt;} */
+/* td {padding-left: 10px !important; padding-right: 10px !important;} */
+#grid_sub_event{margin-left: 18px; padding-top: 5px;}
+
+#grid_sub_event_top10 {margin-top: 12px; margin-left: 13px; margin-bottom: 10px;}
+#grid_event_detail_total{margin-left: 18px}

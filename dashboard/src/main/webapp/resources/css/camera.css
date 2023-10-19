@@ -1,0 +1,114 @@
+@charset "utf-8";
+@import url('reset.css');
+@import url('style.css');
+@import url('../font/nanumsquare.css');
+/* 리셋 */
+
+
+ /* main03. 카메라우선 - 컨텐츠 구획별 */
+
+.divCameraToday  {float:left; width:100%; min-width:1055px; height:100%; min-height:915px;  margin-bottom:15px;}
+.divCameraToday .data {text-align:center; padding:20px; }
+
+.divEventTime .data {/*display:block; vertical-align:middle;*/  width:100%; text-align:center;}
+.dataSelect {width:100%; margin-bottom:80px; padding:30px 20px 0 20px; text-align:left; }
+ h5 {width:100px; margin-top:-5px; }
+.dataCheck {margin:10px 0; border:0px solid #333333;/*보더삭제*/ }
+.checkbox {display:inline-block; }
+.dataPeriod {display:block; margin:10px 0;}
+
+.today {display:inline-block; width:100%; height:200px; margin-bottom:20px; border:1px solid #333333; }
+.today:nth-child(1) {width:49%; float:left;}
+.today:nth-child(2) {width:49%; float:right;}
+.today:nth-child(3) {width:49%; float:left;}
+.today:nth-child(4) {width:49%; float:right;}
+.today:nth-child(5) {width:49%; float:left;}
+.today:nth-child(6) {width:49%; float:right;}
+.today:nth-child(7) {width:49%; float:left; margin-bottom:0; }
+.today:nth-child(8) {width:49%; float:right; margin-bottom:0; }
+
+.todayHuman {border-bottom:8px solid #94e9ec;}
+.todayCar {border-bottom:8px solid #d4e079;}
+.todayFace {border-bottom:8px solid #b4a1d8;}
+.todayParking {border-bottom:8px solid #aecf61;}
+.todayCounting {border-bottom:8px solid #ff7978;}
+.todayLPR {border-bottom:8px solid #f19ec2;}
+.todayLoitering {border-bottom:8px solid #fec070;}
+.todayIntrusion {border-bottom:8px solid #4176df;}
+
+.today {float:left; display:inline-block; height:200px; border:1px solid #333333; }
+.today .todayTXT {position:relative; display:block; width:100%; height:100px; margin-right:15px;  text-align:left; background:#282828;}
+.today .todayIMG {position:absolute; top:30px; padding-left:20px; font-size:20px;}
+.today .todayTitle {position:absolute; top:50px; padding-left:80px; font-size:20px;}
+.today .amount {position:absolute;  top:50px; width:100%;  padding-right:20px; text-align:right;  font-size:24px;}
+.today .contrast {position:absolute; top:19px;  width:100%; padding-right:18px; text-align:right; }
+
+.today-part8 {float:left; display:inline-block; width:49%; height:193px;margin-bottom:20px; border:1px solid #333333; }
+.today-part8:nth-child(1) {width:49%; float:left;}
+.today-part8:nth-child(2) {width:49%; float:right;}
+.today-part8:nth-child(3) {width:49%; float:left;}
+.today-part8:nth-child(4) {width:49%; float:right;}
+.today-part8:nth-child(5) {width:49%; float:left;}
+.today-part8:nth-child(6) {width:49%; float:right;}
+.today-part8:nth-child(7) {width:49%; float:left; margin-bottom:0; }
+.today-part8:nth-child(8) {width:49%; float:right; margin-bottom:0; }
+
+.today-part8 .todayTXT {position:relative;  display:block; float:left; width:200px; height:100%; margin-right:15px;text-align:left; background:#282828;}
+.today-part8 .todayTitle {position:absolute;  top:80px; padding-left:20px; font-size:20px;}
+.today-part8 .todayIMG {position:absolute; top:15px;  padding-left:20px;}
+.today-part8 .amount {position:absolute;   top:120px; width:100%;   padding-left:20px; font-size:24px;}
+.today-part8 .contrast {position:absolute;  top:160px; width:100%;   padding-left:20px;}
+
+.today-part1 {float:left; display:inline-block; width:40%; height:200px; border:1px solid #333333; }
+.today-part1 .todayTXT {position:relative; display:block; width:100%; height:100px; margin-right:15px;  text-align:left; background:#282828;}
+.today-part1 .todayIMG {position:absolute; top:30px; padding-left:20px; font-size:20px;}
+.today-part1 .todayTitle {position:absolute; top:50px; padding-left:80px; font-size:20px;}
+.today-part1 .amount {position:absolute;  top:50px; width:100%;  padding-right:20px; text-align:right;  font-size:24px;}
+.today-part1 .contrast {position:absolute; top:19px;  width:100%; padding-right:18px; text-align:right; }
+
+.upper {color:#eb6877;}
+.lower {color:#00b7ee;}
+
+.todayData {display:block; float:left; display:inline-block; margin-left:15px; border:1px solid #333333; }
+
+.todayBoard {display:block; float:left; height:200px; margin:20px; text-align:left;}
+.todayBoard dt {float:left; width:80%; height:24px; }
+.todayBoard dd {float:right; width:20%; text-align:right; }
+
+.divEventAge {width:100%; min-width:600px;  height:43vh;  min-height:450px;   margin-bottom:15px; overflow:hidden;}
+.divEventAge .data01 {display:inline-block; width:100%; height:100%; vertical-align:middle; text-align:center;}
+.divEventAge .data02 {display:inline-block; width:100%; height:100%; vertical-align:middle; text-align:center; border-left:1px solid #333333; }
+.divEventAge p {margin:20px;}
+
+.divSideAge {width:100%; min-width:600px;  height:43vh;  min-height:450px;   margin-bottom:15px; overflow:hidden;}
+.divSideAge .data01 {display:inline-block; width:55%; height:100%; vertical-align:middle; text-align:center;}
+.divSideAge .data02 {display:inline-block; width:45%; height:100%; vertical-align:middle; text-align:center; border-left:1px solid #333333; }
+.divSideAge p {margin:20px;}
+
+.divEvent {width:100%; min-width:600px;  height:43vh;  min-height:450px;   margin-bottom:15px;}
+.divEvent .data {vertical-align:middle;text-align:center;}
+
+.divSide {width:100%; min-width:600px;  height:43vh;  min-height:450px;   margin-bottom:15px;}
+.divSide .data {vertical-align:middle;text-align:center;}
+
+.divTop10 {width:100%; min-width:600px;  height:43vh;  min-height:450px;  margin-bottom:15px; }
+.divTop10 .data { text-align:center;}
+.top10Table {width:90%; margin:20px auto; }
+.top10Table th {padding:10px;}
+.top10Table td {padding:10px;}
+
+
+
+ /* 서브 - 03카메라우선*/
+.subCamera  {float:left; width:100%; min-width:1055px; height:100%; min-height:915px; }
+
+
+.camera-ListBox {float:left;  height:100%; margin-left:20px;border:1px solid #666666; }
+.camera-data {float:right; height:100%; margin-right:20px; padding:15px; border:1px solid #666666; }
+.camera-sub-data {float:left; width:59%; height:100%; margin-right:20px; padding:15px; border:1px solid #666666; }
+.dataCompare {display:inline-block; height:80px;}
+.dataCompare:nth-child(1) {width:50%; float:left;}
+.dataCompare:nth-child(2) {width:50%; float:right;}
+
+.dataCompare-title {display:inline-block; float:left; width:100px; height:59px; padding-top:18px; padding-left:50px; background:#282828 url('../img/ico_titCompare.png') 15px 15px no-repeat; border:1px solid #666666;}
+.dataCompareSelect {display:inline-block; float:left; } 

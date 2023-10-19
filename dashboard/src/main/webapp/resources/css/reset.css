@@ -1,0 +1,155 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/* 라디오버튼 */
+input[type='radio']:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #282828;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 1px solid #666666;
+}
+
+input[type='radio']:checked:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #09afdf;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid #ffffff;
+}
+
+
+/* 체크박스 */
+input[type='checkbox']:after {
+    width: 12px;
+    height: 12px;
+    top: -1px;
+    left: -1px;
+    position: relative;
+    background-color: #282828;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 1px solid #999999;
+}
+
+input[type='checkbox']:checked:after {
+    width: 12px;
+    height: 12px;
+    top: -1px;
+    left: -1px;
+    position: relative;
+    background:#1e1e1e url('../img/icon_check.png') left top no-repeat;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 1px solid #ffffff;
+}
+
+
+
+/* 컬러 Guide */
+
+/*남자 Male */		    	.color-Male		 {color:#0f9faf;}	.cBG-Male		 {background:#0f9faf;}
+/*여자 Female */	    	.color-Female	 {color:#e8534c;}	.cBG-Female		 {background:#e8534c;}  
+
+/*미성년 Young */		    .color-Young	 {color:#d3f1f9;}	.cBG-Young		 {background:#d3f1f9;}
+/*청년 Adult */			    .color-Adult	 {color:#3fd5e3;}	.cBG-Adult		 {background:#3fd5e3;} 
+/*중장년 Middle */	    	.color-Middle	 {color:#00a0de;}	.cBG-Middle		 {background:#00a0de;}
+/*노년 Senior */	    	.color-Senior	 {color:#0174cf;}	.cBG-Senior		 {background:#0174cf;} 
+
+/*사람 Human */			    .color-Human	 {color:#94e9ec;}	.cBG-Human		 {background:#94e9ec;} 
+/*얼굴 Face */			    .color-Face		 {color:#b4a1d8;}	.cBG-Face		 {background:#b4a1d8;} 
+/*차량 Car */			    .color-Car		 {color:#d4e079;}	.cBG-Car		 {background:#d4e079;} 
+/*차량번호인식 LPR */		.color-LPR	     {color:#f19ec2;}   .cBG-LPR		 {background:#f19ec2;} 
+/*침입 Intrusio */		    .color-Intrusion {color:#4176df;}	.cBG-Intrusion   {background:#4176df;} 
+/*배회 Loitering */	    	.color-Loitering {color:#fec070;}	.cBG-Loitering   {background:#fec070;} 
+/*카운팅 Counting */		.color-Counting  {color:#ff7978;}	.cBG-Counting	 {background:#ff7978;} 
+/*쓰러짐 Fall */			.color-Fall		 {color:#52c3f7;}	.cBG-Fall	     {background:#52c3f7;} 
+/*불법주차 Parking */		.color-Parking	 {color:#aecf61;}	.cBG-Parking	 {background:#aecf61;} 
+/*블랙리스트 BlackList */	.color-BlackList {color:#7be1da;} 	.cBG-BlackList	 {background:#7be1da;} 
+
+/*자동차 Sedan */			.color-Sedan	 {color:#d3f1f9;}	.cBG-Sedan		 {background:#d3f1f9;}
+/*버스 Bus */		    	.color-Bus	     {color:#3fd5e3;}	.cBG-Bus		 {background:#3fd5e3;} 
+/*트럭 Truck */			    .color-Truck	 {color:#3fd5e3;}	.cBG-Truck		 {background:#3fd5e3;}
+/*오토바이 Motorcycle */	.color-Motorcycle{color:#00a0de;}	.cBG-Motorcycle	 {background:#00a0de;}
+/*자전거 Bicycle */ 		.color-Bicycle	 {color:#ffcc45;}	.cBG-Bicycle	 {background:#ffcc45;}
+
+/*마스크 Mask */			.color-Mask		 {color:#00a9ff;}	.cBG-Mask		 {background:#00a9ff;} 
+/*가방 Bag */			    .color-Bag		 {color:#ffb840;}	.cBG-Bag		 {background:#ffb840;} 
+/*안경 Eye */   			.color-Eye		 {color:#ff5a46;}	.cBG-Eye		 {background:#ff5a46;} 
+/*모자 Hat */	    		.color-Hat		 {color:#00bd9f;}	.cBG-Hat		 {background:#00bd9f;} 
+
+/*무채색 Gray */			.color-Gray		 {color:#d2d2d2;}	.cBG-Gray		 {background:#d2d2d2;} 
+/*한색 Warm */		    	.color-Warm		 {color:#f5715b;}	.cBG-Bag		 {background:#f5715b;} 
+/*난색 Cool */			    .color-Cool		 {color:#25b8e9;}	.cBG-Cool		 {background:#25b8e9;} 
+
+
+
+
+
+
+
+
+
+
+

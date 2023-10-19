@@ -1,0 +1,37 @@
+@charset "utf-8";
+@import url('reset.css');
+@import url('style.css');
+@import url('../font/nanumsquare.css');
+/* 리셋 */
+
+
+
+ /* main01. 객체우선 - 컨텐츠 구획별 */
+.divHuman {float:left; width:100%; min-width:750px; height:43vh;  min-height:450px;  margin-bottom:15px; }
+.divHuman .data {display: block; margin-top:50px; text-align:center;}
+
+.divCar {float:right; width:49.5%; min-width:510px; height:43vh;  min-height:450px;  margin-bottom:15px;}
+.divCar .data {margin-top:50px; text-align:center;}
+
+.divAge {float:left; width:100%; min-width:750px;  height:43vh;  min-height:450px;   margin-bottom:15px; }
+.divAge .data {margin-top:50px; text-align:center;}
+.divAge .data img {margin:0 10px;}
+
+.divTime {float:right; width:100%; min-width:750px;  height:43vh;  min-height:450px;  }
+/* .divTime .data {margin:10px 0 0 0; text-align:center;} */
+.divTime .data {display: block; margin-top:50px; text-align:center;}
+
+.divEvent {width:100%; min-width:600px;  height:43vh;  min-height:450px;   margin-bottom:15px;}
+.divEvent .data {text-align:center;}
+
+.divTop10 {float:left; width:100%; min-width:750px;  height:43vh;  min-height:450px;  margin-bottom:15px; }
+.divTop10 .data { text-align:center;}
+/* 
+ .top10Table {width:90%; margin:20px auto; }
+ .top10Table th {padding:10px;}
+ .top10Table td {padding:10px;} */
+
+
+
+ /* 서브 - 01객체우선 */
+.subObject  {float:left; width:100%; min-width:1055px; height:100%; min-height:915px; }

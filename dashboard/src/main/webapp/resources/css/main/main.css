@@ -1,0 +1,31 @@
+.chart{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    max-width: 800px;
+}
+
+
+.manChart{
+    position: relative;
+}
+
+#manImg{
+    position: absolute; 
+    top: 160px; 
+    left: 152px; 
+    z-index: 0;
+}
+
+
+.womanChart{
+    position: relative;
+}
+
+#womanImg{
+    position: absolute; 
+    top: 160px; 
+    left: 152px; 
+    z-index: 0;
+}

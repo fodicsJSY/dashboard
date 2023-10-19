@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="userMapper">
+
+	<resultMap type="User" id="user_rm">
+		
+		<result property="userId" column="user_id" />
+		<result property="userPw" column="user_pw" />
+		<result property="userName" column="user_name" />
+		<result property="userBackup" column="user_backup" />
+		<result property="userStatus" column="user_status" />
+	
+	</resultMap>
+
+
+	<!-- 로그인 -->
+	<select id="login" resultType="_int">
+		SELECT COUNT(*) 
+		FROM TB_AI_NVR_DASH_BOARD_USER
+		WHERE user_id = #{userId}
+		AND CAST(DECRYPTBYPASSPHRASE((SELECT site_code FROM TB_SERVER_RECORD WHERE type = 34), enc_user_pw) AS NVARCHAR(2000)) = #{userPw}
+	</select>
+	
+
+	
+	
+</mapper>

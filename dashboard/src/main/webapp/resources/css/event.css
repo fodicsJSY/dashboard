@@ -1,0 +1,53 @@
+@charset "utf-8";
+@import url('reset.css');
+@import url('style.css');
+@import url('../font/nanumsquare.css');
+/* 리셋 */
+
+
+ /* main02. 이벤트우선 - 컨텐츠 구획별 */
+.divEventTime {float:left; width:100%; min-width:1000px; height:100%; min-height:915px;}
+.divEventTime .data {/*display:block; vertical-align:middle;*/  width:100%; text-align:center;}
+.dataSelect {width:100%; margin-bottom:10px; padding:30px 20px 0 20px; text-align:left; }
+  h5 {width:100px; margin-top:-5px;}
+.dataCheck {display: block; margin:30px 0 0 0; }
+.checkbox {display:inline-block; }
+.dataPeriod {display:block; margin:10px 0;}
+/* .selectbox {display:inline-block; }
+ p {display:inline-block; } */
+ 
+
+.divEventAge {width:100%; min-width:600px;  height:43vh;  min-height:450px; max-height:455px;   margin-bottom:11px; overflow:hidden;}
+.divEventAge .data01 {display:inline-block; width:55%; vertical-align:middle; text-align:center;}
+.divEventAge .data02 {display:inline-block; width:45%; vertical-align:middle; text-align:center; border-left:1px solid #333333; }
+.divEventAge p {margin:20px;}
+
+.divEvent {width:100%; min-width:600px;  height:43vh;  min-height:450px;   margin-bottom:15px;}
+.divEvent .data {vertical-align:middle;text-align:center;}
+
+.divTop10 {width:100%; min-width:600px;  height:25vh;  min-height:435px;  margin-bottom:15px; }
+.divTop10 .data { text-align:center;}
+/* .top10Table {width:90%; margin:20px auto; }
+.top10Table th {padding:10px;}
+.top10Table td {padding:10px;} */
+
+
+
+ /* 서브 - 02이벤트우선 */
+.subEvent  {float:left; width:100%; min-width:1055px; height:100%; min-height:915px; }
+
+
+/*테이블*/
+table {font-family: NanumSquareEB; font-size: 9pt;}
+td {padding-left: 1% !important; padding-right: 1% !important;}
+
+#grid_main_event {margin-top: 12px; margin-left: 13px; margin-bottom: 10px;}
+
+#chart_multi_line_hour {padding-top: 65px;}
+
+
+
+
+
+.text_cam_name{color: white;}
+.changeGraph {margin-top: 1.5%;}   

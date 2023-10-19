@@ -1,0 +1,42 @@
+
+
+
+.contentsGrid {margin-left: 10px; }
+.contentsArea {background-color: #282828 ; margin-bottom: 10px;} 
+.contensTypebtnArea {margin-left: 20px; padding-top: 10px;  }
+.contentsGridDataArea{ margin-top: -1px; padding-left:10px; padding-bottom: 20px; background-color: #1e1e1e; padding-right: 20px; }
+.sectionBox1type {margin-left: 10px; }
+.sectionDate {margin-left: 10px; padding-top: 20px; padding-bottom: 20px; }
+
+.tui-ico-date {filter: invert(100%);}
+.tui-grid-body-area {background-color: #282828 !important;}
+.text_cam_name {margin-left: 20px; margin-top: -5px; background-color:#333333; height: 28px; border-style: none ;}
+
+/* 셀 색상 변경 시도 */
+.tui.grid-cell.red-header {background-color: red !important}
+
+ p {display:flow-root; }
+
+
+
+/* #grid_object {font-size:34px;} */
+table {font-family: NanumSquareEB; font-size: 11pt;}
+td {padding-left: 10px !important; padding-right: 10px !important;}
+
+/* ::-webkit-scrollbar{
+    background: #333333;    
+  }
+::-webkit-scrollbar-track-piece{
+    background: #333333;
+  }
+::-webkit-scrollbar-thumb {
+    background: #838383 !important;
+    border-radius: 0px;
+}
+::-webkit-scrollbar-track {
+    background: #333333;
+    border-radius: 10px;
+} */
+
+/* .tui-grid-body-area {height:100px} */
+

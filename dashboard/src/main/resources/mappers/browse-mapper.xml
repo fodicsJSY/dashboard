@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="browseMapper">
+
+
+
+	<resultMap type="Petition" id="petition_rm">
+		
+		<id property="petitionNo" column="PT_NO" />
+		
+      	<result property="petitionTitle" column="PT_TITLE" />
+      	<result property="petitionContent" column="PT_CONTENT" />
+      	<result property="petitionDate" column="PT_DATE" />
+      	<result property="petitionViewCount" column="PT_VIEW_COUNT" />
+      	<result property="petitionImage" column="PT_IMG" />
+      	<result property="petitionVictory" column="PT_VICT" />
+      	
+      	<result property="userNo" column="USER_NO" />
+      	<result property="userImage" column="USER_IMG" />
+      	<result property="userNickname" column="USER_NICKNAME" />
+      	<result property="userAddress" column="USER_ADD" />
+      	
+      	<result property="petitionLikeCount" column="PT_LIKE_COUNT" />
+      	
+	</resultMap>
+
+	<resultMap type="User" id="user_rm">
+	
+		<id property="userNo" column="USER_NO" />
+		
+		<result property="userGrade" column="USER_GRADE" />
+		<result property="userImage" column="USER_IMG" />
+		<result property="userEmail" column="USER_EMAIL" />
+		<result property="userNickname" column="USER_NICKNAME" />
+		<result property="userPw" column="USER_PW" />
+		<result property="userAddress" column="USER_ADD" />
+		<result property="userAboutMe" column="USER_ABOUT_ME" />
+		<result property="userSocialLogin" column="USER_SOCIAL_LOGIN" />
+		<result property="userEnrollDate" column="USER_ENDROLL_DT" />
+		<result property="userDelFl" column="USER_DEL_FL" />
+	
+	</resultMap>
+
+
+	<resultMap type="edu.nojo.vote.browse.model.dto.Browse" id="browse">
+   
+
+      	<result property="commentRESPNo" column="CM_RESP_NO" />
+      	<result property="commentRESP" column="COMMENT_RESP" />
+
+      	<result property="commentNo" column="CM_NO" />
+      	<result property="commentContent" column="CM_CONTENT" />
+      	<result property="commentDate" column="CM_DATE" />
+      	<result property="commentDelFl" column="CM_DEL_FL" />
+      	
+      	<result property="updateNo" column="UP_NO" />
+      	<result property="updateTitle" column="UP_TITLE" />
+      	<result property="updateContent" column="UP_CONTENT" />
+      	<result property="updateDate" column="UP_CREATE_DT" />
+      	<result property="updateImage" column="UP_IMG" />
+      	<result property="updateDelFl" column="UP_DEL_FL" />
+      	
+      	
+		<collection property="commentList" select="selectComments" column="PT_NO" javaType="java.util.ArrayList" ofType="Comment"/>
+	</resultMap>
+
+
+
+	<resultMap type="edu.nojo.vote.writePetition.model.dto.PetitionCategory" id="category_rm">
+	      	<result property="categoryNo" column="CAT_NO" />
+	      	<result property="categoryName" column="CAT_NAME" />
+	      	<result property="categoryMainFl" column="CAT_MAIN_FL" />
+	
+	</resultMap>
+
+	<resultMap type="Comment" id="comment_rm">
+	
+		<id property="commentNo" column="CM_NO" />
+		<result property="commentContent" column="CM_CONTENT" />
+		<result property="commentDate" column="CM_DATE" />
+		<result property="commentDelFL" column="CM_DEL_FL" />
+		
+		<result property="userNo" column="USER_NO" />
+		<result property="userImage" column="USER_IMG" />
+		<result property="userNickname" column="USER_NICKNAME" />
+		
+		<result property="commentFLY" column="CM_FLY" />
+		<result property="commentFLN" column="CM_FLN" />
+	
+	</resultMap>
+	
+	<resultMap type="Like" id="like_rm">
+	
+		<id property="petitionLikeNo" column="PT_LIKE_NO" />
+		<result property="petitionNo" column="PT_NO" />
+		<result property="petitionLikeDate" column="PT_LIKE_DATE" />
+		
+		<result property="userNo" column="USER_NO" />
+		<result property="userImage" column="USER_IMG" />
+		<result property="userEmail" column="USER_EMAIL" />
+		<result property="userNickname" column="USER_NICKNAME" />
+		<result property="userAddress" column="USER_ADD" />
+	
+	</resultMap>
+	
+	
+	
+	
+	<!-- 댓글 -->
+	<select id="selectComments" resultMap="browse" >
+		SELECT CM_NO, USER_NICKNAME, USER_IMG, USER_NO, CM_CONTENT, TO_CHAR(CM_DATE, 'YYYY-MM-DD') CM_DATE,
+		(SELECT COUNT(*) FROM COMMENT_RESP R WHERE R.CM_NO = C.CM_NO AND CM_FL = 'Y') CM_FLY, 
+		(SELECT COUNT(*) FROM COMMENT_RESP R WHERE R.CM_NO = C.CM_NO AND CM_FL = 'N') CM_FLN
+		FROM "COMMENT" C
+		JOIN "USER" USING (USER_NO)
+		WHERE PT_NO = ${petitionNo}
+		AND CM_DEL_FL = 'N'
+		ORDER BY CM_NO DESC
+	</select>
+	
+
+	<!-- 인기 순으로 조회 -->
+	<select id="popular" resultMap="petition_rm">
+		SELECT PT_NO, PT_DATE, PT_TITLE, PT_CONTENT, PT_IMG, USER_NO, USER_IMG, USER_NICKNAME,
+			(SELECT COUNT(*) FROM PETITION_LIKE WHERE MAIN.PT_NO = PT_NO) PT_LIKE_COUNT
+		FROM PETITION MAIN
+		JOIN "USER" USING(USER_NO)
+		WHERE PT_DEL_FL = 'N'
+		ORDER BY PT_LIKE_COUNT DESC
+	</select>
+
+	
+	<!-- 최신 순으로 조회 -->
+	<select id="recent" resultMap="petition_rm">
+		SELECT PT_NO, PT_DATE, PT_TITLE, PT_CONTENT, PT_IMG, USER_NO, USER_IMG, USER_NICKNAME,
+			(SELECT COUNT(*) FROM PETITION_LIKE WHERE MAIN.PT_NO = PT_NO) PT_LIKE_COUNT
+		FROM PETITION MAIN
+		JOIN "USER" USING(USER_NO)
+		WHERE PT_DEL_FL = 'N'
+		ORDER BY PT_NO DESC
+	</select>
+	
+	
+	<!-- 승리한 청원 최신 순으로 조회 -->
+	<select id="victories" resultMap="petition_rm">
+		SELECT PT_NO, PT_DATE, PT_TITLE, PT_CONTENT, PT_IMG, USER_NO, USER_IMG, USER_NICKNAME,
+			(SELECT COUNT(*) FROM PETITION_LIKE WHERE MAIN.PT_NO = PT_NO) PT_LIKE_COUNT
+		FROM PETITION MAIN
+		JOIN "USER" USING(USER_NO)
+		WHERE PT_VICT = 'Y'
+		AND PT_DEL_FL = 'N'
+		ORDER BY PT_NO
+	</select>
+	
+	<!-- 청원 상세조회 -->
+	<select id="selectPetitionList" resultMap="petition_rm">
+		SELECT PT_NO, PT_DATE, PT_TITLE, PT_CONTENT, NVL2(PT_IMG,PT_IMG,'/resources/images/common/defaultThumbnail.png') PT_IMG, PT_VIEW_COUNT, PT_VICT, 
+					(SELECT COUNT(*) FROM "PETITION_LIKE" WHERE P.PT_NO = PT_NO) PT_LIKE_COUNT,
+					USER_NO, USER_IMG, USER_NICKNAME,
+					RANK() OVER (ORDER BY PT_DATE DESC) PT_RANK
+		FROM PETITION P
+		JOIN "USER" USING (USER_NO)
+		WHERE PT_NO = ${petitionNo}
+		AND PT_DEL_FL = 'N'
+	</select>
+	
+	
+
+	<!-- 댓글 삽입 -->
+	<insert id="insert" >
+		INSERT INTO "COMMENT"										
+		VALUES(SEQ_CM_NO.NEXTVAL, #{petitionNo}, #{userNo}, #{commentContent}, DEFAULT, DEFAULT)
+	</insert>
+	
+	
+	<!-- 댓글 여부 확인 -->
+	<select id="commentSelect" resultType="_int">
+		SELECT COUNT(*) FROM "PETITION_LIKE"
+		WHERE PT_NO = #{petitionNo}
+		AND USER_NO = #{userNo}
+	</select>
+	
+
+	<!-- 청원 좋아요 -->
+	<insert id="petitionLike">
+		INSERT INTO "PETITION_LIKE"
+		VALUES(SEQ_PT_LIKE_NO.NEXTVAL, #{petitionNo}, #{userNo}, DEFAULT)
+	</insert>
+	
+
+	<!-- details 댓글목록 조회 -->
+	<select id="selectCommentList" resultMap="browse">
+		SELECT CM_NO, USER_NICKNAME, USER_NO, USER_IMG, CM_CONTENT, TO_CHAR(CM_DATE, 'YYYY-MM-DD') CM_DATE,
+		(SELECT COUNT(*) FROM COMMENT_RESP R WHERE R.CM_NO = C.CM_NO AND CM_FL = 'Y') CM_FLY, 
+		(SELECT COUNT(*) FROM COMMENT_RESP R WHERE R.CM_NO = C.CM_NO AND CM_FL = 'N') CM_FLN
+		FROM "COMMENT" C
+		JOIN "USER" USING (USER_NO)
+		WHERE PT_NO = ${petitionNo}
+		AND CM_DEL_FL = 'N'
+		ORDER BY CM_NO DESC
+	</select>
+	
+	<select id="selectCategoryCount" resultType="int">
+		SELECT COUNT(*)
+		FROM PETITION_CATEGORY PC
+		JOIN "PETITION" USING(PT_NO)
+		WHERE CAT_NO = #{categoryNo}
+		AND PT_DEL_FL = 'N'
+	</select>
+	
+	<select id="selectCategoryName" resultType="string">
+		SELECT CAT_NAME FROM PETITION_CATEGORY_LIST WHERE CAT_NO = #{categoryNo}
+	</select>
+	
+	<select id="selectPetitionListrecent" resultMap="petition_rm">
+		SELECT P.PT_NO, PT_TITLE, PT_CONTENT, PT_IMG, USER_NICKNAME, NVL2(USER_IMG, USER_IMG, '/resources/images/common/icon.png') USER_IMG, USER_ADD,
+		(SELECT COUNT(*) FROM PETITION_LIKE PL WHERE PL.PT_NO = P.PT_NO) "LIKE_COUNT"
+		FROM PETITION P
+		JOIN PETITION_CATEGORY PCL ON PCL.PT_NO=P.PT_NO
+		JOIN "USER" USING(USER_NO)
+		WHERE PT_DEL_FL = 'N'
+		AND CAT_NO=#{categoryNo}
+		ORDER BY PT_NO
+	</select>
+	<select id="selectPetitionListtrending" resultMap="petition_rm">
+		SELECT P.PT_NO, PT_TITLE, PT_CONTENT, PT_IMG, USER_NICKNAME, NVL2(USER_IMG, USER_IMG, '/resources/images/common/icon.png') USER_IMG, USER_ADD,
+		(SELECT COUNT(*) FROM PETITION_LIKE PL WHERE PL.PT_NO = P.PT_NO) "LIKE_COUNT"
+		FROM PETITION P
+		JOIN PETITION_CATEGORY PCL ON PCL.PT_NO=P.PT_NO
+		JOIN "USER" USING(USER_NO)
+		WHERE PT_DEL_FL = 'N'
+		AND CAT_NO=#{categoryNo}
+		ORDER BY LIKE_COUNT
+	</select>
+</mapper>
