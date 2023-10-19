@@ -85,9 +85,9 @@
 
 						<p class="date" id='mainDate'>2021년 07월 21일</p>
 						-->
-						<button type="button" class="btn-date" onclick="OnPrevDate();" href="#">◀<!-- <img src="img/btn-calendarLeft.png">--></button>
-						<button type="button" class="btn" onclick="OnTodayDate();" href="#">오늘</button>
-						<button type="button" class="btn-date" onclick="OnNextDate();" href="#">▶<!-- <img src="img/btn-calendarRight.png">--></button>
+						<button type="button" class="btn-date" onclick="OnPrevDate();" >◀<!-- <img src="img/btn-calendarLeft.png">--></button>
+						<button type="button" class="btn" onclick="OnTodayDate();" >오늘</button>
+						<button type="button" class="btn-date" onclick="OnNextDate();">▶<!-- <img src="img/btn-calendarRight.png">--></button>
 					</div>
 					<div class="btnArea">						
 						<!-- <a class="rollover" alt="csv파일" OnClick="OnCSV_Click()"><img src="img/btn-downCSV.png"> <img src="img/btn-downCSV_hover.png" class="over"></a> -->
@@ -113,9 +113,13 @@
 									<a class="changeGraph" onclick="OnHumanGraphChange()" ><img src="../../resources/img/btn_cangeDiagram.png"> <img src="../../resources/img/btn_cangeDiagram_hover.png" class="over"></a>									
 								</div>
 							</div>
-							<div class="data" id="mainPerson" style="margin-top : 20px;" onclick="location.href='sub_object.html'">
-                                <div id="mainPerson_chart" style="width: 1000px; height: 350px;"></div>
-							</div>
+							<a href="/sub_object">
+                <div class="data" id="mainPerson" style="margin-top : 5px;">
+                  <div id="mainPerson_chart" style="width: 800px; height: 350px;">
+                    <!-- 사람 막대그래프 영역 -->
+                  </div>
+							  </div>
+              </a>
 						</div>
 						<!-- <div class="innerBox divCar" id="vehicle_rect" >
 							<div class="contentsTitle">
@@ -139,13 +143,21 @@
               <section class="chart">
 							<div class="data" id="mainFace1" style="margin-top: 20px; margin-left: 30px">
                 <div class="manChart">
-                  <a href="/sub_object"><div id="mainFace1_chart" style="width: 400px; height: 400px"></div></a>					
-                  <img class="image-thumbnail-mask_man" id="manImg" src ="/resources/img/icon_male75px.png"></img>
-              </div>
-							</div>
-							<div class="data" id="mainFace2" style="margin-top: 20px" >		
-                <div class="womanChart">					
-                  <a href="/sub_object"><div id="mainFace2_chart" style="width: 400px; height: 400px"></div></a>				
+                  <a href="/sub_object">
+                    <div id="mainFace1_chart" style="width: 400px; height: 400px">
+                        <!-- 남성 마스크 미착용자 도넛그래프 영역 -->
+                      </div>
+                    </a>					
+                    <img class="image-thumbnail-mask_man" id="manImg" src ="/resources/img/icon_male75px.png"></img>
+                  </div>
+                </div>
+                <div class="data" id="mainFace2" style="margin-top: 20px" >		
+                  <div class="womanChart">					
+                    <a href="/sub_object">
+                      <div id="mainFace2_chart" style="width: 400px; height: 400px">
+                        <!-- 여성 마스크 미착용자 도넛그래프 영역 -->
+                    </div>
+                  </a>				
                   <img class="image-thumbnail-mask_woman" id="womanImg" src ="/resources/img/icon_female75px.png"></img> 
                 </div>
 							</div>
@@ -179,7 +191,7 @@
                             -->
                             <div class="data"  id="mainHourly" style="margin-top: 0px;">
                                 <!--  테이블 영역 샘플.s -->							
-                                <div id="main" style="width: 1000px; height: 400px"></div>
+                                <div id="main" style="width: 800px; height: 400px"></div>
                             </div>
 						</div>
 
@@ -189,116 +201,118 @@
 									<h4>최다검지 카메라 TOP10 CH</h4>
 								</div>
 								<div class="partBTN">
-                                    <table>
-                                        <thead>
-                                            <tr>
-                                              <th scope="col">카메라명</th>
-                                              <th scope="col">사람</th>
-                                              <th scope="col">얼굴</th>
-                                              <th scope="col">침입</th>
-                                              <th scope="col">배회</th>
-                                              <th scope="col">쓰러짐</th>
-                                              <th scope="col">카운팅</th>
-                                            </tr>
-                                          </thead>
-                                          <tbody class="table-group-divider">
-                                            <tr>
-                                              <th scope="row">신촌사거리</th>
-                                              <td>164</td>
-                                              <td>125</td>
-                                              <td>25</td>
-                                              <td>124</td>
-                                              <td>18</td>
-                                              <td>251</td>
-                                            </tr>
-                                            <tr>
-                                              <th scope="row">장수사거리</th>
-                                              <td>151</td>
-                                              <td>126</td>
-                                              <td>23</td>
-                                              <td>277</td>      
-                                              <td>19</td>
-                                              <td>226</td>
-                                            </tr>
-                                            <tr>
-                                              <th scope="row">가정오거리</th>
-                                              <td>151</td>
-                                              <td>133</td>
-                                              <td>22</td>
-                                              <td>220</td>
-                                              <td>26</td>
-                                              <td>218</td>
-                                            </tr>
-                                            <tr>
-                                              <th scope="row">연수사거리</th>
-                                              <td>147</td>
-                                              <td>133</td>
-                                              <td>24</td>
-                                              <td>219</td>
-                                              <td>15</td>
-                                              <td>218</td>
-                                            </tr>
-                                            <tr>
-                                              <th scope="row">남동IC</th>
-                                              <td>145</td>
-                                              <td>130</td>
-                                              <td>19</td>
-                                              <td>210</td>
-                                              <td>21</td>
-                                              <td>228</td>
-                                            </tr>
-                                            <tr>
-                                              <th scope="row">간석사거리</th>
-                                              <td>143</td>
-                                              <td>111</td>
-                                              <td>16</td>
-                                              <td>214</td>
-                                              <td>58</td>
-                                              <td>125</td>
-                                            </tr>
-                                            <tr>
-                                              <th scope="row">학익사거리</th>
-                                              <td>151</td>
-                                              <td>133</td>
-                                              <td>22</td>
-                                              <td>220</td>
-                                              <td>26</td>
-                                              <td>218</td>
-                                            </tr>
-                                            <tr>
-                                              <th scope="row">숭의로터리</th>
-                                              <td>147</td>
-                                              <td>133</td>
-                                              <td>24</td>
-                                              <td>219</td>
-                                              <td>15</td>
-                                              <td>218</td>
-                                            </tr>
-                                            <tr>
-                                              <th scope="row">원당사거리</th>
-                                              <td>145</td>
-                                              <td>130</td>
-                                              <td>19</td>
-                                              <td>210</td>
-                                              <td>21</td>
-                                              <td>228</td>
-                                            </tr>
-                                            <tr>
-                                              <th scope="row">남동공단입구사거리</th>
-                                              <td>143</td>
-                                              <td>111</td>
-                                              <td>16</td>
-                                              <td>214</td>
-                                              <td>58</td>
-                                              <td>125</td>
-                                            </tr>
-                                          </tbody>
-                                        </table>
-                                    </table>
 									<!-- <a class="changeGraph" onclick="setMainEventTop10()"; style="margin-top:3px;"><img id="changeEvent_btn" src="img/btn_human.png"><img id="changeEvent_btn" src="img/btn_human_on.png" class="over"></a> -->
 									<!-- <a class="changeGraph" onclick="setMainVehicleTop10()"; style="margin-top:3px;"><img id="changeVehicle_btn" src="img/btn_car.png"> <img src="img/btn_car_on.png" class="over"></a>									 -->
 								</div>
 							</div>
+              <div>
+                <table class="cameraTable">
+                  <thead>
+                      <tr>
+                        <th scope="col">카메라명</th>
+                        <th scope="col">사람</th>
+                        <th scope="col">얼굴</th>
+                        <th scope="col">침입</th>
+                        <th scope="col">배회</th>
+                        <th scope="col">쓰러짐</th>
+                        <th scope="col">카운팅</th>
+                      </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                      <tr>
+                        <th scope="row" class="loadName">신촌사거리</th>
+                        <td>164</td>
+                        <td>125</td>
+                        <td>25</td>
+                        <td>124</td>
+                        <td>18</td>
+                        <td>251</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="loadName">장수사거리</th>
+                        <td>151</td>
+                        <td>126</td>
+                        <td>23</td>
+                        <td>277</td>      
+                        <td>19</td>
+                        <td>226</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="loadName">가정오거리</th>
+                        <td>151</td>
+                        <td>133</td>
+                        <td>22</td>
+                        <td>220</td>
+                        <td>26</td>
+                        <td>218</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="loadName">연수사거리</th>
+                        <td>147</td>
+                        <td>133</td>
+                        <td>24</td>
+                        <td>219</td>
+                        <td>15</td>
+                        <td>218</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="loadName">남동IC</th>
+                        <td>145</td>
+                        <td>130</td>
+                        <td>19</td>
+                        <td>210</td>
+                        <td>21</td>
+                        <td>228</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="loadName">간석사거리</th>
+                        <td>143</td>
+                        <td>111</td>
+                        <td>16</td>
+                        <td>214</td>
+                        <td>58</td>
+                        <td>125</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="loadName">학익사거리</th>
+                        <td>151</td>
+                        <td>133</td>
+                        <td>22</td>
+                        <td>220</td>
+                        <td>26</td>
+                        <td>218</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="loadName">숭의로터리</th>
+                        <td>147</td>
+                        <td>133</td>
+                        <td>24</td>
+                        <td>219</td>
+                        <td>15</td>
+                        <td>218</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="loadName">원당사거리</th>
+                        <td>145</td>
+                        <td>130</td>
+                        <td>19</td>
+                        <td>210</td>
+                        <td>21</td>
+                        <td>228</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="loadName">남동공단입구사거리</th>
+                        <td>143</td>
+                        <td>111</td>
+                        <td>16</td>
+                        <td>214</td>
+                        <td>58</td>
+                        <td>125</td>
+                      </tr>
+                    </tbody>
+                  </table>
+              </table>
+              </div>
 							<div class="data" id="subTop10Cameras" style="margin: 10px"></div>						
 							<div class="data" id="subTop10CamerasCar" style="margin: 10px"></div>
 						</div>
@@ -307,7 +321,7 @@
 				</div>
 
 				<!-- 로딩 -->
-				<!--<div id="loading"><img id="loading-image" src="../../resources/img/loading_animated.png" alt="Loading..." /></div>-->
+				<div id="loading"><img id="loading-image" src="../../resources/img/loading_animated.png" alt="Loading..." /></div>
 
 				<!-- 메인컨텐츠.E -->
 				<div id="bottom">
@@ -449,6 +463,7 @@
 
   // 차트 옵션 작성하기
   option = {
+      color: ["#006699", "#e5323e"],
       tooltip: {
           trigger: 'axis',
           axisPointer: {
@@ -459,7 +474,10 @@
       legend: {
         textStyle:{
         color: "rgba(255, 255, 255, 1)"
-        }
+        },
+        top: 'bottom', // 범례를 그래프 하단에 배치
+        padding: [50, 0, 0, 0], // 범례 위 아래에 마진을 추가
+
       },
       grid: {
           left: '3%',
@@ -468,7 +486,7 @@
           containLabel: true
       },
       xAxis: {
-          type: 'value'
+          type: 'value',
       },
       yAxis: {
           type: 'category',
@@ -523,7 +541,9 @@
           left: 'center',
           textStyle:{
             color: "rgba(255, 255, 255, 1)"
-           }
+           },
+          //top: 'bottom', // 범례를 그래프 하단에 배치
+          //padding: [50, 0, 0, 0], // 범례 위 아래에 마진을 추가
       },
       series: [
           {
@@ -578,7 +598,9 @@
           left: 'center',
           textStyle:{
             color: "rgba(255, 255, 255, 1)"
-          }
+          },
+          //top: 'bottom', // 범례를 그래프 하단에 배치
+        // padding: [50, 0, 0, 0], // 범례 위 아래에 마진을 추가
       },
       series: [
           {
