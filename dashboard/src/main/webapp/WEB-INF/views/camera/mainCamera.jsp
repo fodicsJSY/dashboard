@@ -1,35 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Ai VinUS DASHBOARD</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ai VinUS DASHBOARD</title>
 
-	<!-- css -->
-	<link rel="stylesheet" href="/resources/css/popup.css">
-	<link rel="stylesheet" href="/resources/css/style.css">
-	<link rel="stylesheet" href="/resources/css/camera.css">
-	<link rel="stylesheet" href="/resources/css/style_scrollBar.css"/>  
+
+    <!-- css -->
+	<link rel="stylesheet" href="/resources/css/camera/mainCamera/mainCameraStyle.css">
+	<link rel="stylesheet" href="/resources/css/camera/mainCamera/mainCamera_camera.css"/>  
 	
+	<link rel="stylesheet" href="/resources/css/popup.css">
+	<link rel="stylesheet" href="/resources/css/style_scrollBar.css"/>  
 	<link rel="stylesheet" href="/resources/css/style_grid.css">
 	<link rel="stylesheet" href="/resources/css/style_graph.css" />  
 	<!-- <link rel="stylesheet" href="font/nanumsquare.css"> -->
-	<link rel="stylesheet" href="/resources/css/style_scrollBar.css"/>  
 	<link rel="shortcut icon" href="/resources/img/favicon.ico" type="image/x-icon" />
-	
-	<link rel="stylesheet" href="./node_modules/tui-chart/dist/toastui-chart.css">
-	<link rel="stylesheet" href="./node_modules/tui-grid/dist/tui-grid.css" />
-	<link rel="stylesheet" href="./node_modules/tui-date-picker/dist/tui-date-picker.css">
-
-
- </head>
-
- <body>
-	<!-- 전체 wrap.S -->
+</head>
+<body>
+    
+    <!-- 전체 wrap.S -->
 	<div class="wrap" id="indexWrap">  
-		<div data-include-path="Setting.html" file="Setting"></div>
+        <jsp:include page="/WEB-INF/views/main/Setting.jsp"/>
 
 		<!-- 헤더.S -->
 		<header id="header"> 
@@ -93,20 +88,20 @@
 				<div class="contents">
 
 					<!-- 섹션 좌측.S -->
-					<div class="sectionBox">
-						<div class="innerBox divCameraToday">
+					<div class="sectionBox1">
+						<div id="innerBox1" class="innerBox divCameraToday">
 							<div class="contentsTitle">
 								<div class="title">
 									<h4>TODAY</h4>								
 									
 								</div>
-
+								<!--
 								<div style="position: relative; left: 700px; float: left;">
-									<!-- <button type="button" style="margin-top: 3px" class ="btn" onClick="location.href='main_camera_part2.html'">2분할</button>
+									 <button type="button" style="margin-top: 3px" class ="btn" onClick="location.href='main_camera_part2.html'">2분할</button>
 								  	<button type="button" style="margin-top: 3px" class="btn" onClick="location.href='main_camera_part4.html'">4분할</button>
 								    <button type="button" style="margin-top: 3px" class="btn" onClick="location.href='main_camera_part6.html'">6분할</button>
-									<button type="button" style="margin-top: 3px" class="btn" onClick="location.href='main_camera.html'">8분할</button> -->
-								</div>
+									<button type="button" style="margin-top: 3px" class="btn" onClick="location.href='main_camera.html'">8분할</button> 
+								</div>-->
 							</div>
 							<div class="data">
 								<ul>
@@ -227,40 +222,52 @@
 					<!-- 섹션 좌측.E -->
 
 					<!-- 섹션 우측.S -->
-					<div class="sectionBox">
-						<div class="innerBox divEventAge">
-							<div class="contentsTitle">
+					<div class="sectionBox22">
+						<div class="innerBox1 divEventAge">
+							<div class="contentsTitle mainCameraContentsTitle" >
 								<div class="title">
-									<h4>연령별 출입자 현황&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</h4>
+									<h4>연령별 출입자 현황</h4>
 								</div>
 								<div class="title">
 									<h4>마스크 착용 비율</h4>
 								</div>
 							</div>
-							<div class="data01">
-								<div class="chart" id="chart_radial_age"></div>   
+                            <div class="totalData mainCameraTotalData">
+                                <div class="data01">
+                                    <div class="chart" id="chart_radial_age">
+										<!-- 연령별 출입자 현황 도넛그래프 영역 -->
+										<div id="age_chart" style="width: 250px; height: 400px;"></div>
+                                    </div>   
+                                </div>
+                                
+                                <div class="data02">	
+                                    <!--<div class="chart" id="chart_pie_donut" style="margin-top: -15px"></div>   								
+                                        <div class="chart" id="chart_pie_donut2" style="margin-top: -10px"></div> 
+                                    -->
+                                    <!--<div class="corlorGuide alignL" style="margin-left: 80px; ">-->
+                                    <div class="corlorGuide alignL" >
+                                        <ul>
+                                            <li><div class="colorBox cBG-Male" ></div> <div class="guideTXT">남자</div></li>
+                                            <li><div class="colorBox cBG-Female" ></div> <div class="guideTXT">여자</div></li>
+                                        </ul>
+                                    </div>		
+                                </div>
+
 							</div>
 
-							<div class="data02">								
-								<div class="chart" id="chart_pie_donut" style="margin-top: -15px"></div>   								
-								<div class="chart" id="chart_pie_donut2" style="margin-top: -10px"></div>   
-								<div class="corlorGuide alignL" style="margin-left: 80px; ">
-									<ul>
-										<li><div class="colorBox cBG-Male" ></div> <div class="guideTXT">남자</div></li>
-										<li><div class="colorBox cBG-Female" ></div> <div class="guideTXT">여자</div></li>
-									</ul>
-								</div>		
-							</div>
+
 						</div>		
 	
-						<div class="innerBox divEvent" style="height:25vh;  min-height:435px;">
+						<!--<div class="innerBox divEvent" style="height:25vh;  min-height:435px;">-->
+						<div class="innerBox divEvent" >
 							<div class="contentsTitle">
 								<div class="title">
 									<h4>이벤트 발생 비율</h4>
 								</div>
 							</div>
 							<div class="data">
-								<div id = "event_acc_wnd" style="margin-top: 30px; width:100%; height:350px; "></div>
+								<!--<div id = "event_acc_wnd" style="margin-top: 30px; width:100%; height:350px; "></div>-->
+								<div id = "event_acc_wnd" ></div>
 							</div>
 						</div>	
 					</div>	
@@ -279,438 +286,83 @@
 	</div>
 	<!-- 전체 wrap.E -->
 
-	<script src="./node_modules/tui-date-picker/dist/tui-date-picker.js"></script> 
-	<script src="./node_modules/jquery/3.6.0/jquery.min.js"></script>
-	<script src="./node_modules/tui-grid/dist/tui-grid.js"></script>      	
-	<script src="./node_modules/tui-chart/dist/toastui-chart.js"></script>
-	<script src="/resources/js/tabcontent.js"></script>  
-	<script src="/resources/js/EventChart.js"></script>
-	<script src="/resources/js/commonFunctions.js"></script>    
-	<script src="/resources/js/TodayWinTitle.js"></script>    
-	<script src="/resources/js/EventAccPieChart.js"></script>
-	<script src="/resources/js/popupSetting.js"></script>
-	<!-- <script type="text/javascript" src="dashboard_config.json"></script>  -->
-  
-	<script>
-	  const chart = toastui.Chart;
-	  var DataGridObj = [];
-	  var DataEvtObj = [];
-  
-	  var grid_Human = null;
-	  var grid_Car = null;
-	  var grid_Counting = null;
-	  var grid_Invasion = null;
-	  var grid_Face = null;
-	  var grid_Loitering = null;
-	  var grid_LPR = null;
-	  var grid_Parking = null;
-  
-			 window.addEventListener('load', function() {
-			  var allElements = document.getElementsByTagName('*');
-			  Array.prototype.forEach.call(allElements, function(el) {
-				  var includePath = el.dataset.includePath;
-				  if (includePath) {
-					  var xhttp = new XMLHttpRequest();
-					  xhttp.onreadystatechange = function () {
-						  if (this.readyState == 4 && this.status == 200) {
-  
-							  var file = el.getAttribute('file');
-							  if (file == "inc_side") {
-								  readTextFile("/data/dailyCount.json", saveDailyData);
-								  loadCameraGroupData();
-							  }
-								  
-							  el.outerHTML = this.responseText;
-							  
-							  if (file == "inc_header") {
-								  if(config_data[0].exe_type=='1')
-								  {
-									  document.getElementById("main_title").innerText = "Ai VinUS DASHBOARD SERVER";
-								  }
-							  }
-  
-							  
-						  }
-					  };
-					  xhttp.open('GET', includePath, true);
-					  xhttp.send();
-				  }
-			  });
-			  
-			  readTextFile("./data/dailyCount.json",
-				  function (text) {
-					  DataEvtObj = JSON.parse(text);
-					  LoadEvemtAccPieChart(DataEvtObj);		
-				  }
-			  ); 
-  
-			  calendarToday();
-			  loadData();					
-			  setInterval('loadData()', 60 * 1000);		
-			  
-			  // Righe Page 처리
-			  LoadRadialBarChart();
-			  LoadPieDonutChartMale();
-			  LoadPieDonutChartFemale();	
-  
-		});
-  
-		function loadData()
-		{	
-		  readTextFile("./data/dailyCount.json",
-			  function (text) {
-				  DataEvtObj = JSON.parse(text);		
-				  LoadHumanCount(DataEvtObj);					
-				  LoadVehicleCount(DataEvtObj);
-				  LoadFaceCount(DataEvtObj);
-				  LoadInvCount(DataEvtObj);
-				  LoadCountingCount(DataEvtObj);
-				  LoadLotCount(DataEvtObj);	
-			  }
-		  ); 											
-			  
-		  readTextFile("./data/dailyCountByCamera.json",
-			  function (text) {
-				  DataGridObj = JSON.parse(text);		
-  
-				  if( grid_Human != null ){
-					  grid_Human.destroy();
-					  grid_Human = null;
-				  }
-				  if( grid_Car != null ){
-					  grid_Car.destroy();
-					  grid_Car = null;
-				  }
-				  if( grid_Counting != null ){
-					  grid_Counting.destroy();
-					  grid_Counting = null;
-				  }
-				  if( grid_Invasion != null ){
-					  grid_Invasion.destroy();
-					  grid_Invasion = null;
-				  }
-				  if( grid_Face != null ){
-					  grid_Face.destroy();
-					  grid_Face = null;
-				  }
-				  if( grid_Loitering != null ){
-					  grid_Loitering.destroy();
-					  grid_Loitering = null;
-				  }
-				  if( grid_LPR != null ){
-					  grid_LPR.destroy();
-					  grid_LPR = null;
-				  }
-				  if( grid_Parking != null ){
-					  grid_Parking.destroy();
-					  grid_Parking = null;
-				  }
-				  LoadWndCountGrid(); 
-			  }
-		  );	
-		}
-  
-		function LoadWndCountGrid()
-		  {
-			  tui.Grid.applyTheme("default", {
-				  area: {
-				  header: {
-					  border: '#2d2d2d'
-				  }
-			  },
-			  outline: {
-				  border: "#2d2d2d",
-			  },
-			  cell: {
-				  normal: {
-					  background: "rgba(30,30,30,1)",
-					  border: 'rgba(30,30,30,1)',
-					  text: '#c5c5c5',
-					  showHorizontalBorder: true,
-					  showVerticalBorder: true,
-				  },
-				  header: {
-					  background: "rgba(30,30,30,1)",
-					  border: "rgba(30,30,30,1)",
-					  text: '#c5c5c5',
-					  showHorizontalBorder: true,
-					  showVerticalBorder: true,
-				  },				
-			  },
-			  scrollbar:
-				  {
-					  border: "#2d2d2d",
-					  background: "#2d2d2d",
-					  emptySpace: "#1a1a1a",
-					  thumb : "#838383",
-					  active: "#aaa",
-				  },
-			  }),
-  
-			  grid_Human = new tui.Grid({
-				  el: document.getElementById('Human_grid_area'),
-				  data: DataGridObj,
-				  scrollX: false,
-				  scrollY: false,    
-  
-				  rowHeight: 48,
-				  bodyHeight: 190,
-				  
-				  header: {
-					  height: '0px',					
-				  },
-				  columns: [
-					  {
-					  align: 'left',
-					  name: 'CAMERA_NAME',  
-					  width: 220,     
-					  },
-					  {								
-						  align: 'right',               
-						  name: 'PERSON',   
-						  sortable:true,   
-						  renderer: {
-						  styles: {
-							  color: 'rgba(148, 233, 236, 1)',
-							  },            			            
-						  }		
-					  }			  
-				  ],				
-			  });				
-  
-			  grid_Car = new tui.Grid({
-				  el: document.getElementById('Car_grid_area'),
-				  data: DataGridObj,
-				  scrollX: false,
-				  scrollY: false,    
-  
-				  rowHeight: 48,
-				  bodyHeight: 190,
-				  
-				  header: {
-					  height: '0px',					
-				  },
-				  columns: [
-					  {
-					  align: 'left',
-					  name: 'CAMERA_NAME',  
-					  width: 220,      
-					  },
-					  {								
-						  align: 'right',               
-						  name: 'VEHICLE',   
-						  sortable:true,    
-						  renderer: {
-						  styles: {
-							  color: 'rgba(212, 224, 121, 1)',
-							  },            			            
-						  }		
-					  }			  
-				  ],
-  
-			  });	
-  
-			  grid_Face = new tui.Grid({
-				  el: document.getElementById('Face_grid_area'),
-				  data: DataGridObj,
-				  scrollX: false,
-				  scrollY: false,    
-  
-				  rowHeight: 48,
-				  bodyHeight: 190,
-				  
-				  header: {
-					  height: '0px',					
-				  },
-				  columns: [
-					  {
-					  align: 'left',
-					  name: 'CAMERA_NAME',  
-					  width: 220,               
-					  },
-					  {								
-						  align: 'right',               
-						  name: 'FACE',   
-						  sortable:true,
-						  renderer: {
-						  styles: {
-							  color: 'rgba(180, 161, 216, 1)',
-							  },            			            
-						  }		
-					  }			  
-				  ],
-  
-			  });	
-  
-			  grid_Invasion = new tui.Grid({
-				  el: document.getElementById('Invasion_grid_area'),
-				  data: DataGridObj,
-				  scrollX: false,
-				  scrollY: false,    
-  
-				  rowHeight: 48,
-				  bodyHeight: 190,
-				  
-				  header: {
-					  height: '0px',					
-				  },
-				  columns: [
-					  {
-					  align: 'left',
-					  name: 'CAMERA_NAME',  
-					  width: 220,             
-					  },
-					  {								
-						  align: 'right',               
-						  name: 'INV_CNT',   
-						  sortable:true,
-						  renderer: {
-						  styles: {
-							  color: '#4176df',
-							  },            			            
-						  }		
-					  }			  
-				  ],
-  
-			  });	
-  
-			  grid_Counting = new tui.Grid({
-				  el: document.getElementById('Counting_grid_area'),
-				  data: DataGridObj,
-				  scrollX: false,
-				  scrollY: false,    
-  
-				  rowHeight: 48,
-				  bodyHeight: 190,
-				  
-				  header: {
-					  height: '0px',					
-				  },
-				  columns: [
-					  {
-					  align: 'left',
-					  name: 'CAMERA_NAME',  
-					  width: 220,          
-					  },
-					  {								
-						  align: 'right',               
-						  name: 'CNT_CNT',   
-						  sortable:true,
-						  renderer: {
-						  styles: {
-								  color: '#ff7978',
-							  },            			            
-						  }		
-					  }			  
-				  ],
-  
-			  });	
-  
-			  grid_Loitering = new tui.Grid({
-				  el: document.getElementById('Loitering_grid_area'),
-				  data: DataGridObj,
-				  scrollX: false,
-				  scrollY: false,    
-  
-				  rowHeight: 48,
-				  bodyHeight: 190,
-				  
-				  header: {
-					  height: '0px',					
-				  },
-				  columns: [
-					  {
-					  align: 'left',
-					  name: 'CAMERA_NAME',  
-					  width: 220,                 
-					  },
-					  {								
-						  align: 'right',               
-						  name: 'LOT_CNT',   
-						  sortable:true,
-						  renderer: {
-						  styles: {
-							  color: '#fec070',
-							  },            			            
-						  }		
-					  }			  
-				  ],
-  
-			  });	
-  
-			  grid_LPR = new tui.Grid({
-				  el: document.getElementById('LPR_grid_area'),
-				  data: DataGridObj,
-				  scrollX: false,
-				  scrollY: false,    
-  
-				  rowHeight: 48,
-				  bodyHeight: 190,
-				  
-				  header: {
-					  height: '0px',					
-				  },
-				  columns: [
-					  {
-					  align: 'left',
-					  name: 'CAMERA_NAME',  
-					  width: 220,           
-					  },
-					  {								
-						  align: 'right',               
-						  name: 'CNT_LPR',   
-						  sortable:true,
-						  renderer: {
-						  styles: {
-								  color: '#f19ec2',
-							  },            			            
-						  }		
-					  }			  
-				  ],
-  
-			  });	
-  
-			  grid_Parking = new tui.Grid({
-				  el: document.getElementById('Parking_grid_area'),
-				  data: DataGridObj,
-				  scrollX: false,
-				  scrollY: false,    
-  
-				  rowHeight: 48,
-				  bodyHeight: 190,
-				  
-				  header: {
-					  height: '0px',					
-				  },
-				  columns: [
-					  {
-					  align: 'left',
-					  name: 'CAMERA_NAME',  
-					  width: 220,              
-					  },
-					  {								
-						  align: 'right',               
-						  name: '"PAK_CNT',   
-						  sortable:true,
-						  renderer: {
-						  styles: {
-								  color: '#aecf61',
-							  },            			            
-						  }		
-					  }			  
-				  ],
-  
-			  });	
-			  grid_Human.sort('PERSON', false, false);
-			  grid_Car.sort('VEHICLE', false, false);
-			  grid_Counting.sort('CNT_CNT', false, false);
-			  grid_Invasion.sort('INV_CNT', false, false);
-			  grid_Face.sort('FACE', false, false);
-			  grid_Loitering.sort('LOT_CNT', false, false);
-			  grid_LPR.sort('CNT_LPR', false, false);				// 확정안됨.
-			  //grid_Parking.sort('PAK_CNT', false, false);
-		  }
-  
-	 </script>
- </body>
+
+
+    <!-- js -->
+
+	<!-- echarts -->
+	<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script>
+		var myChart = echarts.init(document.getElementById('age_chart'))
+
+		var option = {
+		tooltip: {
+			trigger: 'item'
+		},
+		legend: {
+			top: '90%',
+			data: ['미성년', '청년', '중장년', '노년']
+		},
+		series: [
+			{
+			name: '여성',
+			type: 'pie',
+			radius: ['23%', '46%'], // 첫 번째 도넛의 반지름 범위
+			avoidLabelOverlap: false,
+			itemStyle: {
+				borderColor: 'black',
+				borderWidth: 2,
+				
+			},
+			label: {
+				show: false,
+				position: 'center'
+			},
+			emphasis: {
+				
+			},
+			labelLine: {
+				show: false
+			},
+			data: [
+				{ value: 1048, name: '미성년' },
+				{ value: 735, name: '청년' },
+				{ value: 580, name: '중장년' },
+				{ value: 580, name: '노년' }
+				
+			]
+			},
+			{
+			name: '남성',
+			type: 'pie',
+			radius: ['50%', '73%'], // 두 번째 도넛의 반지름 범위
+			avoidLabelOverlap: false,
+			itemStyle: {
+				borderColor: 'black',
+				borderWidth: 2
+			},
+			label: {
+				show: false,
+				position: 'center'
+			},
+			emphasis: {
+
+			},
+			labelLine: {
+				show: false
+			},
+			data: [
+				{ value: 1048, name: '미성년' },
+				{ value: 735, name: '청년' },
+				{ value: 580, name: '중장년' },
+				{ value: 850, name: '노년' }
+			]
+			}
+		]
+		};
+
+		  //  차트 옵션 설정하기
+		  myChart.setOption(option)
+    </script>
+</body>
 </html>
