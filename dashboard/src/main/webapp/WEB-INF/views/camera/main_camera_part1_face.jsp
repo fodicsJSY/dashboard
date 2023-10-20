@@ -579,12 +579,11 @@
  <body>
 	<!-- 전체 wrap.S -->
 	<div class="wrap"  id="indexWrap">  
-		<div data-include-path="Setting.html" file="Setting"></div>
+		<jsp:include page="/WEB-INF/views/main/Setting.jsp"/>
 
 		<!-- 헤더.S -->
 		<header id="header"> 
-			<div data-include-path="inc_header.html" file="inc_header"></div>
-		
+			<jsp:include page="/WEB-INF/views/common/inc_header.jsp"/>
 		</header>
 		<!-- 헤더.E -->
 
@@ -596,14 +595,18 @@
 
 				<!-- 좌측 네비.S -->
 				<div class="btn-navi" >
-					<button type="button" class="btn_object" onClick="OnClickCtrl();">M A I N</button>
+					<a href="/main">
+						<button type="button" class="btn_object">M A I N</button>
+					</a>
 					<!-- <button type="button" class="btn_evnet" onClick="OnClickEvent();">E V E N T</button> -->
-					<button type="button" class="btn_camera_on" onClick="OnClickDivide();">C A M E R A</button>
+					<a href="/mainCamera">
+						<button type="button" class="btn_camera_on">C A M E R A</button>
+					</a>
 				</div>
 				<!-- 좌측 네비.E -->
 
 				<!-- 실시간 채널.S -->
-				<div data-include-path="inc_side.html" file="inc_side"></div>
+				<jsp:include page="/WEB-INF/views/main/inc_side.jsp"/>
 				<!-- 실시간 채널.E -->
 				
 			</div>
@@ -619,8 +622,8 @@
 						<!-- 달력 -->
 						<div id="tui-date-picker-container"></div>
 						<a class="rollover" alt="달력" id="tui-date-picker-main" style="display:none;">
-							<img src="img/btn-calendar.png"> 
-							<img src="img/btn-calendar_hover.png" class="over">
+							<img src="/resources/img/btn-calendar.png"> 
+							<img src="/resources/img/btn-calendar_hover.png" class="over">
 						</a>
 
 						<p class="date" id='mainDate'>2021년 07월 21일</p>
@@ -646,7 +649,7 @@
 								<ul>
 									<li class="today-part1" style="height:85%;">
 										<div class="todayTXT todayFace">
-											<p class="todayIMG"><img src="img/icon_titleFace.png"></p>
+											<p class="todayIMG"><img src="/resources/img/icon_titleFace.png"></p>
 											<p class="todayTitle color-Face" style="color:#b4a1d8">얼굴</p>
 											<p class="contrast">전일대비 <span id="compare_cnt">0</span></p>
 											<p class="amount" id="total_face_cnt">0</p>

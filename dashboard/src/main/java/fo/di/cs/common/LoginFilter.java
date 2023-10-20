@@ -32,7 +32,7 @@ public class LoginFilter implements Filter {
 		HttpSession session = req.getSession();
 		
 		int loginUser1 = (int)session.getAttribute("loginUser");
-		System.out.println("loginUser1" +loginUser1);
+		
 		
 		if(loginUser1 == 1) {
 			// 4) 로그인 상태인 경우 다음 필터 또는 Dispatcher Servlet으로 전달

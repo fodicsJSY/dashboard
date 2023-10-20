@@ -75,7 +75,7 @@ public class UserController {
 		
 		status.setComplete();
 		session.invalidate();
-		System.out.println("inputUser1: " + session);
+
 
 		
 		return "redirect:/";

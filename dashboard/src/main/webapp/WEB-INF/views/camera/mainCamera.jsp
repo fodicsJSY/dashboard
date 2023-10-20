@@ -233,10 +233,10 @@
 								</div>
 							</div>
                             <div class="totalData mainCameraTotalData">
-                                <div class="data01">
+                                <div class="data01" >
                                     <div class="chart" id="chart_radial_age">
 										<!-- 연령별 출입자 현황 도넛그래프 영역 -->
-										<div id="age_chart" style="width: 250px; height: 400px;"></div>
+										<div id="age_chart" style="width: 250px; height: 300px;"></div>
                                     </div>   
                                 </div>
                                 
@@ -245,10 +245,10 @@
 									<div class="chart" id="chart_pie_donut" style="margin-top: -15px"></div>   								
                                     <div class="chart" id="chart_pie_donut2" style="margin-top: -10px"></div> 
 									-->
-                                    <div class="chart" id="chart_pie_donut" style="width: 250px; height: 200px;">
+                                    <div class="chart" id="chart_pie_donut" style="width: 250px; height: 180px;">
 										<!-- 남성 마스크 착용 비율 게이지 차트 -->
 									</div>   								
-                                    <div class="chart" id="chart_pie_donut2" style="width: 250px; height: 200px;">
+                                    <div class="chart" id="chart_pie_donut2" style="width: 250px; height: 180px;">
 										<!-- 여성 마스크 착용 비율 게이지 차트 -->
 									</div> 
                                 
@@ -311,8 +311,15 @@
 		},
 		legend: {
 			top: '90%',
-			data: ['미성년', '청년', '중장년', '노년']
+			data: ['미성년', '청년', '중장년', '노년'],
+			textStyle:{
+				color: '#fff'
+			}
 		},
+		grid: {
+			bottom: '50%', // 그래프 영역의 하단 마진
+			containLabel: true // 라벨이 차트 밖으로 나가지 않도록 함
+    	},
 		series: [
 			{
 			name: '여성',
@@ -326,7 +333,8 @@
 			},
 			label: {
 				show: false,
-				position: 'center'
+				position: 'center',
+				
 			},
 			emphasis: {
 				
@@ -439,7 +447,9 @@
 						formatter: '{value}%'
 					}
 				}
-			]
+			],
+			width: '50%',  // 너비 설정 (예: 80%)
+			height:'50%'
 		};
 		//  차트 옵션 설정하기
 		manMaskChart.setOption(option)
@@ -522,7 +532,10 @@
 			},
 			legend: {
 				top: '90%',
-				data: ['침입', '배회', '카운트', '쓰러짐']
+				data: ['침입', '배회', '카운트', '쓰러짐'],
+				textStyle:{
+					color: '#fff'
+				}
 			},
 			series: [
 				{

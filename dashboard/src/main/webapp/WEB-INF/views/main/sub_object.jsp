@@ -7,36 +7,211 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ai VinUS DASHBOARD</title>
-  <link rel="stylesheet" href="css/popup.css">
-  <link rel="stylesheet" href="css/object_sub/object_sub.css">
-  <link rel="stylesheet" href="font/nanumsquare.css">
-  <link rel="stylesheet" href="css/style_scrollBar.css"/>  
-  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
 
-  <script src="./node_modules/jquery/3.6.0/jquery.min.js"></script>
-
+  <link rel="stylesheet" href="/resources/css/popup.css">
+  <link rel="stylesheet" href="/resources/css/object_sub/object_sub.css">
+  <link rel="stylesheet" href="/resources/font/nanumsquare.css">
+  <link rel="stylesheet" href="/resources/css/style_scrollBar.css"/>  
+  <link rel="shortcut icon" href="/resources/img/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="./node_modules/tui-chart/dist/toastui-chart.css">
-  <script src="./node_modules/tui-chart/dist/toastui-chart.js"></script>
   <link rel="stylesheet" href="./node_modules/tui-grid/dist/tui-grid.css" />
-  <script src="./node_modules/tui-grid/dist/tui-grid.js"></script>      	
+  <link rel="stylesheet" href="./node_modules/tui-date-picker/dist/tui-date-picker.css">
+  
+  
   
 
+</head>
+
+<body>
+  <!-- 전체 wrap.S -->
+  <div class="wrap" id="indexWrap">
+    <jsp:include page="/WEB-INF/views/main/Setting.jsp"/>
+
+    <!-- 헤더.S -->
+    <header id="header">
+      <jsp:include page="/WEB-INF/views/common/inc_header.jsp"/>
+    </header>
+    <!-- 헤더.E -->
+
+    <!-- 내용.S -->
+    <div class="container">
+
+      <!-- side 영역.S -->
+      <div id="side">
+
+        <!-- 좌측 네비.S -->
+        <div class="btn-navi">
+          <a href="/main">
+						<button type="button" class="btn_object">M A I N</button>
+					</a>
+					<!-- <button type="button" class="btn_evnet_on" onClick="OnClickEvent();">E V E N T</button> -->
+				  <a href="/mainCamera">
+						<button type="button" class="btn_camera_on">C A M E R A</button>
+					</a>
+        </div>
+        <!-- 좌측 네비.E -->
+
+        <!-- 실시간 채널.S -->
+        <jsp:include page="/WEB-INF/views/main/inc_side.jsp"/>
+        <!-- 실시간 채널.E -->
+
+      </div>
+      <!-- side 영역.E -->
+
+      <!-- 우측 메인.S -->
+      <div id="contentsWrap">
+        <!-- 상단 날짜,버튼 영역.S -->
+        <div class="mainTop">
+          <!-- <div class=" dateArea">
+            <a class="rollover" alt="달력"><img src="img/btn-calendar.png"> <img src="img/btn-calendar_hover.png"
+                class="over"></a>
+            <p class="date">2021년 07월 21일</p>
+            <button type="button" class="btn-date" href="#">◀
+            </button>
+            <button type="button" class="btn-date" href="#">▶
+            </button>
+            <button type="button" class="btn" href="#">오늘</button>
+          </div> -->
+
+        </div>
+        <!-- 상단 날짜,버튼 영역.E -->
+
+
+        <div class="contentsArea">
+          <!-- 
+					<div class="subTabs">
+						<div class="tabsTitle"><img src="img/navi_object.png"></div>
+						<ul class="tabs" data-persist="true">
+							<li class="tabsON"><a href="sub_object.html" >사람 카메라 정보 상세</a></li>
+							<li><a href="sub_object_car.html" >차량 카메라 정보 상세</a></li>
+						</ul>
+					</div> -->
+
+          <div class="subTabs">
+            <div class="tabsTitle"><img src="/resources/img/navi_object.png"></div>
+            <ul class="tabs" data-persist="true">
+              <li><a href="#view1" OnClick = "HumanPageShow()">사람 카메라 정보 상세</a></li>
+              <!-- <li><a href="#view2" OnClick = "VehiclePageShow()">차량 카메라 정보 상세</a></li> -->
+            </ul>
+
+            <div class="sub-btnArea">
+              <a class="rollover" alt="csv파일" OnClick="OnCSV_OK()"><img src="/resources/img/btn-downCSV.png"> <img src="/resources/img/btn-downCSV_hover.png" class="over"></a>
+							<a class="rollover" alt="HOME" onClick="location.href='main.html'"><img src="/resources/img/btn-goMain.png"> <img src="/resources/img/btn-goMain_hover.png" class="over"></a>
+            </div>
+          </div>
+
+          <!-- 메인컨텐츠.S -->
+          <div class="contentsGridDataArea">
+
+            <!-- 탭 view1.S -->
+            <div id="view1">
+              <div class="sectionDate">
+                <span>기간</span>
+                <div class="tui-datepicker-input tui-datetime-input tui-has-focus">
+                  <span class="tui-ico-date"> </span>
+                  <input id="startpicker-input" type="text" aria-label="Date">
+                  <div id="startpicker-container"></div>
+                </div>
+                <span>~</span>
+                <div class="tui-datepicker-input tui-datetime-input tui-has-focus">
+                  <span class="tui-ico-date"> </span>
+                  <input id="endpicker-input" type="text" aria-label="Date">
+                  <div id="endpicker-container"></div>
+                </div>
+
+                <input id="text_cam_name" class="text_cam_name" style="color:white;" ; type="text" name="name" required
+                  minlength="4" maxlength="8" size="25" placeholder="카메라 명을 입력하세요." onkeydown="KeyDownSearch(this.id)"
+                  ;>
+
+                <button id="btn_cam_Psearch" type="button" onClick="FindCamData('text_cam_name')" ; class="btn"
+                  style="margin-top: -5px; margin-left: 10px;">검색</button>
+
+              </div>
+
+              <div class="sectionBox1type">
+                <!--사람 카메라 정보 상세-->
+                <div id="grid_object"></div>
+              </div>
+              <div class="gridTotal">
+                <!--사람 카메라 정보 상세-->
+                <div id="grid_object_person_total"></div>
+              </div>
+              <!-- <div class="Loading">   </div> -->
+
+
+
+            </div>
+            <!-- 탭 view1.E -->
+
+
+            <!-- 탭 view2.S -->
+            <!-- <div id="view2">
+              <div class="sectionDate2">
+                <span>기간</span>
+                <div class="tui-datepicker-input tui-datetime-input tui-has-focus">
+                  <span class="tui-ico-date"> </span>
+                  <input id="startpicker-input2" type="text" aria-label="Date">
+                  <div id="startpicker-container2"></div>
+                </div>
+                <span>~</span>
+                <div class="tui-datepicker-input tui-datetime-input tui-has-focus">
+                  <span class="tui-ico-date"> </span>
+                  <input id="endpicker-input2" type="text" aria-label="Date">
+                  <div id="endpicker-container2"></div>
+                </div>
+
+                <input id="text_cam_name2" class="text_cam_name2" style="color:white" ; type="text" name="name2"
+                  required minlength="4" maxlength="8" size="25" placeholder="카메라 명을 입력하세요."
+                  onkeydown="KeyDownSearch(this.id)" ;>
+
+                <button id="btn_cam_Vsearch" type="button" onClick="FindCamData('text_cam_name2')" ; class="btn"
+                  style="margin-top: -5px; margin-left: 10px;">검색</button>
+
+              </div>
+              <div class="sectionBox2type">
+                
+                <div id="grid_object_view2"></div>
+              </div>
+              <div class="gridTotal">
+                
+                <div id="grid_object_vehicle_total"></div>
+              </div>
+            </div> -->
+
+
+
+
+            <!-- 탭 view2.E -->
+            <div id="loading"><img id="loading-image" src="/resources/img/loading_animated.png" alt="Loading..." /></div>
+          </div>
+        </div>
+
+
+        <!-- 메인컨텐츠.E -->
+        <div id="bottom">
+          <p class="Notice">※ 화면에 표시되는 모든 실시간 데이터는 1분마다 자동으로 업데이트 합니다. 다만 “시간대별 현황” 그래프의 실시간 데이터는 정시에 한 번씩 업데이트 합니다.</p>
+          <div class="madeFodics">포딕스시스템</div>
+        </div>
+      </div>
+      <!-- 우측 메인.E -->
+
+    </div>
+    <!--  내용.E -->
+  </div>
+  <!-- 전체 wrap.E -->
+
+  <script src="./node_modules/jquery/3.6.0/jquery.min.js"></script>
+  <script src="./node_modules/tui-chart/dist/toastui-chart.js"></script>
+  <script src="./node_modules/tui-grid/dist/tui-grid.js"></script>      	
   <script src="./data/data_sample.js"></script>
   <!-- 탭버튼 스크립트.S-->
-  <script type="text/javascript" src="js/tabcontent.js"></script>
+  <script src="/resources/js/tabcontent.js"></script>
   <!-- 탭버튼 스크립트.E-->
-
-  <script type="text/javascript" src="js/popupSetting.js"></script>
-
-  <script type="text/javascript" src="js/commonFunctions.js"></script>
-  <script type="text/javascript" src="js/CsvMakeFile.js"></script>
-  <script type="text/javascript" src="dashboard_config.json"></script> 
-
-
-  <link rel="stylesheet" href="./node_modules/tui-date-picker/dist/tui-date-picker.css">
+  <script src="/resources/js/popupSetting.js"></script>
+  <script src="/resources/js/commonFunctions.js"></script>
+  <script src="/resources/js/CsvMakeFile.js"></script>
+  <script src="dashboard_config.json"></script> 
   <script src="./node_modules/tui-date-picker/dist/tui-date-picker.js"></script>
-
-
   <script>
 
     var grid, grid_view2;
@@ -946,183 +1121,6 @@
       show_object_page = 2
     }
   </script>
-
-</head>
-
-<body>
-  <!-- 전체 wrap.S -->
-  <div class="wrap" id="indexWrap">
-    <div data-include-path="Setting.html" file="Setting"></div>
-
-    <!-- 헤더.S -->
-    <header id="header">
-      <div data-include-path="inc_header.html" file="inc_header"></div>
-
-    </header>
-    <!-- 헤더.E -->
-
-    <!-- 내용.S -->
-    <div class="container">
-
-      <!-- side 영역.S -->
-      <div id="side">
-
-        <!-- 좌측 네비.S -->
-        <div class="btn-navi">
-          <button type="button" class="btn_object" onClick="OnClickCtrl();">M A I N</button>
-					<!-- <button type="button" class="btn_evnet_on" onClick="OnClickEvent();">E V E N T</button> -->
-					<button type="button" class="btn_camera" onClick="OnClickDivide();">C A M E R A</button>
-        </div>
-        <!-- 좌측 네비.E -->
-
-        <!-- 실시간 채널.S -->
-        <div data-include-path="inc_side.html" file="inc_side"></div>
-        <!-- 실시간 채널.E -->
-
-      </div>
-      <!-- side 영역.E -->
-
-      <!-- 우측 메인.S -->
-      <div id="contentsWrap">
-        <!-- 상단 날짜,버튼 영역.S -->
-        <div class="mainTop">
-          <!-- <div class=" dateArea">
-            <a class="rollover" alt="달력"><img src="img/btn-calendar.png"> <img src="img/btn-calendar_hover.png"
-                class="over"></a>
-            <p class="date">2021년 07월 21일</p>
-            <button type="button" class="btn-date" href="#">◀
-            </button>
-            <button type="button" class="btn-date" href="#">▶
-            </button>
-            <button type="button" class="btn" href="#">오늘</button>
-          </div> -->
-
-        </div>
-        <!-- 상단 날짜,버튼 영역.E -->
-
-
-        <div class="contentsArea">
-          <!-- 
-					<div class="subTabs">
-						<div class="tabsTitle"><img src="img/navi_object.png"></div>
-						<ul class="tabs" data-persist="true">
-							<li class="tabsON"><a href="sub_object.html" >사람 카메라 정보 상세</a></li>
-							<li><a href="sub_object_car.html" >차량 카메라 정보 상세</a></li>
-						</ul>
-					</div> -->
-
-          <div class="subTabs">
-            <div class="tabsTitle"><img src="img/navi_object.png"></div>
-            <ul class="tabs" data-persist="true">
-              <li><a href="#view1" OnClick = "HumanPageShow()">사람 카메라 정보 상세</a></li>
-              <!-- <li><a href="#view2" OnClick = "VehiclePageShow()">차량 카메라 정보 상세</a></li> -->
-            </ul>
-
-            <div class="sub-btnArea">
-              <a class="rollover" alt="csv파일" OnClick="OnCSV_OK()"><img src="img/btn-downCSV.png"> <img src="img/btn-downCSV_hover.png" class="over"></a>
-							<a class="rollover" alt="HOME" onClick="location.href='main.html'"><img src="img/btn-goMain.png"> <img src="img/btn-goMain_hover.png" class="over"></a>
-            </div>
-          </div>
-
-          <!-- 메인컨텐츠.S -->
-          <div class="contentsGridDataArea">
-
-            <!-- 탭 view1.S -->
-            <div id="view1">
-              <div class="sectionDate">
-                <span>기간</span>
-                <div class="tui-datepicker-input tui-datetime-input tui-has-focus">
-                  <span class="tui-ico-date"> </span>
-                  <input id="startpicker-input" type="text" aria-label="Date">
-                  <div id="startpicker-container"></div>
-                </div>
-                <span>~</span>
-                <div class="tui-datepicker-input tui-datetime-input tui-has-focus">
-                  <span class="tui-ico-date"> </span>
-                  <input id="endpicker-input" type="text" aria-label="Date">
-                  <div id="endpicker-container"></div>
-                </div>
-
-                <input id="text_cam_name" class="text_cam_name" style="color:white;" ; type="text" name="name" required
-                  minlength="4" maxlength="8" size="25" placeholder="카메라 명을 입력하세요." onkeydown="KeyDownSearch(this.id)"
-                  ;>
-
-                <button id="btn_cam_Psearch" type="button" onClick="FindCamData('text_cam_name')" ; class="btn"
-                  style="margin-top: -5px; margin-left: 10px;">검색</button>
-
-              </div>
-
-              <div class="sectionBox1type">
-                <!--사람 카메라 정보 상세-->
-                <div id="grid_object"></div>
-              </div>
-              <div class="gridTotal">
-                <!--사람 카메라 정보 상세-->
-                <div id="grid_object_person_total"></div>
-              </div>
-              <!-- <div class="Loading">   </div> -->
-
-
-
-            </div>
-            <!-- 탭 view1.E -->
-
-
-            <!-- 탭 view2.S -->
-            <!-- <div id="view2">
-              <div class="sectionDate2">
-                <span>기간</span>
-                <div class="tui-datepicker-input tui-datetime-input tui-has-focus">
-                  <span class="tui-ico-date"> </span>
-                  <input id="startpicker-input2" type="text" aria-label="Date">
-                  <div id="startpicker-container2"></div>
-                </div>
-                <span>~</span>
-                <div class="tui-datepicker-input tui-datetime-input tui-has-focus">
-                  <span class="tui-ico-date"> </span>
-                  <input id="endpicker-input2" type="text" aria-label="Date">
-                  <div id="endpicker-container2"></div>
-                </div>
-
-                <input id="text_cam_name2" class="text_cam_name2" style="color:white" ; type="text" name="name2"
-                  required minlength="4" maxlength="8" size="25" placeholder="카메라 명을 입력하세요."
-                  onkeydown="KeyDownSearch(this.id)" ;>
-
-                <button id="btn_cam_Vsearch" type="button" onClick="FindCamData('text_cam_name2')" ; class="btn"
-                  style="margin-top: -5px; margin-left: 10px;">검색</button>
-
-              </div>
-              <div class="sectionBox2type">
-                
-                <div id="grid_object_view2"></div>
-              </div>
-              <div class="gridTotal">
-                
-                <div id="grid_object_vehicle_total"></div>
-              </div>
-            </div> -->
-
-
-
-
-            <!-- 탭 view2.E -->
-            <div id="loading"><img id="loading-image" src="img/loading_animated.png" alt="Loading..." /></div>
-          </div>
-        </div>
-
-
-        <!-- 메인컨텐츠.E -->
-        <div id="bottom">
-          <p class="Notice">※ 화면에 표시되는 모든 실시간 데이터는 1분마다 자동으로 업데이트 합니다. 다만 “시간대별 현황” 그래프의 실시간 데이터는 정시에 한 번씩 업데이트 합니다.</p>
-          <div class="madeFodics">포딕스시스템</div>
-        </div>
-      </div>
-      <!-- 우측 메인.E -->
-
-    </div>
-    <!--  내용.E -->
-  </div>
-  <!-- 전체 wrap.E -->
 </body>
 
 </html>

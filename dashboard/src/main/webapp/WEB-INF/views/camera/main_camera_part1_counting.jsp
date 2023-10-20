@@ -8,31 +8,183 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ai VinUS DASHBOARD</title>
-  <link rel="stylesheet" href="css/popup.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/camera.css">
-  <link rel="stylesheet" href="css/style_graph.css" />  
-  <link rel="stylesheet" href="css/style_grid.css">
-  <link rel="stylesheet" href="font/nanumsquare.css">
-  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="css/style_scrollBar.css"/>  
-  
-  <script src="./node_modules/jquery/3.6.0/jquery.min.js"></script>
 
+
+  <!-- css -->
+  <link rel="stylesheet" href="/resources/css/popup.css">
+  <link rel="stylesheet" href="/resources/css/style.css">
+  <link rel="stylesheet" href="/resources/css/camera.css">
+  <link rel="stylesheet" href="/resources/css/style_graph.css" />  
+  <link rel="stylesheet" href="/resources/css/style_grid.css">
+  <link rel="stylesheet" href="/resources/font/nanumsquare.css">
+  <link rel="shortcut icon" href="/resources/img/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="/resources/css/style_scrollBar.css"/>  
+  <link rel="stylesheet" href="/resources/css/style_small_grid.css" />   
+  
+  
   <link rel="stylesheet" href="./node_modules/tui-chart/dist/toastui-chart.css">
-  <script src="./node_modules/tui-chart/dist/toastui-chart.js"></script>
   <link rel="stylesheet" href="./node_modules/tui-grid/dist/tui-grid.css" />
-  <script src="./node_modules/tui-grid/dist/tui-grid.js"></script>      	
   <link rel="stylesheet" href="./node_modules/tui-date-picker/dist/tui-date-picker.css">
+  
+ </head>
+
+ <body>
+	<!-- 전체 wrap.S -->
+	<div class="wrap"  id="indexWrap">  
+		<jsp:include page="/WEB-INF/views/main/Setting.jsp"/>
+
+		<!-- 헤더.S -->
+		<header id="header"> 
+			<jsp:include page="/WEB-INF/views/common/inc_header.jsp"/>
+		</header>
+		<!-- 헤더.E -->
+
+		<!-- 내용.S -->		
+		<div class="container">
+
+			<!-- side 영역.S -->
+			<div id="side">
+
+				<!-- 좌측 네비.S -->
+				<div class="btn-navi" >
+					<a href="/main">
+						<button type="button" class="btn_object">M A I N</button>
+					</a>
+					<!-- <button type="button" class="btn_evnet" onClick="OnClickEvent();">E V E N T</button> -->
+					<a href="/mainCamera">
+						<button type="button" class="btn_camera_on">C A M E R A</button>
+					</a>
+				</div>
+				<!-- 좌측 네비.E -->
+
+				<!-- 실시간 채널.S -->
+				<jsp:include page="/WEB-INF/views/main/inc_side.jsp"/>
+				<!-- 실시간 채널.E -->
+				
+			</div>
+			<!-- side 영역.E -->
+
+
+			<!-- 우측 메인.S -->
+			<div id="contentsWrap">
+				<!-- 상단 날짜,버튼 영역.S -->
+				<div class="mainTop">
+					<div class=" dateArea">
+
+						<!-- 달력 -->
+						<div id="tui-date-picker-container"></div>
+						<a class="rollover" alt="달력" id="tui-date-picker-main" style="display:none;">
+							<img src="/resources/img/btn-calendar.png"> 
+							<img src="/resources/img/btn-calendar_hover.png" class="over">
+						</a>
+
+						<p class="date" id='mainDate'>2021년 07월 21일</p>
+						<button type="button" class="btn-date" href="#" style="display:none;">◀<!-- <img src="img/btn-calendarLeft.png">--></button>
+						<button type="button" class="btn" href="#" style="display:none;">오늘</button>
+						<button type="button" class="btn-date" href="#" style="display:none;">▶<!-- <img src="img/btn-calendarRight.png">--></button>
+					</div>						
+				</div>
+				<!-- 상단 날짜,버튼 영역.E -->
+
+				<!-- 메인컨텐츠.S -->
+				<div class="contents">
+
+					<!-- 섹션 좌측.S -->
+					<div class="sectionBox" style="height:950px;";>						
+						<div class="innerBox divCameraToday">
+							<div class="contentsTitle">
+								<div class="title">
+									<h4>TODAY</h4>
+								</div>
+							</div>
+							<div class="data">
+								<ul>
+									<li class="today-part1" style="width: 100%; height:85%;">
+										<div class="todayTXT todayCounting">
+											<p class="todayIMG"><img src="/resources/img/icon_titleCounting.png"></p>
+											<p class="todayTitle color-Counting" style="color:#ff7978">카운팅</p>
+											<p class="contrast">전일대비 <span class="lower" id="compare_cnt">▼0</span></p>
+											<p class="amount" id="total_counting_cnt">0</p>
+
+										</div>
+										<div>
+											<div style = "width:100%;"  id = "count_display_wnd">
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+					<!-- 섹션 좌측.E -->
+
+					<!-- 섹션 우측.S -->
+					<div class="sectionBox">
+						<div class="innerBox divEventAge">
+							<div class="contentsTitle">
+								<div class="title">
+									<h4>연령별 출입자 현황&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</h4>
+								</div>
+								<div class="title">
+									<h4>마스크 착용 비율</h4>
+								</div>
+							</div>
+							<div class="data01">
+								<div class="chart" id="chart_radial_age"></div>   
+							</div>
+
+							<div class="data02">								
+								<div class="chart" id="chart_pie_donut" style="margin-top: 0px"></div>   								
+								<div class="chart" id="chart_pie_donut2" style="margin-top: -10px"></div>   
+								<div class="corlorGuide alignL" style="margin-left: 80px; ">
+									<ul>
+										<li><div class="colorBox cBG-Male" ></div> <div class="guideTXT">남자</div></li>
+										<li><div class="colorBox cBG-Female" ></div> <div class="guideTXT">여자</div></li>
+									</ul>
+								</div>		
+							</div>
+						</div>		
+	
+						<div class="innerBox divEvent">
+							<div class="contentsTitle">
+								<div class="title">
+									<h4>이벤트 발생 비율</h4>
+								</div>
+							</div>
+							<div class="data">
+								<div id = "event_acc_wnd" style="margin-top: 30px; width:100%; height:392px; "></div>
+							</div>
+						</div>	
+					</div>	
+					<!-- 섹션 우측.E -->
+				</div>
+				<!-- 메인컨텐츠.E -->
+				<div id="bottom">
+					<p class="Notice">※ 화면에 표시되는 모든 실시간 데이터는 1분마다 자동으로 업데이트 합니다. 다만 “시간대별 현황” 그래프의 실시간 데이터는 정시에 한 번씩 업데이트 합니다.</p>
+					<div class="madeFodics">포딕스시스템</div>
+				</div>
+			</div>
+			<!-- 우측 메인.E -->
+
+		</div>
+		<!--  내용.E -->
+	</div>
+	<!-- 전체 wrap.E -->
+
+
+	<!-- js -->
+  <script src="./node_modules/jquery/3.6.0/jquery.min.js"></script>
+  <script src="./node_modules/tui-chart/dist/toastui-chart.js"></script>
+  <script src="./node_modules/tui-grid/dist/tui-grid.js"></script>      	
   <script src="./node_modules/tui-date-picker/dist/tui-date-picker.js"></script>
   
-  <script src="./js/commonFunctions.js"></script>   
-  <link rel="stylesheet" href="css/style_small_grid.css" />   
-  <script type="text/javascript" src="js/EventAccPieChart.js"></script>
-  <script type="text/javascript" src="js/EventChart.js"></script>
-  <script type="text/javascript" src="js/tabcontent.js"></script>
-  <script type="text/javascript" src="js/popupSetting.js"></script>
-  <script type="text/javascript" src="dashboard_config.json"></script> 
+  <script src="/resources/js/commonFunctions.js"></script>   
+  <script src="/resources/js/EventAccPieChart.js"></script>
+  <script src="/resources/js/EventChart.js"></script>
+  <script src="/resources/js/tabcontent.js"></script>
+  <script src="/resources/js/popupSetting.js"></script>
+  <script src="/resources/dashboard_config.json"></script> 
   
   <script>	    
 		const chart = toastui.Chart;
@@ -311,147 +463,5 @@
             });			
     	}
    </script>
- </head>
-
- <body>
-	<!-- 전체 wrap.S -->
-	<div class="wrap"  id="indexWrap">  
-		<div data-include-path="Setting.html" file="Setting"></div>
-
-		<!-- 헤더.S -->
-		<header id="header"> 
-			<div data-include-path="inc_header.html" file="inc_header"></div>
-		
-		</header>
-		<!-- 헤더.E -->
-
-		<!-- 내용.S -->		
-		<div class="container">
-
-			<!-- side 영역.S -->
-			<div id="side">
-
-				<!-- 좌측 네비.S -->
-				<div class="btn-navi" >
-					<button type="button" class="btn_object" onClick="OnClickCtrl();">M A I N</button>
-					<!-- <button type="button" class="btn_evnet" onClick="OnClickEvent();">E V E N T</button> -->
-					<button type="button" class="btn_camera_on" onClick="OnClickDivide();">C A M E R A</button>
-				</div>
-				<!-- 좌측 네비.E -->
-
-				<!-- 실시간 채널.S -->
-				<div data-include-path="inc_side.html" file="inc_side"></div>
-				<!-- 실시간 채널.E -->
-				
-			</div>
-			<!-- side 영역.E -->
-
-
-			<!-- 우측 메인.S -->
-			<div id="contentsWrap">
-				<!-- 상단 날짜,버튼 영역.S -->
-				<div class="mainTop">
-					<div class=" dateArea">
-
-						<!-- 달력 -->
-						<div id="tui-date-picker-container"></div>
-						<a class="rollover" alt="달력" id="tui-date-picker-main" style="display:none;">
-							<img src="img/btn-calendar.png"> 
-							<img src="img/btn-calendar_hover.png" class="over">
-						</a>
-
-						<p class="date" id='mainDate'>2021년 07월 21일</p>
-						<button type="button" class="btn-date" href="#" style="display:none;">◀<!-- <img src="img/btn-calendarLeft.png">--></button>
-						<button type="button" class="btn" href="#" style="display:none;">오늘</button>
-						<button type="button" class="btn-date" href="#" style="display:none;">▶<!-- <img src="img/btn-calendarRight.png">--></button>
-					</div>						
-				</div>
-				<!-- 상단 날짜,버튼 영역.E -->
-
-				<!-- 메인컨텐츠.S -->
-				<div class="contents">
-
-					<!-- 섹션 좌측.S -->
-					<div class="sectionBox" style="height:950px;";>						
-						<div class="innerBox divCameraToday">
-							<div class="contentsTitle">
-								<div class="title">
-									<h4>TODAY</h4>
-								</div>
-							</div>
-							<div class="data">
-								<ul>
-									<li class="today-part1" style="width: 100%; height:85%;">
-										<div class="todayTXT todayCounting">
-											<p class="todayIMG"><img src="img/icon_titleCounting.png"></p>
-											<p class="todayTitle color-Counting" style="color:#ff7978">카운팅</p>
-											<p class="contrast">전일대비 <span class="lower" id="compare_cnt">▼0</span></p>
-											<p class="amount" id="total_counting_cnt">0</p>
-
-										</div>
-										<div>
-											<div style = "width:100%;"  id = "count_display_wnd">
-											</div>
-										</div>
-									</li>
-								</ul>
-							</div>
-						</div>
-
-					</div>
-					<!-- 섹션 좌측.E -->
-
-					<!-- 섹션 우측.S -->
-					<div class="sectionBox">
-						<div class="innerBox divEventAge">
-							<div class="contentsTitle">
-								<div class="title">
-									<h4>연령별 출입자 현황&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</h4>
-								</div>
-								<div class="title">
-									<h4>마스크 착용 비율</h4>
-								</div>
-							</div>
-							<div class="data01">
-								<div class="chart" id="chart_radial_age"></div>   
-							</div>
-
-							<div class="data02">								
-								<div class="chart" id="chart_pie_donut" style="margin-top: 0px"></div>   								
-								<div class="chart" id="chart_pie_donut2" style="margin-top: -10px"></div>   
-								<div class="corlorGuide alignL" style="margin-left: 80px; ">
-									<ul>
-										<li><div class="colorBox cBG-Male" ></div> <div class="guideTXT">남자</div></li>
-										<li><div class="colorBox cBG-Female" ></div> <div class="guideTXT">여자</div></li>
-									</ul>
-								</div>		
-							</div>
-						</div>		
-	
-						<div class="innerBox divEvent">
-							<div class="contentsTitle">
-								<div class="title">
-									<h4>이벤트 발생 비율</h4>
-								</div>
-							</div>
-							<div class="data">
-								<div id = "event_acc_wnd" style="margin-top: 30px; width:100%; height:392px; "></div>
-							</div>
-						</div>	
-					</div>	
-					<!-- 섹션 우측.E -->
-				</div>
-				<!-- 메인컨텐츠.E -->
-				<div id="bottom">
-					<p class="Notice">※ 화면에 표시되는 모든 실시간 데이터는 1분마다 자동으로 업데이트 합니다. 다만 “시간대별 현황” 그래프의 실시간 데이터는 정시에 한 번씩 업데이트 합니다.</p>
-					<div class="madeFodics">포딕스시스템</div>
-				</div>
-			</div>
-			<!-- 우측 메인.E -->
-
-		</div>
-		<!--  내용.E -->
-	</div>
-	<!-- 전체 wrap.E -->
  </body>
 </html>

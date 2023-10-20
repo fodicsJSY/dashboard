@@ -554,12 +554,16 @@
           radius: ['40%', '70%'],
           avoidLabelOverlap: false,
           itemStyle: {
-              borderColor: '#fff',
-              borderWidth: 2
+              borderColor: 'rgba(30, 30, 30, 1)',
+              borderWidth: 5
           },
-          label: {
-              show: false,
-              position: 'center'
+            label: {
+            show: true,
+            position: 'inside',
+            formatter: '{c}',
+            fontSize: 12,
+                fontWeight: 'bold',
+            fontColor: '#fff'
           },
           emphasis: {
               // label: {
@@ -610,13 +614,14 @@
           type: 'pie',
           radius: ['40%', '70%'],
           avoidLabelOverlap: false,
-          itemStyle: {
-              borderColor: '#fff',
-              borderWidth: 2
-          },
+
           label: {
-              show: false,
-              position: 'center'
+            show: true,
+            position: 'inside',
+            formatter: '{c}',
+            fontSize: 12,
+                fontWeight: 'bold',
+            fontColor: '#fff'
           },
           emphasis: {
               // label: {

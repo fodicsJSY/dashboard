@@ -76,8 +76,20 @@
 .todayBoard dd {float:right; width:20%; text-align:right; }
 
 .divEventAge {width:100%; min-width:600px;  height:43vh;  min-height:450px;   margin-bottom:15px; overflow:hidden;}
-.divEventAge .data01 {display:inline-block; width:100%; height:100%; vertical-align:middle; text-align:center;}
-.divEventAge .data02 {display:inline-block; width:100%; height:100%; vertical-align:middle; text-align:center; border-left:1px solid #333333; }
+/*.divEventAge .data01 {display:inline-block; width:100%; height:100%; vertical-align:middle; text-align:center;}*/
+.divEventAge .data01 { display: flex; align-items: center; justify-content: center; width:100%; height:100%; vertical-align:middle; text-align:center;}
+
+/*.divEventAge .data02 {display:inline-block; width:100%; height:100%; vertical-align:middle; text-align:center; border-left:1px solid #333333; }*/
+.divSideAge .data02 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width:100%; 
+    height:100%; 
+    vertical-align:middle; 
+    text-align:center;
+    border-left:1px solid #333333; 
+}
 .divEventAge p {margin:20px;}
 
 .divSideAge {width:100%; min-width:600px;  height:43vh;  min-height:450px;   margin-bottom:15px; overflow:hidden;}

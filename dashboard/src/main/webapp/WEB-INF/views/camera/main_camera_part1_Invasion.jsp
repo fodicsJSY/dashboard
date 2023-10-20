@@ -234,12 +234,11 @@
  <body>
 	<!-- 전체 wrap.S -->
 	<div class="wrap"  id="indexWrap">  
-		<div data-include-path="Setting.html" file="Setting"></div>
+		<jsp:include page="/WEB-INF/views/main/Setting.jsp"/>
 
 		<!-- 헤더.S -->
 		<header id="header"> 
-			<div data-include-path="inc_header.html" file="inc_header"></div>
-		
+			<jsp:include page="/WEB-INF/views/common/inc_header.jsp"/>
 		</header>
 		<!-- 헤더.E -->
 
@@ -251,17 +250,20 @@
 
 				<!-- 좌측 네비.S -->
 				<div class="btn-navi" >
-					<button type="button" class="btn_object" onClick="OnClickCtrl();">M A I N</button>
+					<a href="/main">
+						<button type="button" class="btn_object">M A I N</button>
+					</a>
 					<!-- <button type="button" class="btn_evnet" onClick="OnClickEvent();">E V E N T</button> -->
-					<button type="button" class="btn_camera_on" onClick="OnClickDivide();">C A M E R A</button>
+					<a href="/mainCamera">
+						<button type="button" class="btn_camera_on">C A M E R A</button>
+					</a>
 				</div>
 				<!-- 좌측 네비.E -->
 
 				<!-- 실시간 채널.S -->
-				<div data-include-path="inc_side.html" file="inc_side"></div>
+				<jsp:include page="/WEB-INF/views/main/inc_side.jsp"/>
 				<!-- 실시간 채널.E -->
 				
-			</div>
 			<!-- side 영역.E -->
 
 
@@ -274,8 +276,8 @@
 						<!-- 달력 -->
 						<div id="tui-date-picker-container"></div>
 						<a class="rollover" alt="달력" id="tui-date-picker-main" style="display:none;">
-							<img src="img/btn-calendar.png"> 
-							<img src="img/btn-calendar_hover.png" class="over">
+							<img src="/resources/img/btn-calendar.png"> 
+							<img src="/resources/img/btn-calendar_hover.png" class="over">
 						</a>
 
 						<p class="date" id='mainDate'>2021년 07월 21일</p>
@@ -301,23 +303,27 @@
 								<ul>
 									<li class="today" style="height: 832px;">
 										<div class="todayTXT todayIntrusion">
-											<p class="todayIMG"><img src="img/icon_titleIntrusion.png"></p>
+											<p class="todayIMG"><img src="/resources/img/icon_titleIntrusion.png"></p>
 											<p class="todayTitle color-Intrusion" style="color:#4176df">침입</p>
 											<p class="contrast">전일대비 <span class="lower" id="compare_inv_cnt">0</span></p>
 											<p class="amount"  id="total_inv_cnt">0</p>
 										</div>
-										<div id="Inv_grid_area" onclick="location.href='sub_camera.html'">											
-										</div>
+										<a href="/mainCamera/subCamera">
+											<div id="Inv_grid_area" onclick="location.href='sub_camera.html'">											
+											</div>
+										</a>
 									</li>
 									<li class="today" style="height: 832px;">
 										<div class="todayTXT todayLoitering">
-											<p class="todayIMG"><img src="img/icon_titleLoitering.png"></p>
+											<p class="todayIMG"><img src="/resources/img/icon_titleLoitering.png"></p>
 											<p class="todayTitle color-Loitering" style="color:#fec070">배회</p>
 											<p class="contrast">전일대비 <span class="lower" id="compare_lot_cnt">0</span></p>
 											<p class="amount" id="total_lot_cnt">0</p>											
 										</div>
-										<div id="Lot_grid_area" onclick="location.href='sub_camera.html'">											
-										</div>
+										<a href="/mainCamera/subCamera">
+											<div id="Lot_grid_area" onclick="location.href='sub_camera.html'">											
+											</div>
+										</a>
 									</li>
 								</ul>
 							</div>

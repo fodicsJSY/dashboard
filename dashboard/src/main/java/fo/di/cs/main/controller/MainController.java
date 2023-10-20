@@ -24,7 +24,7 @@ public class MainController {
 	
 	
 	//sub_object로 이동
-	@GetMapping("/sub_object")
+	//@GetMapping("/sub_object")
 	public String main_Forward() {
 		return "/main/sub_object";
 	}
