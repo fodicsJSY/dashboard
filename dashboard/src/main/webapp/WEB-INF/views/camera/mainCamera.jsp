@@ -241,9 +241,17 @@
                                 </div>
                                 
                                 <div class="data02">	
-                                    <!--<div class="chart" id="chart_pie_donut" style="margin-top: -15px"></div>   								
-                                        <div class="chart" id="chart_pie_donut2" style="margin-top: -10px"></div> 
-                                    -->
+                                    <!--
+									<div class="chart" id="chart_pie_donut" style="margin-top: -15px"></div>   								
+                                    <div class="chart" id="chart_pie_donut2" style="margin-top: -10px"></div> 
+									-->
+                                    <div class="chart" id="chart_pie_donut" style="width: 250px; height: 200px;">
+										<!-- 남성 마스크 착용 비율 게이지 차트 -->
+									</div>   								
+                                    <div class="chart" id="chart_pie_donut2" style="width: 250px; height: 200px;">
+										<!-- 여성 마스크 착용 비율 게이지 차트 -->
+									</div> 
+                                
                                     <!--<div class="corlorGuide alignL" style="margin-left: 80px; ">-->
                                     <div class="corlorGuide alignL" >
                                         <ul>
@@ -267,7 +275,9 @@
 							</div>
 							<div class="data">
 								<!--<div id = "event_acc_wnd" style="margin-top: 30px; width:100%; height:350px; "></div>-->
-								<div id = "event_acc_wnd" ></div>
+								<div id = "event_acc_wnd" style="margin-top: 30px; width:100%; height:350px; ">
+									<!-- 이벤트 발생 비율 도넛 차트 -->
+								</div>
 							</div>
 						</div>	
 					</div>	
@@ -325,10 +335,10 @@
 				show: false
 			},
 			data: [
-				{ value: 1048, name: '미성년' },
-				{ value: 735, name: '청년' },
-				{ value: 580, name: '중장년' },
-				{ value: 580, name: '노년' }
+				{ value: 1048, name: '미성년',  itemStyle: { color: '#d3f1f9' }},
+				{ value: 735, name: '청년',  itemStyle: { color: '#3fd5e3' }},
+				{ value: 580, name: '중장년',  itemStyle: { color: '#00a0de' } },
+				{ value: 580, name: '노년',  itemStyle: { color: '#0174cf' } }
 				
 			]
 			},
@@ -352,10 +362,10 @@
 				show: false
 			},
 			data: [
-				{ value: 1048, name: '미성년' },
-				{ value: 735, name: '청년' },
-				{ value: 580, name: '중장년' },
-				{ value: 850, name: '노년' }
+				{ value: 1048, name: '미성년',  itemStyle: { color: '#d3f1f9' }},
+				{ value: 735, name: '청년',  itemStyle: { color: '#3fd5e3' }},
+				{ value: 580, name: '중장년',  itemStyle: { color: '#00a0de' } },
+				{ value: 310, name: '노년',  itemStyle: { color: '#0174cf' } }
 			]
 			}
 		]
@@ -363,6 +373,199 @@
 
 		  //  차트 옵션 설정하기
 		  myChart.setOption(option)
+
+
+		// 남성 마스크착용비율 도넛차트
+		var manMaskChart = echarts.init(document.getElementById('chart_pie_donut'))
+		const gaugeData1 = [
+			{
+				value: 20,
+				title: {
+				offsetCenter: ['0%', '-30%']
+				},
+				detail: {
+				valueAnimation: true,
+				offsetCenter: ['0%', '-20%']
+				}
+			}
+		];
+		option = {
+			series: [
+				{
+					type: 'gauge',
+					startAngle: 90,
+					endAngle: -270,
+					pointer: {
+						show: false
+					},
+					progress: {
+						show: true,
+						overlap: false,
+						roundCap: false,
+						clip: false,
+						itemStyle: {
+						// borderWidth: 1,
+						// borderColor: '#464646'
+						color: '#0f9faf'
+						}
+					},
+					axisLine: {
+						lineStyle: {
+						width: 20
+						}
+					},
+					splitLine: {
+						show: false,
+						distance: 0,
+						length: 10
+					},
+					axisTick: {
+						show: false
+					},
+					axisLabel: {
+						show: false,
+						distance: 50
+					},
+					data: gaugeData1,
+					title: {
+						fontSize: 20
+					},
+					detail: {
+						width: 50,
+						height: 14,
+						fontSize: 20,
+						color: '#fff',
+						borderColor: 'inherit',
+						formatter: '{value}%'
+					}
+				}
+			]
+		};
+		//  차트 옵션 설정하기
+		manMaskChart.setOption(option)
+
+
+		// 여성 마스크착용비율 도넛차트
+		var manMaskChart = echarts.init(document.getElementById('chart_pie_donut2'))
+		const gaugeData2 = [
+			{
+				value: 80,
+				title: {
+				offsetCenter: ['0%', '-30%']
+				},
+				detail: {
+				valueAnimation: true,
+				offsetCenter: ['0%', '-20%']
+				}
+			}
+		];
+		option = {
+			series: [
+				{
+					type: 'gauge',
+					startAngle: 90,
+					endAngle: -270,
+					pointer: {
+						show: false
+					},
+					progress: {
+						show: true,
+						overlap: false,
+						roundCap: false,
+						clip: false,
+						itemStyle: {
+						// borderWidth: 1,
+						// borderColor: '#464646'
+							color: '#e8534c'
+						}
+					},
+					axisLine: {
+						lineStyle: {
+						width: 20
+						}
+					},
+					splitLine: {
+						show: false,
+						distance: 0,
+						length: 10
+					},
+					axisTick: {
+						show: false
+					},
+					axisLabel: {
+						show: false,
+						distance: 50
+					},
+					data: gaugeData2,
+					title: {
+						fontSize: 20
+					},
+					detail: {
+						width: 50,
+						height: 14,
+						fontSize: 20,
+						color: '#fff',
+						formatter: '{value}%'
+					}
+				}
+			]
+		};
+		//  차트 옵션 설정하기
+		manMaskChart.setOption(option)
+
+
+		var eventChart = echarts.init(document.getElementById('event_acc_wnd'))
+
+		var option = {
+			tooltip: {
+				trigger: 'item'
+			},
+			legend: {
+				top: '90%',
+				data: ['침입', '배회', '카운트', '쓰러짐']
+			},
+			series: [
+				{
+				name: '여성',
+				type: 'pie',
+				radius: ['23%', '76%'], // 첫 번째 도넛의 반지름 범위
+				avoidLabelOverlap: false,
+				itemStyle: {
+					borderColor: 'black',
+					borderWidth: 2,
+					
+					
+				},
+				label: {
+					show: true,
+					position: 'inside',
+					formatter: '{c}',
+					fontSize: 20,
+        			fontWeight: 'bold',
+					fontColor: '#fff'
+
+
+				},
+				emphasis: {
+					
+				},
+				labelLine: {
+					show: false
+				},
+				data: [
+					{ value: 1048, name: '침입',  itemStyle: { color: '#4176df' }},
+					{ value: 735, name: '배회',  itemStyle: { color: '#fec070' }},
+					{ value: 580, name: '카운트',  itemStyle: { color: '#ff7978' } },
+					{ value: 580, name: '쓰러짐',  itemStyle: { color: '#52c3f7' } }
+				]
+				}
+			]
+		}
+		//  차트 옵션 설정하기
+		eventChart.setOption(option)
     </script>
+
+
+
 </body>
 </html>

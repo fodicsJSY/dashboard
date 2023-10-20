@@ -338,7 +338,7 @@ ul.tabs li.tabsON {position:relative; height:40px;  color:#ffffff; font-weight:5
 
 
 	/* section left */
-	.sectionBox22 {display:block; min-width:650px; padding:0; }
+	.sectionBox22 {display:block; min-width:650px; padding:0; margin: 0 0 0 15px;}
 
 	.mainCameraContentsTitle{
 		display: flex;
@@ -351,6 +351,7 @@ ul.tabs li.tabsON {position:relative; height:40px;  color:#ffffff; font-weight:5
 		display: flex;
 		flex-direction: row;
 		justify-content: space-around;
+		background-color: #1e1e1e;
 	}
 
 

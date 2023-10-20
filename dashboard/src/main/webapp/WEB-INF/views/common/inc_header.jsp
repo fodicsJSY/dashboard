@@ -19,7 +19,7 @@
 		<a class="rollover" alt="셋팅팝업"><img src="../../resources/img/btn_setting.png"> <img src="../../resources/img/btn_setting_hover.png" class="over" onclick="openPopupSetting();"></a>
 		<!-- <a class="rollover" alt="최소화"><img src="img/btn_winMini.png"> <img src="img/btn_winMini_hover.png" class="over"></a>
 		<a class="rollover" alt="창크기"><img src="img/btn_winTile.png"> <img src="img/btn_winTile_hover.png" class="over"></a> -->
-		<a class="rollover" alt="창닫기"><img src="../../resources/img/btn_winClose.png"> <img src="../../resources/img/btn_winClose_hover.png" class="over" onclick="closeMainWindow();"></a>
+		<a href="/logout"><img src="../../resources/img/btn_winClose.png"> <img src="../../resources/img/btn_winClose_hover.png" class="over"></a>
 	</div>
 </body>
 </html>

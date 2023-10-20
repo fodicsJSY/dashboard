@@ -19,6 +19,9 @@ public class MainController {
 		return "/main/main";
 	}
 	
+
+	
+	
 	
 	//sub_object로 이동
 	@GetMapping("/sub_object")

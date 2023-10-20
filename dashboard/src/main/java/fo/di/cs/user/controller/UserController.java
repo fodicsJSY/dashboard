@@ -1,15 +1,21 @@
 package fo.di.cs.user.controller;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import fo.di.cs.user.model.dto.User;
 import fo.di.cs.user.model.service.UserService;
 
+@SessionAttributes({"loginUser"}) 
 @Controller
 public class UserController {
 	
@@ -25,10 +31,11 @@ public class UserController {
 	
 	
 	
+	
 	// 로그인 페이지에서 로그인 요청
 	@PostMapping("/login")
 	public String login(User inputUser
-						// 파라미터를 필드에 담은 커맨드 객체
+						, Model model
 						, @RequestHeader(value="referer") String referer
 						// -> 요청 HTTP header에서 "referer"(이전주소) 값을 얻어와 매개 변수 String referer에 저장
 						, HttpServletResponse resp
@@ -40,14 +47,15 @@ public class UserController {
 		
 		// 로그인 서비스 호출
 		int loginUser = service.login(inputUser);
-		//System.out.println("inputUser1: " + inputUser);
 		
 		String path = "redirect:";
-		
+        
 		if(loginUser == 1) { // 로그인 성공시
-
+			
 			// 메인페이지로 이동
 			path += "main";
+			// model 전달객체에 세팅 -> 클래스 위에 @SessionAttributes으로 세션으로 추가됨
+			model.addAttribute("loginUser",loginUser);
 						
 		}else {
 			
@@ -57,6 +65,20 @@ public class UserController {
 		}
 		
 		return path;
+	}
+	
+	
+	
+	// 로그아웃
+	@GetMapping("/logout")
+	public String logout(SessionStatus status, HttpSession session) {
+		
+		status.setComplete();
+		session.invalidate();
+		System.out.println("inputUser1: " + session);
+
+		
+		return "redirect:/";
 	}
 	
 	

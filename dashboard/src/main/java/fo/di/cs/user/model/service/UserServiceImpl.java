@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import fo.di.cs.user.model.dao.UserDAO;
 import fo.di.cs.user.model.dto.User;
-import fo.di.cs.util.AESUtil;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -14,7 +13,7 @@ public class UserServiceImpl implements UserService{
 	@Autowired
 	private UserDAO dao;
 	
-//	@Autowired
+    //@Autowired
 	private BCryptPasswordEncoder bcrypt;
 	
 	
@@ -26,6 +25,7 @@ public class UserServiceImpl implements UserService{
 		int result = dao.login(inputUser);
 		
 		System.out.println("result" +result);
+		System.out.println("inputUser" +inputUser);
         
         return result;
     }

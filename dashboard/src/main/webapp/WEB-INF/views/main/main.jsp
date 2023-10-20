@@ -503,6 +503,7 @@
           emphasis: {
               focus: 'series'
           },
+          itemStyle: { color: '#0f9faf' },
           data: [320, 302, 301, 334]
           },
           {
@@ -515,6 +516,7 @@
           emphasis: {
               focus: 'series'
           },
+          itemStyle: { color: '#e8534c' },
           data: [120, 132, 101, 134]
           }
         
@@ -570,10 +572,10 @@
               show: false
           },
           data: [
-              { value: 1048, name: '미성년' },
-              { value: 735, name: '청년' },
-              { value: 580, name: '중장년' },
-              { value: 484, name: '노년' }
+              { value: 1048, name: '미성년', itemStyle: { color: '#d3f1f9' }},
+              { value: 735, name: '청년', itemStyle: { color: '#3fd5e3' }},
+              { value: 580, name: '중장년', itemStyle: { color: '#00a0de' }},
+              { value: 484, name: '노년', itemStyle: { color: '#0174cf' }}
           ]
           }
       ]
@@ -627,10 +629,10 @@
               show: false
           },
           data: [
-              { value: 1048, name: '미성년' },
-              { value: 735, name: '청년' },
-              { value: 580, name: '중장년' },
-              { value: 484, name: '노년' },
+              { value: 1048, name: '미성년', itemStyle: { color: '#d3f1f9' } },
+              { value: 735, name: '청년', itemStyle: { color: '#3fd5e3' } },
+              { value: 580, name: '중장년', itemStyle: { color: '#00a0de' } },
+              { value: 484, name: '노년', itemStyle: { color: '#0174cf' } },
           ]
           }
       ]
@@ -675,43 +677,51 @@
         name: '사람',
         type: 'line', 
         data: [10, 32, 32, 21, 42, 42, 43, 34, 24, 123, 113, 543, 434, 433, 132, 42, 32, 43, 32, 32, 23, 32, 32, 42],
+        itemStyle: { color: '#94e9ec' }
       },
       {
         name: '차량',
         type: 'line', 
         data: [1, 32, 32, 21, 43, 42, 43, 34, 24, 123, 113, 543, 434, 433, 132, 42, 32, 43, 32, 32, 23, 32, 32, 42],
+        itemStyle: { color: '#d4e079' }
       },
       {
         name: '얼굴',
         type: 'line', 
         data: [5, 32, 32, 21, 42, 42, 43, 34, 24, 123, 113, 543, 434, 433, 132, 42, 32, 43, 32, 32, 23, 32, 32, 42],
+        itemStyle: { color: '#b4a1d8' }
       },
       {
         name: '번호판',
         type: 'line', 
         data: [10, 7, 32, 21, 42, 42, 63, 34, 24, 123, 113, 543, 434, 433, 132, 42, 32, 43, 32, 32, 23, 32, 32, 42],
+        itemStyle: { color: '#f19ec2' }
       },
       {
         name: '침입',
         type: 'line', 
         data: [10, 32, 32, 21, 42, 42, 3, 34, 24, 123, 113, 543, 434, 433, 132, 42, 32, 43, 32, 32, 23, 32, 32, 42],
+        itemStyle: { color: '#4176df' }
       },
       {
         name: '배회',
         type: 'line', 
         data: [1, 32, 32, 21, 43, 42, 43, 34, 24, 123, 113, 543, 434, 433, 132, 42, 32, 43, 32, 32, 23, 32, 32, 42],
+        itemStyle: { color: '#fec070' }
       },
       {
           name: '카운팅',
           type: 'line',
           stack: 'Total',
-          data: [10, 32, 32, 21, 42, 42, 43, 34, 24, 23, 113, 232, 434, 433, 132, 42, 32, 43, 32, 32, 23, 32, 32, 42]
+          data: [10, 32, 32, 21, 42, 42, 43, 34, 24, 23, 113, 232, 434, 433, 132, 42, 32, 43, 32, 32, 23, 32, 32, 42],
+          itemStyle: { color: '#ff7978' }
       },
       {
           name: '쓰러짐',
           type: 'line',
           stack: 'Total',
-          data: [10, 32, 32, 21, 42, 42, 43, 34, 24, 123, 113, 343, 434, 433, 132, 42, 32, 43, 32, 32, 23, 32, 32, 42]
+          data: [10, 32, 32, 21, 42, 42, 43, 34, 24, 123, 113, 343, 434, 433, 132, 42, 32, 43, 32, 32, 23, 32, 32, 42],
+          itemStyle: { color: '#52c3f7' }
       }
     ],
   }
