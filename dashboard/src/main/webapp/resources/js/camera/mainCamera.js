@@ -1,15 +1,16 @@
-var myChart = echarts.init(document.getElementById('age_chart'))
+var myChart = echarts.init(document.getElementById('chart_radial_age'))
 
     var option = {
     tooltip: {
         trigger: 'item'
     },
     legend: {
-        top: '90%',
-        data: ['미성년', '청년', '중장년', '노년'],
+        bottom: 0,
+        data: ['미성년', '노년', '청년', '중장년'],
         textStyle:{
             color: '#fff'
-        }
+        },
+        width: 150
     },
     grid: {
         bottom: '50%', // 그래프 영역의 하단 마진
@@ -144,7 +145,7 @@ option = {
         }
     ],
     width: '50%',  // 너비 설정 (예: 80%)
-    height:'50%'
+    height: '50%'
 };
 //  차트 옵션 설정하기
 manMaskChart.setOption(option)

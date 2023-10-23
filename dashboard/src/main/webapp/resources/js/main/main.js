@@ -13,17 +13,17 @@
           }
       },
       legend: {
+        bottom: 0,
         textStyle:{
         color: "rgba(255, 255, 255, 1)"
         },
-        top: 'bottom', // 범례를 그래프 하단에 배치
         padding: [50, 0, 0, 0], // 범례 위 아래에 마진을 추가
 
       },
       grid: {
           left: '3%',
           right: '4%',
-          bottom: '3%',
+          bottom: '10%',
           containLabel: true
       },
       xAxis: {
@@ -80,7 +80,7 @@
           trigger: 'item'
       },
       legend: {
-          top: '5%',
+          bottom: '5%',
           left: 'center',
           textStyle:{
             color: "rgba(255, 255, 255, 1)"
@@ -141,7 +141,7 @@
           trigger: 'item'
       },
       legend: {
-          top: '5%',
+          bottom: '5%',
           left: 'center',
           textStyle:{
             color: "rgba(255, 255, 255, 1)"
@@ -203,12 +203,12 @@
   var option = {
     // 차트 제목
     title: {
-      text: 'showHourlyChart',
+      
     },
     // 범례명
     legend: {
       data: ['사람', '차량', '얼굴', '번호판','침입', '배회', '카운팅', '쓰러짐'],
-      top: 20,
+      bottom: '3%',
       textStyle:{
         color: "rgba(255, 255, 255, 1)"
       }

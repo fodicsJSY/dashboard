@@ -247,9 +247,8 @@
 							</div>
                             <div class="totalData mainCameraTotalData">
                                 <div class="data01" >
-                                    <div class="chart" id="chart_radial_age">
-										<!-- 연령별 출입자 현황 도넛그래프 영역 -->
-										<div id="age_chart" style="width: 250px; height: 300px;"></div>
+									<!-- 연령별 출입자 현황 도넛그래프 영역 -->
+                                    <div class="chart" id="chart_radial_age" style="width: 250px; height: 300px;">
                                     </div>   
                                 </div>
                                 
@@ -267,10 +266,15 @@
                                 
                                     <!--<div class="corlorGuide alignL" style="margin-left: 80px; ">-->
                                     <div class="corlorGuide alignL" >
-                                        <ul>
-                                            <li><div class="colorBox cBG-Male" ></div> <div class="guideTXT">남자</div></li>
-                                            <li><div class="colorBox cBG-Female" ></div> <div class="guideTXT">여자</div></li>
-                                        </ul>
+                                        <div class="corlorGuide_male">
+											<div class="colorBox cBG-Male" ></div> 
+											<div class="guideTXT">남자</div>
+										</div>
+										<div class="corlorGuide_female">
+											<div class="colorBox cBG-Female" ></div> 
+											<div class="guideTXT">여자</div>
+										</div>
+                                        
                                     </div>		
                                 </div>
 
@@ -316,9 +320,18 @@
 	<!-- echarts -->
 	<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
 
+	 <!-- 전역변수 시작-->
+	 <script>
+      
+	 </script>
+	 <!-- 전역변수 끝-->
+ 
+
 
 	<!-- mainCamera js-->
 	<script src="/resources/js/camera/mainCamera.js"></script>
+
+
 
 
 </body>
