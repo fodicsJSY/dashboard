@@ -1,0 +1,16 @@
+#count_human_display_wnd{
+    max-height: 750px;
+    overflow-y: scroll;
+}
+
+.humanCount{
+    width: 100%;
+    font-family: NanumSquareEB; 
+    font-size: 11pt; 
+}
+
+
+tr *{
+    height: 40px;
+    vertical-align: middle;
+}
