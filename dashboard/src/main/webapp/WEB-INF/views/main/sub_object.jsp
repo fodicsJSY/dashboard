@@ -8,14 +8,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ai VinUS DASHBOARD</title>
 
+
+
+  <!-- toust UI 시작 -->
+  <link rel="stylesheet" href="./node_modules/tui-chart/dist/toastui-chart.css">
+  <script src="./node_modules/tui-chart/dist/toastui-chart.js"></script>
+  <link rel="stylesheet" href="./node_modules/tui-grid/dist/tui-grid.css" />
+  <script src="./node_modules/tui-grid/dist/tui-grid.js"></script>    
+  <link rel="stylesheet" href="./node_modules/tui-date-picker/dist/tui-date-picker.css">
+  <script src="./node_modules/tui-date-picker/dist/tui-date-picker.js"></script>
+  <!-- toust UI 끝 -->
+
+  <!-- jquery -->
+  <script src="./node_modules/jquery/3.6.0/jquery.min.js"></script>
+  
+  
   <link rel="stylesheet" href="/resources/css/popup.css">
   <link rel="stylesheet" href="/resources/css/object_sub/object_sub.css">
   <link rel="stylesheet" href="/resources/font/nanumsquare.css">
   <link rel="stylesheet" href="/resources/css/style_scrollBar.css"/>  
   <link rel="shortcut icon" href="/resources/img/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="./node_modules/tui-chart/dist/toastui-chart.css">
-  <link rel="stylesheet" href="./node_modules/tui-grid/dist/tui-grid.css" />
-  <link rel="stylesheet" href="./node_modules/tui-date-picker/dist/tui-date-picker.css">
+
   
   
   
@@ -96,7 +109,7 @@
 
             <div class="sub-btnArea">
               <a class="rollover" alt="csv파일" OnClick="OnCSV_OK()"><img src="/resources/img/btn-downCSV.png"> <img src="/resources/img/btn-downCSV_hover.png" class="over"></a>
-							<a class="rollover" alt="HOME" onClick="location.href='main.html'"><img src="/resources/img/btn-goMain.png"> <img src="/resources/img/btn-goMain_hover.png" class="over"></a>
+							<a href="/main"  class="rollover" alt="HOME"><img src="/resources/img/btn-goMain.png"> <img src="/resources/img/btn-goMain_hover.png" class="over"></a>
             </div>
           </div>
 
@@ -130,11 +143,261 @@
 
               <div class="sectionBox1type">
                 <!--사람 카메라 정보 상세-->
-                <div id="grid_object"></div>
+                <div id="grid_object">
+                  <table class="humanCameraTable">
+                    <thead>
+                      <tr>
+                        <th scope="col">카메라명</th>
+                        <th scope="col">남자</th>
+                        <th scope="col">여자</th>
+                        <th scope="col">미성년</th>
+                        <th scope="col">청년</th>
+                        <th scope="col">중장년</th>
+                        <th scope="col">노년</th>
+                        <th scope="col">TOTAL</th>
+                        <th scope="col">마스크착용</th>
+                      </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                      <tr>
+                        <th scope="row" class="loadName">먼우금사거리</th>
+                        <td>164</td>
+                        <td>125</td>
+                        <td>25</td>
+                        <td>124</td>
+                        <td>18</td>
+                        <td>251</td>
+                        <td>251</td>
+                        <td>251</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="loadName">원당사거리</th>
+                        <td>151</td>
+                        <td>126</td>
+                        <td>23</td>
+                        <td>277</td>      
+                        <td>19</td>
+                        <td>226</td>
+                        <td>226</td>
+                        <td>226</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="loadName">길병원사거리</th>
+                        <td>151</td>
+                        <td>133</td>
+                        <td>22</td>
+                        <td>220</td>
+                        <td>26</td>
+                        <td>218</td>
+                        <td>218</td>
+                        <td>218</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="loadName">동인천역</th>
+                        <td>147</td>
+                        <td>133</td>
+                        <td>24</td>
+                        <td>219</td>
+                        <td>15</td>
+                        <td>218</td>
+                        <td>218</td>
+                        <td>218</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="loadName">신복사거리</th>
+                        <td>145</td>
+                        <td>130</td>
+                        <td>19</td>
+                        <td>210</td>
+                        <td>21</td>
+                        <td>228</td>
+                        <td>228</td>
+                        <td>228</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="loadName">임학사거리</th>
+                        <td>143</td>
+                        <td>111</td>
+                        <td>16</td>
+                        <td>214</td>
+                        <td>58</td>
+                        <td>125</td>
+                        <td>125</td>
+                        <td>125</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="loadName">만수사거리</th>
+                        <td>151</td>
+                        <td>133</td>
+                        <td>22</td>
+                        <td>220</td>
+                        <td>26</td>
+                        <td>218</td>
+                        <td>218</td>
+                        <td>218</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="loadName">송림오거리</th>
+                        <td>147</td>
+                        <td>133</td>
+                        <td>24</td>
+                        <td>219</td>
+                        <td>15</td>
+                        <td>218</td>
+                        <td>218</td>
+                        <td>218</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="loadName">가정사거리</th>
+                        <td>145</td>
+                        <td>130</td>
+                        <td>19</td>
+                        <td>210</td>
+                        <td>21</td>
+                        <td>228</td>
+                        <td>228</td>
+                        <td>228</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="loadName">도화초교사거리</th>
+                        <td>143</td>
+                        <td>111</td>
+                        <td>16</td>
+                        <td>214</td>
+                        <td>58</td>
+                        <td>125</td>
+                        <td>125</td>
+                        <td>125</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="loadName">선학역사거리</th>
+                        <td>143</td>
+                        <td>111</td>
+                        <td>16</td>
+                        <td>214</td>
+                        <td>58</td>
+                        <td>125</td>
+                        <td>125</td>
+                        <td>125</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="loadName">가정오거리</th>
+                        <td>143</td>
+                        <td>111</td>
+                        <td>16</td>
+                        <td>214</td>
+                        <td>58</td>
+                        <td>125</td>
+                        <td>125</td>
+                        <td>125</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="loadName">석바위사거리</th>
+                        <td>143</td>
+                        <td>111</td>
+                        <td>16</td>
+                        <td>214</td>
+                        <td>58</td>
+                        <td>125</td>
+                        <td>125</td>
+                        <td>125</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="loadName">수산물검사원사거리</th>
+                        <td>143</td>
+                        <td>111</td>
+                        <td>16</td>
+                        <td>214</td>
+                        <td>58</td>
+                        <td>125</td>
+                        <td>125</td>
+                        <td>125</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="loadName">간석오거리</th>
+                        <td>143</td>
+                        <td>111</td>
+                        <td>16</td>
+                        <td>214</td>
+                        <td>58</td>
+                        <td>125</td>
+                        <td>125</td>
+                        <td>125</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="loadName">간석오거리</th>
+                        <td>143</td>
+                        <td>111</td>
+                        <td>16</td>
+                        <td>214</td>
+                        <td>58</td>
+                        <td>125</td>
+                        <td>125</td>
+                        <td>125</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="loadName">간석오거리</th>
+                        <td>143</td>
+                        <td>111</td>
+                        <td>16</td>
+                        <td>214</td>
+                        <td>58</td>
+                        <td>125</td>
+                        <td>125</td>
+                        <td>125</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="loadName">간석오거리</th>
+                        <td>143</td>
+                        <td>111</td>
+                        <td>16</td>
+                        <td>214</td>
+                        <td>58</td>
+                        <td>125</td>
+                        <td>125</td>
+                        <td>125</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="loadName">간석오거리</th>
+                        <td>143</td>
+                        <td>111</td>
+                        <td>16</td>
+                        <td>214</td>
+                        <td>58</td>
+                        <td>125</td>
+                        <td>125</td>
+                        <td>125</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="loadName">간석오거리</th>
+                        <td>143</td>
+                        <td>111</td>
+                        <td>16</td>
+                        <td>214</td>
+                        <td>58</td>
+                        <td>125</td>
+                        <td>125</td>
+                        <td>125</td>
+                      </tr>
+                    </tbody>
+                </table>
               </div>
+              <!--사람 카메라 정보 상세-->
               <div class="gridTotal">
-                <!--사람 카메라 정보 상세-->
-                <div id="grid_object_person_total"></div>
+                <table class="grid_object_person_total">
+                  <th scope="row" class="loadName">전체 카메라 총계</th>
+                  <td>143</td>
+                  <td>111</td>
+                  <td>16</td>
+                  <td>214</td>
+                  <td>58</td>
+                  <td>125</td>
+                  <td>125</td>
+                  <td>125</td>
+                </table>
+                <!--
+                  <div id="grid_object_person_total"></div>
+                -->
               </div>
               <!-- <div class="Loading">   </div> -->
 
@@ -200,9 +463,7 @@
   </div>
   <!-- 전체 wrap.E -->
 
-  <script src="./node_modules/jquery/3.6.0/jquery.min.js"></script>
-  <script src="./node_modules/tui-chart/dist/toastui-chart.js"></script>
-  <script src="./node_modules/tui-grid/dist/tui-grid.js"></script>      	
+  	
   <script src="./data/data_sample.js"></script>
   <!-- 탭버튼 스크립트.S-->
   <script src="/resources/js/tabcontent.js"></script>
@@ -211,7 +472,7 @@
   <script src="/resources/js/commonFunctions.js"></script>
   <script src="/resources/js/CsvMakeFile.js"></script>
   <script src="dashboard_config.json"></script> 
-  <script src="./node_modules/tui-date-picker/dist/tui-date-picker.js"></script>
+ 
   <script>
 
     var grid, grid_view2;

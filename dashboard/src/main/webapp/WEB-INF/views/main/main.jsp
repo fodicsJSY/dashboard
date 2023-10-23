@@ -325,7 +325,6 @@
                         <td>125</td>
                       </tr>
                     </tbody>
-                  </table>
               </table>
               </div>
 							<div class="data" id="subTop10Cameras" style="margin: 10px"></div>						

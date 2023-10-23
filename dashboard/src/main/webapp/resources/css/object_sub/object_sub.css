@@ -6,7 +6,13 @@
 .contentsGridDataArea{ margin-top: -1px; padding-left:10px; padding-bottom: 20px; background-color: #1e1e1e; padding-right: 20px; }
 .sectionBox1type {margin-left: 10px; }
 .sectionBox2type {margin-left: 10px; }
-.sectionDate {margin-left: 10px; padding-top: 20px; padding-bottom: 20px; }
+.sectionDate {
+  margin-left: 10px; padding-top: 20px; padding-bottom: 20px; 
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+}
 .sectionDate2 {margin-left: 10px; padding-top: 20px; padding-bottom: 20px; }
 
 
@@ -21,13 +27,53 @@
 
 
 
+#grid_object{
+  width: 95%;
+  max-height: 700px;
+  overflow-y: scroll;
+  
+}
 
+/*#grid_object {font-size:34px;}*/ 
+.humanCameraTable {
+  width: 100%;
+  font-family: NanumSquareEB; 
+  font-size: 11pt; 
+  border: 1px solid #333333;
+  overflow-y: scroll;
 
-/* #grid_object {font-size:34px;} */
-table {font-family: NanumSquareEB; font-size: 11pt;}
-td {padding-left: 10px !important; padding-right: 10px !important;}
+}
+tr *{
+  border: 1px solid #333333;
+  height: 40px;
+  vertical-align: middle;
 
-.gridTotal {margin-left: 10px; }
+}
+
+tbody *{
+  background-color: #282828;
+  
+}
+
+th {
+  text-align: center;
+  
+}
+
+td{
+  width: 152.5px;
+  text-align: right;
+  padding-left: 10px !important; padding-right: 10px !important;
+}
+
+.loadName{
+  text-align: left;
+  padding: 0 0 0 10px;
+  width: 356px;
+
+}
+
+/*.gridTotal {margin-left: 10px; }*/
 /* ::-webkit-scrollbar{
     background: #333333;    
   }
@@ -44,3 +90,11 @@ td {padding-left: 10px !important; padding-right: 10px !important;}
 } */
 
 /* .tui-grid-body-area {height:100px} */
+
+
+.grid_object_person_total {
+  width: 95%;
+  font-family: NanumSquareEB; 
+  font-size: 11pt; 
+  border: 1px solid #333333;
+}
