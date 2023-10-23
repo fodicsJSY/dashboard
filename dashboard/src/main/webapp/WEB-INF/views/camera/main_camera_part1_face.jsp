@@ -7,16 +7,16 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ai VinUS DASHBOARD</title>
-  <link rel="stylesheet" href="css/popup.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/camera.css">
-  <link rel="stylesheet" href="css/style_grid.css">
-  <link rel="stylesheet" href="font/nanumsquare.css">
-  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="css/style_scrollBar.css"/>  
+  <link rel="stylesheet" href="/resources/css/popup.css">
+  <link rel="stylesheet" href="/resources/css/style.css">
+  <link rel="stylesheet" href="/resources/css/camera.css">
+  <link rel="stylesheet" href="/resources/css/style_grid.css">
+  <link rel="stylesheet" href="/resources/font/nanumsquare.css">
+  <link rel="shortcut icon" href="/resources/img/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="/resources/css/style_scrollBar.css"/>  
   
  
-  <link rel="stylesheet" href="css/style_graph.css" />   
+  <link rel="stylesheet" href="/resources/css/style_graph.css" />   
   <script src="./node_modules/jquery/3.6.0/jquery.min.js"></script>
 
 	<link rel="stylesheet" href="./node_modules/tui-chart/dist/toastui-chart.css">
@@ -26,11 +26,11 @@
 	<link rel="stylesheet" href="./node_modules/tui-date-picker/dist/tui-date-picker.css">
 	<script src="./node_modules/tui-date-picker/dist/tui-date-picker.js"></script>
 	
-  <script src="./js/commonFunctions.js"></script>    
-  <script type="text/javascript" src="js/EventAccPieChart.js"></script>
-  <script type="text/javascript" src="js/EventChart.js"></script>
-  <script type="text/javascript" src="js/tabcontent.js"></script>
-  <script type="text/javascript" src="js/popupSetting.js"></script>
+  <script src="/resources/js/commonFunctions.js"></script>    
+  <script type="text/javascript" src="/resources/js/EventAccPieChart.js"></script>
+  <script type="text/javascript" src="/resources/js/EventChart.js"></script>
+  <script type="text/javascript" src="/resources/js/tabcontent.js"></script>
+  <script type="text/javascript" src="/resources/js/popupSetting.js"></script>
   <script type="text/javascript" src="dashboard_config.json"></script> 
   <script>	    
 
@@ -579,7 +579,6 @@
  <body>
 	<!-- 전체 wrap.S -->
 	<div class="wrap"  id="indexWrap">  
-		<jsp:include page="/WEB-INF/views/main/Setting.jsp"/>
 
 		<!-- 헤더.S -->
 		<header id="header"> 

@@ -31,7 +31,6 @@
  <body>
 	<!-- 전체 wrap.S -->
 	<div class="wrap"  id="indexWrap">  
-		<jsp:include page="/WEB-INF/views/main/Setting.jsp"/>
 
 		<!-- 헤더.S -->
 		<header id="header"> 
