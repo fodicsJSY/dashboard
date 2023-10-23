@@ -8,6 +8,10 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Ai VinUS DASHBOARD</title>
+
+
+
+	<!--<link rel="stylesheet" href="/resources/css/popup.css">-->
 </head>
 <body>
 	
@@ -19,13 +23,13 @@
 	<div class="divpop-content" >
 		<div class="pu-tabBox">
 			<div class="pu-tabTitle">
-				<img src="img/admin/icon_setting.png">
+				<img src="/resources/img/admin/icon_setting.png">
 			</div>
 			<div class="pop-btnWin">
 				<!--<a class="rollover" alt="창내림" ><img src="img/admin/btn_POPwinMini.png"> <img src="img/admin/btn_POPwinMini_hover.png" class="over"></a>-->
 				<a class="rollover" alt="창닫기" onclick="closePopup();">
-					<img src="img/admin/btn_POPwinClose.png"> 
-					<img src="img/admin/btn_POPwinClose_hover.png" class="over">
+					<img src="/resources/img/admin/btn_POPwinClose.png"> 
+					<img src="/resources/img/admin/btn_POPwinClose_hover.png" class="over">
 				</a>
 			</div>
 			<ul class="pop-tabs" data-persist="true">
@@ -65,16 +69,16 @@
 				<!--  테이블 영역 샘플.e -->
 				<div class="pop-btnBox">
 					<a class="rollover" alt="사용자 추가" onclick="openAddUserView();">
-						<img src="img/admin/btn_user.png"> 
-						<img src="img/admin/btn_user_hover.png" class="over">
+						<img src="/resources/img/admin/btn_user.png"> 
+						<img src="/resources/img/admin/btn_user_hover.png" class="over">
 					</a>
 					<a class="rollover" alt="수정" onclick="editUserInfo();">
-						<img src="img/admin/btn_popEdit.png"> 
-						<img src="img/admin/btn_popEdit_hover.png" class="over">
+						<img src="/resources/img/admin/btn_popEdit.png"> 
+						<img src="/resources/img/admin/btn_popEdit_hover.png" class="over">
 					</a>
 					<a class="rollover" alt="사용자 삭제" onclick="deleteUser();">
-						<img src="img/admin/btn_userDel.png"> 
-						<img src="img/admin/btn_userDel_hover.png" class="over">
+						<img src="/resources/img/admin/btn_userDel.png"> 
+						<img src="/resources/img/admin/btn_userDel_hover.png" class="over">
 					</a>
 				</div>
 			</div>
@@ -109,12 +113,12 @@
 			</div>
 			<div class="pop-btnBox">
 				<a class="rollover" alt="저장" id="addUserInfo" onclick="addUserInfo();">
-					<img src="img/admin/btn_save.png"> 
-					<img src="img/admin/btn_save_hover.png" class="over">
+					<img src="/resources/img/admin/btn_save.png"> 
+					<img src="/resources/img/admin/btn_save_hover.png" class="over">
 				</a>
 				<a class="rollover" alt="취소" onclick="closePopup();">
-					<img src="img/admin/btn_cancel.png"> 
-					<img src="img/admin/btn_cancel_hover.png" class="over">
+					<img src="/resources/img/admin/btn_cancel.png"> 
+					<img src="/resources/img/admin/btn_cancel_hover.png" class="over">
 				</a>
 			</div>
 		</div>
@@ -143,28 +147,28 @@
 								<input name="splitWindow" id="radio" type="radio" class="btnRadio" checked="true">
 								<label>2분할</label>
 							</div>
-							<img style="margin-bottom: 20px;" src ="./img/set_monitorDiv2.png"></img>
+							<img style="margin-bottom: 20px;" src ="/resources/img/set_monitorDiv2.png"></img>
 						</div>
 						<div class="imgRow">
 							<div class="imgRowRadio">
 								<input name="splitWindow" id="radio" type="radio" class="btnRadio">
 								<label>4분할</label>
 							</div>
-							<img style="margin-bottom: 20px;" src ="./img/set_monitorDiv4.png"></img>
+							<img style="margin-bottom: 20px;" src ="/resources/img/set_monitorDiv4.png"></img>
 						</div>
 						<div class="imgRow">
 							<div class="imgRowRadio">
 								<input name="splitWindow" id="radio" type="radio" class="btnRadio">
 								<label>6분할</label>
 							</div>
-							<img style="margin-bottom: 20px;" src ="./img/set_monitorDiv6.png"></img>
+							<img style="margin-bottom: 20px;" src ="/resources/img/set_monitorDiv6.png"></img>
 						</div>
 						<div class="imgRow">
 							<div class="imgRowRadio">
 								<input name="splitWindow" id="radio" type="radio" class="btnRadio">
 								<label>8분할</label>
 							</div>
-							<img style="margin-bottom: 20px;" src ="./img/set_monitorDiv8.png"></img>
+							<img style="margin-bottom: 20px;" src ="/resources/img/set_monitorDiv8.png"></img>
 						</div>
 					</dd>
 				</div>
@@ -207,12 +211,12 @@
 			-->
 			<div class="pop-btnBox">
 				<a class="rollover" alt="저장" id="addUserInfo" onclick="saveConfigInfo();">
-					<img src="img/admin/btn_save.png"> 
-					<img src="img/admin/btn_save_hover.png" class="over"
+					<img src="/resources/img/admin/btn_save.png"> 
+					<img src="/resources/img/admin/btn_save_hover.png" class="over"
 				></a>
 				<a class="rollover" alt="취소" onclick="closePopup();">
-					<img src="img/admin/btn_cancel.png"> 
-					<img src="img/admin/btn_cancel_hover.png" class="over">
+					<img src="/resources/img/admin/btn_cancel.png"> 
+					<img src="/resources/img/admin/btn_cancel_hover.png" class="over">
 				</a>
 			</div>
 		</div>
@@ -229,16 +233,16 @@
 							<h3>카메라 그룹</h3>
 							<div class="groupAdd">
 								<a class="rollover" alt="추가" onclick="addGroup();" >
-									<img src="img/admin/btn_folderAdd.png"> 
-									<img src="img/admin/btn_folderAdd_hover.png" class="over">
+									<img src="/resources/img/admin/btn_folderAdd.png"> 
+									<img src="/resources/img/admin/btn_folderAdd_hover.png" class="over">
 								</a>
 								<a class="rollover" alt="삭제" onclick="deleteGroup();">
-									<img src="img/admin/btn_folderDel.png"> 
-									<img src="img/admin/btn_folderDel_hover.png" class="over">
+									<img src="/resources/img/admin/btn_folderDel.png"> 
+									<img src="/resources/img/admin/btn_folderDel_hover.png" class="over">
 								</a>
 								<a class="rollover" alt="수정" onclick="deleteGroup();">
-									<img src="img/admin/btn_folderDel.png"> 
-									<img src="img/admin/btn_folderDel_hover.png" class="over">
+									<img src="/resources/img/admin/btn_folderDel.png"> 
+									<img src="/resources/img/admin/btn_folderDel_hover.png" class="over">
 								</a>
 							</div>
 						</div>
@@ -287,12 +291,12 @@
 			</div>
 			<div class="pop-btnBox">
 				<a class="rollover" alt="저장" onclick="saveGroupSetting();">
-					<img src="img/admin/btn_save.png"> 
-					<img src="img/admin/btn_save_hover.png" class="over">
+					<img src="/resources/img/admin/btn_save.png"> 
+					<img src="/resources/img/admin/btn_save_hover.png" class="over">
 				</a>
 				<a class="rollover" alt="취소" onclick="closePopup();">
-					<img src="img/admin/btn_cancel.png"> 
-					<img src="img/admin/btn_cancel_hover.png" class="over">
+					<img src="/resources/img/admin/btn_cancel.png"> 
+					<img src="/resources/img/admin/btn_cancel_hover.png" class="over">
 				</a>
 			</div>
 		</div>
@@ -302,7 +306,7 @@
 
 </div> 
 
-
+<script src="../../../resources/js/popupSetting.js"></script>
 </body>
 </html>
 

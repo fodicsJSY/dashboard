@@ -46,7 +46,6 @@
     <!-- 전체 wrap.S -->
 	<div class="wrap" id="indexWrap">  
 		<div file="Setting">
-      <jsp:include page="/WEB-INF/views/main/Setting.jsp"/>
     </div>
 		
 		<!-- 헤더.S -->

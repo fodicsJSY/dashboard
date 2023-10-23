@@ -20,7 +20,11 @@ public class MainController {
 	}
 	
 
-	
+	// 설정페이지 이동
+	@GetMapping("/setting")
+	public String settingForward() {
+		return "/main/setting";
+	}
 	
 	
 	//sub_object로 이동
