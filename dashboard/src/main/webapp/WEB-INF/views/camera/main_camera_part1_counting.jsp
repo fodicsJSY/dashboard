@@ -10,6 +10,17 @@
   <title>Ai VinUS DASHBOARD</title>
 
 
+    <!-- toust UI 시작 -->
+	<link rel="stylesheet" href="./node_modules/tui-chart/dist/toastui-chart.css">
+	<script src="./node_modules/tui-chart/dist/toastui-chart.js"></script>
+	<link rel="stylesheet" href="./node_modules/tui-grid/dist/tui-grid.css" />
+	<script src="./node_modules/tui-grid/dist/tui-grid.js"></script>    
+	<link rel="stylesheet" href="./node_modules/tui-date-picker/dist/tui-date-picker.css">
+	<script src="./node_modules/tui-date-picker/dist/tui-date-picker.js"></script>
+	<!-- toust UI 끝 -->
+
+	<script src="./node_modules/jquery/3.6.0/jquery.min.js"></script>
+
   <!-- css -->
   <link rel="stylesheet" href="/resources/css/popup.css">
   <link rel="stylesheet" href="/resources/css/style.css">
@@ -22,9 +33,7 @@
   <link rel="stylesheet" href="/resources/css/style_small_grid.css" />   
   
   
-  <link rel="stylesheet" href="./node_modules/tui-chart/dist/toastui-chart.css">
-  <link rel="stylesheet" href="./node_modules/tui-grid/dist/tui-grid.css" />
-  <link rel="stylesheet" href="./node_modules/tui-date-picker/dist/tui-date-picker.css">
+
   
  </head>
 
@@ -173,11 +182,6 @@
 
 
 	<!-- js -->
-  <script src="./node_modules/jquery/3.6.0/jquery.min.js"></script>
-  <script src="./node_modules/tui-chart/dist/toastui-chart.js"></script>
-  <script src="./node_modules/tui-grid/dist/tui-grid.js"></script>      	
-  <script src="./node_modules/tui-date-picker/dist/tui-date-picker.js"></script>
-  
   <script src="/resources/js/commonFunctions.js"></script>   
   <script src="/resources/js/EventAccPieChart.js"></script>
   <script src="/resources/js/EventChart.js"></script>

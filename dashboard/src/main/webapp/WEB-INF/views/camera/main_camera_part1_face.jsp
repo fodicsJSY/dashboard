@@ -7,6 +7,21 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ai VinUS DASHBOARD</title>
+
+
+     <!-- toust UI 시작 -->
+	<link rel="stylesheet" href="./node_modules/tui-chart/dist/toastui-chart.css">
+	<script src="./node_modules/tui-chart/dist/toastui-chart.js"></script>
+	<link rel="stylesheet" href="./node_modules/tui-grid/dist/tui-grid.css" />
+	<script src="./node_modules/tui-grid/dist/tui-grid.js"></script>    
+	<link rel="stylesheet" href="./node_modules/tui-date-picker/dist/tui-date-picker.css">
+	<script src="./node_modules/tui-date-picker/dist/tui-date-picker.js"></script>
+	<!-- toust UI 끝 -->
+
+	
+	<script src="./node_modules/jquery/3.6.0/jquery.min.js"></script>
+
+	<!-- css -->
   <link rel="stylesheet" href="/resources/css/popup.css">
   <link rel="stylesheet" href="/resources/css/style.css">
   <link rel="stylesheet" href="/resources/css/camera.css">
@@ -17,16 +32,188 @@
   
  
   <link rel="stylesheet" href="/resources/css/style_graph.css" />   
-  <script src="./node_modules/jquery/3.6.0/jquery.min.js"></script>
 
-	<link rel="stylesheet" href="./node_modules/tui-chart/dist/toastui-chart.css">
-	<script src="./node_modules/tui-chart/dist/toastui-chart.js"></script>
-	<link rel="stylesheet" href="./node_modules/tui-grid/dist/tui-grid.css" />
-	<script src="./node_modules/tui-grid/dist/tui-grid.js"></script>      	
-	<link rel="stylesheet" href="./node_modules/tui-date-picker/dist/tui-date-picker.css">
-	<script src="./node_modules/tui-date-picker/dist/tui-date-picker.js"></script>
 	
-  <script src="/resources/js/commonFunctions.js"></script>    
+  
+ </head>
+
+ <body>
+	<!-- 전체 wrap.S -->
+	<div class="wrap"  id="indexWrap">  
+
+		<!-- 헤더.S -->
+		<header id="header"> 
+			<jsp:include page="/WEB-INF/views/common/inc_header.jsp"/>
+		</header>
+		<!-- 헤더.E -->
+
+		<!-- 내용.S -->		
+		<div class="container">
+
+			<!-- side 영역.S -->
+			<div id="side">
+
+				<!-- 좌측 네비.S -->
+				<div class="btn-navi" >
+					<a href="/main">
+						<button type="button" class="btn_object">M A I N</button>
+					</a>
+					<!-- <button type="button" class="btn_evnet" onClick="OnClickEvent();">E V E N T</button> -->
+					<a href="/mainCamera">
+						<button type="button" class="btn_camera_on">C A M E R A</button>
+					</a>
+				</div>
+				<!-- 좌측 네비.E -->
+
+				<!-- 실시간 채널.S -->
+				<jsp:include page="/WEB-INF/views/main/inc_side.jsp"/>
+				<!-- 실시간 채널.E -->
+				
+			</div>
+			<!-- side 영역.E -->
+
+
+			<!-- 우측 메인.S -->
+			<div id="contentsWrap">
+				<!-- 상단 날짜,버튼 영역.S -->
+				<div class="mainTop">
+					<div class=" dateArea">
+
+						<!-- 달력 -->
+						<div id="tui-date-picker-container"></div>
+						<a class="rollover" alt="달력" id="tui-date-picker-main" style="display:none;">
+							<img src="/resources/img/btn-calendar.png"> 
+							<img src="/resources/img/btn-calendar_hover.png" class="over">
+						</a>
+
+						<p class="date" id='mainDate'>2021년 07월 21일</p>
+						<button type="button" class="btn-date" href="#" style="display:none;">◀<!-- <img src="img/btn-calendarLeft.png">--></button>
+						<button type="button" class="btn" href="#" style="display:none;">오늘</button>
+						<button type="button" class="btn-date" href="#" style="display:none;">▶<!-- <img src="img/btn-calendarRight.png">--></button>
+					</div>					
+				</div>
+				<!-- 상단 날짜,버튼 영역.E -->
+
+				<!-- 메인컨텐츠.S -->
+				<div class="contents">
+
+					<!-- 섹션 좌측.S -->
+					<div class="sectionBox2">
+						<div class="innerBox divCameraToday">
+							<div class="contentsTitle">
+								<div class="title">
+									<h4>TODAY</h4>
+								</div>
+							</div>
+							<div class="data">
+								<ul>
+									<li class="today-part1" style="height:85%;">
+										<div class="todayTXT todayFace">
+											<p class="todayIMG"><img src="/resources/img/icon_titleFace.png"></p>
+											<p class="todayTitle color-Face" style="color:#b4a1d8">얼굴</p>
+											<p class="contrast">전일대비 <span id="compare_cnt">0</span></p>
+											<p class="amount" id="total_face_cnt">0</p>
+										</div>
+										<div>
+											<div style = "width:100%;"  id = "count_display_wnd">
+											</div>
+										</div>
+									</li>
+								</ul>
+
+								<div class="todayData" style = "width:26%; height:450px; "> 
+									<div style = "width:100%; height:10%;">
+										<div style = "text-align:left; padding-left: 5%; padding-top: 18px; font-size:16px; " >성별</div>
+										<br />
+										<span style="width: 90%; height: 2px; background:#333333;" >
+									</div>
+									<span style = "padding-left:5%; padding-top:10%; width:80%; height:80%; " id = "sex_pie_wnd">  
+								</div>
+
+								<div class="todayData" style = "width:31%; height:450px; " >
+									<div style = "width:100%; height:10%;">
+										<div style = "text-align:left; padding-left: 5%; padding-top: 18px; font-size:16px; " >악세사리</div>
+										<br />
+										<span style="width: 90%; height: 2px; background:#333333;" >
+									</div>									
+									<span style = "padding-top:7%; width:80%; height:80%; " id = "etc_line_bar_wnd"> 
+								</div>
+								
+								<div class="todayData" style = "width:58%; height:396px; margin-top:20px; float:left;">     
+									<div style = "width:100%; height:10%;">
+										<div style = "text-align:left; padding-left: 3%; padding-top: 18px; font-size:16px; " >연령 분포</div>
+										<br />
+										<span style="width: 95%; height: 2px; background:#333333;" >										
+									</div>
+									<span style = "padding-top:5%; width:95%; height:80%; " id = "age_line_bar_wnd"> 										
+								</div>   
+							</div>
+						</div>
+
+					</div>
+					<!-- 섹션 좌측.E -->
+
+					<!-- 섹션 우측.S -->
+					<div class="sectionBox2">
+						<div class="innerBox divSideAge">
+							<div class="contentsTitle">
+								<div class="title">
+									<h4>연령별 출입자 현황</h4>
+								</div>								
+							</div>
+							<div class="data01">
+								<div class="chart" id="chart_radial_age"></div>   
+							</div>							
+						</div>		
+	
+						<div class="innerBox divSide" style="height:25vh;  min-height:440px;">
+							<div class="contentsTitle">
+								<div class="title">
+									<h4>마스크 착용 비율</h4>
+								</div>
+							</div>
+							<!-- <div class="data">
+								<div id = "event_acc_wnd" style="margin-top: 30px; width:100%; height:350px; "></div>
+							</div> -->
+							<div class="data">								
+								<div class="chart" id="chart_pie_donut" style="margin-left: 30px; margin-top: 0px; float:left;"></div>   								
+								<div class="chart" id="chart_pie_donut2" style="margin-left: -50px; margin-top: 50px"></div>   
+								 <div class="corlorGuide alignL" style="margin-left: 120px; ">
+									<ul>
+										<li><div class="colorBox cBG-Male" ></div> <div class="guideTXT">남자</div></li>
+								
+									</ul>									
+								</div>	
+								
+								<div class="corlorGuide alignL" style="margin-left: 250px; ">
+									<ul>
+										<li><div class="colorBox cBG-Female" ></div> <div class="guideTXT">여자</div></li>
+								
+									</ul>									
+								</div>	
+								
+							</div>
+						</div>	
+					</div>	
+					<!-- 섹션 우측.E -->
+				</div>
+				<!-- 메인컨텐츠.E -->
+				<div id="bottom">
+					<p class="Notice">※ 화면에 표시되는 모든 실시간 데이터는 1분마다 자동으로 업데이트 합니다. 다만 “시간대별 현황” 그래프의 실시간 데이터는 정시에 한 번씩 업데이트 합니다.</p>
+					<div class="madeFodics">포딕스시스템</div>
+				</div>
+			</div>
+			<!-- 우측 메인.E -->
+
+		</div>
+		<!--  내용.E -->
+	</div>
+	<!-- 전체 wrap.E -->
+
+
+
+	<!-- js -->
+	<script src="/resources/js/commonFunctions.js"></script>    
   <script type="text/javascript" src="/resources/js/EventAccPieChart.js"></script>
   <script type="text/javascript" src="/resources/js/EventChart.js"></script>
   <script type="text/javascript" src="/resources/js/tabcontent.js"></script>
@@ -574,179 +761,5 @@
         chart_face_age_graph = chart.areaChart({ el, data, options }); 
         }	  
    </script>
- </head>
-
- <body>
-	<!-- 전체 wrap.S -->
-	<div class="wrap"  id="indexWrap">  
-
-		<!-- 헤더.S -->
-		<header id="header"> 
-			<jsp:include page="/WEB-INF/views/common/inc_header.jsp"/>
-		</header>
-		<!-- 헤더.E -->
-
-		<!-- 내용.S -->		
-		<div class="container">
-
-			<!-- side 영역.S -->
-			<div id="side">
-
-				<!-- 좌측 네비.S -->
-				<div class="btn-navi" >
-					<a href="/main">
-						<button type="button" class="btn_object">M A I N</button>
-					</a>
-					<!-- <button type="button" class="btn_evnet" onClick="OnClickEvent();">E V E N T</button> -->
-					<a href="/mainCamera">
-						<button type="button" class="btn_camera_on">C A M E R A</button>
-					</a>
-				</div>
-				<!-- 좌측 네비.E -->
-
-				<!-- 실시간 채널.S -->
-				<jsp:include page="/WEB-INF/views/main/inc_side.jsp"/>
-				<!-- 실시간 채널.E -->
-				
-			</div>
-			<!-- side 영역.E -->
-
-
-			<!-- 우측 메인.S -->
-			<div id="contentsWrap">
-				<!-- 상단 날짜,버튼 영역.S -->
-				<div class="mainTop">
-					<div class=" dateArea">
-
-						<!-- 달력 -->
-						<div id="tui-date-picker-container"></div>
-						<a class="rollover" alt="달력" id="tui-date-picker-main" style="display:none;">
-							<img src="/resources/img/btn-calendar.png"> 
-							<img src="/resources/img/btn-calendar_hover.png" class="over">
-						</a>
-
-						<p class="date" id='mainDate'>2021년 07월 21일</p>
-						<button type="button" class="btn-date" href="#" style="display:none;">◀<!-- <img src="img/btn-calendarLeft.png">--></button>
-						<button type="button" class="btn" href="#" style="display:none;">오늘</button>
-						<button type="button" class="btn-date" href="#" style="display:none;">▶<!-- <img src="img/btn-calendarRight.png">--></button>
-					</div>					
-				</div>
-				<!-- 상단 날짜,버튼 영역.E -->
-
-				<!-- 메인컨텐츠.S -->
-				<div class="contents">
-
-					<!-- 섹션 좌측.S -->
-					<div class="sectionBox2">
-						<div class="innerBox divCameraToday">
-							<div class="contentsTitle">
-								<div class="title">
-									<h4>TODAY</h4>
-								</div>
-							</div>
-							<div class="data">
-								<ul>
-									<li class="today-part1" style="height:85%;">
-										<div class="todayTXT todayFace">
-											<p class="todayIMG"><img src="/resources/img/icon_titleFace.png"></p>
-											<p class="todayTitle color-Face" style="color:#b4a1d8">얼굴</p>
-											<p class="contrast">전일대비 <span id="compare_cnt">0</span></p>
-											<p class="amount" id="total_face_cnt">0</p>
-										</div>
-										<div>
-											<div style = "width:100%;"  id = "count_display_wnd">
-											</div>
-										</div>
-									</li>
-								</ul>
-
-								<div class="todayData" style = "width:26%; height:450px; "> 
-									<div style = "width:100%; height:10%;">
-										<div style = "text-align:left; padding-left: 5%; padding-top: 18px; font-size:16px; " >성별</div>
-										<br />
-										<span style="width: 90%; height: 2px; background:#333333;" >
-									</div>
-									<span style = "padding-left:5%; padding-top:10%; width:80%; height:80%; " id = "sex_pie_wnd">  
-								</div>
-
-								<div class="todayData" style = "width:31%; height:450px; " >
-									<div style = "width:100%; height:10%;">
-										<div style = "text-align:left; padding-left: 5%; padding-top: 18px; font-size:16px; " >악세사리</div>
-										<br />
-										<span style="width: 90%; height: 2px; background:#333333;" >
-									</div>									
-									<span style = "padding-top:7%; width:80%; height:80%; " id = "etc_line_bar_wnd"> 
-								</div>
-								
-								<div class="todayData" style = "width:58%; height:396px; margin-top:20px; float:left;">     
-									<div style = "width:100%; height:10%;">
-										<div style = "text-align:left; padding-left: 3%; padding-top: 18px; font-size:16px; " >연령 분포</div>
-										<br />
-										<span style="width: 95%; height: 2px; background:#333333;" >										
-									</div>
-									<span style = "padding-top:5%; width:95%; height:80%; " id = "age_line_bar_wnd"> 										
-								</div>   
-							</div>
-						</div>
-
-					</div>
-					<!-- 섹션 좌측.E -->
-
-					<!-- 섹션 우측.S -->
-					<div class="sectionBox2">
-						<div class="innerBox divSideAge">
-							<div class="contentsTitle">
-								<div class="title">
-									<h4>연령별 출입자 현황</h4>
-								</div>								
-							</div>
-							<div class="data01">
-								<div class="chart" id="chart_radial_age"></div>   
-							</div>							
-						</div>		
-	
-						<div class="innerBox divSide" style="height:25vh;  min-height:440px;">
-							<div class="contentsTitle">
-								<div class="title">
-									<h4>마스크 착용 비율</h4>
-								</div>
-							</div>
-							<!-- <div class="data">
-								<div id = "event_acc_wnd" style="margin-top: 30px; width:100%; height:350px; "></div>
-							</div> -->
-							<div class="data">								
-								<div class="chart" id="chart_pie_donut" style="margin-left: 30px; margin-top: 0px; float:left;"></div>   								
-								<div class="chart" id="chart_pie_donut2" style="margin-left: -50px; margin-top: 50px"></div>   
-								 <div class="corlorGuide alignL" style="margin-left: 120px; ">
-									<ul>
-										<li><div class="colorBox cBG-Male" ></div> <div class="guideTXT">남자</div></li>
-								
-									</ul>									
-								</div>	
-								
-								<div class="corlorGuide alignL" style="margin-left: 250px; ">
-									<ul>
-										<li><div class="colorBox cBG-Female" ></div> <div class="guideTXT">여자</div></li>
-								
-									</ul>									
-								</div>	
-								
-							</div>
-						</div>	
-					</div>	
-					<!-- 섹션 우측.E -->
-				</div>
-				<!-- 메인컨텐츠.E -->
-				<div id="bottom">
-					<p class="Notice">※ 화면에 표시되는 모든 실시간 데이터는 1분마다 자동으로 업데이트 합니다. 다만 “시간대별 현황” 그래프의 실시간 데이터는 정시에 한 번씩 업데이트 합니다.</p>
-					<div class="madeFodics">포딕스시스템</div>
-				</div>
-			</div>
-			<!-- 우측 메인.E -->
-
-		</div>
-		<!--  내용.E -->
-	</div>
-	<!-- 전체 wrap.E -->
  </body>
 </html>

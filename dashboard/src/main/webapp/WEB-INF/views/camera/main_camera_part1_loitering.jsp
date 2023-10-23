@@ -8,6 +8,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ai VinUS DASHBOARD</title>
 
+
+    <!-- toust UI 시작 -->
+	<link rel="stylesheet" href="./node_modules/tui-chart/dist/toastui-chart.css">
+	<script src="./node_modules/tui-chart/dist/toastui-chart.js"></script>
+	<link rel="stylesheet" href="./node_modules/tui-grid/dist/tui-grid.css" />
+	<script src="./node_modules/tui-grid/dist/tui-grid.js"></script>    
+	<link rel="stylesheet" href="./node_modules/tui-date-picker/dist/tui-date-picker.css">
+	<script src="./node_modules/tui-date-picker/dist/tui-date-picker.js"></script>
+	<!-- toust UI 끝 -->
+  
+	<script src="./node_modules/jquery/3.6.0/jquery.min.js"></script>
+
 	<!-- css -->
   <link rel="stylesheet" href="/resources/css/popup.css">
   <link rel="stylesheet" href="/resources/css/style.css">
@@ -15,22 +27,10 @@
   <link rel="stylesheet" href="/resources/font/nanumsquare.css">
   <link rel="shortcut icon" href="/resources/img/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="/resources/css/style_scrollBar.css"/>  
-  <link rel="stylesheet" href="./node_modules/tui-chart/dist/toastui-chart.css">
-  <link rel="stylesheet" href="./node_modules/tui-grid/dist/tui-grid.css" />
-  <link rel="stylesheet" href="./node_modules/tui-date-picker/dist/tui-date-picker.css">
   <link rel="stylesheet" href="/resources/css/style_grid.css">
   <link rel="stylesheet" href="/resources/css/style_graph.css" />   
   
-  <script src="./node_modules/jquery/3.6.0/jquery.min.js"></script>
-  <script src="./node_modules/tui-chart/dist/toastui-chart.js"></script>
-  <script src="./node_modules/tui-grid/dist/tui-grid.js"></script>      	
-  <script src="./node_modules/tui-date-picker/dist/tui-date-picker.js"></script>
-  <script src="/resources/js/commonFunctions.js"></script>    
-  <script src="/resources/js/EventAccPieChart.js"></script>
-  <script src="/resources/js/EventChart.js"></script>
-  <script src="/resources/js/tabcontent.js"></script>
-  <script src="/resources/js/popupSetting.js"></script>
-  <script src="/resources/dashboard_config.json"></script> 
+
  
  </head>
 
@@ -187,6 +187,15 @@
 		<!--  내용.E -->
 	</div>
 	<!-- 전체 wrap.E -->
+
+
+	<!-- js -->
+	<script src="/resources/js/commonFunctions.js"></script>    
+	<script src="/resources/js/EventAccPieChart.js"></script>
+	<script src="/resources/js/EventChart.js"></script>
+	<script src="/resources/js/tabcontent.js"></script>
+	<script src="/resources/js/popupSetting.js"></script>
+	<script src="/resources/dashboard_config.json"></script> 
 
 	<script>
 		const chart = toastui.Chart;

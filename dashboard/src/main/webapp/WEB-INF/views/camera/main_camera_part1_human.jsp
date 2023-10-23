@@ -9,6 +9,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ai VinUS DASHBOARD</title>
 
+    <!-- toust UI 시작 -->
+	<link rel="stylesheet" href="./node_modules/tui-chart/dist/toastui-chart.css">
+	<script src="./node_modules/tui-chart/dist/toastui-chart.js"></script>
+	<link rel="stylesheet" href="./node_modules/tui-grid/dist/tui-grid.css" />
+	<script src="./node_modules/tui-grid/dist/tui-grid.js"></script>    
+	<link rel="stylesheet" href="./node_modules/tui-date-picker/dist/tui-date-picker.css">
+	<script src="./node_modules/tui-date-picker/dist/tui-date-picker.js"></script>
+	<!-- toust UI 끝 -->
+  
+	<script src=  "./node_modules/tui-etc/Fabric/fabric.min.js"></script>
+	<script src="./node_modules/jquery/3.6.0/jquery.min.js"></script>
+
   <!-- css -->
   <link rel="stylesheet" href="/resources/css/popup.css">
   <link rel="stylesheet" href="/resources/css/style.css">
@@ -18,9 +30,6 @@
   <link rel="shortcut icon" href="/resources/img/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="/resources/css/style_scrollBar.css"/>  
   <link rel="stylesheet" href="/resources/css/style_graph.css" />
-  <link rel="stylesheet" href="./node_modules/tui-chart/dist/toastui-chart.css">
-  <link rel="stylesheet" href="./node_modules/tui-grid/dist/tui-grid.css" />
-  <link rel="stylesheet" href="./node_modules/tui-date-picker/dist/tui-date-picker.css">
 
 
  </head>
@@ -224,20 +233,17 @@
 
 
 	
-	<script src="./node_modules/jquery/3.6.0/jquery.min.js"></script>
+	
 
-	<script src="./node_modules/tui-chart/dist/toastui-chart.js"></script>
-	<script src="./node_modules/tui-grid/dist/tui-grid.js"></script>      	
-	<script src="./node_modules/tui-date-picker/dist/tui-date-picker.js"></script>
 		
+	<!-- js -->
 	<script src="/resources/js/commonFunctions.js"></script> 
 	<script type="text/javascript" src="/resources/js/EventAccPieChart.js"></script>
 	<script type="text/javascript" src="/resources/js/EventChart.js"></script>
 	<script type="text/javascript" src="/resources/js/tabcontent.js"></script>
 	<script type="text/javascript" src="/resources/js/popupSetting.js"></script>
 	<script type="text/javascript" src="dashboard_config.json"></script> 
-  
-	<script src=  "./node_modules/tui-etc/Fabric/fabric.min.js"></script>
+
   
 	<script>	    
 		  const chart = toastui.Chart;
