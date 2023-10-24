@@ -1,3 +1,8 @@
+.title *{
+    float: left;
+}
+
+
 #count_human_display_wnd{
     max-height: 700px;
     overflow-y: scroll;
@@ -24,13 +29,16 @@ tr *{
 
 }
 
+
 .contentsTitle{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
     align-items: center;
 }
 
+.chartTitle{
+    justify-content: space-around;
+}
 
 .genderMaskChart{
     display: flex;

@@ -281,7 +281,7 @@
 					<!-- 섹션 우측.S -->
 					<div class="sectionBox2">
 						<div class="innerBox divSideAge" style="height:25vh;  min-height:450px;">
-							<div class="contentsTitle">
+							<div class="contentsTitle chartTitle">
 								<div class="title">
 									<h4>연령별 출입자 현황</h4>
 								</div>								
