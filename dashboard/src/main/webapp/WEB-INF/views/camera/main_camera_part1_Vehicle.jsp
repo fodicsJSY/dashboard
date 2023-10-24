@@ -22,6 +22,7 @@
 	<script src="./node_modules/jquery/3.6.0/jquery.min.js"></script>
 
 	<!-- css -->
+  <link rel="stylesheet" href="/resources/css/camera/main_camera_part1_Vehicle.css">
   <link rel="stylesheet" href="/resources/css/popup.css">
   <link rel="stylesheet" href="/resources/css/style.css">
   <link rel="stylesheet" href="/resources/css/camera.css">
@@ -93,7 +94,7 @@
 				<div class="contents">
 
 					<!-- 섹션 좌측.S -->
-					<div class="sectionBox" style="height:950px;";>		
+					<div class="sectionBox" style="width: 1050px; height:920px;">		
 						<div class="innerBox divCameraToday">
 							<div class="contentsTitle">
 								<div class="title">
@@ -112,29 +113,137 @@
 										</div>
 										<div>
 											<div style = "width:100%;"  id = "count_vehicle_display_wnd">
+												<table class="vehicleCount">
+													<tr>
+														<td style="vertical-align: middle;">신촌사거리</td>
+														<td>164</td>
+													</tr>
+													<tr>
+														<td>가정오거리</td>
+														<td>164</td>
+													</tr>
+													<tr>
+														<td>장수사거리</td>
+														<td>164</td>
+													</tr>
+													<tr>
+														<td>연수사거리</td>
+														<td>164</td>
+													</tr>
+													<tr>
+														<td>남동IC</td>
+														<td>164</td>
+													</tr>
+													<tr>
+														<td>숭의로타리</td>
+														<td>164</td>
+													</tr>
+													<tr>
+														<td>간석사거리</td>
+														<td>164</td>
+													</tr>
+													<tr>
+														<td>학익사거리</td>
+														<td>164</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>164</td>
+													</tr>
+													<tr>
+														<td>남동공단입구사거리</td>
+														<td>164</td>
+													</tr>
+													<tr>
+														<td>작전역 사거리</td>
+														<td>164</td>
+													</tr>
+													<tr>
+														<td>부평IC</td>
+														<td>164</td>
+													</tr>
+													<tr>
+														<td>길병원사거리</td>
+														<td>164</td>
+													</tr>
+													<tr>
+														<td>매뜰사거리</td>
+														<td>164</td>
+													</tr>
+													<tr>
+														<td>부평사거리</td>
+														<td>164</td>
+													</tr>
+													<tr>
+														<td>부평사거리</td>
+														<td>164</td>
+													</tr>
+													<tr>
+														<td>부평사거리</td>
+														<td>164</td>
+													</tr>
+													<tr>
+														<td>부평사거리</td>
+														<td>164</td>
+													</tr>
+													<tr>
+														<td>부평사거리</td>
+														<td>164</td>
+													</tr>
+													<tr>
+														<td>부평사거리</td>
+														<td>164</td>
+													</tr>
+													<tr>
+														<td>부평사거리</td>
+														<td>164</td>
+													</tr>
+													<tr>
+														<td>부평사거리</td>
+														<td>164</td>
+													</tr>
+													<tr>
+														<td>부평사거리</td>
+														<td>164</td>
+													</tr>
+													
+												</table>
 											</div>
 										</div>
 									</li>
-
 								</ul>
+								<div class="dounut" style="display: flex; flex-direction: column; ">
+									<div class="todayData" style = "width:600px; height:400px; margin: 0 0 15px 15px;" >
+										<div style = "width:100%; height:10%;">
+											<div style = "text-align:left; padding-left: 3%; padding-top: 18px; font-size:16px; " >차량 종류별 검지 건(수)</div>
+											<br/>
+											<span style="width: 95%; height: 2px; background:#333333;">
+											</div>
+										<div style = "width:85%; height:85%; margin: 20px 0 0 40px; " >  
+											<div id = "car_pie_chart" style="width: 100%; height: 100%;">
 
-								<div class="todayData" style = "width:58%; height:425px; " >
-									<div style = "width:100%; height:10%;">
-										<div style = "text-align:left; padding-left: 3%; padding-top: 18px; font-size:16px; " >차량 종류별 검지 건(수)</div>
-										<br />
-										<span style="width: 95%; height: 2px; background:#333333;" >
+											</div>
+										</div>
+									</div>         
+									
+									
+								
+
+
+									
+									<div class="todayData" style ="width:58%; height:400px; " >
+										<div style = "width:100%; height:10%;">
+											<div style = "text-align:left; padding-left: 3%; padding-top: 18px; font-size:16px; " >이륜차 종류별 검지 건(수)</div>
+											<br />
+											<span style="width: 95%; height: 2px; background:#333333;" >
+										</div>									
+										<div style = "width:75%; height:75%;" > 
+											<div id = "cycle_pie_chart" style="width: 100%; height: 100%; margin: 40px 20px 30px 40px ; border: 1px solid white;">
+
+											</div>
+										</div>
 									</div>
-									<span style = "padding-left:12%; padding-top:7%; width:75%; height:75%; " id = "car_pie_chart">  
-								</div>                                
-								<div class="todayData" style = "width:50%; height:15px; border:rgba(30,30,30)" ></div> 
-                                
-								<div class="todayData" style ="width:58%; height:425px; " >
-									<div style = "width:100%; height:10%;">
-										<div style = "text-align:left; padding-left: 3%; padding-top: 18px; font-size:16px; " >이륜차 종류별 검지 건(수)</div>
-										<br />
-										<span style="width: 95%; height: 2px; background:#333333;" >
-									</div>									
-									<span style = "padding-left:12%; padding-top:7%; width:75%; height:75%; " id = "cycle_pie_chart"> 
+									
 								</div>
 							</div>
 						</div>
@@ -143,40 +252,62 @@
 					<!-- 섹션 좌측.E -->
 
 					<!-- 섹션 우측.S -->
-					<div class="sectionBox">
-						<div class="innerBox divEventAge">
-							<div class="contentsTitle">
+					<div class="sectionBox2">
+						<div class="innerBox divSideAge" style="height:25vh;  min-height:450px;">
+							<div class="contentsTitle chartTitle">
 								<div class="title">
-									<h4>연령별 출입자 현황&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</h4>
-								</div>
+									<h4>연령별 출입자 현황</h4>
+								</div>								
 								<div class="title">
 									<h4>마스크 착용 비율</h4>
+								</div>								
+							</div>
+							<div class="chart01">
+								<div>
+									<!-- 연령별 출입자 현황 도넛그래프 영역 -->
+									<div class="chart" id="chart_radial_age" style="width: 250px; height: 350px; margin: 0 0 0 5%; padding: 0 0 10% 0; ">
+										<div id="chart_radial_age" style="width: 100%; height: 100%;" ></div>
+									</div>   
 								</div>
-							</div>
-							<div class="data01">
-								<div class="chart" id="chart_radial_age"></div>   
-							</div>
+								<div class="genderMaskChart" >
+									<div class="chart" style="width: 250px; height: 180px; ">
+										<!-- 남성 마스크 착용 비율 게이지 차트 -->
+										<div id="chart_pie_donut" style="width: 100%; height: 100%;"></div>
+									</div>   								
+									<div class="chart"  style="width: 250px; height: 180px;">
+										<!-- 여성 마스크 착용 비율 게이지 차트 -->
+										<div id="chart_pie_donut2" style="width: 100%; height: 100%;"></div>
+									</div> 
+									<div class="corlorGuide alignL">
+										<div class="corlorGuide_male">
+											<div class="colorBox cBG-Male" ></div> 
+											<div class="guideTXT">남자</div>
+										</div>
+										<div class="corlorGuide_female">
+											<div class="colorBox cBG-Female" ></div> 
+											<div class="guideTXT">여자</div>
+										</div>
+									</div>	
+								</div>
 
-							<div class="data02">								
-								<div class="chart" id="chart_pie_donut" style="margin-top: 0px"></div>   								
-								<div class="chart" id="chart_pie_donut2" style="margin-top: -10px"></div>   
-								<div class="corlorGuide alignL" style="margin-left: 80px; ">
-									<ul>
-										<li><div class="colorBox cBG-Male" ></div> <div class="guideTXT">남자</div></li>
-										<li><div class="colorBox cBG-Female" ></div> <div class="guideTXT">여자</div></li>
-									</ul>
-								</div>		
-							</div>
+							</div>							
 						</div>		
 	
-						<div class="innerBox divEvent">
-							<div class="contentsTitle">
-								<div class="title">
-									<h4>이벤트 발생 비율</h4>
+						<div class="innerBox divSide" style="height:25vh;  min-height:450px;">
+							
+							<div class="data">								
+								<div class="contentsTitle">
+									<div class="title">
+										<h4>이벤트 발생 비율</h4>
+									</div>
 								</div>
-							</div>
-							<div class="data">
-								<div id = "event_acc_wnd" style="margin-top: 30px; width:100%; height:392px; "></div>
+								<div class="data">
+									<!--<div id = "event_acc_wnd" style="margin-top: 30px; width:100%; height:350px; "></div>-->
+									<div id = "event_acc_wnd" style="margin-top: 30px; width:100%; height:350px; ">
+										<!-- 이벤트 발생 비율 도넛 차트 -->
+									</div>
+								</div>
+								
 							</div>
 						</div>	
 					</div>	
@@ -197,7 +328,13 @@
 
 
 
+	<!-- echarts -->
+	<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+		
+
 	<!-- js -->	
+	<script src="/resources/js/camera/main_camera_part1_Vehicle.js"></script>   
+
 	<script src="/resources/js/commonFunctions.js"></script>   
 	<script  src="/resources/js/EventAccPieChart.js"></script>
 	<script  src="/resources/data/dailyCountByVechicle.js"></script>  
@@ -206,6 +343,7 @@
 	<script  src="/resources/js/popupSetting.js"></script>
 	<script  src="dashboard_config.json"></script> 
   
+	<!--
 	<script>	    
 		  const chart = toastui.Chart;
 		  var DataGridObj = [];
@@ -591,5 +729,6 @@
 			  cycle_chart = chart.pieChart({ el, data, options }); 
 		  } 
 	 </script>
+	 -->
  </body>
 </html>
