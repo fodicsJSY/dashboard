@@ -292,7 +292,7 @@
 							<div class="chart01" >
 								<div>
 									<!-- 연령별 출입자 현황 도넛그래프 영역 -->
-									<div class="chart" id="chart_radial_age" style="width: 250px; height: 350px; margin: 0 0 0 5%; padding: 0 0 10% 0; ">
+									<div class="chart" style="width: 250px; height: 350px; margin: 0 0 0 5%; padding: 0 0 10% 0; ">
 										<div id="chart_radial_age" style="width: 100%; height: 100%;" ></div>
 									</div>   
 								</div>
