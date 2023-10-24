@@ -296,12 +296,12 @@
 										<div id="chart_radial_age" style="width: 100%; height: 100%;" ></div>
 									</div>   
 								</div>
-								<div class="genderMaskChart" >
-									<div class="chart" style="width: 250px; height: 180px; ">
+								<div class="genderMaskChart" style="margin: 15px 0 0 0;">
+									<div class="chart" style="width: 250px; height: 160px; ">
 										<!-- 남성 마스크 착용 비율 게이지 차트 -->
 										<div id="chart_pie_donut" style="width: 100%; height: 100%;"></div>
 									</div>   								
-									<div class="chart"  style="width: 250px; height: 180px;">
+									<div class="chart"  style="width: 250px; height: 160px;">
 										<!-- 여성 마스크 착용 비율 게이지 차트 -->
 										<div id="chart_pie_donut2" style="width: 100%; height: 100%;"></div>
 									</div> 
