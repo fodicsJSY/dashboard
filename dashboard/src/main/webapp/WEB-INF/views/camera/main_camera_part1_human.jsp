@@ -103,168 +103,176 @@
 								</div>
 							</div>
 							<div class="data">
-								<ul>
-									<li class="today-part1" style="height:85%;">
-										<div class="todayTXT todayHuman">
-											<p class="todayIMG"><img src="/resources/img/icon_titleHuman.png"></p>
-											<p class="todayTitle color-Human" style="color:#94e9ec">사람</p>
-											<p class="contrast">전일대비 <span class="lower" id="compare_cnt">0</span></p>
-											<p class="amount" id="total_person_cnt">0</p>
+								<li class="today-part1" style="height:85%;">
+									<div class="todayTXT todayHuman">
+										<p class="todayIMG"><img src="/resources/img/icon_titleHuman.png"></p>
+										<p class="todayTitle color-Human" style="color:#94e9ec">사람</p>
+										<p class="contrast">전일대비 <span class="lower" id="compare_cnt">0</span></p>
+										<p class="amount" id="total_person_cnt">0</p>
 
+									</div>
+									<div>
+										<div style = "width:100%;"  id = "count_human_display_wnd">
+											<table class="humanCount">
+												<tr>
+													<td>신촌사거리</td>
+													<td>164</td>
+												</tr>
+												<tr>
+													<td>가정오거리</td>
+													<td>164</td>
+												</tr>
+												<tr>
+													<td>장수사거리</td>
+													<td>164</td>
+												</tr>
+												<tr>
+													<td>연수사거리</td>
+													<td>164</td>
+												</tr>
+												<tr>
+													<td>남동IC</td>
+													<td>164</td>
+												</tr>
+												<tr>
+													<td>숭의로타리</td>
+													<td>164</td>
+												</tr>
+												<tr>
+													<td>간석사거리</td>
+													<td>164</td>
+												</tr>
+												<tr>
+													<td>학익사거리</td>
+													<td>164</td>
+												</tr>
+												<tr>
+													<td>원당사거리</td>
+													<td>164</td>
+												</tr>
+												<tr>
+													<td>남동공단입구사거리</td>
+													<td>164</td>
+												</tr>
+												<tr>
+													<td>작전역 사거리</td>
+													<td>164</td>
+												</tr>
+												<tr>
+													<td>부평IC</td>
+													<td>164</td>
+												</tr>
+												<tr>
+													<td>길병원사거리</td>
+													<td>164</td>
+												</tr>
+												<tr>
+													<td>매뜰사거리</td>
+													<td>164</td>
+												</tr>
+												<tr>
+													<td>부평사거리</td>
+													<td>164</td>
+												</tr>
+												<tr>
+													<td>부평사거리</td>
+													<td>164</td>
+												</tr>
+												<tr>
+													<td>부평사거리</td>
+													<td>164</td>
+												</tr>
+												<tr>
+													<td>부평사거리</td>
+													<td>164</td>
+												</tr>
+												<tr>
+													<td>부평사거리</td>
+													<td>164</td>
+												</tr>
+												<tr>
+													<td>부평사거리</td>
+													<td>164</td>
+												</tr>
+												<tr>
+													<td>부평사거리</td>
+													<td>164</td>
+												</tr>
+												<tr>
+													<td>부평사거리</td>
+													<td>164</td>
+												</tr>
+												<tr>
+													<td>부평사거리</td>
+													<td>164</td>
+												</tr>
+												
+											</table>
 										</div>
-										<div>
-											<div style = "width:100%;"  id = "count_human_display_wnd">
-												<table class="humanCount">
-													<tr>
-														<td>신촌사거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>가정오거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>장수사거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>연수사거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>남동IC</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>숭의로타리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>간석사거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>학익사거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>남동공단입구사거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>작전역 사거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>부평IC</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>길병원사거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>매뜰사거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>부평사거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>부평사거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>부평사거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>부평사거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>부평사거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>부평사거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>부평사거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>부평사거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>부평사거리</td>
-														<td>164</td>
-													</tr>
-													
-												</table>
+									</div>
+								</li>
+
+								<div>	
+									<div>
+										<div class="todayData" style = "width:26%; height:400px; "> 
+											<div style="width:100%; height:10%;">
+												<div style="text-align:left; padding-left: 5%; padding-top: 18px; font-size:16px; ">성별</div>
+												<br />
+												<span style="width: 90%; height: 2px; background:#333333;">
+											</div>
+											<div style="width:80%; height:80%; margin: 0 0 0 10%; padding: 8% 0 0 0;">
+												<div style="width:100%; height:100%; " id="sex_pie_wnd"></div>
+													<!--<div id = "sex_pie_wnd" style="width: 200px; height: 333px;"> -->
+											</div>
+											
+										</div>
+											
+										<div class="todayData" style="width:31%; height:400px; ">
+											<div style="width:100%; height:10%;">
+												<div style="text-align:left; padding-left: 5%; padding-top: 18px; font-size:16px; ">악세사리</div>
+												<br />
+												<span style="width: 80%; height: 2px; background:#333333;">
+											</div>
+											<div style="width:70%; height:70%; margin: 15% 0 0 15%;">
+												<div style="width:100%; height:100%; " id="etc_line_bar_wnd"></div>
 											</div>
 										</div>
-									</li>
-
-								</ul>
-
-								<div class="todayData" style = "width:26%; height:450px; "> 
-									<div style = "width:100%; height:10%;">
-										<div style = "text-align:left; padding-left: 5%; padding-top: 18px; font-size:16px; " >성별</div>
-										<br />
-										<span style="width: 90%; height: 2px; background:#333333;" >
 									</div>
-									<span style = "padding-left:5%; padding-top:10%; width:80%; height:80%; " id = "sex_pie_wnd">  
-								</div>
 
-								<div class="todayData" style = "width:31%; height:450px; " >
-									<div style = "width:100%; height:10%;">
-										<div style = "text-align:left; padding-left: 5%; padding-top: 18px; font-size:16px; " >악세사리</div>
-										<br />
-										<span style="width: 90%; height: 2px; background:#333333;" >
-									</div>									
-									<span style = "padding-top:7%; width:80%; height:80%; " id = "etc_line_bar_wnd"> 
-								</div>
-								
-								<div class="todayData" style = "width:58%; height:396px; margin-top:20px; float:left;">     
-									<div style = "width:100%; height:10%;">
-										<div style = "text-align:left; padding-left: 3%; padding-top: 18px; font-size:16px; " >의류 선호도</div>
-										<br />
-										<span style="width: 95%; height: 2px; background:#333333;" >
-										<div class="corlorGuide" style = "float:right; margin-top: 5px; margin-right:5px;">
-											<ul>
-												<li><div class="colorBox cBG-Gray"></div> <div class="guideTXT">White, Black, Gray</div></li>
-												<li><div class="colorBox cBG-Female"></div> <div class="guideTXT">Red, Orange, Yellow</div></li>
-												<li><div class="colorBox cBG-Senior"></div> <div class="guideTXT">Green, Blue, Purple</div></li>												
-											</ul>
+
+									<div class="todayData" style = "width:58%; height:396px; margin-top:20px; float:left;">     
+										<div style = "width:100%; height:10%;">
+											<div style = "text-align:left; padding-left: 3%; padding-top: 18px; font-size:16px; " >의류 선호도</div>
+											<br />
+											<span style="width: 95%; height: 2px; background:#333333;" >
+											<div class="corlorGuide" style = "float:right; margin-top: 5px; margin-right:5px;">
+												<ul>
+													<li><div class="colorBox cBG-Gray"></div> <div class="guideTXT">White, Black, Gray</div></li>
+													<li><div class="colorBox cBG-Female"></div> <div class="guideTXT">Red, Orange, Yellow</div></li>
+													<li><div class="colorBox cBG-Senior"></div> <div class="guideTXT">Green, Blue, Purple</div></li>												
+												</ul>
+											</div>
 										</div>
-									</div>
-									<!-- 토스트 Grid 테마 중복으로 인해 CSS Grid 사용 -->
-									<div class="grid-container" style = "padding-left:3%; padding-top:13%; width:98%; height:100px; " id = "cloth_wnd"> 	
-										<div class="grid-item_header"> </div>
-										<div class="grid-item_header"><img src="/resources/img/icon_titleMale.png" style = "margin-top: -5px; margin-left: 60px; float:left;"><div style = "margin-top: 3px; text-align: left;">&nbsp;&nbsp;남자</div></div>
-										<div class="grid-item_header"><img src="/resources/img/icon_titleFemale.png" style = "margin-top: -5px; margin-left: 60px; float:left;"><div style = "margin-top: 3px; text-align: left;">&nbsp;&nbsp;여성</div></div>
-										<div class="grid-item">상의 길이</div>
-										<div class="grid-item" id = "man_top_win"></div>
-										<div class="grid-item" id = "woman_top_win"></div>
-										<div class="grid-item">상의 색 비중</div>
-										<div class="grid-item" id = "man_top_color_rate"></div>
-										<div class="grid-item" id = "woman_top_color_rate"></div>											
-										<div class="grid-item">하의 길이</div>											
-										<div class="grid-item" id = "man_down_win"></div>											
-										<div class="grid-item" id = "woman_down_win"></div>											
-										<div class="grid-item">하의 색 비중</div>											
-										<div class="grid-item" id = "man_down_color_rate"></div>
-										<div class="grid-item" id = "woman_down_color_rate"></div>
-									</div >										
-								</div>  
+										<!-- 토스트 Grid 테마 중복으로 인해 CSS Grid 사용 -->
+										<div class="grid-container" style = "padding-left:3%; padding-top:13%; width:98%; height:100px; " id = "cloth_wnd"> 	
+											<div class="grid-item_header"> </div>
+											<div class="grid-item_header"><img src="/resources/img/icon_titleMale.png" style = "margin-top: -5px; margin-left: 60px; float:left;"><div style = "margin-top: 3px; text-align: left;">&nbsp;&nbsp;남자</div></div>
+											<div class="grid-item_header"><img src="/resources/img/icon_titleFemale.png" style = "margin-top: -5px; margin-left: 60px; float:left;"><div style = "margin-top: 3px; text-align: left;">&nbsp;&nbsp;여성</div></div>
+											<div class="grid-item">상의 길이</div>
+											<div class="grid-item" id = "man_top_win"></div>
+											<div class="grid-item" id = "woman_top_win"></div>
+											<div class="grid-item">상의 색 비중</div>
+											<div class="grid-item" id = "man_top_color_rate"></div>
+											<div class="grid-item" id = "woman_top_color_rate"></div>											
+											<div class="grid-item">하의 길이</div>											
+											<div class="grid-item" id = "man_down_win"></div>											
+											<div class="grid-item" id = "woman_down_win"></div>											
+											<div class="grid-item">하의 색 비중</div>											
+											<div class="grid-item" id = "man_down_color_rate"></div>
+											<div class="grid-item" id = "woman_down_color_rate"></div>
+										</div >										
+									</div>  
+								</div>
 							</div>
 						</div>
 					</div>
@@ -272,42 +280,60 @@
 
 					<!-- 섹션 우측.S -->
 					<div class="sectionBox2">
-						<div class="innerBox divSideAge">
+						<div class="innerBox divSideAge" style="height:25vh;  min-height:450px;">
 							<div class="contentsTitle">
 								<div class="title">
 									<h4>연령별 출입자 현황</h4>
 								</div>								
+								<div class="title">
+									<h4>마스크 착용 비율</h4>
+								</div>								
 							</div>
-							<div class="data01">
-								<div class="chart" id="chart_radial_age"></div>   
+							<div class="chart01" >
+								<div>
+									<!-- 연령별 출입자 현황 도넛그래프 영역 -->
+									<div class="chart" id="chart_radial_age" style="width: 250px; height: 350px; margin: 0 0 0 5%; padding: 0 0 10% 0; ">
+										<div id="chart_radial_age" style="width: 100%; height: 100%;" ></div>
+									</div>   
+								</div>
+								<div class="genderMaskChart" >
+									<div class="chart" style="width: 250px; height: 180px; ">
+										<!-- 남성 마스크 착용 비율 게이지 차트 -->
+										<div id="chart_pie_donut" style="width: 100%; height: 100%;"></div>
+									</div>   								
+									<div class="chart"  style="width: 250px; height: 180px;">
+										<!-- 여성 마스크 착용 비율 게이지 차트 -->
+										<div id="chart_pie_donut2" style="width: 100%; height: 100%;"></div>
+									</div> 
+									<div class="corlorGuide alignL">
+										<div class="corlorGuide_male">
+											<div class="colorBox cBG-Male" ></div> 
+											<div class="guideTXT">남자</div>
+										</div>
+										<div class="corlorGuide_female">
+											<div class="colorBox cBG-Female" ></div> 
+											<div class="guideTXT">여자</div>
+										</div>
+									</div>	
+								</div>
+
 							</div>							
 						</div>		
 	
-						<div class="innerBox divSide" style="height:25vh;  min-height:440px;">
-							<div class="contentsTitle">
-								<div class="title">
-									<h4>마스크 착용 비율</h4>
-								</div>
-							</div>
-							<!-- <div class="data">
-								<div id = "event_acc_wnd" style="margin-top: 30px; width:100%; height:350px; "></div>
-							</div> -->
+						<div class="innerBox divSide" style="height:25vh;  min-height:450px;">
+							
 							<div class="data">								
-								<div class="chart" id="chart_pie_donut" style="margin-left: 30px; margin-top: 0px; float:left;"></div>   								
-								<div class="chart" id="chart_pie_donut2" style="margin-left: -50px; margin-top: 50px"></div>   
-								 <div class="corlorGuide alignL" style="margin-left: 120px; ">
-									<ul>
-										<li><div class="colorBox cBG-Male" ></div> <div class="guideTXT">남자</div></li>
-								
-									</ul>									
-								</div>	
-								
-								<div class="corlorGuide alignL" style="margin-left: 250px; ">
-									<ul>
-										<li><div class="colorBox cBG-Female" ></div> <div class="guideTXT">여자</div></li>
-								
-									</ul>									
-								</div>	
+								<div class="contentsTitle">
+									<div class="title">
+										<h4>이벤트 발생 비율</h4>
+									</div>
+								</div>
+								<div class="data">
+									<!--<div id = "event_acc_wnd" style="margin-top: 30px; width:100%; height:350px; "></div>-->
+									<div id = "event_acc_wnd" style="margin-top: 30px; width:100%; height:350px; ">
+										<!-- 이벤트 발생 비율 도넛 차트 -->
+									</div>
+								</div>
 								
 							</div>
 						</div>	
@@ -331,8 +357,11 @@
 	
 	
 
+	<!-- echarts -->
+	<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
 		
 	<!-- js -->
+	<script src="/resources/js/camera/main_camera_part1_human.js"></script> 
 	<script src="/resources/js/commonFunctions.js"></script> 
 	<script type="text/javascript" src="/resources/js/EventAccPieChart.js"></script>
 	<script type="text/javascript" src="/resources/js/EventChart.js"></script>
@@ -340,7 +369,7 @@
 	<script type="text/javascript" src="/resources/js/popupSetting.js"></script>
 	<script type="text/javascript" src="dashboard_config.json"></script> 
 
-  
+ 
 
 
 	<!--
