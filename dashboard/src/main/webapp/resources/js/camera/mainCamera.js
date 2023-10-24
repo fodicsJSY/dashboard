@@ -1,6 +1,7 @@
+// 연령별 출입자 현황 더블 도넛 차트
 var myChart = echarts.init(document.getElementById('chart_radial_age'))
 
-    var option = {
+var option = {
     tooltip: {
         trigger: 'item'
     },
@@ -20,7 +21,7 @@ var myChart = echarts.init(document.getElementById('chart_radial_age'))
         {
         name: '여성',
         type: 'pie',
-        radius: ['23%', '46%'], // 첫 번째 도넛의 반지름 범위
+        radius: ['25%', '55%'], // 첫 번째 도넛의 반지름 범위
         avoidLabelOverlap: false,
         itemStyle: {
             borderColor: 'black',
@@ -49,7 +50,7 @@ var myChart = echarts.init(document.getElementById('chart_radial_age'))
         {
         name: '남성',
         type: 'pie',
-        radius: ['50%', '73%'], // 두 번째 도넛의 반지름 범위
+        radius: ['60%', '90%'], // 두 번째 도넛의 반지름 범위
         avoidLabelOverlap: false,
         itemStyle: {
             borderColor: 'black',
@@ -60,7 +61,7 @@ var myChart = echarts.init(document.getElementById('chart_radial_age'))
             position: 'center'
         },
         emphasis: {
-
+    
         },
         labelLine: {
             show: false
@@ -115,7 +116,7 @@ option = {
             },
             axisLine: {
                 lineStyle: {
-                width: 20
+                width: 15
                 }
             },
             splitLine: {
@@ -187,7 +188,7 @@ option = {
             },
             axisLine: {
                 lineStyle: {
-                width: 20
+                width: 15
                 }
             },
             splitLine: {
@@ -220,6 +221,7 @@ option = {
 manMaskChart.setOption(option)
 
 
+// 이벤트 발생 비율 도넛차트
 var eventChart = echarts.init(document.getElementById('event_acc_wnd'))
 
 var option = {

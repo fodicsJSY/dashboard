@@ -246,23 +246,20 @@
                             <div class="totalData mainCameraTotalData">
                                 <div class="data01" >
 									<!-- 연령별 출입자 현황 도넛그래프 영역 -->
-                                    <div class="chart" id="chart_radial_age" style="width: 250px; height: 300px;">
-                                    </div>   
+                                    <div class="chart" style="width: 250px; height: 350px; margin: 0 0 0 5%; padding: 0 0 5% 0;">
+										<div id="chart_radial_age" style="width: 100%; height: 100%;" ></div>
+									</div>   
                                 </div>
                                 
                                 <div class="data02">	
-                                    <!--
-									<div class="chart" id="chart_pie_donut" style="margin-top: -15px"></div>   								
-                                    <div class="chart" id="chart_pie_donut2" style="margin-top: -10px"></div> 
-									-->
-                                    <div class="chart" id="chart_pie_donut" style="width: 250px; height: 180px;">
+                                    <div class="chart" style="width: 250px; height: 180px; ">
 										<!-- 남성 마스크 착용 비율 게이지 차트 -->
+										<div id="chart_pie_donut" style="width: 100%; height: 100%;"></div>
 									</div>   								
-                                    <div class="chart" id="chart_pie_donut2" style="width: 250px; height: 180px;">
+									<div class="chart"  style="width: 250px; height: 180px;">
 										<!-- 여성 마스크 착용 비율 게이지 차트 -->
+										<div id="chart_pie_donut2" style="width: 100%; height: 100%;"></div>
 									</div> 
-                                
-                                    <!--<div class="corlorGuide alignL" style="margin-left: 80px; ">-->
                                     <div class="corlorGuide alignL" >
                                         <div class="corlorGuide_male">
 											<div class="colorBox cBG-Male" ></div> 
