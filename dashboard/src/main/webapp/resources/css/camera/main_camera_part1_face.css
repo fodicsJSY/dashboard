@@ -1,5 +1,28 @@
 
+#count_display_wnd{
+    max-height: 715px;
+    overflow-y: scroll;
+}
 
+
+.faceCount{
+    width: 100%;
+    font-family: NanumSquareEB; 
+    font-size: 11pt; 
+}
+
+
+.faceCount *{
+    height: 40px;
+    vertical-align: middle;
+}
+
+tr>td:nth-child(2){
+    color: #b4a1d8; 
+}
+
+
+/* 섹션 좌측 */
 
 .chart01{
     display: flex;
@@ -44,3 +67,7 @@
     margin: 5px;
     
 }
+
+
+
+/* 세션 우측 */

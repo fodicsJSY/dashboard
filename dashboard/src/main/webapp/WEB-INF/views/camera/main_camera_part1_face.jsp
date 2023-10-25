@@ -100,7 +100,7 @@
 
 					<!-- 섹션 좌측.S -->
 					<div class="sectionBox2">
-						<div class="innerBox divCameraToday">
+						<div class="innerBox divCameraToday" style="height: 920px;">
 							<div class="contentsTitle">
 								<div class="title">
 									<h4>TODAY</h4>
@@ -209,33 +209,38 @@
 									</li>
 								</ul>
 
-								<div class="todayData" style = "width:26%; height:450px; "> 
+								<div class="todayData" style = "width:26%; height:400px; "> 
 									<div style = "width:100%; height:10%;">
-										<div style = "text-align:left; padding-left: 5%; padding-top: 18px; font-size:16px; " >성별</div>
-										<br />
+										<div style = "text-align:left; padding-left: 5%; padding-top: 18px; font-size:16px;" >성별</div>
+										<br/>
 										<span style="width: 90%; height: 2px; background:#333333;" >
 									</div>
-									<span style = "padding-left:5%; padding-top:10%; width:80%; height:80%; " id = "sex_pie_wnd">  
+									<div style = " width:100%; height:80%; margin: 20px 0 0 0; padding: 0 0 0 15px;" >  
+										<div id = "sex_pie_wnd" style="width: 100%; height: 100%; ">
+										</div>
+									</div>
 								</div>
 
-								<div class="todayData" style = "width:31%; height:450px; " >
+								<div class="todayData" style = "width:30.6%; height:400px; " >
 									<div style = "width:100%; height:10%;">
 										<div style = "text-align:left; padding-left: 5%; padding-top: 18px; font-size:16px; " >악세사리</div>
 										<br />
 										<span style="width: 90%; height: 2px; background:#333333;" >
 									</div>									
-									<span style = "padding-top:7%; width:80%; height:80%; " id = "etc_line_bar_wnd"> 
+									<div style = "width:100%; height:80%; margin: 25px 0 0 0; padding: 0 0 0 35px;" > 
+										<div id = "etc_line_bar_wnd" style="width: 100%; height: 100%; ">
+										</div>
+									</div>
 								</div>
 								
 								<div class="todayData" style = "width:58%; height:396px; margin-top:20px; float:left;">     
 									<div style = "width:100%; height:10%;">
 										<div style = "text-align:left; padding-left: 3%; padding-top: 18px; font-size:16px; " >연령 분포</div>
 										<br/>
-										<div style="width: 95%; height: 2px; background:#333333;" ></div>								
+										<div style="width: 95%; height: 2px; background:#333333; margin-left: 15px;" ></div>								
 									</div>
-									<div style = "padding-top:5%; width:95%; height:80%;" > 
+									<div style = "width:100%; height:80%; margin: 15px 0 0 0; padding: 0 0 0 80px;"> 
 										<div id = "age_line_bar_wnd" style ="width: 100%; height: 100%;" >
-
 										</div>
 									</div>										
 								</div>   
