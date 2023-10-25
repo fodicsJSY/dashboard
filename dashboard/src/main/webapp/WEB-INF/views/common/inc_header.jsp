@@ -19,8 +19,51 @@
 		<a href="/setting" class="rollover" alt="셋팅팝업"><img src="../../resources/img/btn_setting.png"> <img src="../../resources/img/btn_setting_hover.png" class="over"></a>
 		<!-- <a class="rollover" alt="최소화"><img src="img/btn_winMini.png"> <img src="img/btn_winMini_hover.png" class="over"></a>
 		<a class="rollover" alt="창크기"><img src="img/btn_winTile.png"> <img src="img/btn_winTile_hover.png" class="over"></a> -->
-		<a href="/logout"><img src="../../resources/img/btn_winClose.png"> <img src="../../resources/img/btn_winClose_hover.png" class="over"></a>
+		<a href="/logout" class="rollover" ><img src="../../resources/img/btn_winClose.png"><img src="../../resources/img/btn_winClose_hover.png" class="over"></a>
 	</div>
+
+	<script>
+		setTimeout(setInterval( getTime, 10), 100);
+
+		function getTime() {
+			var d = new Date();	// 현재 날짜와 시간
+			var year = d.getFullYear();		// 시
+			var month = d.getMonth()+1;		// 시
+			var day = d.getDate();		// 시
+
+			var hur = d.getHours();		// 시
+			var min = d.getMinutes();	//분
+			var sec = d.getSeconds();	//초
+
+			
+			var timeBoard = document.getElementById("time_title"); // 값이 입력될 공간
+
+			if(timeBoard == null)
+			{
+				return;
+			}
+
+			if (Number(month) < 10)
+				month = '0' + month;
+
+			if (Number(day) < 10)
+				day = '0' + day;
+
+			if (Number(hur) < 10)
+				hur = '0' + hur;
+
+			if (Number(min) < 10)
+				min = '0' + min;
+
+			if (Number(sec) < 10)
+				sec = '0' + sec;
+
+			//var startfullDate = String(year) + String(month) + String(day);
+			var time = year + "-" + month + "-" + day + " "+ hur + ":" + min + ":" + sec // 형식 지정
+			timeBoard.innerText = time;	// 출력
+		}
+
+
+	</script>
 </body>
 </html>
-			
