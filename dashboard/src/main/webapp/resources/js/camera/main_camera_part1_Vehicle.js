@@ -54,7 +54,55 @@ vehicleChart.setOption(option)
 
 
 // 이륜차 종휴별 검지 건(수)
+var cycleChart = echarts.init(document.getElementById('cycle_pie_chart'))
 
+option = {
+    tooltip: {
+      trigger: 'item'
+    },
+    legend: {
+      top: '15%',
+      right: '10%',        
+      textStyle:{
+        color: '#fff'
+      },
+      orient: 'vertical'
+    },
+    series: [
+      {
+        name: '이륜차 종류별 검지 건',
+        type: 'pie',
+        radius: ['30%', '70%'],
+        avoidLabelOverlap: false,
+        itemStyle: {
+                borderColor: '#282828',
+                borderWidth: 3,
+            },
+        label: {
+          show: true,
+          position: 'inside',
+          fontSize: 15,
+          fontWeight: 'bold',
+          formatter: '{c}',
+        },
+        emphasis: {
+          label: {
+            show: false
+          }
+        },
+        labelLine: {
+          show: false
+        },
+        data: [
+          { value: 1983, name: '오토바이', itemStyle:{color: 'rgba(73,245,170,1)'} },
+          { value: 1916, name: '자전거', itemStyle:{color: 'rgba(255,204,69,1)'} }
+        ]
+      }
+    ]
+  };
+
+
+  cycleChart.setOption(option)
 
 
 // 연령별 출입자 현황 더블 도넛차트

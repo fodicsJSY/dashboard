@@ -115,7 +115,7 @@
 											<div style = "width:100%;"  id = "count_vehicle_display_wnd">
 												<table class="vehicleCount">
 													<tr>
-														<td style="vertical-align: middle;">신촌사거리</td>
+														<td>신촌사거리</td>
 														<td>164</td>
 													</tr>
 													<tr>
@@ -225,20 +225,14 @@
 											</div>
 										</div>
 									</div>         
-									
-									
-								
-
-
-									
-									<div class="todayData" style ="width:58%; height:400px; " >
+									<div class="todayData" style ="width:600px; height:400px; " >
 										<div style = "width:100%; height:10%;">
 											<div style = "text-align:left; padding-left: 3%; padding-top: 18px; font-size:16px; " >이륜차 종류별 검지 건(수)</div>
 											<br />
 											<span style="width: 95%; height: 2px; background:#333333;" >
 										</div>									
-										<div style = "width:75%; height:75%;" > 
-											<div id = "cycle_pie_chart" style="width: 100%; height: 100%; margin: 40px 20px 30px 40px ; border: 1px solid white;">
+										<div style = "width:85%; height:85%; margin: 20px 0 0 40px;" > 
+											<div id = "cycle_pie_chart" style="width: 100%; height: 100%;">
 
 											</div>
 										</div>
@@ -253,7 +247,7 @@
 
 					<!-- 섹션 우측.S -->
 					<div class="sectionBox2">
-						<div class="innerBox divSideAge" style="height:25vh;  min-height:450px;">
+						<div class="innerBox divSideAge" style="height:25vh;  min-height:450px; margin-bottom: 13px !important;">
 							<div class="contentsTitle chartTitle">
 								<div class="title">
 									<h4>연령별 출입자 현황</h4>
