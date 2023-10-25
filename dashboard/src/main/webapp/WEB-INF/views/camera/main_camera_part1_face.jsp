@@ -22,6 +22,7 @@
 	<script src="./node_modules/jquery/3.6.0/jquery.min.js"></script>
 
 	<!-- css -->
+  <link rel="stylesheet" href="/resources/css/camera/main_camera_part1_face.css">
   <link rel="stylesheet" href="/resources/css/popup.css">
   <link rel="stylesheet" href="/resources/css/style.css">
   <link rel="stylesheet" href="/resources/css/camera.css">
@@ -116,6 +117,93 @@
 										</div>
 										<div>
 											<div style = "width:100%;"  id = "count_display_wnd">
+												<table class="faceCount">
+													<tr>
+														<td>신복사거리</td>
+														<td>156</td>
+													</tr>
+													<tr>
+														<td>신복사거리</td>
+														<td>156</td>
+													</tr>
+													<tr>
+														<td>신복사거리</td>
+														<td>156</td>
+													</tr>
+													<tr>
+														<td>신복사거리</td>
+														<td>156</td>
+													</tr>
+													<tr>
+														<td>신복사거리</td>
+														<td>156</td>
+													</tr>
+													<tr>
+														<td>신복사거리</td>
+														<td>156</td>
+													</tr>
+													<tr>
+														<td>신복사거리</td>
+														<td>156</td>
+													</tr>
+													<tr>
+														<td>신복사거리</td>
+														<td>156</td>
+													</tr>
+													<tr>
+														<td>신복사거리</td>
+														<td>156</td>
+													</tr>
+													<tr>
+														<td>신복사거리</td>
+														<td>156</td>
+													</tr>
+													<tr>
+														<td>신복사거리</td>
+														<td>156</td>
+													</tr>
+													<tr>
+														<td>신복사거리</td>
+														<td>156</td>
+													</tr>
+													<tr>
+														<td>신복사거리</td>
+														<td>156</td>
+													</tr>
+													<tr>
+														<td>신복사거리</td>
+														<td>156</td>
+													</tr>
+													<tr>
+														<td>신복사거리</td>
+														<td>156</td>
+													</tr>
+													<tr>
+														<td>신복사거리</td>
+														<td>156</td>
+													</tr>
+													<tr>
+														<td>신복사거리</td>
+														<td>156</td>
+													</tr>
+													<tr>
+														<td>신복사거리</td>
+														<td>156</td>
+													</tr>
+													<tr>
+														<td>신복사거리</td>
+														<td>156</td>
+													</tr>
+													<tr>
+														<td>신복사거리</td>
+														<td>156</td>
+													</tr>
+													<tr>
+														<td>신복사거리</td>
+														<td>156</td>
+													</tr>
+												</table>
+
 											</div>
 										</div>
 									</li>
@@ -142,10 +230,14 @@
 								<div class="todayData" style = "width:58%; height:396px; margin-top:20px; float:left;">     
 									<div style = "width:100%; height:10%;">
 										<div style = "text-align:left; padding-left: 3%; padding-top: 18px; font-size:16px; " >연령 분포</div>
-										<br />
-										<span style="width: 95%; height: 2px; background:#333333;" >										
+										<br/>
+										<div style="width: 95%; height: 2px; background:#333333;" ></div>								
 									</div>
-									<span style = "padding-top:5%; width:95%; height:80%; " id = "age_line_bar_wnd"> 										
+									<div style = "padding-top:5%; width:95%; height:80%;" > 
+										<div id = "age_line_bar_wnd" style ="width: 100%; height: 100%;" >
+
+										</div>
+									</div>										
 								</div>   
 							</div>
 						</div>
@@ -155,42 +247,60 @@
 
 					<!-- 섹션 우측.S -->
 					<div class="sectionBox2">
-						<div class="innerBox divSideAge">
-							<div class="contentsTitle">
+						<div class="innerBox divSideAge" style="height:25vh;  min-height:450px; margin-bottom: 13px !important;">
+							<div class="contentsTitle chartTitle">
 								<div class="title">
 									<h4>연령별 출입자 현황</h4>
 								</div>								
+								<div class="title">
+									<h4>마스크 착용 비율</h4>
+								</div>								
 							</div>
-							<div class="data01">
-								<div class="chart" id="chart_radial_age"></div>   
+							<div class="chart01">
+								<div>
+									<!-- 연령별 출입자 현황 도넛그래프 영역 -->
+									<div class="chart" id="chart_radial_age" style="width: 250px; height: 350px; margin: 0 0 0 5%; padding: 0 0 10% 0; ">
+										<div id="chart_radial_age" style="width: 100%; height: 100%;" ></div>
+									</div>   
+								</div>
+								<div class="genderMaskChart" >
+									<div class="chart" style="width: 250px; height: 180px; ">
+										<!-- 남성 마스크 착용 비율 게이지 차트 -->
+										<div id="chart_pie_donut" style="width: 100%; height: 100%;"></div>
+									</div>   								
+									<div class="chart"  style="width: 250px; height: 180px;">
+										<!-- 여성 마스크 착용 비율 게이지 차트 -->
+										<div id="chart_pie_donut2" style="width: 100%; height: 100%;"></div>
+									</div> 
+									<div class="corlorGuide alignL">
+										<div class="corlorGuide_male">
+											<div class="colorBox cBG-Male" ></div> 
+											<div class="guideTXT">남자</div>
+										</div>
+										<div class="corlorGuide_female">
+											<div class="colorBox cBG-Female" ></div> 
+											<div class="guideTXT">여자</div>
+										</div>
+									</div>	
+								</div>
+
 							</div>							
 						</div>		
 	
-						<div class="innerBox divSide" style="height:25vh;  min-height:440px;">
-							<div class="contentsTitle">
-								<div class="title">
-									<h4>마스크 착용 비율</h4>
-								</div>
-							</div>
-							<!-- <div class="data">
-								<div id = "event_acc_wnd" style="margin-top: 30px; width:100%; height:350px; "></div>
-							</div> -->
+						<div class="innerBox divSide" style="height:25vh;  min-height:450px;">
+							
 							<div class="data">								
-								<div class="chart" id="chart_pie_donut" style="margin-left: 30px; margin-top: 0px; float:left;"></div>   								
-								<div class="chart" id="chart_pie_donut2" style="margin-left: -50px; margin-top: 50px"></div>   
-								 <div class="corlorGuide alignL" style="margin-left: 120px; ">
-									<ul>
-										<li><div class="colorBox cBG-Male" ></div> <div class="guideTXT">남자</div></li>
-								
-									</ul>									
-								</div>	
-								
-								<div class="corlorGuide alignL" style="margin-left: 250px; ">
-									<ul>
-										<li><div class="colorBox cBG-Female" ></div> <div class="guideTXT">여자</div></li>
-								
-									</ul>									
-								</div>	
+								<div class="contentsTitle">
+									<div class="title">
+										<h4>이벤트 발생 비율</h4>
+									</div>
+								</div>
+								<div class="data">
+									<!--<div id = "event_acc_wnd" style="margin-top: 30px; width:100%; height:350px; "></div>-->
+									<div id = "event_acc_wnd" style="margin-top: 30px; width:100%; height:350px; ">
+										<!-- 이벤트 발생 비율 도넛 차트 -->
+									</div>
+								</div>
 								
 							</div>
 						</div>	
@@ -212,14 +322,20 @@
 
 
 
+	<!-- echarts -->
+	<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+
 	<!-- js -->
+	<script src="/resources/js/camera/main_camera_part1_face.js"></script>    
 	<script src="/resources/js/commonFunctions.js"></script>    
   <script type="text/javascript" src="/resources/js/EventAccPieChart.js"></script>
   <script type="text/javascript" src="/resources/js/EventChart.js"></script>
   <script type="text/javascript" src="/resources/js/tabcontent.js"></script>
   <script type="text/javascript" src="/resources/js/popupSetting.js"></script>
   <script type="text/javascript" src="dashboard_config.json"></script> 
-  <script>	    
+  
+ <!--
+ <script>	    
 
 		window.addEventListener('load', function() {
 			var allElements = document.getElementsByTagName('*');
@@ -761,5 +877,7 @@
         chart_face_age_graph = chart.areaChart({ el, data, options }); 
         }	  
    </script>
+
+   -->
  </body>
 </html>

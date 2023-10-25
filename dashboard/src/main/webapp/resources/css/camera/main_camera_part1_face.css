@@ -1,0 +1,46 @@
+
+
+
+.chart01{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.contentsTitle{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.chartTitle{
+    justify-content: space-around;
+}
+
+
+.genderMaskChart{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.alignL {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin:10px 0; 
+}
+
+.corlorGuide_male{
+    margin: 5px;
+}
+
+.corlorGuide_female{
+    margin: 5px;
+    
+}
