@@ -69,8 +69,9 @@
 				<!-- 좌측 네비.E -->
         
 				<!-- 실시간 채널.S -->
-				<div file="inc_side"></div>
-        <jsp:include page="/WEB-INF/views/main/inc_side.jsp"/>
+				<div file="inc_side">
+					<jsp:include page="/WEB-INF/views/main/inc_side.jsp"/>
+				</div>
 				<!-- 실시간 채널.E -->
 			</div>
 			<!-- side 영역.E -->
@@ -80,12 +81,11 @@
 			<div id="contentsWrap">
 				<!-- 상단 날짜,버튼 영역.S -->
 				<div class="mainTop">
-					<div class=" dateArea">
+					<div class=" dateArea" style="display: flex; flex-direction: row; align-items: center;">
 
 
 						<div class="tui-datepicker-input tui-datetime-input tui-has-focus">
-							<input type="text" id="tui-date-picker-target"
-								aria-label="Date-Time">
+							<input type="text" id="tui-date-picker-target" aria-label="Date-Time">
 							<span class="tui-ico-date"></span>
 							<div id="tui-date-picker-container"></div>
 						</div>
@@ -99,9 +99,11 @@
 
 						<p class="date" id='mainDate'>2021년 07월 21일</p>
 						-->
-						<button type="button" class="btn-date" onclick="OnPrevDate();" >◀<!-- <img src="img/btn-calendarLeft.png">--></button>
-						<button type="button" class="btn" onclick="OnTodayDate();" >오늘</button>
-						<button type="button" class="btn-date" onclick="OnNextDate();">▶<!-- <img src="img/btn-calendarRight.png">--></button>
+						<div>
+							<button type="button" class="btn-date" onclick="OnPrevDate();" >◀<!-- <img src="img/btn-calendarLeft.png">--></button>
+							<button type="button" class="btn" onclick="OnTodayDate();" >오늘</button>
+							<button type="button" class="btn-date" onclick="OnNextDate();">▶<!-- <img src="img/btn-calendarRight.png">--></button>
+						</div>
 					</div>
 					<div class="btnArea">						
 						<!-- <a class="rollover" alt="csv파일" OnClick="OnCSV_Click()"><img src="img/btn-downCSV.png"> <img src="img/btn-downCSV_hover.png" class="over"></a> -->
