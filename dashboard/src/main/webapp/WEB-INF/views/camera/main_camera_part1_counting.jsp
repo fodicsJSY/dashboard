@@ -22,6 +22,7 @@
 	<script src="./node_modules/jquery/3.6.0/jquery.min.js"></script>
 
   <!-- css -->
+  <link rel="stylesheet" href="/resources/css/camera/main_camera_part1_counting.css">
   <link rel="stylesheet" href="/resources/css/popup.css">
   <link rel="stylesheet" href="/resources/css/style.css">
   <link rel="stylesheet" href="/resources/css/camera.css">
@@ -98,8 +99,8 @@
 				<div class="contents">
 
 					<!-- 섹션 좌측.S -->
-					<div class="sectionBox" style="height:950px;";>						
-						<div class="innerBox divCameraToday">
+					<div class="sectionBox" style="width: 1080px; height:915px;";>						
+						<div class="innerBox divCameraToday" style="width: 100%;">
 							<div class="contentsTitle">
 								<div class="title">
 									<h4>TODAY</h4>
@@ -117,51 +118,607 @@
 										</div>
 										<div>
 											<div style = "width:100%;"  id = "count_display_wnd">
+												<table class="countingTable">
+													<thead>
+														<tr>
+															<th>카메라이름</th>
+															<th>합계</th>
+															<th>사람</th>
+															<th>차량</th>
+															<th>얼굴</th>
+															<th>LPR</th>
+															<th>침입합계</th>
+															<th>사람</th>
+															<th>차량</th>
+															<th>얼굴</th>
+															<th>LPR</th>
+															<th>배회합계</th>
+															<th>사람</th>
+															<th>얼굴</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<th>먼우금사거리</th>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+
+														</tr>
+														<tr>
+															<th>원당사거리</th>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+														</tr>
+														<tr>
+															<th>길병원사거리</th>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+														</tr>
+														<tr>
+															<th>동인천역</th>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+														</tr>
+														<tr>
+															<th>신복사거리</th>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+														</tr>
+														<tr>
+															<th>임학사거리</th>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+														</tr>
+														<tr>
+															<th>만수사거리</th>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+														</tr>
+														<tr>
+															<th>송림오거리</th>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+														</tr>
+														<tr>
+															<th>가정사거리</th>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+														</tr>
+														<tr>
+															<th>도화초교사거리</th>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+														</tr>
+														<tr>
+															<th>선학역사거리</th>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+														</tr>
+														<tr>
+															<th>가정오거리</th>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+														</tr>
+														<tr>
+															<th>석바위사거리</th>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+														</tr>
+														<tr>
+															<th>수산물검사원사거리</th>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+															<td>123</td>
+														</tr>
+														<tr>
+															<th>간석오거리</th>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+														</tr>
+														<tr>
+															<th>능해IC</th>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+														</tr>
+														<tr>
+															<th>장승백이사거리</th>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+														</tr>
+														<tr>
+															<th>남동공단입구사거리</th>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+														</tr>
+														<tr>
+															<th>남동공단입구사거리</th>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+														</tr>
+														<tr>
+															<th>남동공단입구사거리</th>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+														</tr>
+														<tr>
+															<th>남동공단입구사거리</th>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+														</tr>
+														<tr>
+															<th>남동공단입구사거리</th>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+														</tr>
+														<tr>
+															<th>남동공단입구사거리</th>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+														</tr>
+														<tr>
+															<th>남동공단입구사거리</th>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+														</tr>
+														<tr>
+															<th>남동공단입구사거리</th>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+														</tr>
+														<tr>
+															<th>남동공단입구사거리</th>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+														</tr>
+														<tr>
+															<th>남동공단입구사거리</th>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+														</tr>
+														<tr>
+															<th>남동공단입구사거리</th>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+														</tr>
+														<tr>
+															<th>남동공단입구사거리</th>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+														</tr>
+														<tr>
+															<th>남동공단입구사거리</th>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+														</tr>
+														<tr>
+															<th>남동공단입구사거리</th>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+														</tr>
+														<tr>
+															<th>남동공단입구사거리</th>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+															<td>123456</td>
+														</tr>
+													</tbody>
+												</table>
 											</div>
 										</div>
 									</li>
 								</ul>
 							</div>
 						</div>
-
 					</div>
 					<!-- 섹션 좌측.E -->
 
 					<!-- 섹션 우측.S -->
-					<div class="sectionBox">
-						<div class="innerBox divEventAge">
-							<div class="contentsTitle">
+					<div class="sectionBox2">
+						<div class="innerBox divSideAge" style="height:25vh;  height:450px;">
+							<div class="contentsTitle chartTitle">
 								<div class="title">
-									<h4>연령별 출입자 현황&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</h4>
-								</div>
+									<h4>연령별 출입자 현황</h4>
+								</div>								
 								<div class="title">
 									<h4>마스크 착용 비율</h4>
+								</div>								
+							</div>
+							<div class="chart01" >
+								<div>
+									<!-- 연령별 출입자 현황 도넛그래프 영역 -->
+									<div class="chart" style="width: 250px; height: 350px; margin: 0 0 0 5%; padding: 0 0 10% 0; ">
+										<div id="chart_radial_age" style="width: 100%; height: 100%;" ></div>
+									</div>   
 								</div>
-							</div>
-							<div class="data01">
-								<div class="chart" id="chart_radial_age"></div>   
-							</div>
+								<div class="genderMaskChart" style="margin: 15px 0 0 0;">
+									<div class="chart" style="width: 250px; height: 160px; ">
+										<!-- 남성 마스크 착용 비율 게이지 차트 -->
+										<div id="chart_pie_donut" style="width: 100%; height: 100%;"></div>
+									</div>   								
+									<div class="chart"  style="width: 250px; height: 160px;">
+										<!-- 여성 마스크 착용 비율 게이지 차트 -->
+										<div id="chart_pie_donut2" style="width: 100%; height: 100%;"></div>
+									</div> 
+									<div class="corlorGuide alignL">
+										<div class="corlorGuide_male">
+											<div class="colorBox cBG-Male" ></div> 
+											<div class="guideTXT">남자</div>
+										</div>
+										<div class="corlorGuide_female">
+											<div class="colorBox cBG-Female" ></div> 
+											<div class="guideTXT">여자</div>
+										</div>
+									</div>	
+								</div>
 
-							<div class="data02">								
-								<div class="chart" id="chart_pie_donut" style="margin-top: 0px"></div>   								
-								<div class="chart" id="chart_pie_donut2" style="margin-top: -10px"></div>   
-								<div class="corlorGuide alignL" style="margin-left: 80px; ">
-									<ul>
-										<li><div class="colorBox cBG-Male" ></div> <div class="guideTXT">남자</div></li>
-										<li><div class="colorBox cBG-Female" ></div> <div class="guideTXT">여자</div></li>
-									</ul>
-								</div>		
-							</div>
+							</div>							
 						</div>		
 	
-						<div class="innerBox divEvent">
-							<div class="contentsTitle">
-								<div class="title">
-									<h4>이벤트 발생 비율</h4>
+						<div class="innerBox divSide" style="height:25vh;  height:450px;">
+							
+							<div class="data">								
+								<div class="contentsTitle">
+									<div class="title">
+										<h4>이벤트 발생 비율</h4>
+									</div>
 								</div>
-							</div>
-							<div class="data">
-								<div id = "event_acc_wnd" style="margin-top: 30px; width:100%; height:392px; "></div>
+								<div class="data">
+									<!--<div id = "event_acc_wnd" style="margin-top: 30px; width:100%; height:350px; "></div>-->
+									<div id = "event_acc_wnd" style="margin-top: 30px; width:100%; height:350px; ">
+										<!-- 이벤트 발생 비율 도넛 차트 -->
+									</div>
+								</div>
+								
 							</div>
 						</div>	
 					</div>	
@@ -181,7 +738,11 @@
 	<!-- 전체 wrap.E -->
 
 
+	<!-- echarts -->
+	<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+
 	<!-- js -->
+  <script src="/resources/js/camera/main_camera_part1_counting.js"></script>   
   <script src="/resources/js/commonFunctions.js"></script>   
   <script src="/resources/js/EventAccPieChart.js"></script>
   <script src="/resources/js/EventChart.js"></script>
@@ -189,6 +750,7 @@
   <script src="/resources/js/popupSetting.js"></script>
   <script src="/resources/dashboard_config.json"></script> 
   
+  <!--
   <script>	    
 		const chart = toastui.Chart;
 		var DataGridObj = [];
@@ -466,5 +1028,6 @@
             });			
     	}
    </script>
+   -->
  </body>
 </html>

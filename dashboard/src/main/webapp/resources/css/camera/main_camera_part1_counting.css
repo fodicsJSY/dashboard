@@ -1,0 +1,71 @@
+#count_display_wnd{
+    max-height: 715px;
+    overflow-y: scroll;
+}
+
+
+.countingTable{
+    width: 100%;
+    font-family: NanumSquareEB; 
+    font-size: 9pt; 
+}
+
+.countingTable *{
+    height: 40px;
+    vertical-align: middle;
+    border: 1px solid #333333;
+}
+
+tbody *{
+    background-color: #282828;
+}
+
+tbody>tr>td:nth-child(2), tbody>tr>td:nth-child(7), tbody>tr>td:nth-child(12){
+    color: gold; 
+}
+
+
+
+.chart01{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+
+.contentsTitle{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.chartTitle{
+    justify-content: space-around;
+}
+
+.genderMaskChart{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.alignL {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin:10px 0; 
+}
+
+.corlorGuide_male{
+    margin: 5px;
+}
+
+.corlorGuide_female{
+    margin: 5px;
+    
+}
