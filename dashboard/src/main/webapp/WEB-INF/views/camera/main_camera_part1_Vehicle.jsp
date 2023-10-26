@@ -94,7 +94,7 @@
 				<div class="contents">
 
 					<!-- 섹션 좌측.S -->
-					<div class="sectionBox" style="width: 1050px; height:920px; margin: 0 18px 0 0 !important;">		
+					<div class="sectionBox" style="width: 1050px; height:915px; margin: 0 18px 0 0 !important;">		
 						<div class="innerBox divCameraToday">
 							<div class="contentsTitle">
 								<div class="title">
@@ -247,7 +247,7 @@
 
 					<!-- 섹션 우측.S -->
 					<div class="sectionBox2" style="width: 650px !important;">
-						<div class="innerBox divSideAge" style="width: 100%; height:25vh;  min-height:450px; margin-bottom: 13px !important;">
+						<div class="innerBox divSideAge" style="width: 100%; height:25vh;  height:450px; margin-bottom: 13px !important;">
 							<div class="contentsTitle chartTitle">
 								<div class="title">
 									<h4>연령별 출입자 현황</h4>
@@ -287,7 +287,7 @@
 							</div>							
 						</div>		
 	
-						<div class="innerBox divSide" style="width: 100%; height:25vh;  min-height:450px;">
+						<div class="innerBox divSide" style="width: 100%; height:25vh;  height:450px;">
 							
 							<div class="data">								
 								<div class="contentsTitle">
