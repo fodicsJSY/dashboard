@@ -15,10 +15,12 @@
 }
 
 
-tr *{
+.humanCount *{
     height: 40px;
     vertical-align: middle;
 }
+
+
 
 tr>td:nth-child(2){
     color: #94e9ec; 
