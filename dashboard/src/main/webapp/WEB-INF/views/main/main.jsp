@@ -50,8 +50,8 @@
 		
 		<!-- 헤더.S -->
 		<header id="header"> 
-      <jsp:include page="/WEB-INF/views/common/inc_header.jsp"/>
-    </header>
+			<jsp:include page="/WEB-INF/views/common/inc_header.jsp"/>
+		</header>
 		<!-- 헤더.E -->
     
 		<!-- 내용.S -->		
@@ -62,7 +62,7 @@
         
         <!-- 좌측 네비.S -->
 				<div class="btn-navi" >
-          <a href="/main"><button type="button" class="btn_object_on">M A I N</button></a>
+          			<a href="/main"><button type="button" class="btn_object_on">M A I N</button></a>
 					<!-- <a href="/main"><button type="button" class="btn_evnet">E V E N T</button></a> -->
 					<a href="/mainCamera"><button type="button" class="btn_camera">C A M E R A</button></a>
 				</div>
