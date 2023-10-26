@@ -95,7 +95,7 @@
 				<div class="contents">
 
 					<!-- 섹션 좌측.S -->
-					<div class="sectionBox2";>
+					<div class="sectionBox2" style="height: 930px; display: flex; flex-direction: row;">
 						<div class="innerBox divCameraToday">
 							<div class="contentsTitle">
 								<div class="title">
@@ -227,7 +227,7 @@
 											
 										</div>
 											
-										<div class="todayData" style="width:31%; height:400px; ">
+										<div class="todayData" style="width:30.5%; height:400px; ">
 											<div style="width:100%; height:10%;">
 												<div style="text-align:left; padding-left: 5%; padding-top: 18px; font-size:16px; ">악세사리</div>
 												<br />
@@ -239,21 +239,59 @@
 										</div>
 									</div>
 
-
-									<div class="todayData" style = "width:58%; height:396px; margin-top:20px; float:left;">     
+								
+									<div class="todayData" style = "width:58%; height:396px; margin-top:20px; margin-bottom: 10px; float:left;">     
 										<div style = "width:100%; height:10%;">
 											<div style = "text-align:left; padding-left: 3%; padding-top: 18px; font-size:16px; " >의류 선호도</div>
 											<br />
 											<span style="width: 95%; height: 2px; background:#333333;" >
-											<div class="corlorGuide" style = "float:right; margin-top: 5px; margin-right:5px;">
-												<ul>
-													<li><div class="colorBox cBG-Gray"></div> <div class="guideTXT">White, Black, Gray</div></li>
-													<li><div class="colorBox cBG-Female"></div> <div class="guideTXT">Red, Orange, Yellow</div></li>
-													<li><div class="colorBox cBG-Senior"></div> <div class="guideTXT">Green, Blue, Purple</div></li>												
-												</ul>
+											<div style="display: flex; flex-direction: column; justify-content: center;">
+												<div class="corlorGuide" style = "margin: 15px 0px 20px 30px; display: flex; flex-direction: row; justify-content: end;">
+															<div class="colorBox cBG-Gray" style="margin: 0 5px;"></div> <div class="guideTXT" style="margin-right: 5px;">White, Black, Gray</div>
+															<div class="colorBox cBG-Female" style="margin: 0 5px;"></div> <div class="guideTXT" style="margin-right: 5px;">Red, Orange, Yellow</div>
+															<div class="colorBox cBG-Senior" style="margin: 0 5px;"></div> <div class="guideTXT" style="margin-right: 5px;">Green, Blue, Purple</div>
+												</div>
+												<div>
+													<table class="clothesTable">
+														<tr>
+															<th></th>
+															<th><img src="/resources/img/icon_titleMale.png">남성</th>
+															<th><img src="/resources/img/icon_titleFemale.png">여성</th>
+														</tr>
+														<tr>
+															<th>상의 길이</th>
+															<td></td>
+															<td></td>
+														</tr>
+														<tr>
+															<th>상의 색 비중</th>
+															<td>
+																<div id = "man_top_color_rate" style="width: 178.32px; height: 50px;"></div>																</div>
+															</td>
+															<td>
+																<div id = "woman_top_color_rate" style="width: 178.32px; height: 50px;"></div>	
+															</td>
+														</tr>
+														<tr>
+															<th>하의 길이</th>
+															<td></td>
+															<td></td>
+														</tr>
+														<tr>
+															<th>하의 색 비중</th>
+															<td>
+																<div id = "man_down_color_rate" style="width: 178.32px; height: 50px;"></div>
+															</td>
+															<td>
+																<div id = "woman_down_color_rate" style="width: 178.32px; height: 50px;"></div>
+															</td>
+														</tr>
+		
+													</table>
+												</div>
 											</div>
-										</div>
 										<!-- 토스트 Grid 테마 중복으로 인해 CSS Grid 사용 -->
+										<!--
 										<div class="grid-container" style = "padding-left:3%; padding-top:13%; width:98%; height:100px; " id = "cloth_wnd"> 	
 											<div class="grid-item_header"> </div>
 											<div class="grid-item_header"><img src="/resources/img/icon_titleMale.png" style = "margin-top: -5px; margin-left: 60px; float:left;"><div style = "margin-top: 3px; text-align: left;">&nbsp;&nbsp;남자</div></div>
@@ -262,7 +300,8 @@
 											<div class="grid-item" id = "man_top_win"></div>
 											<div class="grid-item" id = "woman_top_win"></div>
 											<div class="grid-item">상의 색 비중</div>
-											<div class="grid-item" id = "man_top_color_rate"></div>
+											<div class="grid-item" id = "man_top_color_rate">
+											</div>
 											<div class="grid-item" id = "woman_top_color_rate"></div>											
 											<div class="grid-item">하의 길이</div>											
 											<div class="grid-item" id = "man_down_win"></div>											
@@ -270,7 +309,8 @@
 											<div class="grid-item">하의 색 비중</div>											
 											<div class="grid-item" id = "man_down_color_rate"></div>
 											<div class="grid-item" id = "woman_down_color_rate"></div>
-										</div >										
+										</div >				
+										-->
 									</div>  
 								</div>
 							</div>
@@ -278,9 +318,10 @@
 					</div>
 					<!-- 섹션 좌측.E -->
 
+
 					<!-- 섹션 우측.S -->
-					<div class="sectionBox2">
-						<div class="innerBox divSideAge" style="height:25vh;  min-height:450px;">
+					<div class="sectionBox2" style="width: 600px; height: 930px; margin: 0 0 0 15px;">
+						<div class="innerBox divSideAge" style="height:25vh;  height:450px;">
 							<div class="contentsTitle chartTitle">
 								<div class="title">
 									<h4>연령별 출입자 현황</h4>
@@ -320,7 +361,7 @@
 							</div>							
 						</div>		
 	
-						<div class="innerBox divSide" style="height:25vh;  min-height:450px;">
+						<div class="innerBox divSide" style="height:25vh; height:450px;">
 							
 							<div class="data">								
 								<div class="contentsTitle">

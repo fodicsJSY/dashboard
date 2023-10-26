@@ -129,6 +129,368 @@ acceChart.setOption(option)
 
 
 
+/* 의류선호도 */
+
+// 남자 상의 의류선호도 막대차트
+var man_top_color_rate = echarts.init(document.getElementById('man_top_color_rate'))
+
+
+option = {
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      // Use axis to trigger tooltip
+      type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
+    }
+  },
+  legend: {
+    show: false
+  },
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '80%',
+    containLabel: true
+  },
+  xAxis: {
+    type: 'value',
+    show: false
+  },
+  yAxis: {
+    type: 'category',
+    show: false
+
+  },
+  series: [
+    {
+      name: '무채색',
+      type: 'bar',
+      stack: 'total',
+      label: {
+        show: false
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data: [320],
+      itemStyle:{
+        color:'#d2d2d2'
+      }
+    },
+    {
+      name: '한색',
+      type: 'bar',
+      stack: 'total',
+      label: {
+        show: false
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data: [120],
+       itemStyle:{
+        color:'#f5715b'
+      }
+    },
+    {
+      name: '난색',
+      type: 'bar',
+      stack: 'total',
+      label: {
+        show: false
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data: [220],
+       itemStyle:{
+        color:'#25b8e9'
+      }
+    }
+   
+  ]
+};
+
+
+man_top_color_rate.setOption(option)
+
+
+
+// 여자 상의 의류선호도 막대차트
+var woman_top_color_rate = echarts.init(document.getElementById('woman_top_color_rate'))
+
+
+option = {
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      // Use axis to trigger tooltip
+      type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
+    }
+  },
+  legend: {
+    show: false
+  },
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '80%',
+    containLabel: true
+  },
+  xAxis: {
+    type: 'value',
+    show: false
+  },
+  yAxis: {
+    type: 'category',
+    show: false
+
+  },
+  series: [
+    {
+      name: '무채색',
+      type: 'bar',
+      stack: 'total',
+      label: {
+        show: false
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data: [320],
+      itemStyle:{
+        color:'#d2d2d2'
+      }
+    },
+    {
+      name: '한색',
+      type: 'bar',
+      stack: 'total',
+      label: {
+        show: false
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data: [120],
+       itemStyle:{
+        color:'#f5715b'
+      }
+    },
+    {
+      name: '난색',
+      type: 'bar',
+      stack: 'total',
+      label: {
+        show: false
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data: [220],
+       itemStyle:{
+        color:'#25b8e9'
+      }
+    }
+   
+  ]
+};
+
+
+woman_top_color_rate.setOption(option)
+
+
+
+
+
+// 남자 하의 의류선호도 막대차트
+var man_down_color_rate = echarts.init(document.getElementById('man_down_color_rate'))
+
+
+option = {
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      // Use axis to trigger tooltip
+      type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
+    }
+  },
+  legend: {
+    show: false
+  },
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '80%',
+    containLabel: true
+  },
+  xAxis: {
+    type: 'value',
+    show: false
+  },
+  yAxis: {
+    type: 'category',
+    show: false
+
+  },
+  series: [
+    {
+      name: '무채색',
+      type: 'bar',
+      stack: 'total',
+      label: {
+        show: false
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data: [320],
+      itemStyle:{
+        color:'#d2d2d2'
+      }
+    },
+    {
+      name: '한색',
+      type: 'bar',
+      stack: 'total',
+      label: {
+        show: false
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data: [120],
+       itemStyle:{
+        color:'#f5715b'
+      }
+    },
+    {
+      name: '난색',
+      type: 'bar',
+      stack: 'total',
+      label: {
+        show: false
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data: [220],
+       itemStyle:{
+        color:'#25b8e9'
+      }
+    }
+   
+  ]
+};
+
+
+man_down_color_rate.setOption(option)
+
+
+
+
+
+
+
+// 여자 하의 의류선호도 막대차트
+var woman_down_color_rate = echarts.init(document.getElementById('woman_down_color_rate'))
+
+
+option = {
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      // Use axis to trigger tooltip
+      type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
+    }
+  },
+  legend: {
+    show: false
+  },
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '80%',
+    containLabel: true
+  },
+  xAxis: {
+    type: 'value',
+    show: false
+  },
+  yAxis: {
+    type: 'category',
+    show: false
+
+  },
+  series: [
+    {
+      name: '무채색',
+      type: 'bar',
+      stack: 'total',
+      label: {
+        show: false
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data: [320],
+      itemStyle:{
+        color:'#d2d2d2'
+      }
+    },
+    {
+      name: '한색',
+      type: 'bar',
+      stack: 'total',
+      label: {
+        show: false
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data: [120],
+       itemStyle:{
+        color:'#f5715b'
+      }
+    },
+    {
+      name: '난색',
+      type: 'bar',
+      stack: 'total',
+      label: {
+        show: false
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      data: [220],
+       itemStyle:{
+        color:'#25b8e9'
+      }
+    }
+   
+  ]
+};
+
+
+woman_down_color_rate.setOption(option)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // 연령별 출입자 현황 더블 도넛차트
 var myChart = echarts.init(document.getElementById('chart_radial_age'))
 
