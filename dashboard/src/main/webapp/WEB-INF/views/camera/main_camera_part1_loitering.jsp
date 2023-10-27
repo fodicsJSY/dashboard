@@ -21,6 +21,8 @@
 	<script src="./node_modules/jquery/3.6.0/jquery.min.js"></script>
 
 	<!-- css -->
+  <!--<link rel="stylesheet" href="/resources/css/camera/main_camera_part1_loitering.css">-->
+
   <link rel="stylesheet" href="/resources/css/popup.css">
   <link rel="stylesheet" href="/resources/css/style.css">
   <link rel="stylesheet" href="/resources/css/camera.css">
@@ -84,9 +86,9 @@
 						</a>
 
 						<p class="date" id='mainDate'>2021년 07월 21일</p>
-						<button type="button" class="btn-date" href="#" style="display:none;">◀<!-- <img src="img/btn-calendarLeft.png">--></button>
-						<button type="button" class="btn" href="#" style="display:none;">오늘</button>
-						<button type="button" class="btn-date" href="#" style="display:none;">▶<!-- <img src="img/btn-calendarRight.png">--></button>
+						<button type="button" class="btn-date" style="display:none;">◀<!-- <img src="img/btn-calendarLeft.png">--></button>
+						<button type="button" class="btn" style="display:none;">오늘</button>
+						<button type="button" class="btn-date" style="display:none;">▶<!-- <img src="img/btn-calendarRight.png">--></button>
 					</div>					
 				</div>
 				<!-- 상단 날짜,버튼 영역.E -->
@@ -95,7 +97,7 @@
 				<div class="contents">
 
 					<!-- 섹션 좌측.S -->
-					<div class="sectionBox">
+					<div class="sectionBox" style="width: 1055px;">
 						<div class="innerBox divCameraToday">
 							<div class="contentsTitle">
 								<div class="title">
@@ -112,9 +114,153 @@
 											<p class="amount"  id="total_inv_cnt">0</p>
 										</div>
 										<a href="/mainCamera/subCamera">
-											<div id="Inv_grid_area" onclick="location.href='sub_camera.html'">											
+											<div id="Inv_grid_area">											
+												<table class="invasionTable">
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+												</table>
 											</div>
 										</a>
+										<div class="invasion_display">
+										</div>
 									</li>
 									<li class="today" style="height: 832px;">
 										<div class="todayTXT todayLoitering">
@@ -124,7 +270,153 @@
 											<p class="amount" id="total_lot_cnt">0</p>											
 										</div>
 										<a href="/mainCamera/subCamera">
-											<div id="Lot_grid_area" onclick="location.href='sub_camera.html'">											
+											<div id="Lot_grid_area" >											
+												<table class="loiteringTable">
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+													<tr>
+														<td>원당사거리</td>
+														<td>123</td>
+													</tr>
+												</table>
 											</div>
 										</a>
 									</li>
@@ -136,40 +428,62 @@
 					<!-- 섹션 좌측.E -->
 
 					<!-- 섹션 우측.S -->
-					<div class="sectionBox">
-						<div class="innerBox divEventAge">
-							<div class="contentsTitle">
+					<div class="sectionBox2" style="width: 650px !important;">
+						<div class="innerBox divSideAge" style="width: 100%; height:450px; margin-bottom: 13px !important;">
+							<div class="contentsTitle chartTitle">
 								<div class="title">
-									<h4>연령별 출입자 현황&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</h4>
-								</div>
+									<h4>연령별 출입자 현황</h4>
+								</div>								
 								<div class="title">
 									<h4>마스크 착용 비율</h4>
+								</div>								
+							</div>
+							<div class="chart01">
+								<div>
+									<!-- 연령별 출입자 현황 도넛그래프 영역 -->
+									<div class="chart" id="chart_radial_age" style="width: 250px; height: 350px; margin: 0 0 0 5%; padding: 0 0 10% 0; ">
+										<div id="chart_radial_age" style="width: 100%; height: 100%;" ></div>
+									</div>   
 								</div>
-							</div>
-							<div class="data01">
-								<div class="chart" id="chart_radial_age"></div>   
-							</div>
+								<div class="genderMaskChart" >
+									<div class="chart" style="width: 250px; height: 180px; ">
+										<!-- 남성 마스크 착용 비율 게이지 차트 -->
+										<div id="chart_pie_donut" style="width: 100%; height: 100%;"></div>
+									</div>   								
+									<div class="chart"  style="width: 250px; height: 180px;">
+										<!-- 여성 마스크 착용 비율 게이지 차트 -->
+										<div id="chart_pie_donut2" style="width: 100%; height: 100%;"></div>
+									</div> 
+									<div class="corlorGuide alignL">
+										<div class="corlorGuide_male">
+											<div class="colorBox cBG-Male" ></div> 
+											<div class="guideTXT">남자</div>
+										</div>
+										<div class="corlorGuide_female">
+											<div class="colorBox cBG-Female" ></div> 
+											<div class="guideTXT">여자</div>
+										</div>
+									</div>	
+								</div>
 
-							<div class="data02">								
-								<div class="chart" id="chart_pie_donut" style="margin-top: 0px"></div>   								
-								<div class="chart" id="chart_pie_donut2" style="margin-top: -10px"></div>   
-								<div class="corlorGuide alignL" style="margin-left: 80px; ">
-									<ul>
-										<li><div class="colorBox cBG-Male" ></div> <div class="guideTXT">남자</div></li>
-										<li><div class="colorBox cBG-Female" ></div> <div class="guideTXT">여자</div></li>
-									</ul>
-								</div>		
-							</div>
+							</div>							
 						</div>		
 	
-						<div class="innerBox divEvent" style="height:25vh;  min-height:440px;">
-							<div class="contentsTitle">
-								<div class="title">
-									<h4>이벤트 발생 비율</h4>
+						<div class="innerBox divSide" style="width: 100%; height:450px">
+							
+							<div class="data">								
+								<div class="contentsTitle">
+									<div class="title">
+										<h4>이벤트 발생 비율</h4>
+									</div>
 								</div>
-							</div>
-							<div class="data">
-								<div id = "event_acc_wnd" style="margin-top: 30px; width:100%; height:350px; "></div>
+								<div class="data">
+									<!--<div id = "event_acc_wnd" style="margin-top: 30px; width:100%; height:350px; "></div>-->
+									<div id = "event_acc_wnd" style="margin-top: 30px; width:100%; height:350px; ">
+										<!-- 이벤트 발생 비율 도넛 차트 -->
+									</div>
+								</div>
+								
 							</div>
 						</div>	
 					</div>	
@@ -189,14 +503,19 @@
 	<!-- 전체 wrap.E -->
 
 
+
+	<!-- echarts -->
+	<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+
 	<!-- js -->
+	<script src="/resources/js/camera/main_camera_part1_loitering.js"></script>    
 	<script src="/resources/js/commonFunctions.js"></script>    
 	<script src="/resources/js/EventAccPieChart.js"></script>
 	<script src="/resources/js/EventChart.js"></script>
 	<script src="/resources/js/tabcontent.js"></script>
 	<script src="/resources/js/popupSetting.js"></script>
 	<script src="/resources/dashboard_config.json"></script> 
-
+	<!--
 	<script>
 		const chart = toastui.Chart;
 		window.addEventListener('load', function() {
@@ -391,6 +710,7 @@
 		grid_Lot.sort('LOT_CNT', false, false);
 	}
  </script>
+ -->
 
  </body>
 </html>

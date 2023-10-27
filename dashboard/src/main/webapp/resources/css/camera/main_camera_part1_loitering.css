@@ -1,0 +1,93 @@
+#Inv_grid_area{
+    height: 715px;
+    overflow: auto;
+}
+
+
+
+.invasionTable{
+    width: 100%;
+    font-family: NanumSquareEB; 
+    font-size: 11pt; 
+}
+
+
+
+
+.invasionTable *{
+    height: 40px;
+    vertical-align: middle;
+}
+
+
+
+.invasionTable td:nth-child(2){
+    color: #4176df; 
+}
+
+
+
+
+#Lot_grid_area{
+    height: 715px;
+    overflow: auto;
+}
+
+.loiteringTable{
+    width: 100%;
+}
+
+
+
+.loiteringTable td:nth-child(2){
+    color: #fec070; 
+}
+
+
+/* 우측섹션 */
+
+.chart01{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+
+.contentsTitle{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.chartTitle{
+    justify-content: space-around;
+}
+
+.genderMaskChart{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.alignL {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin:10px 0; 
+}
+
+.corlorGuide_male{
+    margin: 5px;
+}
+
+.corlorGuide_female{
+    margin: 5px;
+    
+}
+
+

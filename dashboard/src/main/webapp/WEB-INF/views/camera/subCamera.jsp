@@ -120,7 +120,7 @@
 				<div class="contents">
 
 					<!-- 섹션 좌측.S -->
-					<div class="sectionBox">
+					<div class="sectionBox" style="width: 1055px;">
 						<div class="innerBox subCamera">
 							<div class="subTabs">
 								<div class="tabsTitle"><img src="/resources/img/navi_camera.png"></div>
