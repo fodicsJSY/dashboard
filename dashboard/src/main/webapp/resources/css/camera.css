@@ -88,7 +88,7 @@
 .divEvent {width:100%; min-width:600px;  height:43vh;  min-height:450px;   margin-bottom:15px;}
 .divEvent .data {vertical-align:middle;text-align:center;}
 
-.divSide {/*width:100%;*/ min-width:600px;  height:43vh;  min-height:450px;   margin-bottom:15px;}
+.divSide {/*width:100%;*/ min-width:600px;  height:43vh;  min-height:440px;   margin-bottom:15px;}
 .divSide .data {vertical-align:middle;text-align:center;}
 
 .divTop10 {width:100%; min-width:600px;  height:43vh;  min-height:450px;  margin-bottom:15px; }
