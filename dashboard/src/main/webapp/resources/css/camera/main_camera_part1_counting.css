@@ -1,6 +1,6 @@
 #count_display_wnd{
-    max-height: 715px;
-    overflow-y: scroll;
+    height: 715px;
+    overflow: auto;
 }
 
 
