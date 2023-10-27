@@ -315,7 +315,7 @@
 				<!-- 메인컨텐츠.E -->
 				<div id="bottom">
 					<p class="Notice">※ 화면에 표시되는 모든 실시간 데이터는 1분마다 자동으로 업데이트 합니다. 다만 “시간대별 현황” 그래프의 실시간 데이터는 정시에 한 번씩 업데이트 합니다.</p>
-					<div class="madeFodics">포딕스시스템</div>
+					<div class="madeFodics" style="margin: 0 90px 0 0;">포딕스시스템</div>
 				</div>
 			</div>
 			<!-- 우측 메인.E -->
