@@ -1,0 +1,81 @@
+
+
+.dataSelect1{
+    width: 100%;
+    padding: 30px 20px 0 20px;
+}
+
+
+
+
+.colorGuide_title{
+    margin: 0 5px 8px 5px;
+}
+
+.colorGuide_model{
+    margin: 0 0 0 5px;
+}
+
+.colorGuide_event{
+    margin: 0 0 0 5px;
+    
+}
+
+.colorBox{
+    margin: 0 5px 5px 0;
+}
+
+.guideTXT{
+    margin: 0 10px 0 0;
+}
+
+
+
+
+
+
+/* 우측섹션 */
+
+.chart01{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+
+.contentsTitle{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.chartTitle{
+    justify-content: space-around;
+}
+
+.genderMaskChart{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.alignL {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin:10px 0; 
+}
+
+.corlorGuide_male{
+    margin: 5px;
+}
+
+.corlorGuide_female{
+    margin: 5px;
+    
+}

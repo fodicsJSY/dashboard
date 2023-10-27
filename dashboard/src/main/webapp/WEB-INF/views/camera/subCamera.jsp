@@ -11,6 +11,8 @@
 
 	<!-- css -->
 	<!-- <link rel="stylesheet" href="css/style.css"> -->
+	<link rel="stylesheet" href="/resources/css/camera/subCamera.css">
+
 	<link rel="stylesheet" href="/resources/css/popup.css">
 	<link rel="stylesheet" href="/resources/css/camera.css">
 	<link rel="stylesheet" href="/resources/font/nanumsquare.css">
@@ -27,26 +29,27 @@
 	
 	<!-- // 다른 테이블에 영향이 있을 수 있어 여기에 따로 스타일 정의  -->
 	<style>
-		
-		
-		.tui-datepicker-input {margin-top: 1px; z-index: 998; }
-		#tui-date-picker-target {color:#f5f5f5; background-color: #0c0c0c97; margin: -1px;  height: 28px; width: 170px;}
-		#tui-date-picker-container {margin-left: -1px; filter: invert(92%);}
-		
-		table tr> td:first-child {text-align:left;}	
-		/*table tr>* {padding: 10px 5px;}*/
-		
-		.type_tr > tr:last-child {border-bottom:1px solid rgba(45,45,45,1);}
-		.type_table { table-layout: fixed; font-family: NanumSquareEB; font-size: 9pt; color: rgba(197,197,197,1); border-left:1px solid rgba(45,45,45,1); border-right:1px solid rgba(45,45,45,1);}
-		.type_tr {border-top:1px solid rgba(45,45,45,1); height: 33px; padding: 10px 5px;}
-		.type_th {padding: 10px 5px; color: rgba(197,197,197,1); background:rgba(26,26,26,1); border-right:1px solid rgba(45,45,45,1); }
-		.type_td {background:rgba(37,37,37,1); text-align:right; border-right:1px solid rgba(45,45,45,1);  height: 32px;} 
-		.type_td_name {padding: 10px 5px; width: 180px; text-overflow:ellipsis; overflow:hidden; white-space: nowrap; display:block; background:rgba(37,37,37,1); text-align:right; border-right:1px solid rgba(45,45,45,1); height: 32px;}  		
-		
-		</style> 	
-
 	
-	</head>
+	
+	.tui-datepicker-input {margin-top: 1px; z-index: 998; }
+	#tui-date-picker-target {color:#f5f5f5; background-color: #0c0c0c97; margin: -1px;  height: 28px; width: 170px;}
+	#tui-date-picker-container {margin-left: -1px; filter: invert(92%);}
+	
+	table tr> td:first-child {text-align:left;}	
+	/*table tr>* {padding: 10px 5px;}*/
+	
+	.type_tr > tr:last-child {border-bottom:1px solid rgba(45,45,45,1);}
+	.type_table { table-layout: fixed; font-family: NanumSquareEB; font-size: 9pt; color: rgba(197,197,197,1); border-left:1px solid rgba(45,45,45,1); border-right:1px solid rgba(45,45,45,1);}
+	.type_tr {border-top:1px solid rgba(45,45,45,1); height: 33px; padding: 10px 5px;}
+	.type_th {padding: 10px 5px; color: rgba(197,197,197,1); background:rgba(26,26,26,1); border-right:1px solid rgba(45,45,45,1); }
+	.type_td {background:rgba(37,37,37,1); text-align:right; border-right:1px solid rgba(45,45,45,1);  height: 32px;} 
+	.type_td_name {padding: 10px 5px; width: 180px; text-overflow:ellipsis; overflow:hidden; white-space: nowrap; display:block; background:rgba(37,37,37,1); text-align:right; border-right:1px solid rgba(45,45,45,1); height: 32px;}  		
+	
+	</style> 	
+
+
+
+</head>
 
 	<body>
 	<!-- 전체 wrap.S -->
@@ -135,31 +138,43 @@
 							</div>
 							<!-- 전체 카메라 이벤트 발생 현황 -->
 							<div id="view1" class="data ">
-								<!-- <div class="dataSelect"> -->
-									<div class="corlorGuide alignL" style="margin-left: 20px; margin-top : 120px">
-										색상 Guide
-										<ul>
-											<li><div class="colorBox cBG-Male"></div> <div class="guideTXT">남자</div></li>
-											<li><div class="colorBox cBG-Female"></div> <div class="guideTXT">여자</div></li>
-											<li><div class="colorBox cBG-Mask"></div> <div class="guideTXT">마스크</div></li>
-											<li><div class="colorBox cBG-Car"></div> <div class="guideTXT">차량</div></li>
-											<li><div class="colorBox cBG-LPR"></div> <div class="guideTXT">차량번호 인식</div></li>
-										</ul>
-										<ul>
-											<li><div class="colorBox cBG-Intrusion"></div> <div class="guideTXT">침입</div></li>
-											<li><div class="colorBox cBG-Loitering"></div> <div class="guideTXT">배회</div></li>
-											<li><div class="colorBox cBG-Counting"></div> <div class="guideTXT">카운팅</div></li>
-											<li><div class="colorBox cBG-Parking"></div> <div class="guideTXT">불법 주·정차</div></li>
-											<li><div class="colorBox cBG-BlackList"></div> <div class="guideTXT">블랙리스트</div></li>
-										</ul>
+								<div class="dataSelect1" style="display: flex; flex-direction: row; justify-content: space-between; align-items: end;"> 
+									<div class="corlorGuide alignL" style="margin-left: 20px; margin-top : 120px; display:flex; flex-direction: column; align-items: start;">
+										<div class="colorGuide_title">색상 Guide</div>
+										<div class="colorGuide_model">
+											<div class="colorBox cBG-Male"></div> <div class="guideTXT">남자</div>
+											<div class="colorBox cBG-Female"></div> <div class="guideTXT">여자</div>
+											<div class="colorBox cBG-Mask"></div> <div class="guideTXT">마스크</div>
+											<div class="colorBox cBG-Car"></div> <div class="guideTXT">차량</div>
+											<div class="colorBox cBG-LPR"></div> <div class="guideTXT">차량번호 인식</div>
+										</div>
+										<div class="colorGuide_event">
+											<div class="colorBox cBG-Intrusion"></div> <div class="guideTXT">침입</div>
+											<div class="colorBox cBG-Loitering"></div> <div class="guideTXT">배회</div>
+											<div class="colorBox cBG-Counting"></div> <div class="guideTXT">카운팅</div>
+											<div class="colorBox cBG-Parking"></div> <div class="guideTXT">불법 주·정차</div>
+											<div class="colorBox cBG-BlackList"></div> <div class="guideTXT">블랙리스트</div>
+										</div>
 									</div>
+
+									<div style="width: 400px; height: 200px; display: flex; flex-direction: row; justify-content: space-between; align-items: center; border: 1px solid white;">
+									
+										<div style="width: 50%; height: 100%; border: 1px solid yellow;">
+											<div id = "model_pie_wnd" style="width: 100%; height: 100%;"></div>
+										</div>
+										<div style="width: 50%; height: 100%; border: 1px solid yellowgreen;">
+											<div id = "event_pie_wnd" style="width: 100%; height: 100%;"></div>
+										</div>
+									</div>
+									<!--
 									<div class="alignR" style = "float:right">
-										<div  style = "width:10px; height: 100px; float:right;"></div>
-										<div  style = "margin-top: -10px; float:right;" id = "event_pie_wnd"></div>   
-										<div  style = "width:10px; height: 100px; float:right;"></div>
-										<div style = "margin-top: -10px; float:right;"  id = "ctrl_pie_wnd"></div>    
+										<div  style = "width:10px; height: 100px; float:right;">1</div>
+										<div  style = "margin-top: -10px; float:right;" id = "event_pie_wnd">123</div>   
+										<div  style = "width:10px; height: 100px; float:right;">9</div>
+										<div style = "margin-top: -10px; float:right;"  id = "ctrl_pie_wnd">456</div>    
 									</div>
-								<!-- </div> -->
+									-->
+								</div> 
 
 								<div class="clearfix" style="margin-left: 15px; margin-right: 15px; height:635px; border:1px solid gray"> 
 									<div style = "overflow:auto; width:100%; height:630px; background-color:rgba(30,30,30,1);"  >     
@@ -168,7 +183,11 @@
 								</div>								
 							</div>
 
+
+
+							<!-- !!!!!! 차후에 비동기로 데이터 불러오면서 진행할 것!!!!!! -->
 							<!-- 카메라 이벤트별 데이터 비교 -->
+							<!--
 							<div id="view2" class="data" style="height:865px;">
 								<div class="dataSelect" style="margin-bottom:0px;" >									
 								</div> 
@@ -189,7 +208,7 @@
 									<div style = "width:100%; height:40px; background-color:rgba(30,30,30,1);"></div>
 									<div style = "margin-left: 10px; width:100%; height:450px; background-color:rgba(30,30,30,1);" id = "camera_evt_graph"></div>
 																											
-									<!-- 토스트 Grid 테마 중복으로 인해 CSS Grid 사용 -->
+									// 토스트 Grid 테마 중복으로 인해 CSS Grid 사용
 									<div class="grid-camera-container" style = "padding-top:2%; width:100%; height:100px; " id = "compare_wnd"> 	
 										<div class="grid-item-camera-header" style = "width: 50"> </div>
 										<div class="grid-item-camera-header" style = "width: 80">오늘</div>
@@ -224,37 +243,53 @@
 									</div >			     
 								</div>
 							</div>	
+							-->
 							<div id="loading"><img id="loading-image" src="/resources/img/loading_animated.png" alt="Loading..." /></div>						
 						</div>
 					</div>
 					<!-- 섹션 좌측.E -->
 
 					<!-- 섹션 우측.S -->
-					<div class="sectionBox">
-						<div class="innerBox divEventAge">
-							<div class="contentsTitle">
+					<div class="sectionBox2">
+						<div class="innerBox divSideAge" style="height:25vh;  height:450px; margin-bottom: 13px !important;">
+							<div class="contentsTitle chartTitle">
 								<div class="title">
-									<h4>연령별 출입자 현황&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</h4>
-								</div>
+									<h4>연령별 출입자 현황</h4>
+								</div>								
 								<div class="title">
 									<h4>마스크 착용 비율</h4>
+								</div>								
+							</div>
+							<div class="chart01">
+								<div>
+									<!-- 연령별 출입자 현황 도넛그래프 영역 -->
+									<div class="chart" id="chart_radial_age" style="width: 250px; height: 350px; margin: 0 0 0 5%; padding: 0 0 10% 0; ">
+										<div id="chart_radial_age" style="width: 100%; height: 100%;" ></div>
+									</div>   
 								</div>
-							</div>
-							<div class="data01">
-								<div class="chart" id="chart_radial_age"></div>   
-							</div>
+								<div class="genderMaskChart" >
+									<div class="chart" style="width: 250px; height: 180px; ">
+										<!-- 남성 마스크 착용 비율 게이지 차트 -->
+										<div id="chart_pie_donut" style="width: 100%; height: 100%;"></div>
+									</div>   								
+									<div class="chart"  style="width: 250px; height: 180px;">
+										<!-- 여성 마스크 착용 비율 게이지 차트 -->
+										<div id="chart_pie_donut2" style="width: 100%; height: 100%;"></div>
+									</div> 
+									<div class="corlorGuide alignL">
+										<div class="corlorGuide_male">
+											<div class="colorBox cBG-Male" ></div> 
+											<div class="guideTXT">남자</div>
+										</div>
+										<div class="corlorGuide_female">
+											<div class="colorBox cBG-Female" ></div> 
+											<div class="guideTXT">여자</div>
+										</div>
+									</div>	
+								</div>
 
-							<div class="data02">								
-								<div class="chart" id="chart_pie_donut" style="margin-top: 0px"></div>   								
-								<div class="chart" id="chart_pie_donut2" style="margin-top: -10px"></div>   
-								<div class="corlorGuide alignL" style="margin-left: 80px; ">
-									<ul>
-										<li><div class="colorBox cBG-Male" ></div> <div class="guideTXT">남자</div></li>
-										<li><div class="colorBox cBG-Female" ></div> <div class="guideTXT">여자</div></li>
-									</ul>
-								</div>		
-							</div>
-						</div>	
+							</div>							
+						</div>		
 	
 						<div class="clearfix innerBox divTop10" style="height:25vh;  min-height:435px;" >
 							<div class="contentsTitle">
@@ -378,6 +413,9 @@
 									</div>
 								</div>
 								<!--  테이블 영역.E -->
+
+								<!-- !!!!!차후에 비동기로 데이터 불러오면서 같이 진행할 것!!!!!!!-->
+								<!--
 								<div id="grid_main_vehicle" style = "margin-left : 15px; margin-top : 10px;" >
 									<div class="container">
 										<table class="type_table">
@@ -476,13 +514,14 @@
 										</table>
 									</div>
 								</div>
+								-->
 
 								<!-- document.getElementById('camera_vec'+parseInt(i+1)).innerHTML = grid_top10_data[i].CAMERA_NAME;
 								document.getElementById('car'+parseInt(i+1)).innerHTML = grid_top10_data[i].VEHICLE_CAR;
 								document.getElementById('bus'+parseInt(i+1)).innerHTML = grid_top10_data[i].VEHICLE_BUS;
 								document.getElementById('truck'+parseInt(i+1)).innerHTML = grid_top10_data[i].VEHICLE_TRUCK;
 								document.getElementById('motorcycle'+parseInt(i+1)).innerHTML = grid_top10_data[i].VEHICLE_MOTORCYCLE;
-								document.getElementById('bicycle'+parseInt(i+1)).innerHTML = grid_top10_data[i].VEHICLE_BICYCLE;	 -->
+								document.getElementById('bicycle'+parseInt(i+1)).innerHTML = grid_top10_data[i].VEHICLE_BICYCLE;	-->
 
 							</div>
 						</div>
@@ -503,6 +542,11 @@
 	<!-- 전체 wrap.E -->
 
 
+	<!-- echarts -->
+	<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+
+	<script src="/resources/js/camera/subCamera.js"></script>
+
 	<script src="/resources/data/data_sample.js"></script>
 	<script type="text/javascript" src="/resources/js/EventChart.js"></script>
 
@@ -520,6 +564,7 @@
 	<script type="text/javascript" src="/resources/js/CsvMakeFile.js"></script>
 	<script type="text/javascript" src="dashboard_config.json"></script> 
 
+	<!--
 	<script>		
 		const chart = toastui.Chart;
 		var camera_evt_chart;
@@ -1858,6 +1903,7 @@
 			datePicker1.setDate(today);
 		}
 	</script>
+	-->
 
  </body>
 </html>
