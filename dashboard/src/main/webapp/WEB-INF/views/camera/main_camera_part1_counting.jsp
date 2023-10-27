@@ -88,9 +88,9 @@
 						</a>
 
 						<p class="date" id='mainDate'>2021년 07월 21일</p>
-						<button type="button" class="btn-date" href="#" style="display:none;">◀<!-- <img src="img/btn-calendarLeft.png">--></button>
-						<button type="button" class="btn" href="#" style="display:none;">오늘</button>
-						<button type="button" class="btn-date" href="#" style="display:none;">▶<!-- <img src="img/btn-calendarRight.png">--></button>
+						<button type="button" class="btn-date"  style="display:none;">◀<!-- <img src="img/btn-calendarLeft.png">--></button>
+						<button type="button" class="btn" style="display:none;">오늘</button>
+						<button type="button" class="btn-date" style="display:none;">▶<!-- <img src="img/btn-calendarRight.png">--></button>
 					</div>						
 				</div>
 				<!-- 상단 날짜,버튼 영역.E -->

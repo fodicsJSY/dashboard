@@ -83,9 +83,9 @@
 						</a>
 
 						<p class="date" id='mainDate'>2021년 07월 21일</p>
-						<button type="button" class="btn-date" href="#" style="display:none;">◀<!-- <img src="img/btn-calendarLeft.png">--></button>
-						<button type="button" class="btn" href="#" style="display:none;">오늘</button>
-						<button type="button" class="btn-date" href="#" style="display:none;">▶<!-- <img src="img/btn-calendarRight.png">--></button>
+						<button type="button" class="btn-date" style="display:none;">◀<!-- <img src="img/btn-calendarLeft.png">--></button>
+						<button type="button" class="btn" style="display:none;">오늘</button>
+						<button type="button" class="btn-date" style="display:none;">▶<!-- <img src="img/btn-calendarRight.png">--></button>
 					</div>	
 					<!-- <div class="btnArea">						
 						<a class="rollover" alt="csv파일" ><img src="img/btn-downCSV.png"> <img src="img/btn-downCSV_hover.png" class="over"></a>

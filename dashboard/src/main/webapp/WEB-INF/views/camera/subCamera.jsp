@@ -51,7 +51,7 @@
 	<body>
 	<!-- 전체 wrap.S -->
 	<div class="wrap" id="indexWrap">  
-		<jsp:include page="/WEB-INF/views/main/Setting.jsp"/>
+		<jsp:include page="/WEB-INF/views/main/setting.jsp"/>
 
 		<!-- 헤더.S -->
 		<header id="header"> 
@@ -109,9 +109,9 @@
 							<div id="wrapper" style="margin-left : -3px; margin-top : 5px;"></div>								
 						</div> -->
 						<!-- <p class="date" id='mainDate'>2021년 07월 21일</p> -->
-						<button type="button" class="btn-date" onClick="OnPrevDate()" href="#"  style = "margin-top: 1px;">◀<!-- <img src="img/btn-calendarLeft.png">--></button>
-						<button type="button" class="btn" onClick="OnTodayDate()" href="#"  style = "margin-top: 1px;">오늘</button>
-						<button type="button" class="btn-date" onClick="OnNextDate()" href="#"  style = "margin-top: 1px;">▶<!-- <img src="img/btn-calendarRight.png">--></button>
+						<button type="button" class="btn-date" onClick="OnPrevDate()"   style = "margin-top: 1px;">◀<!-- <img src="img/btn-calendarLeft.png">--></button>
+						<button type="button" class="btn" onClick="OnTodayDate()"  style = "margin-top: 1px;">오늘</button>
+						<button type="button" class="btn-date" onClick="OnNextDate()" style = "margin-top: 1px;">▶<!-- <img src="img/btn-calendarRight.png">--></button>
 					</div>	
 				</div>
 				<!-- 상단 날짜,버튼 영역.E -->
@@ -130,7 +130,7 @@
 						        </ul>
 								<div class="sub-btnArea">
 									<a class="rollover" alt="csv파일" OnClick="OnCSV_OK()"><img src="/resources/img/btn-downCSV.png"> <img src="/resources/img/btn-downCSV_hover.png" class="over"></a>
-									<a class="rollover" alt="HOME" onClick="location.href='main.html'"><img src="/resources/img/btn-goMain.png"> <img src="/resources/img/btn-goMain_hover.png" class="over"></a>
+									<a class="rollover" alt="HOME" href="/main"><img src="/resources/img/btn-goMain.png"> <img src="/resources/img/btn-goMain_hover.png" class="over"></a>
 								</div>
 							</div>
 							<!-- 전체 카메라 이벤트 발생 현황 -->
