@@ -21,7 +21,7 @@
 	<script src="./node_modules/jquery/3.6.0/jquery.min.js"></script>
 
 	<!-- css -->
-  <!--<link rel="stylesheet" href="/resources/css/camera/main_camera_part1_loitering.css">-->
+  <link rel="stylesheet" href="/resources/css/camera/main_camera_part1_loitering.css">
 
   <link rel="stylesheet" href="/resources/css/popup.css">
   <link rel="stylesheet" href="/resources/css/style.css">

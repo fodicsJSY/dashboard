@@ -173,7 +173,7 @@
 										</a>
 									</li>
 									<li class="today-part8" >
-										<a href="/mainCamera/mainCameraPart1Invasion">
+										<a href="/mainCamera/mainCameraPart1Loitering">
 											<div class="todayTXT todayIntrusion"  style="margin-right:0px; width: 40%;" >
 												<p class="todayIMG"><img src="/resources/img/icon_titleIntrusion.png"></p>
 												<p class="todayTitle color-Intrusion">침입</p>
