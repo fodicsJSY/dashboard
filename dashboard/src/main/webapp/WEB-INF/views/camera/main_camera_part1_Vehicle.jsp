@@ -287,7 +287,7 @@
 							</div>							
 						</div>		
 	
-						<div class="innerBox divSide" style="width: 100%; height:25vh;  height:450px;">
+						<div class="innerBox divSide" style="width: 100%; height:446px !important;">
 							
 							<div class="data">								
 								<div class="contentsTitle">
