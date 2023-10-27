@@ -341,7 +341,7 @@
 				<!-- 메인컨텐츠.E -->
 				<div id="bottom">
 					<p class="Notice">※ 화면에 표시되는 모든 실시간 데이터는 1분마다 자동으로 업데이트 합니다. 다만 “시간대별 현황” 그래프의 실시간 데이터는 정시에 한 번씩 업데이트 합니다.</p>
-					<div class="madeFodics">포딕스시스템</div>
+					<div class="madeFodics" style="margin: 0 40px 0 0;">포딕스시스템</div>
 				</div>
 				<!-- CSV 대화상자 -->
 				<dialog open id="csv_dialog" style = "display:none; background-color: rgba(30,30,30,1); color:rgba(192,192,192,1); width: 336px; padding: 0px; top:30px; left:900px;">		
