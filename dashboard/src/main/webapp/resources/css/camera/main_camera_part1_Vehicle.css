@@ -16,7 +16,7 @@
     vertical-align: middle;
 }
 
-tr>td:nth-child(2){
+.vehicleCount tr>td:nth-child(2){
     color: #d4e079; 
 }
 

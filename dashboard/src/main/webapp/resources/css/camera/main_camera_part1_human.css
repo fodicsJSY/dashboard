@@ -22,7 +22,7 @@
 
 
 
-tr>td:nth-child(2){
+.humanCount tr>td:nth-child(2){
     color: #94e9ec; 
 }
 

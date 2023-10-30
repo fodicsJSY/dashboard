@@ -17,7 +17,7 @@
     vertical-align: middle;
 }
 
-tr>td:nth-child(2){
+.faceCount tr>td:nth-child(2){
     color: #b4a1d8; 
 }
 

@@ -20,7 +20,7 @@ tbody *{
     background-color: #282828;
 }
 
-tbody>tr>td:nth-child(2), tbody>tr>td:nth-child(7), tbody>tr>td:nth-child(12){
+.countingTable tbody>tr>td:nth-child(2), tbody>tr>td:nth-child(7), tbody>tr>td:nth-child(12){
     color: gold; 
 }
 
