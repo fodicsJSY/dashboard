@@ -122,6 +122,146 @@ event_pie_wnd.setOption(option)
 
 
 
+// 객체 & 이벤트 막대그래프
+var chart_bar_dual = echarts.init(document.getElementById('chart_bar_dual'))
+option = {
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'shadow'
+    }
+  },
+  legend: {
+    show: false
+  },
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    containLabel: true
+  },
+  xAxis: [
+    {
+      show: false
+    }
+  ],
+  yAxis: [
+    {
+      name: 'date',
+      type: 'category',
+      data: ['어쩔사거리', '저쩔사거리', '아무튼사거리', '이래도사거리', '저래도사거리', '사거리중사거리', '사거리인데여', '이래도사거리', '저래도사거리', '사거리중사거리', '아무튼그거다']
+    }
+  ],
+  series: [
+    {
+      name: '남자',
+      type: 'bar',
+      stack: 'model',
+      emphasis: {
+        focus: 'series'
+      },
+      barWidth: 10,
+      itemStyle: { color: '#0f9faf' },
+      data: [320, 332, 301, 334, 390, 330, 320, 334, 390, 330, 320]
+    },
+    {
+      name: '여자',
+      type: 'bar',
+      stack: 'model',
+      emphasis: {
+        focus: 'series'
+      },
+      itemStyle: { color: '#e8534c' },
+      data: [120, 132, 101, 134, 90, 230, 210, 334, 390, 330, 320]
+    },
+    {
+      name: '마스크',
+      type: 'bar',
+      stack: 'model',
+      emphasis: {
+        focus: 'series'
+      },
+      itemStyle: { color: '#00a9ff' },
+      data: [220, 182, 191, 234, 290, 330, 310, 334, 390, 330, 320]
+    },
+    {
+      name: '차량',
+      type: 'bar',
+      stack: 'model',
+      emphasis: {
+        focus: 'series'
+      },
+      itemStyle: { color: '#d4e079' },
+      data: [150, 232, 201, 154, 190, 330, 410, 334, 390, 330, 320]
+    },
+    {
+      name: '차량번호 인식',
+      type: 'bar',
+      stack: 'model',
+      itemStyle: { color: '#f19ec2' },
+      data: [862, 1018, 964, 1026, 1679, 1600, 1570, 334, 390, 330, 320],
+      emphasis: {
+        focus: 'series'
+      }
+    },
+    {
+      name: '침입',
+      type: 'bar',
+      barWidth: 10,
+      stack: 'event',
+      emphasis: {
+        focus: 'series'
+      },
+      itemStyle: { color: '#4176df' },
+      data: [620, 732, 701, 734, 1090, 1130, 1120, 334, 390, 330, 320]
+    },
+    {
+      name: '배회',
+      type: 'bar',
+      stack: 'event',
+      emphasis: {
+        focus: 'series'
+      },
+      itemStyle: { color: '#fec070' },
+      data: [120, 132, 101, 134, 290, 230, 220, 334, 390, 330, 320]
+    },
+    {
+      name: '카운팅',
+      type: 'bar',
+      stack: 'event',
+      emphasis: {
+        focus: 'series'
+      },
+      itemStyle: { color: '#ff7978' },
+      data: [60, 72, 71, 74, 190, 130, 110, 334, 390, 330, 320]
+    },
+    {
+      name: '불법주정차',
+      type: 'bar',
+      stack: 'event',
+      emphasis: {
+        focus: 'series'
+      },
+      itemStyle: { color: '#aecf61' },
+      data: [62, 82, 91, 84, 109, 110, 120, 334, 390, 330, 320]
+    },
+    {
+      name: '블랙리스트',
+      type: 'bar',
+      stack: 'event',
+      emphasis: {
+        focus: 'series'
+      },
+      itemStyle: { color: '#7be1da' },
+      data: [62, 82, 91, 84, 109, 110, 120, 334, 390, 330, 320]
+    }
+  ]
+};
+
+
+//  차트 옵션 설정하기
+chart_bar_dual.setOption(option)
+
 
 
 
