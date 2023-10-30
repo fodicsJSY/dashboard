@@ -1,0 +1,33 @@
+.fade{
+    position: fixed;
+}
+
+.modal-body, .modal-footer{
+    background-color: #333333;
+}
+
+.popupTable{
+    background-color: #282828;
+}
+
+.popupTable *{
+    border: 1px solid #282828;
+    background-color: #1e1e1e;
+}
+
+
+.popupTable th{
+    background-color: #1a1a1a;
+}
+
+.btn-lg{
+    width: 29.99 !important;
+    height: 29.99 !important;
+}
+
+#reportBtn:hover{
+    width: 29.99 !important;
+    height: 29.99 !important;
+    background-color: #1a1a1a;
+    border: 1px solid #1a1a1a;
+}

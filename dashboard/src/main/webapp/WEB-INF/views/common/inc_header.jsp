@@ -13,6 +13,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
 	<link rel="stylesheet" href="/resources/css/popup.css">
+	<link rel="stylesheet" href="/resources/css/common/setting.css">
 
 </head>
 <body>
@@ -22,7 +23,135 @@
 	</div>
 	<div class="TopRight">
 		<p id="time_title" class="time">2021-00-00 10:00:00</p>
-		<a href="/setting" class="rollover" alt="셋팅팝업" ><img src="../../resources/img/btn_setting.png"> <img src="../../resources/img/btn_setting_hover.png" class="over"></a>
+		<!--<a href="/setting" class="rollover" alt="셋팅팝업" ><img src="../../resources/img/btn_setting.png"> <img src="../../resources/img/btn_setting_hover.png" class="over"></a>-->
+		<button type="button" id="reportBtn" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-whatever="@mdo"><img id="btmImg" src="../../resources/img/btn_setting.png"></button>
+
+		<!-- 사용자 정보 조회 모달창 시작 -->
+
+		<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+			<div class="modal-dialog" style="position: absolute; top: 300px; left: 800px;">
+				<div class="modal-content" style="background-color: black; width: 900px;">
+					<div class="modal-header">
+						<div class="pu-tabTitle">
+							<img src="/resources/img/admin/icon_setting.png">
+						</div>
+						<ul class="pop-tabs" data-persist="true">
+							<li onclick="openUserInfoView();"><a>사용자 정보 조회</a></li>
+							<li onclick="openAddUserView();"><a>사용자 정보 등록</a></li>
+							<li onclick="openUserEnvironmentView();"><a>사용자 환경 설정</a></li>
+							<li onclick="openUserGroupView();"><a>카메라 그룹 설정</a></li>
+						</ul>
+
+						<a class="rollover" alt="창닫기" data-bs-dismiss="modal" aria-label="Close">
+							<img src="/resources/img/admin/btn_POPwinClose.png"> 
+							<img src="/resources/img/admin/btn_POPwinClose_hover.png" class="over">
+						</a>
+					</div>
+					<div class="modal-body" style="display: flex; justify-content: center;">
+						<div class="popupTable" id="testPopupGrid">
+							<table class="userList">
+								<colgroup>
+									<col width="8%">
+									<col width="15%">
+									<col width="20%">
+									<col width="20%">
+									<col width="20%">
+									<col width="*">
+								</colgroup>
+								<tr>
+									<th><input type="checkbox" name=""></th>
+									<th>이름</th>
+									<th>아이디</th>
+									<th>비밀번호</th>
+									<th>개인정보 백업</th>
+									<th>계정상태</th>
+								</tr>
+								<tr>
+									<td><input type="checkbox" name=""></td>
+									<td>정송이</td>
+									<td>song</td>
+									<td>아무튼그거다</td>
+									<td>?</td>
+									<td>n</td>
+								</tr>
+								<tr>
+									<td><input type="checkbox" name=""></td>
+									<td>정송이</td>
+									<td>song</td>
+									<td>아무튼그거다</td>
+									<td>?</td>
+									<td>n</td>
+								</tr>
+								<tr>
+									<td><input type="checkbox" name=""></td>
+									<td>정송이</td>
+									<td>song</td>
+									<td>아무튼그거다</td>
+									<td>?</td>
+									<td>n</td>
+								</tr>
+								<tr>
+									<td><input type="checkbox" name=""></td>
+									<td>정송이</td>
+									<td>song</td>
+									<td>아무튼그거다</td>
+									<td>?</td>
+									<td>n</td>
+								</tr>
+								<tr>
+									<td><input type="checkbox" name=""></td>
+									<td>정송이</td>
+									<td>song</td>
+									<td>아무튼그거다</td>
+									<td>?</td>
+									<td>n</td>
+								</tr>
+								<tr>
+									<td><input type="checkbox" name=""></td>
+									<td>정송이</td>
+									<td>song</td>
+									<td>아무튼그거다</td>
+									<td>?</td>
+									<td>n</td>
+								</tr>
+								<tr>
+									<td><input type="checkbox" name=""></td>
+									<td>정송이</td>
+									<td>song</td>
+									<td>아무튼그거다</td>
+									<td>?</td>
+									<td>n</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="modal-footer" style="display: flex; justify-content: center;">
+						<div class="pop-btnBox">
+							<a class="rollover" alt="사용자 추가" onclick="openAddUserView();">
+								<img src="/resources/img/admin/btn_user.png"> 
+								<img src="/resources/img/admin/btn_user_hover.png" class="over">
+							</a>
+							<a class="rollover" alt="수정" onclick="editUserInfo();">
+								<img src="/resources/img/admin/btn_popEdit.png"> 
+								<img src="/resources/img/admin/btn_popEdit_hover.png" class="over">
+							</a>
+							<a class="rollover" alt="사용자 삭제" onclick="deleteUser();">
+								<img src="/resources/img/admin/btn_userDel.png"> 
+								<img src="/resources/img/admin/btn_userDel_hover.png" class="over">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 사용자 정보 조회 모달창 끝 -->
+
+		
+
+
+
+
+
 
 		<!-- <a class="rollover" alt="최소화"><img src="img/btn_winMini.png"> <img src="img/btn_winMini_hover.png" class="over"></a>
 		<a class="rollover" alt="창크기"><img src="img/btn_winTile.png"> <img src="img/btn_winTile_hover.png" class="over"></a> -->
@@ -32,6 +161,7 @@
 
 
 	<script>
+		// 현재시간
 		setTimeout(setInterval( getTime, 10), 100);
 
 		function getTime() {
@@ -72,6 +202,24 @@
 			timeBoard.innerText = time;	// 출력
 		}
 
+
+
+		// setting버튼 클릭 시 이미지 변경
+		// 버튼 엘리먼트와 이미지 엘리먼트 가져오기
+		const button = document.getElementById('reportBtn');
+		const buttonImage = document.getElementById('btmImg');
+
+		// 마우스 호버 이벤트 리스너 추가
+		button.addEventListener('mouseenter', function () {
+		// 이미지 변경
+		buttonImage.src = '../../resources/img/btn_setting_hover.png';
+		});
+
+		// 마우스 아웃 이벤트 리스너 추가 (원래 이미지로 복원)
+		button.addEventListener('mouseleave', function () {
+		// 이미지 원래대로 복원
+		buttonImage.src = '../../resources/img/btn_setting.png';
+		});
 
 	</script>
 </body>
