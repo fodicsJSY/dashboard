@@ -23,8 +23,34 @@
 /* 셀 색상 변경 시도 */
 .tui.grid-cell.red-header {background-color: red !important}
 
- p {display:flow-root; }
+p {display:flow-root; }
 
+
+
+.gridTitle{
+  width: 95%;
+  
+}
+
+.gridTitle *{
+  border: 1px solid #333333;
+  background-color: #1e1e1e;
+
+}
+
+
+
+.grid_object_person_title tr *{
+  border: 1px solid #333333;
+  height: 40px;
+  vertical-align: middle !important;
+  
+}
+
+th:not(.loadName) {
+  /* 여기에 너비를 설정할 수 있습니다. 예: */
+  width: 100px;
+}
 
 
 #grid_object{
@@ -35,20 +61,22 @@
 }
 
 /*#grid_object {font-size:34px;}*/ 
-.humanCameraTable {
+.humanCameraTable, .grid_object_person_total, .grid_object_person_title{
   width: 100%;
   font-family: NanumSquareEB; 
   font-size: 11pt; 
   border: 1px solid #333333;
-  overflow-y: scroll;
-
+  
 }
-tr *{
+
+.humanCameraTable tr *{
   border: 1px solid #333333;
   height: 40px;
-  vertical-align: middle;
-
+  vertical-align: middle !important;
+  
 }
+
+
 
 tbody *{
   background-color: #282828;
@@ -56,18 +84,24 @@ tbody *{
 }
 
 th {
-  text-align: center;
+  text-align: center !important;
   
 }
 
 td{
   width: 152.5px;
   text-align: right;
-  padding-left: 10px !important; padding-right: 10px !important;
+ padding-right: 10px !important;
 }
 
+
+.humanCameraTable td:nth-child(8){
+  color: deepskyblue; 
+}
+
+
 .loadName{
-  text-align: left;
+  text-align: left !important;
   padding: 0 0 0 10px;
   width: 356px;
 
@@ -97,4 +131,19 @@ td{
   font-family: NanumSquareEB; 
   font-size: 11pt; 
   border: 1px solid #333333;
+  color: deepskyblue;
+}
+
+
+.grid_object_person_total tr *{
+  border: 1px solid #333333;
+  height: 40px;
+  vertical-align: middle !important;
+  
+}
+
+
+th:not(.loadName) {
+  /* 여기에 너비를 설정할 수 있습니다. 예: */
+  width: 152.9px;
 }

@@ -132,31 +132,31 @@
                 </div>
 
                 <input id="text_cam_name" class="text_cam_name" style="color:white;" ; type="text" name="name" required
-                  minlength="4" maxlength="8" size="25" placeholder="카메라 명을 입력하세요." onkeydown="KeyDownSearch(this.id)"
-                  ;>
+                  minlength="4" maxlength="8" size="25" placeholder="카메라 명을 입력하세요." onkeydown="KeyDownSearch(this.id)";>
 
-                <button id="btn_cam_Psearch" type="button" onClick="FindCamData('text_cam_name')" ; class="btn"
-                  style="margin-top: -5px; margin-left: 10px;">검색</button>
-
+                <button id="btn_cam_Psearch" type="button" onClick="FindCamData('text_cam_name')" class="btn" style="margin-top: -5px; margin-left: 10px;">검색</button>
               </div>
 
               <div class="sectionBox1type">
                 <!--사람 카메라 정보 상세-->
+                <div class="gridTitle">
+                  <table class="grid_object_person_title">
+                    <tr>
+                      <th scope="col" class="loadName">카메라명</th>
+                      <th scope="col">남자</th>
+                      <th scope="col">여자</th>
+                      <th scope="col">미성년</th>
+                      <th scope="col">청년</th>
+                      <th scope="col">중장년</th>
+                      <th scope="col">노년</th>
+                      <th scope="col">TOTAL</th>
+                      <th scope="col">마스크착용</th>
+                      <th scope="col" style="width: 10px;"></th>
+                    </tr>
+                  </table>
+                </div>
                 <div id="grid_object">
                   <table class="humanCameraTable">
-                    <thead>
-                      <tr>
-                        <th scope="col">카메라명</th>
-                        <th scope="col">남자</th>
-                        <th scope="col">여자</th>
-                        <th scope="col">미성년</th>
-                        <th scope="col">청년</th>
-                        <th scope="col">중장년</th>
-                        <th scope="col">노년</th>
-                        <th scope="col">TOTAL</th>
-                        <th scope="col">마스크착용</th>
-                      </tr>
-                    </thead>
                     <tbody class="table-group-divider">
                       <tr>
                         <th scope="row" class="loadName">먼우금사거리</th>
@@ -393,6 +393,7 @@
                   <td>125</td>
                   <td>125</td>
                   <td>125</td>
+                  <td style="width: 10px; margin: 0;"></td>
                 </table>
                 <!--
                   <div id="grid_object_person_total"></div>
