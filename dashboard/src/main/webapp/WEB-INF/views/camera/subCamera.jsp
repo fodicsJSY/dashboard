@@ -92,12 +92,12 @@
 			<div id="contentsWrap">
 				<!-- 상단 날짜,버튼 영역.S -->
 				<div class="mainTop">
-					<div class=" dateArea">
+					<div class=" dateArea" style="display: flex; flex-direction: row; align-items: center;">
 
 						<!-- 달력 -->
 						<div class="tui-datepicker-input tui-datetime-input tui-has-focus">
 							<input type="text" id="tui-date-picker-target"
-								aria-label="Date-Time">
+								aria-label="Date-Time" style = "margin-top: 1px;">
 							<span class="tui-ico-date"></span>
 							<div id="tui-date-picker-container"></div>
 						</div>
@@ -113,7 +113,7 @@
 						</div> -->
 						<!-- <p class="date" id='mainDate'>2021년 07월 21일</p> -->
 						<button type="button" class="btn-date" onClick="OnPrevDate()"   style = "margin-top: 1px;">◀<!-- <img src="img/btn-calendarLeft.png">--></button>
-						<button type="button" class="btn" onClick="OnTodayDate()"  style = "margin-top: 1px;">오늘</button>
+						<button type="button" class="btn" onClick="OnTodayDate()"  style = "margin: 1px 4px 0 4px;">오늘</button>
 						<button type="button" class="btn-date" onClick="OnNextDate()" style = "margin-top: 1px;">▶<!-- <img src="img/btn-calendarRight.png">--></button>
 					</div>	
 				</div>
@@ -157,12 +157,12 @@
 										</div>
 									</div>
 
-									<div style="width: 400px; height: 200px; display: flex; flex-direction: row; justify-content: space-between; align-items: center; border: 1px solid white;">
+									<div class="chartCon" style="width: 400px; height: 200px; display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
 									
-										<div style="width: 50%; height: 100%; border: 1px solid yellow;">
+										<div style="width: 50%; height: 100%;">
 											<div id = "model_pie_wnd" style="width: 100%; height: 100%;"></div>
 										</div>
-										<div style="width: 50%; height: 100%; border: 1px solid yellowgreen;">
+										<div style="width: 50%; height: 100%;">
 											<div id = "event_pie_wnd" style="width: 100%; height: 100%;"></div>
 										</div>
 									</div>
@@ -178,7 +178,7 @@
 
 								<div class="clearfix" style="margin-left: 15px; margin-right: 15px; height:635px; border:1px solid gray"> 
 									<div style = "overflow:auto; width:100%; height:630px; background-color:rgba(30,30,30,1);"  >     
-										<div style = "width:900px;" class="chart" id="chart_bar_dual"></div> 
+										<div style = "width:900px; height: 1000px;" class="chart" id="chart_bar_dual"></div> 
 									</div>    
 								</div>								
 							</div>
@@ -531,7 +531,7 @@
 				<!-- 메인컨텐츠.E -->
 				<div id="bottom">
 					<p class="Notice">※ 화면에 표시되는 모든 실시간 데이터는 1분마다 자동으로 업데이트 합니다. 다만 “시간대별 현황” 그래프의 실시간 데이터는 정시에 한 번씩 업데이트 합니다.</p>
-					<div class="madeFodics">포딕스시스템</div>
+					<div class="madeFodics" style="margin: 0 40px 0 0;">포딕스시스템</div>
 				</div>
 			</div>
 			<!-- 우측 메인.E -->
