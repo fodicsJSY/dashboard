@@ -148,6 +148,27 @@ table tr> td:first-child {text-align:left;}
 .btn-date {display:inline-block; width:28px;  height:28px; padding-bottom:5px; vertical-align:top; text-align:center; background-color:#181818; border:1px solid #000000; border-radius:5px;}
 
 
+
+
+/* input date태그 사용자 정의 아이콘 이미지 설정 */
+input[type="date"]::-webkit-calendar-picker-indicator {
+	background-image: url('/resources/img/btn-calendar.png'); /* 아이콘 이미지의 URL을 여기에 입력하세요 */
+	width: 20px; /* 아이콘의 가로 크기를 조절하세요 */
+	height: 20px; /* 아이콘의 세로 크기를 조절하세요 */
+	background-size: cover;
+	background-repeat: no-repeat;
+  }
+
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+	cursor: pointer;
+	background-image: url('/resources/img/btn-calendar_hover.png');
+}
+
+
+
+
+
 .btnArea {float:right;}
 .btn  {display:inline-block;  height:28px; padding:0 10px; vertical-align:top; text-align:center; background-color:#181818; border:1px solid #000000; border-radius:5px;}
 

@@ -85,7 +85,7 @@
 
 
 						<div class="tui-datepicker-input tui-datetime-input tui-has-focus">
-							<input type="text" id="tui-date-picker-target" aria-label="Date-Time">
+							<input type="date" id="tui-date-picker-target" aria-label="Date-Time" value="1900-00-00">
 							<span class="tui-ico-date"></span>
 							<div id="tui-date-picker-container"></div>
 						</div>
@@ -432,6 +432,9 @@
     
     <!-- 전역변수 시작-->
     <script>
+
+
+
 
     </script>
     <!-- 전역변수 끝-->
@@ -1107,6 +1110,12 @@
     }
   }
   /* 차트 변경 js 끝 */
+
+
+		  // input date태그 기본값 변경
+		  document.getElementById('tui-date-picker-target').value = new Date().toISOString().substring(0, 10);	
+
+
 
 
   

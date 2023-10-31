@@ -1337,6 +1337,11 @@
     {
       show_object_page = 2
     }
+
+
+      // input date태그 기본값 변경
+      document.getElementById('startpicker-input').value = new Date().toISOString().substring(0, 10);	
+      document.getElementById('endpicker-input').value = new Date().toISOString().substring(0, 10);	
   </script>
 </body>
 
