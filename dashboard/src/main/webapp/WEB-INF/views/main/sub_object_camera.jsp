@@ -102,8 +102,8 @@
           <div class="subTabs">
             <div class="tabsTitle"><img src="/resources/img/navi_object.png"></div>
             <ul class="tabs" data-persist="true">
-              <li style="background-color: #1e1e1e; color: white;"><a href="/sub_object"  style="background-color: #1e1e1e; color: white;" OnClick = "HumanPageShow()">사람 카메라 정보 상세</a></li>
-              <li><a href="/sub_object_camera" OnClick = "VehiclePageShow()">차량 카메라 정보 상세</a></li>
+              <li><a href="/sub_object" OnClick = "HumanPageShow()">사람 카메라 정보 상세</a></li>
+              <li><a href="/sub_object_camera"  style="background-color: #1e1e1e; color: white;" OnClick = "VehiclePageShow()">차량 카메라 정보 상세</a></li>
             </ul>
 
             <div class="sub-btnArea">
@@ -143,14 +143,12 @@
                   <table class="grid_object_person_title">
                     <tr>
                       <th scope="col" class="loadName">카메라명</th>
-                      <th scope="col">남자</th>
-                      <th scope="col">여자</th>
-                      <th scope="col">미성년</th>
-                      <th scope="col">청년</th>
-                      <th scope="col">중장년</th>
-                      <th scope="col">노년</th>
+                      <th scope="col">자동차</th>
+                      <th scope="col">버스</th>
+                      <th scope="col">트럭</th>
+                      <th scope="col">오토바이</th>
+                      <th scope="col">자전거</th>
                       <th scope="col">TOTAL</th>
-                      <th scope="col">마스크착용</th>
                       <th scope="col" style="width: 10px;"></th>
                     </tr>
                   </table>
@@ -166,8 +164,6 @@
                         <td>124</td>
                         <td>18</td>
                         <td>251</td>
-                        <td>251</td>
-                        <td>251</td>
                       </tr>
                       <tr>
                         <th scope="row" class="loadName">원당사거리</th>
@@ -176,8 +172,6 @@
                         <td>23</td>
                         <td>277</td>      
                         <td>19</td>
-                        <td>226</td>
-                        <td>226</td>
                         <td>226</td>
                       </tr>
                       <tr>
@@ -188,8 +182,6 @@
                         <td>220</td>
                         <td>26</td>
                         <td>218</td>
-                        <td>218</td>
-                        <td>218</td>
                       </tr>
                       <tr>
                         <th scope="row" class="loadName">동인천역</th>
@@ -198,8 +190,6 @@
                         <td>24</td>
                         <td>219</td>
                         <td>15</td>
-                        <td>218</td>
-                        <td>218</td>
                         <td>218</td>
                       </tr>
                       <tr>
@@ -210,8 +200,6 @@
                         <td>210</td>
                         <td>21</td>
                         <td>228</td>
-                        <td>228</td>
-                        <td>228</td>
                       </tr>
                       <tr>
                         <th scope="row" class="loadName">임학사거리</th>
@@ -220,8 +208,6 @@
                         <td>16</td>
                         <td>214</td>
                         <td>58</td>
-                        <td>125</td>
-                        <td>125</td>
                         <td>125</td>
                       </tr>
                       <tr>
@@ -232,8 +218,6 @@
                         <td>220</td>
                         <td>26</td>
                         <td>218</td>
-                        <td>218</td>
-                        <td>218</td>
                       </tr>
                       <tr>
                         <th scope="row" class="loadName">송림오거리</th>
@@ -242,8 +226,6 @@
                         <td>24</td>
                         <td>219</td>
                         <td>15</td>
-                        <td>218</td>
-                        <td>218</td>
                         <td>218</td>
                       </tr>
                       <tr>
@@ -254,8 +236,6 @@
                         <td>210</td>
                         <td>21</td>
                         <td>228</td>
-                        <td>228</td>
-                        <td>228</td>
                       </tr>
                       <tr>
                         <th scope="row" class="loadName">도화초교사거리</th>
@@ -264,8 +244,6 @@
                         <td>16</td>
                         <td>214</td>
                         <td>58</td>
-                        <td>125</td>
-                        <td>125</td>
                         <td>125</td>
                       </tr>
                       <tr>
@@ -276,8 +254,6 @@
                         <td>214</td>
                         <td>58</td>
                         <td>125</td>
-                        <td>125</td>
-                        <td>125</td>
                       </tr>
                       <tr>
                         <th scope="row" class="loadName">가정오거리</th>
@@ -286,8 +262,6 @@
                         <td>16</td>
                         <td>214</td>
                         <td>58</td>
-                        <td>125</td>
-                        <td>125</td>
                         <td>125</td>
                       </tr>
                       <tr>
@@ -298,8 +272,6 @@
                         <td>214</td>
                         <td>58</td>
                         <td>125</td>
-                        <td>125</td>
-                        <td>125</td>
                       </tr>
                       <tr>
                         <th scope="row" class="loadName">수산물검사원사거리</th>
@@ -309,7 +281,14 @@
                         <td>214</td>
                         <td>58</td>
                         <td>125</td>
-                        <td>125</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="loadName">간석오거리</th>
+                        <td>143</td>
+                        <td>111</td>
+                        <td>16</td>
+                        <td>214</td>
+                        <td>58</td>
                         <td>125</td>
                       </tr>
                       <tr>
@@ -320,7 +299,14 @@
                         <td>214</td>
                         <td>58</td>
                         <td>125</td>
-                        <td>125</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="loadName">간석오거리</th>
+                        <td>143</td>
+                        <td>111</td>
+                        <td>16</td>
+                        <td>214</td>
+                        <td>58</td>
                         <td>125</td>
                       </tr>
                       <tr>
@@ -331,8 +317,6 @@
                         <td>214</td>
                         <td>58</td>
                         <td>125</td>
-                        <td>125</td>
-                        <td>125</td>
                       </tr>
                       <tr>
                         <th scope="row" class="loadName">간석오거리</th>
@@ -342,8 +326,6 @@
                         <td>214</td>
                         <td>58</td>
                         <td>125</td>
-                        <td>125</td>
-                        <td>125</td>
                       </tr>
                       <tr>
                         <th scope="row" class="loadName">간석오거리</th>
@@ -352,30 +334,6 @@
                         <td>16</td>
                         <td>214</td>
                         <td>58</td>
-                        <td>125</td>
-                        <td>125</td>
-                        <td>125</td>
-                      </tr>
-                      <tr>
-                        <th scope="row" class="loadName">간석오거리</th>
-                        <td>143</td>
-                        <td>111</td>
-                        <td>16</td>
-                        <td>214</td>
-                        <td>58</td>
-                        <td>125</td>
-                        <td>125</td>
-                        <td>125</td>
-                      </tr>
-                      <tr>
-                        <th scope="row" class="loadName">간석오거리</th>
-                        <td>143</td>
-                        <td>111</td>
-                        <td>16</td>
-                        <td>214</td>
-                        <td>58</td>
-                        <td>125</td>
-                        <td>125</td>
                         <td>125</td>
                       </tr>
                     </tbody>
@@ -390,8 +348,6 @@
                   <td>16</td>
                   <td>214</td>
                   <td>58</td>
-                  <td>125</td>
-                  <td>125</td>
                   <td>125</td>
                   <td style="width: 10px; margin: 0;"></td>
                 </table>
