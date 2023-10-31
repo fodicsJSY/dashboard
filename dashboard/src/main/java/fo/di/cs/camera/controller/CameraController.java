@@ -24,6 +24,12 @@ public class CameraController {
 	public String subCameraForward() {
 		return "camera/subCamera";
 	}
+
+	//서브카메라2페이지로 이동
+	@GetMapping("/mainCamera/subCamera2")
+	public String subCamera2Forward() {
+		return "camera/subCamera2";
+	}
 	
 	
 	//사람 메인카메라페이지로 이동

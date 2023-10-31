@@ -96,7 +96,7 @@
 
 						<!-- 달력 -->
 						<div class="tui-datepicker-input tui-datetime-input tui-has-focus">
-							<input type="text" id="tui-date-picker-target"
+							<input type="date" id="tui-date-picker-target"
 								aria-label="Date-Time" style = "margin-top: 1px;">
 							<span class="tui-ico-date"></span>
 							<div id="tui-date-picker-container"></div>
@@ -128,8 +128,8 @@
 							<div class="subTabs">
 								<div class="tabsTitle"><img src="/resources/img/navi_camera.png"></div>
 						        <ul class="tabs" data-persist="true">
-						            <li><a href="#view1" onClick="TabOneChange()" class="tab-viewTime">전체 카메라 이벤트 발생 현황</a></li>
-						            <li><a href="#view2" onClick="TabTwoChange()" class="tab-viewTime">카메라 이벤트별 데이터 비교</a></li>
+						            <li><a href="/mainCamera/subCamera" onClick="TabOneChange()" class="tab-viewTime">전체 카메라 이벤트 발생 현황</a></li>
+						            <li><a href="/mainCamera/subCamera2" onClick="TabTwoChange()" class="tab-viewTime">카메라 이벤트별 데이터 비교</a></li>
 						        </ul>
 								<div class="sub-btnArea">
 									<a class="rollover" alt="csv파일" OnClick="OnCSV_OK()"><img src="/resources/img/btn-downCSV.png"> <img src="/resources/img/btn-downCSV_hover.png" class="over"></a>
@@ -292,7 +292,7 @@
 						</div>		
 	
 						<div class="clearfix innerBox divTop10" style="height:25vh;  min-height:435px;" >
-							<div class="contentsTitle">
+							<div class="contentsTitle" style="display: flex; flex-direction: row; justify-content: space-between;">
 								<div class="title">
 									<h4>최다검지 카메라 TOP10 CH</h4>
 								</div>
@@ -1904,6 +1904,10 @@
 		}
 	</script>
 	-->
+	<script>
+		  // input date태그 기본값 변경
+		  document.getElementById('tui-date-picker-target').value = new Date().toISOString().substring(0, 10);	
+	</script>
 
  </body>
 </html>
