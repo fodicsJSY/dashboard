@@ -32,6 +32,12 @@ public class MainController {
 	public String main_Forward() {
 		return "/main/sub_object";
 	}
+	
+	//sub_object_camera로 이동
+	@GetMapping("/sub_object_camera")
+	public String main_sub_object_cameraForward() {
+		return "/main/sub_object_camera";
+	}
 
 	
 	//임시페이지
