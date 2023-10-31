@@ -1,3 +1,10 @@
+
+// 오늘날짜 표시하기
+let day = new Date();
+document.getElementById('mainDate').innerHTML = day.getFullYear()+"년도 " +parseInt(day.getMonth()+1)+ "월 "+ day.getDate()+ "일";
+
+
+
 // 차량 종류별 검지 건(수)
 var vehicleChart = echarts.init(document.getElementById('car_pie_chart'))
 

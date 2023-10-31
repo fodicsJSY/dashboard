@@ -1,4 +1,10 @@
 
+// 오늘날짜 표시하기
+let day = new Date();
+document.getElementById('mainDate').innerHTML = day.getFullYear()+"년도 " +parseInt(day.getMonth()+1)+ "월 "+ day.getDate()+ "일";
+
+
+
 // 성별 도넛차트
 var genderChart = echarts.init(document.getElementById('sex_pie_wnd'));
 
