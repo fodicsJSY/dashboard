@@ -26,9 +26,10 @@
 		<!--<a href="/setting" class="rollover" alt="셋팅팝업" ><img src="../../resources/img/btn_setting.png"> <img src="../../resources/img/btn_setting_hover.png" class="over"></a>-->
 		<button type="button" id="reportBtn" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-whatever="@mdo"><img id="btmImg" src="../../resources/img/btn_setting.png"></button>
 
-		<!-- 사용자 정보 조회 모달창 시작 -->
 
-		<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+
+		<!-- 사용자 정보 조회 모달창1 시작 -->
+		<!--<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
 			<div class="modal-dialog" style="position: absolute; top: 300px; left: 800px;">
 				<div class="modal-content" style="background-color: black; width: 900px;">
 					<div class="modal-header">
@@ -143,12 +144,73 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<!-- 사용자 정보 조회 모달창 끝 -->
+		</div>-->
+		<!-- 사용자 정보 조회 모달창1 끝 -->
 
 		
 
+		<!-- 사용자 정보 조회 모달창2 시작 -->
+		<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+			<div class="modal-dialog" style="position: absolute; top: 300px; left: 800px;">
+				<div class="modal-content" style="background-color: black; width: 900px;">
+					<div class="modal-header">
+						<div class="pu-tabTitle">
+							<img src="/resources/img/admin/icon_setting.png">
+						</div>
+						<ul class="pop-tabs" data-persist="true">
+							<li onclick="openUserInfoView();"><a>사용자 정보 조회</a></li>
+							<li onclick="openAddUserView();"><a>사용자 정보 등록</a></li>
+							<li onclick="openUserEnvironmentView();"><a>사용자 환경 설정</a></li>
+							<li onclick="openUserGroupView();"><a>카메라 그룹 설정</a></li>
+						</ul>
 
+						<a class="rollover" alt="창닫기" data-bs-dismiss="modal" aria-label="Close">
+							<img src="/resources/img/admin/btn_POPwinClose.png"> 
+							<img src="/resources/img/admin/btn_POPwinClose_hover.png" class="over">
+						</a>
+					</div>
+					<div class="modal-body" style="display: flex; justify-content: center;">
+						<div class="userInfo">
+							<dl>
+								<dt>이름<span class="required">*</span></dt>
+								<dd><input type="text" class="txt-field" placeholder="사용자 명을 입력 해 주세요." id="AddUserView_Name"> </dd>
+								<dt>아이디<span class="required">*</span></dt>
+								<dd><input type="text" class="txt-field" placeholder="아이디를 입력 해 주세요." id="AddUserView_Id"> </dd>
+								<dt>비밀번호<span class="required">*</span></dt>
+								<dd><input type="password" class="txt-field" placeholder="비밀번호를 입력 해 주세요." id="AddUserView_Pw"> </dd>
+								<dt>개인정보 백업<span class="required">*</span></dt>
+								<dd>
+									<input name="backup" id="radio" type="radio" class="btnRadio" checked="true">
+									<label>가능</label> 
+									<input name="backup" id="radio" type="radio" class="btnRadio">
+									<label>불가능</label>
+								</dd>
+								<dt>계정 상태</dt>
+								<dd>
+									<input name="used" id="radio" type="radio" class="btnRadio" checked="true">
+									<label>사용</label> 
+									<input name="used" id="radio" type="radio" class="btnRadio">
+									<label>미사용</label>
+								</dd>
+							</dl>
+						</div>
+					</div>
+					<div class="modal-footer" style="display: flex; justify-content: center;">
+						<div class="pop-btnBox">
+							<a class="rollover" alt="저장" id="addUserInfo" onclick="addUserInfo();">
+								<img src="/resources/img/admin/btn_save.png"> 
+								<img src="/resources/img/admin/btn_save_hover.png" class="over">
+							</a>
+							<a class="rollover" alt="취소" onclick="closePopup();">
+								<img src="/resources/img/admin/btn_cancel.png"> 
+								<img src="/resources/img/admin/btn_cancel_hover.png" class="over">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 사용자 정보 조회 모달창2 끝 -->
 
 
 
