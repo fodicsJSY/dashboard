@@ -76,8 +76,6 @@ public class UserController {
 		status.setComplete();
 		session.invalidate();
 
-
-		
 		return "redirect:/";
 	}
 	

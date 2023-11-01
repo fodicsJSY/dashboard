@@ -1,0 +1,110 @@
+.camera-ListBox *{
+    display: flex;
+    flex-direction: column;
+    justify-self: start;
+    align-items: center;
+}
+  
+
+
+#cameraList{
+    width: 100%;
+    height: 790px;
+    overflow-y: scroll;
+}
+
+
+#cameraList *{
+    width: 100%;
+    font-family: NanumSquareEB; 
+    font-size: 11pt; 
+    border: 1px solid #333333;
+    float: left;
+    text-align: left;
+}
+
+
+#cameraList td{
+    height: 35px /*!important;*/;
+    vertical-align: middle;
+    padding-top: 10px 
+    
+}
+
+
+
+
+
+/*  */
+
+.camera-containerTable tr *{
+    border: 1px solid rgba(45,45,45,1);
+    font-family: NanumSquareEB; 
+    font-size: 10pt; 
+    text-align: center;
+    vertical-align: middle;
+}
+
+.camera-containerTable>tbody td:nth-child(2){
+    color:aqua;
+
+}
+.camera-containerTable>tbody td:nth-child(4){
+    color:red;
+
+}
+.camera-containerTable>tbody td:nth-child(6){
+    color:blue;
+
+}
+
+
+
+
+
+
+/* 우측섹션 */
+
+.chart01{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+
+.contentsTitle{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.chartTitle{
+    justify-content: space-around;
+}
+
+.genderMaskChart{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.alignL {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin:10px 0; 
+}
+
+.corlorGuide_male{
+    margin: 5px;
+}
+
+.corlorGuide_female{
+    margin: 5px;
+    
+}

@@ -11,7 +11,7 @@
 
 	<!-- css -->
 	<!-- <link rel="stylesheet" href="css/style.css"> -->
-	<link rel="stylesheet" href="/resources/css/camera/subCamera.css">
+	<link rel="stylesheet" href="/resources/css/camera/subCamera2.css">
 
 	<link rel="stylesheet" href="/resources/css/popup.css">
 	<link rel="stylesheet" href="/resources/css/camera.css">
@@ -124,126 +124,164 @@
 
 					<!-- 섹션 좌측.S -->
 					<div class="sectionBox" style="width: 1055px;">
-						<div class="innerBox subCamera">
+						<div class="innerBox" style="width: 100%; height: 855px !important;">
 							<div class="subTabs">
 								<div class="tabsTitle"><img src="/resources/img/navi_camera.png"></div>
 						        <ul class="tabs" data-persist="true">
-						            <li><a href="/mainCamera/subCamera" onClick="TabOneChange()" class="tab-viewTime" style="background-color: #1e1e1e; color: white;">전체 카메라 이벤트 발생 현황</a></li>
-						            <li><a href="/mainCamera/subCamera2" onClick="TabTwoChange()" class="tab-viewTime">카메라 이벤트별 데이터 비교</a></li>
+						            <li><a href="/mainCamera/subCamera" onClick="TabOneChange()" class="tab-viewTime">전체 카메라 이벤트 발생 현황</a></li>
+						            <li><a href="/mainCamera/subCamera2" onClick="TabTwoChange()" class="tab-viewTime" style="background-color: #1e1e1e; color: white;">카메라 이벤트별 데이터 비교</a></li>
 						        </ul>
 								<div class="sub-btnArea">
 									<a class="rollover" alt="csv파일" OnClick="OnCSV_OK()"><img src="/resources/img/btn-downCSV.png"> <img src="/resources/img/btn-downCSV_hover.png" class="over"></a>
 									<a class="rollover" alt="HOME" href="/main"><img src="/resources/img/btn-goMain.png"> <img src="/resources/img/btn-goMain_hover.png" class="over"></a>
 								</div>
 							</div>
-							<!-- 전체 카메라 이벤트 발생 현황 -->
-							<div id="view1" class="data ">
-								<div class="dataSelect1" style="display: flex; flex-direction: row; justify-content: space-between; align-items: end;"> 
-									<div class="corlorGuide alignL" style="margin-left: 20px; margin-top : 120px; display:flex; flex-direction: column; align-items: start;">
-										<div class="colorGuide_title">색상 Guide</div>
-										<div class="colorGuide_model">
-											<div class="colorBox cBG-Male"></div> <div class="guideTXT">남자</div>
-											<div class="colorBox cBG-Female"></div> <div class="guideTXT">여자</div>
-											<div class="colorBox cBG-Mask"></div> <div class="guideTXT">마스크</div>
-											<div class="colorBox cBG-Car"></div> <div class="guideTXT">차량</div>
-											<div class="colorBox cBG-LPR"></div> <div class="guideTXT">차량번호 인식</div>
-										</div>
-										<div class="colorGuide_event">
-											<div class="colorBox cBG-Intrusion"></div> <div class="guideTXT">침입</div>
-											<div class="colorBox cBG-Loitering"></div> <div class="guideTXT">배회</div>
-											<div class="colorBox cBG-Counting"></div> <div class="guideTXT">카운팅</div>
-											<div class="colorBox cBG-Parking"></div> <div class="guideTXT">불법 주·정차</div>
-											<div class="colorBox cBG-BlackList"></div> <div class="guideTXT">블랙리스트</div>
-										</div>
-									</div>
-
-									<div class="chartCon" style="width: 400px; height: 200px; display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
-									
-										<div style="width: 50%; height: 100%;">
-											<div id = "model_pie_wnd" style="width: 100%; height: 100%;"></div>
-										</div>
-										<div style="width: 50%; height: 100%;">
-											<div id = "event_pie_wnd" style="width: 100%; height: 100%;"></div>
-										</div>
-									</div>
-									<!--
-									<div class="alignR" style = "float:right">
-										<div  style = "width:10px; height: 100px; float:right;">1</div>
-										<div  style = "margin-top: -10px; float:right;" id = "event_pie_wnd">123</div>   
-										<div  style = "width:10px; height: 100px; float:right;">9</div>
-										<div style = "margin-top: -10px; float:right;"  id = "ctrl_pie_wnd">456</div>    
-									</div>
-									-->
-								</div> 
-
-								<div class="clearfix" style="margin-left: 15px; margin-right: 15px; height:635px; border:1px solid gray"> 
-									<div style = "overflow:auto; width:100%; height:630px; background-color:rgba(30,30,30,1);"  >     
-										<div style = "width:900px; height: 1000px;" class="chart" id="chart_bar_dual"></div> 
-									</div>    
-								</div>								
-							</div>
-
-
-
-							<!-- !!!!!! 차후에 비동기로 데이터 불러오면서 진행할 것!!!!!! -->
+						
 							<!-- 카메라 이벤트별 데이터 비교 -->
-							<!--
-							<div id="view2" class="data" style="height:865px;">
+							
+							<div id="view2" class="data" style="height:855px;">
 								<div class="dataSelect" style="margin-bottom:0px;" >									
 								</div> 
 								<div style = "height: 26px;">
 									<input class="text_cam_name"  style = "color:white;" onkeydown="KeyDownSearch()" type="text" id="edt_camera_name" name="name" required="" minlength="4" maxlength="80" size="43" placeholder="CCTV명 검색">					
 									<button type="button" class="btn" onclick="FindData()" style="margin-top: -5px; margin-left: -2px;" >검색</button> 
 								</div>
-								<div class="data">									
-									<div class="camera-ListBox" style = "padding-top:1px; width:36%;" id = "cctv_display_wnd">
+								<div class="data" style="display: flex; justify-content: space-between;">									
+									<div class="camera-ListBox" style = "padding-top:1px; width:370px; height: 790px;" >
+										<table id="cameraList">
+											<td>일반사거리</td>
+											<td>이반사거리</td>
+											<td>삼반사거리</td>
+											<td>사반사거리</td>
+											<td>오반사거리</td>
+											<td>육반사거리</td>
+											<td>칠반사거리</td>
+											<td>팔반사거리</td>
+											<td>구반사거리</td>
+											<td>십반사거리</td>
+											<td>십일반사거리</td>
+											<td>십일만오천사백사거리</td>
+											<td>안녕하세요</td>
+											<td>포딕스입니다.</td>
+											<td>웹개발하고있어요</td>
+											<td>아무말아무말</td>
+											<td>사거리종류</td>
+											<td>너무어렵다</td>
+											<td>예시예시예시</td>
+											<td>안녕하세요</td>
+											<td>포딕스입니다.</td>
+											<td>웹개발하고있어요</td>
+											<td>아무말아무말</td>
+											<td>사거리종류</td>
+											<td>너무어렵다</td>
+											<td>예시예시예시</td>
+											<td>안녕하세요</td>
+											<td>포딕스입니다.</td>
+											<td>웹개발하고있어요</td>
+											<td>아무말아무말</td>
+											<td>사거리종류</td>
+											<td>너무어렵다</td>
+											<td>예시예시예시</td>
+										</table>
 									</div>
-								</div>								
-								<div class="camera-sub-data" style="margin-left: 12px; height:795px;";>
-									<div class="contentsTitle">
-										<div class="title">
-											<h4>이벤트 기간별 추이 비교성별/연령 비교</h4>
+									<div class="camera-sub-data" style="margin-left: 12px; height:790px;";>
+										<div class="contentsTitle">
+											<div class="title">
+												<h4>이벤트 기간별 추이 비교성별/연령 비교</h4>
+											</div>
+										</div>									
+										<!--<div style = "width:100%; height:40px; background-color:rgba(30,30,30,1);"></div>-->
+										<div style = "margin-left: 10px; width:100%; height:450px; background-color:rgba(30,30,30,1);" >
+											<!--이벤트 기간별 추이 비교성별/연령 비교 차트 공간-->
+											<div id = "camera_evt_graph" style="width: 100%; height: 100%;"></div>
 										</div>
-									</div>									
-									<div style = "width:100%; height:40px; background-color:rgba(30,30,30,1);"></div>
-									<div style = "margin-left: 10px; width:100%; height:450px; background-color:rgba(30,30,30,1);" id = "camera_evt_graph"></div>
-																											
-									// 토스트 Grid 테마 중복으로 인해 CSS Grid 사용
-									<div class="grid-camera-container" style = "padding-top:2%; width:100%; height:100px; " id = "compare_wnd"> 	
-										<div class="grid-item-camera-header" style = "width: 50"> </div>
-										<div class="grid-item-camera-header" style = "width: 80">오늘</div>
-										<div class="grid-item-camera-header">어제</div>
-										<div class="grid-item-camera-header">전일 대비</div>
-										<div class="grid-item-camera-header">한주 전</div>
-										<div class="grid-item-camera-header">직전주 대비</div>
-										<div class="grid-camera-item">카운팅</div>
-										<div class="grid-camera-item-day" id = "count_today">0</div>
-										<div class="grid-camera-item-other" id = "count_yesterday">0</div>
-										<div class="grid-camera-item-other" id = "count_yesterdayCompare">0%</div>
-										<div class="grid-camera-item-other" id = "count_Week">0</div>
-										<div class="grid-camera-item-other" id = "count_WeekCompare">0%</div>
-										<div class="grid-camera-item">침입</div>											
-										<div class="grid-camera-item-day" id = "invade_today">0</div>
-										<div class="grid-camera-item-other" id = "invade_yesterday">0</div>
-										<div class="grid-camera-item-other" id = "invade_yesterdayCompare">0%</div>
-										<div class="grid-camera-item-other" id = "invade_Week">0</div>										
-										<div class="grid-camera-item-other" id = "invade_WeekCompare">0%</div>	
-										<div class="grid-camera-item">배회</div>											
-										<div class="grid-camera-item-day" id = "loitering_today">0</div>
-										<div class="grid-camera-item-other" id = "loitering_yesterday">0</div>
-										<div class="grid-camera-item-other" id = "loitering_yesterdayCompare">0%</div>
-										<div class="grid-camera-item-other" id = "loitering_Week">0</div>
-										<div class="grid-camera-item-other" id = "loitering_WeekCompare">0%</div>										
-										<div class="grid-camera-item">마스크 미착용</div>
-										<div class="grid-camera-item-day" id = "unmask_today">0</div>
-										<div class="grid-camera-item-other" id = "unmask_yesterday">0</div>
-										<div class="grid-camera-item-other" id = "unmask_yesterdayCompare">0%</div>
-										<div class="grid-camera-item-other" id = "unmask_Week">0</div>
-										<div class="grid-camera-item-other" id = "unmask_WeekCompare">0%</div>		
-									</div >			     
+										
+										<div class="camera-container" style = "margin-top:2%; width:100%; height:250px; " id = "compare_wnd"> 	
+											<!--
+											<div class="grid-item-camera-header" style = "width: 50"> </div>
+											<div class="grid-item-camera-header" style = "width: 80">오늘</div>
+											<div class="grid-item-camera-header">어제</div>
+											<div class="grid-item-camera-header">전일 대비</div>
+											<div class="grid-item-camera-header">한주 전</div>
+											<div class="grid-item-camera-header">직전주 대비</div>
+											<div class="grid-camera-item">카운팅</div>
+											<div class="grid-camera-item-day" id = "count_today">0</div>
+											<div class="grid-camera-item-other" id = "count_yesterday">0</div>
+											<div class="grid-camera-item-other" id = "count_yesterdayCompare">0%</div>
+											<div class="grid-camera-item-other" id = "count_Week">0</div>
+											<div class="grid-camera-item-other" id = "count_WeekCompare">0%</div>
+											<div class="grid-camera-item">침입</div>											
+											<div class="grid-camera-item-day" id = "invade_today">0</div>
+											<div class="grid-camera-item-other" id = "invade_yesterday">0</div>
+											<div class="grid-camera-item-other" id = "invade_yesterdayCompare">0%</div>
+											<div class="grid-camera-item-other" id = "invade_Week">0</div>										
+											<div class="grid-camera-item-other" id = "invade_WeekCompare">0%</div>	
+											<div class="grid-camera-item">배회</div>											
+											<div class="grid-camera-item-day" id = "loitering_today">0</div>
+											<div class="grid-camera-item-other" id = "loitering_yesterday">0</div>
+											<div class="grid-camera-item-other" id = "loitering_yesterdayCompare">0%</div>
+											<div class="grid-camera-item-other" id = "loitering_Week">0</div>
+											<div class="grid-camera-item-other" id = "loitering_WeekCompare">0%</div>										
+											<div class="grid-camera-item">마스크 미착용</div>
+											<div class="grid-camera-item-day" id = "unmask_today">0</div>
+											<div class="grid-camera-item-other" id = "unmask_yesterday">0</div>
+											<div class="grid-camera-item-other" id = "unmask_yesterdayCompare">0%</div>
+											<div class="grid-camera-item-other" id = "unmask_Week">0</div>
+											<div class="grid-camera-item-other" id = "unmask_WeekCompare">0%</div>		
+											-->
+
+											<!-- 위의 주석(div그리드로 표만들어 놓은 것)을 표로 만듬 -->
+											<table class="camera-containerTable" style="width: 100%; height: 100%;" >
+												<thead>
+													<tr>
+														<th class="grid-item-camera-header" style = "width: 50"></th>
+														<th class="grid-item-camera-header" style = "width: 80">오늘</th>
+														<th class="grid-item-camera-header">어제</th>
+														<th class="grid-item-camera-header">전일 대비</th>
+														<th class="grid-item-camera-header">1주 전</th>
+														<th class="grid-item-camera-header">직전주 대비</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<th>카운팅</th>
+														<td>123456</td>
+														<td>123456</td>
+														<td>123456</td>
+														<td>123456</td>
+														<td>123456</td>
+													</tr>
+													<tr>
+														<th>침입</th>
+														<td>123456</td>
+														<td>123456</td>
+														<td>123456</td>
+														<td>123456</td>
+														<td>123456</td>
+													</tr>
+													<tr>
+														<th>배회</th>
+														<td>123456</td>
+														<td>123456</td>
+														<td>123456</td>
+														<td>123456</td>
+														<td>123456</td>
+													</tr>
+													<tr>
+														<th>마스크 미착용</th>
+														<td>123456</td>
+														<td>123456</td>
+														<td>123456</td>
+														<td>123456</td>
+														<td>123456</td>
+													</tr>
+												</tbody>
+											</table>
+										</div >			     
+									</div>								
 								</div>
 							</div>	
-							-->
+							
 							<div id="loading"><img id="loading-image" src="/resources/img/loading_animated.png" alt="Loading..." /></div>						
 						</div>
 					</div>
@@ -287,10 +325,8 @@
 										</div>
 									</div>	
 								</div>
-
 							</div>							
-						</div>		
-	
+						</div>  
 						<div class="clearfix innerBox divTop10" style="height:25vh;  min-height:435px;" >
 							<div class="contentsTitle" style="display: flex; flex-direction: row; justify-content: space-between;">
 								<div class="title">
@@ -307,15 +343,17 @@
 								<div id="grid_main_event" style = "margin-left : 15px; margin-top : 10px;" >
 									<div class="container">
 										<table class = "type_table">
-											<tr class = "type_tr">
-												<th class = "type_th" style = "width: 180px;">카메라명</th>
-												<th class = "type_th" style = "width: 65px">사람</th>
-												<th class = "type_th" style = "width: 65px">얼굴</th>
-												<th class = "type_th" style = "width: 65px">침입</th>
-												<th class = "type_th" style = "width: 65px">배회</th>
-												<th class = "type_th" style = "width: 65px">쓰러짐</th>
-												<th class = "type_th" style = "width: 65px">카운팅</th>
-											</tr>
+											<thead>
+												<tr class = "type_tr">
+													<th class = "type_th" style = "width: 180px;">카메라명</th>
+													<th class = "type_th" style = "width: 65px">사람</th>
+													<th class = "type_th" style = "width: 65px">얼굴</th>
+													<th class = "type_th" style = "width: 65px">침입</th>
+													<th class = "type_th" style = "width: 65px">배회</th>
+													<th class = "type_th" style = "width: 65px">쓰러짐</th>
+													<th class = "type_th" style = "width: 65px">카운팅</th>
+												</tr>
+											</thead>
 											<tbody class="row_drag">											
 												<tr class = "type_tr" id="col1">
 													<td class="type_td_name" id="camera1"></td>
@@ -414,107 +452,6 @@
 								</div>
 								<!--  테이블 영역.E -->
 
-								<!-- !!!!!차후에 비동기로 데이터 불러오면서 같이 진행할 것!!!!!!!-->
-								<!--
-								<div id="grid_main_vehicle" style = "margin-left : 15px; margin-top : 10px;" >
-									<div class="container">
-										<table class="type_table">
-											<tr class="type_tr" >
-												<th class="type_th" style = "width: 180px;">카메라명</th>
-												<th class="type_th" style = "width: 78px">자동차</th>
-												<th class="type_th" style = "width: 78px">버스</th>
-												<th class="type_th" style = "width: 78px">트럭</th>
-												<th class="type_th" style = "width: 78px">오토바이</th>
-												<th class="type_th" style = "width: 78px">자전거</th>
-												
-											</tr>
-											<tbody class="row_drag">											
-												<tr   class="type_tr" id="col1">
-													<td class="type_td_name" id="camera_vec1" ></td>
-													<td class="type_td" id="car1">-</td>
-													<td class="type_td" id="bus1">-</td>
-													<td class="type_td" id="truck1">-</td>
-													<td class="type_td" id="motorcycle1">-</td>
-													<td class="type_td" id="bicycle1">-</td>
-													
-												</tr>
-												<tr  class="type_tr"id="col2">
-													<td class="type_td_name" id="camera_vec2"></td>
-													<td class="type_td" id="car2">-</td>
-													<td class="type_td" id="bus2">-</td>
-													<td class="type_td" id="truck2">-</td>
-													<td class="type_td" id="motorcycle2">-</td>
-													<td class="type_td" id="bicycle2">-</td>
-												</tr>
-												<tr  class="type_tr" id="col3">
-													<td class="type_td_name" id="camera_vec3"></td>
-													<td class="type_td" id="car3">-</td>
-													<td class="type_td" id="bus3">-</td>
-													<td class="type_td" id="truck3">-</td>
-													<td class="type_td" id="motorcycle3">-</td>
-													<td class="type_td" id="bicycle3">-</td>
-												</tr>
-												<tr  class="type_tr" id="col4">
-													<td class="type_td_name" id="camera_vec4"></td>
-													<td class="type_td" id="car4">-</td>
-													<td class="type_td" id="bus4">-</td>
-													<td class="type_td" id="truck4">-</td>
-													<td class="type_td" id="motorcycle4">-</td>
-													<td class="type_td" id="bicycle4">-</td>
-												</tr>												
-												<tr class="type_tr"  id="col5">
-													<td class="type_td_name" id="camera_vec5"></td>
-													<td class="type_td" id="car5">-</td>
-													<td class="type_td" id="bus5">-</td>
-													<td class="type_td" id="truck5">-</td>
-													<td class="type_td" id="motorcycle5">-</td>
-													<td class="type_td" id="bicycle5">-</td>
-												</tr>
-												<tr class="type_tr" id="col6">
-													<td class="type_td_name" id="camera_vec6"></td>
-													<td class="type_td" id="car6">-</td>
-													<td class="type_td" id="bus6">-</td>
-													<td class="type_td" id="truck6">-</td>
-													<td class="type_td" id="motorcycle6">-</td>
-													<td class="type_td" id="bicycle6">-</td>
-												</tr>
-												<tr class="type_tr" id="col7">
-													<td class="type_td_name" id="camera_vec7"></td>
-													<td class="type_td" id="car7">-</td>
-													<td class="type_td" id="bus7">-</td>
-													<td class="type_td" id="truck7">-</td>
-													<td class="type_td" id="motorcycle7">-</td>
-													<td class="type_td" id="bicycle7">-</td>
-												</tr>
-												<tr class="type_tr" id="col8">
-													<td class="type_td_name" id="camera_vec8"></td>
-													<td class="type_td" id="car8">-</td>
-													<td class="type_td" id="bus8">-</td>
-													<td class="type_td" id="truck8">-</td>
-													<td class="type_td" id="motorcycle8">-</td>
-													<td class="type_td" id="bicycle8">-</td>
-												</tr>
-												<tr class="type_tr"  id="col9">
-													<td class="type_td_name" id="camera_vec9"></td>
-													<td class="type_td" id="car9">-</td>
-													<td class="type_td" id="bus9">-</td>
-													<td class="type_td" id="truck9">-</td>
-													<td class="type_td" id="motorcycle9">-</td>
-													<td class="type_td" id="bicycle9">-</td>
-												</tr>												
-												<tr class="type_tr" id="col10">
-													<td class="type_td_name" id="camera_vec10"></td>
-													<td class="type_td" id="car10">-</td>
-													<td class="type_td" id="bus10">-</td>
-													<td class="type_td" id="truck10">-</td>
-													<td class="type_td" id="motorcycle10">-</td>
-													<td class="type_td" id="bicycle10">-</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								</div>
-								-->
 
 								<!-- document.getElementById('camera_vec'+parseInt(i+1)).innerHTML = grid_top10_data[i].CAMERA_NAME;
 								document.getElementById('car'+parseInt(i+1)).innerHTML = grid_top10_data[i].VEHICLE_CAR;
@@ -545,7 +482,7 @@
 	<!-- echarts -->
 	<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
 
-	<script src="/resources/js/camera/subCamera.js"></script>
+	<script src="/resources/js/camera/subCamera2.js"></script>
 
 	<script src="/resources/data/data_sample.js"></script>
 	<script type="text/javascript" src="/resources/js/EventChart.js"></script>
