@@ -150,6 +150,7 @@
 		
 
 		<!-- 사용자 정보 조회 모달창2 시작 -->
+		<!--
 		<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
 			<div class="modal-dialog" style="position: absolute; top: 300px; left: 800px;">
 				<div class="modal-content" style="background-color: black; width: 900px;">
@@ -210,8 +211,297 @@
 				</div>
 			</div>
 		</div>
+		-->
 		<!-- 사용자 정보 조회 모달창2 끝 -->
 
+
+		<!-- 사용자 정보 조회 모달창3 시작 -->
+		<!--
+		<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+			<div class="modal-dialog" style="position: absolute; top: 300px; left: 800px;">
+				<div class="modal-content" style="background-color: black; width: 900px;">
+					<div class="modal-header">
+						<div class="pu-tabTitle">
+							<img src="/resources/img/admin/icon_setting.png">
+						</div>
+						<ul class="pop-tabs" data-persist="true">
+							<li onclick="openUserInfoView();"><a>사용자 정보 조회</a></li>
+							<li onclick="openAddUserView();"><a>사용자 정보 등록</a></li>
+							<li onclick="openUserEnvironmentView();"><a>사용자 환경 설정</a></li>
+							<li onclick="openUserGroupView();"><a>카메라 그룹 설정</a></li>
+						</ul>
+
+						<a class="rollover" alt="창닫기" data-bs-dismiss="modal" aria-label="Close">
+							<img src="/resources/img/admin/btn_POPwinClose.png"> 
+							<img src="/resources/img/admin/btn_POPwinClose_hover.png" class="over">
+						</a>
+					</div>
+					<div class="modal-body" style="display: flex; justify-content: center;">
+						<div class="userInfo" style="height: 400px; justify-content: center;">
+							<div style="display: flex; flex-direction: row; justify-content: start; align-items: center;">
+								<div>
+									▶
+								</div>
+								<div>처음 실행페이지</div>
+								<div style="margin-left: 140px;">
+									<select name="" id="dd">
+										<option value="객체우선">객체우선</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+									</select>
+								</div>
+							</div>
+							<div style="display: flex; flex-direction: row; justify-content: start; align-items: center; margin-top: 20px;">
+								<div>
+									▶ 
+								</div>
+								<div>TODAY WINDOW 기본 분할 화면</div>
+								<div style="margin-left: 20px;">
+									<select name="" id="dd">
+										<option value="6분할">6분할</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+									</select>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					<div class="modal-footer" style="display: flex; justify-content: center;">
+						<div class="pop-btnBox">
+							<a class="rollover" alt="저장" id="addUserInfo" onclick="addUserInfo();">
+								<img src="/resources/img/admin/btn_save.png"> 
+								<img src="/resources/img/admin/btn_save_hover.png" class="over">
+							</a>
+							<a class="rollover" alt="취소" onclick="closePopup();">
+								<img src="/resources/img/admin/btn_cancel.png"> 
+								<img src="/resources/img/admin/btn_cancel_hover.png" class="over">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		-->
+		<!-- 사용자 정보 조회 모달창3 끝 -->
+
+
+
+		<!-- 사용자 정보 조회 모달창4 시작 -->
+		<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+			<div class="modal-dialog" style="position: absolute; top: 300px; left: 800px;">
+				<div class="modal-content" style="background-color: black; width: 900px;">
+					<div class="modal-header">
+						<div class="pu-tabTitle">
+							<img src="/resources/img/admin/icon_setting.png">
+						</div>
+						<ul class="pop-tabs" data-persist="true">
+							<li onclick="openUserInfoView();"><a>사용자 정보 조회</a></li>
+							<li onclick="openAddUserView();"><a>사용자 정보 등록</a></li>
+							<li onclick="openUserEnvironmentView();"><a>사용자 환경 설정</a></li>
+							<li onclick="openUserGroupView();"><a>카메라 그룹 설정</a></li>
+						</ul>
+
+						<a class="rollover" alt="창닫기" data-bs-dismiss="modal" aria-label="Close">
+							<img src="/resources/img/admin/btn_POPwinClose.png"> 
+							<img src="/resources/img/admin/btn_POPwinClose_hover.png" class="over">
+						</a>
+					</div>
+					<div class="modal-body" style="display: flex; justify-content: center;">
+						<div class="userInfo" style="height: 500px; display: flex; justify-content: space-around; align-items: center; ">
+							<div style="height: 80%; width: 210px;">
+								<div class="userGroup_container" style="display: flex; flex-direction: column; justify-content: start;">
+									<div style="margin: 10px 0;">사용자그룹</div>
+									<div style="border: 1px solid #333333; background-color: #282828; width: 100%; height: 100px;">
+										<table class="userGroup" style="display: flex; width: 100%; height: 100%; overflow-y: scroll; border: 1px solid #333333; font-family: NanumSquareEB; ">
+											<tr >
+												<td style="width: 207.03px; height: 30px; border: 1px solid #333333;">
+													<a style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: start;" href="#" >1</a>
+												</td>
+											</tr>
+											<tr>
+												<td style="width: 207.03px; height: 30px; border: 1px solid #333333;"><a style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: start;" href="#">2</a></td>
+											</tr>
+											<tr>
+												<td style="width: 207.03px; height: 30px; border: 1px solid #333333;"><a style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: start;" href="#">3</a></td>
+											</tr>
+											<tr>
+												<td style="width: 207.03px; height: 30px; border: 1px solid #333333;"><a style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: start;" href="#">3</a></td>
+											</tr>
+											<tr>
+												<td style="width: 207.03px; height: 30px; border: 1px solid #333333;"><a style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: start;" href="#">3</a></td>
+											</tr>
+											<tr>
+												<td style="width: 207.03px; height: 30px; border: 1px solid #333333;"><a style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: start;" href="#">3</a></td>
+											</tr>
+											<tr>
+												<td style="width: 207.03px; height: 30px; border: 1px solid #333333;"><a style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: start;" href="#">3</a></td>
+											</tr>
+										</table>
+									</div>
+								</div>
+								<div class="choiceGroup_container" style="margin-top: 15px; display: flex; flex-direction: column; justify-content: start;">
+									<div style="margin: 10px 0;">선택그룹</div>
+									<div style="background-color: #282828; width: 100%; height: 180px;">
+										<table class="choiceGroup" style="display: flex; width: 100%; height: 100%; overflow-y: scroll; border: 1px solid #333333; font-family: NanumSquareEB; ">
+											<tr style="width: 207.03px; height: 30px; border: 1px solid #333333;">
+												<td><input type="checkbox" name="" id=""></td>
+												<td style="width: 200px; height: 30px;" >오리온</td>
+											</tr>
+											<tr style="width: 207.03px; height: 30px; border: 1px solid #333333;">
+												<td><input type="checkbox" name="" id=""></td>
+												<td>후레쉬베리</td>
+											</tr>
+											<tr style="width: 207.03px; height: 30px; border: 1px solid #333333;">
+												<td><input type="checkbox" name="" id=""></td>
+												<td>딸기맛</td>
+											</tr>
+											<tr style="width: 207.03px; height: 30px; border: 1px solid #333333;">
+												<td><input type="checkbox" name="" id=""></td>
+												<td style="width: 200px; height: 30px;" >오리온</td>
+											</tr>
+											<tr style="width: 207.03px; height: 30px; border: 1px solid #333333;">
+												<td><input type="checkbox" name="" id=""></td>
+												<td>후레쉬베리</td>
+											</tr>
+											<tr style="width: 207.03px; height: 30px; border: 1px solid #333333;">
+												<td><input type="checkbox" name="" id=""></td>
+												<td>딸기맛</td>
+											</tr>
+											<tr style="width: 207.03px; height: 30px; border: 1px solid #333333;">
+												<td><input type="checkbox" name="" id=""></td>
+												<td style="width: 200px; height: 30px;" >오리온</td>
+											</tr>
+											<tr style="width: 207.03px; height: 30px; border: 1px solid #333333;">
+												<td><input type="checkbox" name="" id=""></td>
+												<td>후레쉬베리</td>
+											</tr>
+											<tr style="width: 207.03px; height: 30px; border: 1px solid #333333;">
+												<td><input type="checkbox" name="" id=""></td>
+												<td>딸기맛</td>
+											</tr>
+										</table>
+										
+									</div>
+								</div>
+							</div>
+							<div style="display: flex; flex-direction: column; margin: 180px 10px 0 10px;">
+								<button style="background-color: black; color: white; width: 15px; height: 40px; border-radius: 5px; margin-bottom: 10px;" >▶</button>
+								<button style="background-color: black; color: white; width: 15px; height: 40px; border-radius: 5px;">◀</button>
+							</div>
+							<div style="height: 302px; width: 350px; margin: 0 0 48px 0;">
+								<div style="margin: 0 0 10px 0;">
+									전체카메라리스트
+								</div>
+								<div style=" overflow-y: scroll;  background-color: #282828; width: 100%; height: 335px;">
+									<table style="width: 100%; height: 100%;border: 1px solid #333333; font-family: NanumSquareEB; ">
+										<tr style="width: 207.03px; height: 30px; border: 1px solid #333333;">
+											<td style="width: 15px;"><input type="checkbox" name="" id=""></td>
+											<td>베이비</td>
+										</tr>
+										<tr style="width: 207.03px; height: 30px; border: 1px solid #333333;">
+											<td style="width: 15px;"><input type="checkbox" name="" id=""></td>
+											<td>소피</td>
+										</tr>
+										<tr style="width: 207.03px; height: 30px; border: 1px solid #333333;">
+											<td style="width: 15px;"><input type="checkbox" name="" id=""></td>
+											<td>핸드크림</td>
+										</tr>
+										<tr style="width: 207.03px; height: 30px; border: 1px solid #333333;">
+											<td style="width: 15px;"><input type="checkbox" name="" id=""></td>
+											<td>베이비</td>
+										</tr>
+										
+										<tr style="width: 207.03px; height: 30px; border: 1px solid #333333;">
+											<td style="width: 15px;"><input type="checkbox" name="" id=""></td>
+											<td>베이비</td>
+										</tr>
+										<tr style="width: 207.03px; height: 30px; border: 1px solid #333333;">
+											<td style="width: 15px;"><input type="checkbox" name="" id=""></td>
+											<td>소피</td>
+										</tr>
+										<tr style="width: 207.03px; height: 30px; border: 1px solid #333333;">
+											<td style="width: 15px;"><input type="checkbox" name="" id=""></td>
+											<td>핸드크림</td>
+										</tr>
+										<tr style="width: 207.03px; height: 30px; border: 1px solid #333333;">
+											<td style="width: 15px;"><input type="checkbox" name="" id=""></td>
+											<td>베이비</td>
+										</tr>
+										
+										<tr style="width: 207.03px; height: 30px; border: 1px solid #333333;">
+											<td style="width: 15px;"><input type="checkbox" name="" id=""></td>
+											<td>베이비</td>
+										</tr>
+										<tr style="width: 207.03px; height: 30px; border: 1px solid #333333;">
+											<td style="width: 15px;"><input type="checkbox" name="" id=""></td>
+											<td>소피</td>
+										</tr>
+										<tr style="width: 207.03px; height: 30px; border: 1px solid #333333;">
+											<td style="width: 15px;"><input type="checkbox" name="" id=""></td>
+											<td>핸드크림</td>
+										</tr>
+										<tr style="width: 207.03px; height: 30px; border: 1px solid #333333;">
+											<td style="width: 15px;"><input type="checkbox" name="" id=""></td>
+											<td>베이비</td>
+										</tr>
+										
+										<tr style="width: 207.03px; height: 30px; border: 1px solid #333333;">
+											<td style="width: 15px;"><input type="checkbox" name="" id=""></td>
+											<td>베이비</td>
+										</tr>
+										<tr style="width: 207.03px; height: 30px; border: 1px solid #333333;">
+											<td style="width: 15px;"><input type="checkbox" name="" id=""></td>
+											<td>소피</td>
+										</tr>
+										<tr style="width: 207.03px; height: 30px; border: 1px solid #333333;">
+											<td style="width: 15px;"><input type="checkbox" name="" id=""></td>
+											<td>핸드크림</td>
+										</tr>
+										<tr style="width: 207.03px; height: 30px; border: 1px solid #333333;">
+											<td style="width: 15px;"><input type="checkbox" name="" id=""></td>
+											<td>베이비</td>
+										</tr>
+										
+										<tr style="width: 207.03px; height: 30px; border: 1px solid #333333;">
+											<td style="width: 15px;"><input type="checkbox" name="" id=""></td>
+											<td>베이비</td>
+										</tr>
+										<tr style="width: 207.03px; height: 30px; border: 1px solid #333333;">
+											<td style="width: 15px;"><input type="checkbox" name="" id=""></td>
+											<td>소피</td>
+										</tr>
+										<tr style="width: 207.03px; height: 30px; border: 1px solid #333333;">
+											<td style="width: 15px;"><input type="checkbox" name="" id=""></td>
+											<td>핸드크림</td>
+										</tr>
+										<tr style="width: 207.03px; height: 30px; border: 1px solid #333333;">
+											<td style="width: 15px;"><input type="checkbox" name="" id=""></td>
+											<td>베이비</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer" style="display: flex; justify-content: center;">
+						<div class="pop-btnBox">
+							<a class="rollover" alt="저장" id="addUserInfo" onclick="addUserInfo();">
+								<img src="/resources/img/admin/btn_save.png"> 
+								<img src="/resources/img/admin/btn_save_hover.png" class="over">
+							</a>
+							<a class="rollover" alt="취소" onclick="closePopup();">
+								<img src="/resources/img/admin/btn_cancel.png"> 
+								<img src="/resources/img/admin/btn_cancel_hover.png" class="over">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 사용자 정보 조회 모달창4 끝 -->
 
 
 

@@ -61,7 +61,7 @@ th:not(.loadName) {
 }
 
 /*#grid_object {font-size:34px;}*/ 
-.humanCameraTable, .grid_object_person_total, .grid_object_person_title{
+.humanCameraTable, .humanCameraTable2, .grid_object_person_total, .grid_object_person_title{
   width: 100%;
   font-family: NanumSquareEB; 
   font-size: 11pt; 
@@ -75,6 +75,16 @@ th:not(.loadName) {
   vertical-align: middle !important;
   
 }
+
+
+.humanCameraTable2 tr *{
+  border: 1px solid #333333;
+  height: 40px;
+  vertical-align: middle !important;
+  
+}
+
+
 
 
 
@@ -96,6 +106,9 @@ td{
 
 
 .humanCameraTable td:nth-child(8){
+  color: deepskyblue; 
+}
+.humanCameraTable2 td:nth-child(7){
   color: deepskyblue; 
 }
 
@@ -147,3 +160,5 @@ th:not(.loadName) {
   /* 여기에 너비를 설정할 수 있습니다. 예: */
   width: 152.9px;
 }
+
+

@@ -154,7 +154,7 @@
                   </table>
                 </div>
                 <div id="grid_object">
-                  <table class="humanCameraTable">
+                  <table class="humanCameraTable2">
                     <tbody class="table-group-divider">
                       <tr>
                         <th scope="row" class="loadName">먼우금사거리</th>
