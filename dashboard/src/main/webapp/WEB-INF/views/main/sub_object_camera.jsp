@@ -419,7 +419,7 @@
   </div>
   <!-- 전체 wrap.E -->
 
-  	
+  <script src="../../../resources/js/main/loading.js"></script>
   <script src="./data/data_sample.js"></script>
   <!-- 탭버튼 스크립트.S-->
   <script src="/resources/js/tabcontent.js"></script>

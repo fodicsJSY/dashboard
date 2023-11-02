@@ -483,6 +483,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
 
 	<script src="/resources/js/camera/subCamera2.js"></script>
+	<script src="../../../resources/js/main/loading.js"></script>
 
 	<script src="/resources/data/data_sample.js"></script>
 	<script type="text/javascript" src="/resources/js/EventChart.js"></script>

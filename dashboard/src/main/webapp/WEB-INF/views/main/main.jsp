@@ -441,6 +441,7 @@
 
     <!-- main chart -->
     <script src="../../../resources/js/main/main.js"></script>
+    <script src="../../../resources/js/main/loading.js"></script>
 
 
     <script>
