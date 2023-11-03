@@ -41,6 +41,8 @@
     <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     
+	  <!-- fontawesome -->
+	<script src="https://kit.fontawesome.com/e75afc7597.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- 전체 wrap.S -->
@@ -85,7 +87,7 @@
 
 
 						<div class="tui-datepicker-input tui-datetime-input tui-has-focus">
-							<input type="date" id="tui-date-picker-target" aria-label="Date-Time" value="1900-00-00">
+							<input type="date" id="tui-date-picker-target" aria-label="Date-Time">
 							<span class="tui-ico-date"></span>
 							<div id="tui-date-picker-container"></div>
 						</div>
@@ -100,9 +102,9 @@
 						<p class="date" id='mainDate'>2021년 07월 21일</p>
 						-->
 						<div>
-							<button type="button" class="btn-date" onclick="OnPrevDate();" >◀<!-- <img src="img/btn-calendarLeft.png">--></button>
-							<button type="button" class="btn" onclick="OnTodayDate();" >오늘</button>
-							<button type="button" class="btn-date" onclick="OnNextDate();">▶<!-- <img src="img/btn-calendarRight.png">--></button>
+							<button type="button" class="btn-date" id="minusBtn" ><i class="fa-solid fa-caret-left fa-xl" style="color: #ffffff;"></i></button>
+							<button type="button" class="btn" id="todayBtn" >오늘</button>
+							<button type="button" class="btn-date" id="plusBtn"><i class="fa-solid fa-caret-right fa-xl" style="color: #ffffff;"></i></button>
 						</div>
 					</div>
 					<div class="btnArea">						
@@ -130,12 +132,12 @@
 								</div>
 							</div>
 							<a href="/sub_object">
-                <div class="data" id="mainPerson" style="margin-top : 5px;">
-                  <div id="mainPerson_chart" style="width: 800px; height: 350px;">
-                    <!-- 사람 막대그래프 영역 -->
-                  </div>
-							  </div>
-              </a>
+								<div class="data" id="mainPerson" style="margin-top : 5px;">
+									<div id="mainPerson_chart" style="width: 800px; height: 350px;">
+										<!-- 사람 막대그래프 영역 -->
+									</div>
+								</div>
+							</a>
 						</div>
 						<!-- <div class="innerBox divCar" id="vehicle_rect" >
 							<div class="contentsTitle">
@@ -156,28 +158,28 @@
 									<h4>마스크 미착용자 성별/연령 비교</h4>
 								</div>
 							</div>
-              <section class="chart">
-							<div class="data" id="mainFace1" style="margin-top: 20px; margin-left: 30px">
-                <div class="manChart">
-                  <a href="/sub_object">
-                    <div id="mainFace1_chart" style="width: 400px; height: 400px">
-                        <!-- 남성 마스크 미착용자 도넛그래프 영역 -->
-                      </div>
-                    </a>					
-                    <img class="image-thumbnail-mask_man" id="manImg" src ="/resources/img/icon_male75px.png"></img>
-                  </div>
-                </div>
-                <div class="data" id="mainFace2" style="margin-top: 20px" >		
-                  <div class="womanChart">					
-                    <a href="/sub_object">
-                      <div id="mainFace2_chart" style="width: 400px; height: 400px">
-                        <!-- 여성 마스크 미착용자 도넛그래프 영역 -->
-                    </div>
-                  </a>				
-                  <img class="image-thumbnail-mask_woman" id="womanImg" src ="/resources/img/icon_female75px.png"></img> 
-                </div>
-							</div>
-              </section>
+							<section class="chart">
+								<div class="data" id="mainFace1" style="margin-top: 20px; margin-left: 30px">
+									<div class="manChart">
+										<a href="/sub_object">
+											<div id="mainFace1_chart" style="width: 400px; height: 400px">
+												<!-- 남성 마스크 미착용자 도넛그래프 영역 -->
+											</div>
+										</a>					
+										<img class="image-thumbnail-mask_man" id="manImg" src ="/resources/img/icon_male75px.png"></img>
+									</div>
+								</div>
+								<div class="data" id="mainFace2" style="margin-top: 20px" >		
+									<div class="womanChart">					
+										<a href="/sub_object">
+											<div id="mainFace2_chart" style="width: 400px; height: 400px">
+												<!-- 여성 마스크 미착용자 도넛그래프 영역 -->
+											</div>
+										</a>				
+										<img class="image-thumbnail-mask_woman" id="womanImg" src ="/resources/img/icon_female75px.png"></img> 
+									</div>
+								</div>
+							</section>
 						</div>						
 					</div>
 					<!-- 섹션 좌측.E -->
@@ -446,7 +448,7 @@
 
     <script>
 
-
+		/*
       // 어제
       function OnPrevDate(){
         move_day = move_day - 1;				
@@ -546,6 +548,8 @@
         xhttp.open('GET', param, true);
         xhttp.send();	
       }
+
+	  */
 
       /* CSV 대화상자 시작 */
       function OnCSV_Click(){			

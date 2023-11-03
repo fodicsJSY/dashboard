@@ -15,6 +15,11 @@
 	<link rel="stylesheet" href="/resources/css/popup.css">
 	<link rel="stylesheet" href="/resources/css/common/setting.css">
 
+	<style>
+		#settingBtn:hover{
+			background-image: url('../../resources/img/btn_setting_hover.png') !important;
+		}
+	</style>
 </head>
 <body>
 	<div class="TopLeft">
@@ -24,12 +29,13 @@
 	<div class="TopRight">
 		<p id="time_title" class="time">2021-00-00 10:00:00</p>
 		<!--<a href="/setting" class="rollover" alt="셋팅팝업" ><img src="../../resources/img/btn_setting.png"> <img src="../../resources/img/btn_setting_hover.png" class="over"></a>-->
-		<button type="button" id="reportBtn" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-whatever="@mdo"><img id="btmImg" src="../../resources/img/btn_setting.png"></button>
+		<button type="button" id="settingBtn" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-whatever="@mdo" style="background-image: url('../../resources/img/btn_setting.png'); background-size: cover; width: 26px;"></button>
 
 
 
 		<!-- 사용자 정보 조회 모달창1 시작 -->
-		<!--<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+		<!--
+		<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
 			<div class="modal-dialog" style="position: absolute; top: 300px; left: 800px;">
 				<div class="modal-content" style="background-color: black; width: 900px;">
 					<div class="modal-header">
@@ -38,7 +44,7 @@
 						</div>
 						<ul class="pop-tabs" data-persist="true">
 							<li onclick="openUserInfoView();"><a>사용자 정보 조회</a></li>
-							<li onclick="openAddUserView();"><a>사용자 정보 등록</a></li>
+							<li><a id="addUserButton">사용자 정보 등록</a></li>
 							<li onclick="openUserEnvironmentView();"><a>사용자 환경 설정</a></li>
 							<li onclick="openUserGroupView();"><a>카메라 그룹 설정</a></li>
 						</ul>
@@ -48,7 +54,7 @@
 							<img src="/resources/img/admin/btn_POPwinClose_hover.png" class="over">
 						</a>
 					</div>
-					<div class="modal-body" style="display: flex; justify-content: center;">
+					<div class="modal-body" id="modalBody" style="display: flex; justify-content: center;">
 						<div class="popupTable" id="testPopupGrid">
 							<table class="userList">
 								<colgroup>
@@ -126,7 +132,7 @@
 							</table>
 						</div>
 					</div>
-					<div class="modal-footer" style="display: flex; justify-content: center;">
+					<div class="modal-footer"  id="modalFooter" style="display: flex; justify-content: center;">
 						<div class="pop-btnBox">
 							<a class="rollover" alt="사용자 추가" onclick="openAddUserView();">
 								<img src="/resources/img/admin/btn_user.png"> 
@@ -144,7 +150,8 @@
 					</div>
 				</div>
 			</div>
-		</div>-->
+		</div>
+		-->
 		<!-- 사용자 정보 조회 모달창1 끝 -->
 
 		
@@ -216,7 +223,6 @@
 
 
 		<!-- 사용자 정보 조회 모달창3 시작 -->
-		<!--
 		<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
 			<div class="modal-dialog" style="position: absolute; top: 300px; left: 800px;">
 				<div class="modal-content" style="background-color: black; width: 900px;">
@@ -225,10 +231,10 @@
 							<img src="/resources/img/admin/icon_setting.png">
 						</div>
 						<ul class="pop-tabs" data-persist="true">
-							<li onclick="openUserInfoView();"><a>사용자 정보 조회</a></li>
-							<li onclick="openAddUserView();"><a>사용자 정보 등록</a></li>
-							<li onclick="openUserEnvironmentView();"><a>사용자 환경 설정</a></li>
-							<li onclick="openUserGroupView();"><a>카메라 그룹 설정</a></li>
+							<li><a id="searchUserButton">사용자 정보 조회</a></li>
+							<li><a id="addUserButton">사용자 정보 등록</a></li>
+							<li><a>사용자 환경 설정</a></li>
+							<li><a>카메라 그룹 설정</a></li>
 						</ul>
 
 						<a class="rollover" alt="창닫기" data-bs-dismiss="modal" aria-label="Close">
@@ -236,7 +242,7 @@
 							<img src="/resources/img/admin/btn_POPwinClose_hover.png" class="over">
 						</a>
 					</div>
-					<div class="modal-body" style="display: flex; justify-content: center;">
+					<div class="modal-body" style="display: flex; justify-content: center;" id="modalBody">
 						<div class="userInfo" style="height: 400px; justify-content: center;">
 							<div style="display: flex; flex-direction: row; justify-content: start; align-items: center;">
 								<div>
@@ -269,7 +275,7 @@
 							
 						</div>
 					</div>
-					<div class="modal-footer" style="display: flex; justify-content: center;">
+					<div class="modal-footer" style="display: flex; justify-content: center;" id="modalFooter">
 						<div class="pop-btnBox">
 							<a class="rollover" alt="저장" id="addUserInfo" onclick="addUserInfo();">
 								<img src="/resources/img/admin/btn_save.png"> 
@@ -284,12 +290,13 @@
 				</div>
 			</div>
 		</div>
-		-->
+		
 		<!-- 사용자 정보 조회 모달창3 끝 -->
 
 
 
 		<!-- 사용자 정보 조회 모달창4 시작 -->
+		<!--
 		<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
 			<div class="modal-dialog" style="position: absolute; top: 300px; left: 800px;">
 				<div class="modal-content" style="background-color: black; width: 900px;">
@@ -501,6 +508,7 @@
 				</div>
 			</div>
 		</div>
+		-->
 		<!-- 사용자 정보 조회 모달창4 끝 -->
 
 
@@ -556,23 +564,156 @@
 
 
 
-		// setting버튼 클릭 시 이미지 변경
-		// 버튼 엘리먼트와 이미지 엘리먼트 가져오기
-		const button = document.getElementById('reportBtn');
-		const buttonImage = document.getElementById('btmImg');
+	</script>
 
-		// 마우스 호버 이벤트 리스너 추가
-		button.addEventListener('mouseenter', function () {
-		// 이미지 변경
-		buttonImage.src = '../../resources/img/btn_setting_hover.png';
+	<script>
+		var modalBody = document.getElementById('modalBody');
+		var modalFooter = document.getElementById('modalFooter');
+
+
+		// 사용자 정보 등록 버튼 클릭 이벤트 조회
+		document.getElementById('searchUserButton').addEventListener('click',()=>{
+			// 사용자 정보 조회 버튼 클릭 시 모달 내용을 동적으로 변경하는 함수
+			modalBody.innerHTML = `
+				<div class="popupTable" id="testPopupGrid">
+					<table class="userList">
+						<colgroup>
+							<col width="8%">
+							<col width="15%">
+							<col width="20%">
+							<col width="20%">
+							<col width="20%">
+							<col width="*">
+						</colgroup>
+						<tr>
+							<th><input type="checkbox" name=""></th>
+							<th>이름</th>
+							<th>아이디</th>
+							<th>비밀번호</th>
+							<th>개인정보 백업</th>
+							<th>계정상태</th>
+						</tr>
+						<tr>
+							<td><input type="checkbox" name=""></td>
+							<td>정송이</td>
+							<td>song</td>
+							<td>아무튼그거다</td>
+							<td>?</td>
+							<td>n</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" name=""></td>
+							<td>정송이</td>
+							<td>song</td>
+							<td>아무튼그거다</td>
+							<td>?</td>
+							<td>n</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" name=""></td>
+							<td>정송이</td>
+							<td>song</td>
+							<td>아무튼그거다</td>
+							<td>?</td>
+							<td>n</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" name=""></td>
+							<td>정송이</td>
+							<td>song</td>
+							<td>아무튼그거다</td>
+							<td>?</td>
+							<td>n</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" name=""></td>
+							<td>정송이</td>
+							<td>song</td>
+							<td>아무튼그거다</td>
+							<td>?</td>
+							<td>n</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" name=""></td>
+							<td>정송이</td>
+							<td>song</td>
+							<td>아무튼그거다</td>
+							<td>?</td>
+							<td>n</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" name=""></td>
+							<td>정송이</td>
+							<td>song</td>
+							<td>아무튼그거다</td>
+							<td>?</td>
+							<td>n</td>
+						</tr>
+					</table>
+				</div>
+				
+			`;
+			modalFooter.innerHTML=`
+				<div class="pop-btnBox">
+					<a class="rollover" alt="저장" id="addUserInfo" onclick="addUserInfo();">
+						<img src="/resources/img/admin/btn_save.png"> 
+						<img src="/resources/img/admin/btn_save_hover.png" class="over">
+					</a>
+					<a class="rollover" alt="취소" onclick="closePopup();">
+						<img src="/resources/img/admin/btn_cancel.png"> 
+						<img src="/resources/img/admin/btn_cancel_hover.png" class="over">
+					</a>
+				</div>
+			`
 		});
 
-		// 마우스 아웃 이벤트 리스너 추가 (원래 이미지로 복원)
-		button.addEventListener('mouseleave', function () {
-		// 이미지 원래대로 복원
-		buttonImage.src = '../../resources/img/btn_setting.png';
-		});
 
+
+
+
+		// 사용자 정보 등록 버튼 클릭 이벤트 등록
+		document.getElementById('addUserButton').addEventListener('click',()=>{
+			// 사용자 정보 등록 버튼 클릭 시 모달 내용을 동적으로 변경하는 함수
+			modalBody.innerHTML = `
+				<div class="userInfo">
+					<dl>
+						<dt>이름<span class="required">*</span></dt>
+						<dd><input type="text" class="txt-field" placeholder="사용자 명을 입력 해 주세요." id="AddUserView_Name"> </dd>
+						<dt>아이디<span class="required">*</span></dt>
+						<dd><input type="text" class="txt-field" placeholder="아이디를 입력 해 주세요." id="AddUserView_Id"> </dd>
+						<dt>비밀번호<span class="required">*</span></dt>
+						<dd><input type="password" class="txt-field" placeholder="비밀번호를 입력 해 주세요." id="AddUserView_Pw"> </dd>
+						<dt>개인정보 백업<span class="required">*</span></dt>
+						<dd>
+							<input name="backup" id="radio" type="radio" class="btnRadio" checked="true">
+							<label>가능</label> 
+							<input name="backup" id="radio" type="radio" class="btnRadio">
+							<label>불가능</label>
+						</dd>
+						<dt>계정 상태</dt>
+						<dd>
+							<input name="used" id="radio" type="radio" class="btnRadio" checked="true">
+							<label>사용</label> 
+							<input name="used" id="radio" type="radio" class="btnRadio">
+							<label>미사용</label>
+						</dd>
+					</dl>
+				</div>	
+				
+			`;
+			modalFooter.innerHTML=`
+			<div class="pop-btnBox">
+				<a class="rollover" alt="저장" id="addUserInfo" onclick="addUserInfo();">
+					<img src="/resources/img/admin/btn_save.png"> 
+					<img src="/resources/img/admin/btn_save_hover.png" class="over">
+				</a>
+				<a class="rollover" alt="취소" onclick="closePopup();">
+					<img src="/resources/img/admin/btn_cancel.png"> 
+					<img src="/resources/img/admin/btn_cancel_hover.png" class="over">
+				</a>
+			</div>
+			`
+		});
 	</script>
 </body>
 </html>

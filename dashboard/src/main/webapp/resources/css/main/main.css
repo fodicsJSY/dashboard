@@ -60,3 +60,13 @@
 .cameraTable td, .loadName {
     background-color: #282828;
 }
+
+
+.fa-caret-right:hover{
+    color: #ffa800 !important;
+
+}
+.fa-caret-left:hover{
+    color: #ffa800 !important;
+
+}

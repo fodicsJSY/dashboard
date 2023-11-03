@@ -20,14 +20,9 @@
     background-color: #1a1a1a;
 }
 
-.btn-lg{
-    width: 29.99 !important;
-    height: 29.99 !important;
-}
 
-#reportBtn:hover{
-    width: 29.99 !important;
-    height: 29.99 !important;
-    background-color: #1a1a1a;
-    border: 1px solid #1a1a1a;
+#settingBtn:hover{
+    background-image: url('../../resources/img/btn_setting_hover.png') !important;
+    width: 29px !important;
+    height: 29px !important;
 }

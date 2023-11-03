@@ -1,3 +1,60 @@
+ /* 오늘 날짜로 변경 시작*/
+ 
+ // 버튼 클릭 시 오늘 날짜를 입력 필드에 넣는 함수
+ function insertTodaysDate() {
+   var today = new Date();
+   var year = today.getFullYear();
+   var month = String(today.getMonth() + 1).padStart(2, '0');
+   var day = String(today.getDate()).padStart(2, '0');
+   var formattedDate = year + '-' + month + '-' + day;
+   document.getElementById('tui-date-picker-target').value = formattedDate;
+  }
+  
+  // 버튼 클릭 이벤트에 함수 연결
+  document.getElementById('todayBtn').addEventListener('click', insertTodaysDate);
+  
+/* 오늘 날짜로 변경 끝 */
+ 
+
+  /* 하루 전 날짜로 변경 시작*/
+
+ // 버튼 클릭 시 입력된 날짜에서 하루 전 날짜를 계산하여 표시하는 함수
+ function showPreviousDay() {
+  var inputDate = new Date(document.getElementById('tui-date-picker-target').value);
+  inputDate.setDate(inputDate.getDate() - 1);
+  var year = inputDate.getFullYear();
+  var month = String(inputDate.getMonth() + 1).padStart(2, '0');
+  var day = String(inputDate.getDate()).padStart(2, '0');
+  var formattedDate = year + '-' + month + '-' + day;
+  document.getElementById('tui-date-picker-target').value = formattedDate;
+}
+
+// 버튼 클릭 이벤트에 함수 연결
+document.getElementById('minusBtn').addEventListener('click', showPreviousDay);
+
+/* 하루 전 날짜로 변경 끝*/
+
+
+/* 하루 지난 날짜로 변경 시작*/
+
+ // 버튼 클릭 시 입력된 날짜에서 하루 지난 날짜를 계산하여 표시하는 함수
+ function showNextDay() {
+  var inputDate = new Date(document.getElementById('tui-date-picker-target').value);
+  inputDate.setDate(inputDate.getDate() + 1);
+  var year = inputDate.getFullYear();
+  var month = String(inputDate.getMonth() + 1).padStart(2, '0');
+  var day = String(inputDate.getDate()).padStart(2, '0');
+  var formattedDate = year + '-' + month + '-' + day;
+  document.getElementById('tui-date-picker-target').value = formattedDate;
+}
+
+// 버튼 클릭 이벤트에 함수 연결
+document.getElementById('plusBtn').addEventListener('click', showNextDay);
+
+/* 하루 지난 날짜로 변경 끝*/
+
+
+ 
  /* 사람 막대차트 */
   //  준비한 DOM 컨테이너에서 echarts 초기화하기
   var myChart = echarts.init(document.getElementById('mainPerson_chart'))
