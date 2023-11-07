@@ -20,7 +20,7 @@
 			background-image: url('../../resources/img/btn_setting_hover.png') !important;
 		}
 
-
+		
 		#searchUserButton:hover, #addUserButton:hover, #settingUserButton:hover, #settingCameraButton:hover{
 			color: #ffa800;
 		}
@@ -35,9 +35,7 @@
 		<p id="time_title" class="time">2021-00-00 10:00:00</p>
 		<!--<a href="/setting" class="rollover" alt="셋팅팝업" ><img src="../../resources/img/btn_setting.png"> <img src="../../resources/img/btn_setting_hover.png" class="over"></a>-->
 		<button type="button" id="settingBtn" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-whatever="@mdo" style="background-image: url('../../resources/img/btn_setting.png'); background-size: cover; width: 26px;"></button>
-
-
-
+		
 		<!-- 사용자 정보 조회 모달창1 시작 -->
 		<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
 			<div class="modal-dialog" style="position: absolute; top: 300px; left: 800px;">
@@ -52,7 +50,7 @@
 							<li><a id="settingUserButton">사용자 환경 설정</a></li>
 							<li><a id="settingCameraButton">카메라 그룹 설정</a></li>
 						</ul>
-
+						
 						<a class="rollover" alt="창닫기" data-bs-dismiss="modal" aria-label="Close">
 							<img src="/resources/img/admin/btn_POPwinClose.png"> 
 							<img src="/resources/img/admin/btn_POPwinClose_hover.png" class="over">
@@ -155,26 +153,26 @@
 				</div>
 			</div>
 		</div>
-	
+		
 		<!-- 사용자 정보 조회 모달창1 끝 -->
 
 		
-
+		
 		<!-- 사용자 정보 조회 모달창2 시작 -->
 		<!--
-		<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
-			<div class="modal-dialog" style="position: absolute; top: 300px; left: 800px;">
-				<div class="modal-content" style="background-color: black; width: 900px;">
-					<div class="modal-header">
-						<div class="pu-tabTitle">
-							<img src="/resources/img/admin/icon_setting.png">
-						</div>
-						<ul class="pop-tabs" data-persist="true">
-							<li onclick="openUserInfoView();"><a>사용자 정보 조회</a></li>
-							<li onclick="openAddUserView();"><a>사용자 정보 등록</a></li>
-							<li onclick="openUserEnvironmentView();"><a>사용자 환경 설정</a></li>
-							<li onclick="openUserGroupView();"><a>카메라 그룹 설정</a></li>
-						</ul>
+			<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+				<div class="modal-dialog" style="position: absolute; top: 300px; left: 800px;">
+					<div class="modal-content" style="background-color: black; width: 900px;">
+						<div class="modal-header">
+							<div class="pu-tabTitle">
+								<img src="/resources/img/admin/icon_setting.png">
+							</div>
+							<ul class="pop-tabs" data-persist="true">
+								<li onclick="openUserInfoView();"><a>사용자 정보 조회</a></li>
+								<li onclick="openAddUserView();"><a>사용자 정보 등록</a></li>
+								<li onclick="openUserEnvironmentView();"><a>사용자 환경 설정</a></li>
+								<li onclick="openUserGroupView();"><a>카메라 그룹 설정</a></li>
+							</ul>
 
 						<a class="rollover" alt="창닫기" data-bs-dismiss="modal" aria-label="Close">
 							<img src="/resources/img/admin/btn_POPwinClose.png"> 
@@ -186,10 +184,16 @@
 							<dl>
 								<dt>이름<span class="required">*</span></dt>
 								<dd><input type="text" class="txt-field" placeholder="사용자 명을 입력 해 주세요." id="AddUserView_Name"> </dd>
+							</dl>
+							<dl>
 								<dt>아이디<span class="required">*</span></dt>
 								<dd><input type="text" class="txt-field" placeholder="아이디를 입력 해 주세요." id="AddUserView_Id"> </dd>
+							</dl>
+							<dl>
 								<dt>비밀번호<span class="required">*</span></dt>
 								<dd><input type="password" class="txt-field" placeholder="비밀번호를 입력 해 주세요." id="AddUserView_Pw"> </dd>
+							</dl>
+							<dl>
 								<dt>개인정보 백업<span class="required">*</span></dt>
 								<dd>
 									<input name="backup" id="radio" type="radio" class="btnRadio" checked="true">
@@ -197,6 +201,8 @@
 									<input name="backup" id="radio" type="radio" class="btnRadio">
 									<label>불가능</label>
 								</dd>
+							</dl>
+							<dl>
 								<dt>계정 상태</dt>
 								<dd>
 									<input name="used" id="radio" type="radio" class="btnRadio" checked="true">
@@ -723,8 +729,12 @@
 						<dd><input type="text" class="txt-field" placeholder="사용자 명을 입력 해 주세요." id="AddUserView_Name"> </dd>
 						<dt>아이디<span class="required">*</span></dt>
 						<dd><input type="text" class="txt-field" placeholder="아이디를 입력 해 주세요." id="AddUserView_Id"> </dd>
+					</dl>
+					<dl>
 						<dt>비밀번호<span class="required">*</span></dt>
 						<dd><input type="password" class="txt-field" placeholder="비밀번호를 입력 해 주세요." id="AddUserView_Pw"> </dd>
+					</dl>
+					<dl>
 						<dt>개인정보 백업<span class="required">*</span></dt>
 						<dd>
 							<input name="backup" id="radio" type="radio" class="btnRadio" checked="true">
@@ -732,6 +742,8 @@
 							<input name="backup" id="radio" type="radio" class="btnRadio">
 							<label>불가능</label>
 						</dd>
+					</dl>
+					<dl>
 						<dt>계정 상태</dt>
 						<dd>
 							<input name="used" id="radio" type="radio" class="btnRadio" checked="true">
