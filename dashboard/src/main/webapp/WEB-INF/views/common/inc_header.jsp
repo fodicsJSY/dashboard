@@ -8,23 +8,49 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ai VinUS DASHBOARD</title>
-
+	<!-- fontawesome -->
+	<script src="https://kit.fontawesome.com/e75afc7597.js" crossorigin="anonymous"></script>
+	
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="/resources/css/popup.css">
-	<link rel="stylesheet" href="/resources/css/common/setting.css">
+	<!--<link rel="stylesheet" href="/resources/css/common/setting.css"> -->
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	
 
 	<style>
 		#settingBtn:hover{
-			background-image: url('../../resources/img/btn_setting_hover.png') !important;
+			background-image: url('../../resources/img/btn_setting_hover.png');
 		}
 
 		
 		#searchUserButton:hover, #addUserButton:hover, #settingUserButton:hover, #settingCameraButton:hover{
 			color: #ffa800;
 		}
-	</style>
+		
+		/*
+		.dropdown-toggle{
+			background-image: url('../../resources/img/btn_setting.png'); background-size: cover; width: 26px;
+		}
+		*/
+		
+		.show{
+			background-color: #565e64;
+		}
+
+		.dropdown-item{
+			color: white;
+			font-size: 13px;
+		}
+
+		.dropdown-item:hover{
+			background-color: #ccc;
+			color: black;
+			cursor: pointer;
+		}
+
+		</style>
 </head>
 <body>
 	<div class="TopLeft">
@@ -33,35 +59,53 @@
 	</div>
 	<div class="TopRight">
 		<p id="time_title" class="time">2021-00-00 10:00:00</p>
-		<!--<a href="/setting" class="rollover" alt="셋팅팝업" ><img src="../../resources/img/btn_setting.png"> <img src="../../resources/img/btn_setting_hover.png" class="over"></a>-->
-		<button type="button" id="settingBtn" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-whatever="@mdo" style="background-image: url('../../resources/img/btn_setting.png'); background-size: cover; width: 26px;"></button>
 		
+		<!--<a href="/setting" class="rollover" alt="셋팅팝업" ><img src="../../resources/img/btn_setting.png"> <img src="../../resources/img/btn_setting_hover.png" class="over"></a>-->
+		
+		
+			<button class="btn btn-secondary dropdown-toggle" type="button" id="settingBtn" data-bs-toggle="dropdown" aria-expanded="false">
+				<i class="fa-solid fa-gear" style="color: #ffffff;"></i>
+			</button>
+			<ul class="dropdown-menu">
+			  <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-whatever="@mdo">사용자 정보 조회</button></li>
+			  <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-whatever="@mdo">사용자 정보 등록</button></li>
+			  <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal3" data-bs-whatever="@mdo">사용자 환경 설정</button></li>
+			  <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal4" data-bs-whatever="@mdo">카메라 그룹 설정</button></li>
+			</ul>
+
+		
+
+		<!--<button type="button" id="settingBtn" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-whatever="@mdo"></button>-->
+		
+		<button id="moveRightButton" style="background-color: black; color: white; width: 15px; height: 40px; border-radius: 5px; margin-bottom: 10px; display: none;" >▶</button>
+		<button id="moveLeftButton" style="background-color: black; color: white; width: 15px; height: 40px; border-radius: 5px; display: none;">◀</button>
+
 		<!-- 사용자 정보 조회 모달창1 시작 -->
-		<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+		<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
 			<div class="modal-dialog" style="position: absolute; top: 300px; left: 800px;">
 				<div class="modal-content" style="background-color: black; width: 900px;">
-					<div class="modal-header">
-						<div class="pu-tabTitle">
-							<img src="/resources/img/admin/icon_setting.png">
+					<div class="modal-body" id="modalBody" style="display: flex; flex-direction: column; justify-content: center;">
+						<div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; margin: 10px 0;">
+
+							<div class="pu-tabTitle">
+								<img src="/resources/img/admin/icon_setting.png">
+							</div>
+							<div>
+								<div>사용자 정보 조회</div>
+							</div>
+							<div>
+								<a class="rollover" alt="창닫기" id="x1" data-bs-dismiss="modal" aria-label="Close">
+									<img src="/resources/img/admin/btn_POPwinClose.png"> 
+									<img src="/resources/img/admin/btn_POPwinClose_hover.png" class="over">
+								</a>
+							</div>
 						</div>
-						<ul class="pop-tabs" data-persist="true">
-							<li><a id="searchUserButton" >사용자 정보 조회</a></li>
-							<li><a id="addUserButton">사용자 정보 등록</a></li>
-							<li><a id="settingUserButton">사용자 환경 설정</a></li>
-							<li><a id="settingCameraButton">카메라 그룹 설정</a></li>
-						</ul>
-						
-						<a class="rollover" alt="창닫기" data-bs-dismiss="modal" aria-label="Close">
-							<img src="/resources/img/admin/btn_POPwinClose.png"> 
-							<img src="/resources/img/admin/btn_POPwinClose_hover.png" class="over">
-						</a>
-					</div>
-					<div class="modal-body" id="modalBody" style="display: flex; justify-content: center;">
-						<div class="popupTable" id="testPopupGrid">
-							<table class="userList">
-								<colgroup>
-									<col width="8%">
-									<col width="15%">
+						<div style="display: flex; justify-content: center; margin: 10px 0;">
+							<div class="popupTable" >
+								<table class="userList">
+									<colgroup>
+										<col width="8%">
+										<col width="15%">
 									<col width="20%">
 									<col width="20%">
 									<col width="20%">
@@ -80,71 +124,70 @@
 									<td>정송이</td>
 									<td>song</td>
 									<td>아무튼그거다</td>
-									<td>?</td>
-									<td>n</td>
+									<td>가능</td>
+									<td>사용</td>
 								</tr>
 								<tr>
 									<td><input type="checkbox" name=""></td>
 									<td>정송이</td>
 									<td>song</td>
 									<td>아무튼그거다</td>
-									<td>?</td>
-									<td>n</td>
+									<td>불가능</td>
+									<td>미사용</td>
 								</tr>
 								<tr>
 									<td><input type="checkbox" name=""></td>
 									<td>정송이</td>
 									<td>song</td>
 									<td>아무튼그거다</td>
-									<td>?</td>
-									<td>n</td>
+									<td>가능</td>
+									<td>사용</td>
 								</tr>
 								<tr>
 									<td><input type="checkbox" name=""></td>
 									<td>정송이</td>
 									<td>song</td>
 									<td>아무튼그거다</td>
-									<td>?</td>
-									<td>n</td>
+									<td>가능</td>
+									<td>미사용</td>
 								</tr>
 								<tr>
 									<td><input type="checkbox" name=""></td>
 									<td>정송이</td>
 									<td>song</td>
 									<td>아무튼그거다</td>
-									<td>?</td>
-									<td>n</td>
+									<td>불가능</td>
+									<td>사용</td>
 								</tr>
 								<tr>
 									<td><input type="checkbox" name=""></td>
 									<td>정송이</td>
 									<td>song</td>
 									<td>아무튼그거다</td>
-									<td>?</td>
-									<td>n</td>
+									<td>불가능</td>
+									<td>미사용</td>
 								</tr>
 								<tr>
 									<td><input type="checkbox" name=""></td>
 									<td>정송이</td>
 									<td>song</td>
 									<td>아무튼그거다</td>
-									<td>?</td>
-									<td>n</td>
+									<td>불가능</td>
+									<td>사용</td>
 								</tr>
 							</table>
 						</div>
 					</div>
-					<div class="modal-footer"  id="modalFooter" style="display: flex; justify-content: center;">
 						<div class="pop-btnBox">
-							<a class="rollover" alt="사용자 추가" onclick="openAddUserView();">
+							<a class="rollover" id="addUser" alt="사용자 추가" onclick="openAddUserView();">
 								<img src="/resources/img/admin/btn_user.png"> 
 								<img src="/resources/img/admin/btn_user_hover.png" class="over">
 							</a>
-							<a class="rollover" alt="수정" onclick="editUserInfo();">
+							<a class="rollover" id="updateUser" alt="수정" onclick="updateUserInfo();">
 								<img src="/resources/img/admin/btn_popEdit.png"> 
 								<img src="/resources/img/admin/btn_popEdit_hover.png" class="over">
 							</a>
-							<a class="rollover" alt="사용자 삭제" onclick="deleteUser();">
+							<a class="rollover" id="deleteUser" alt="사용자 삭제" onclick="deleteUser();">
 								<img src="/resources/img/admin/btn_userDel.png"> 
 								<img src="/resources/img/admin/btn_userDel_hover.png" class="over">
 							</a>
@@ -155,31 +198,34 @@
 		</div>
 		
 		<!-- 사용자 정보 조회 모달창1 끝 -->
-
 		
 		
-		<!-- 사용자 정보 조회 모달창2 시작 -->
-		<!--
+		
+		<!-- 사용자 정보 등록 모달창2 시작 -->
 			<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
 				<div class="modal-dialog" style="position: absolute; top: 300px; left: 800px;">
 					<div class="modal-content" style="background-color: black; width: 900px;">
-						<div class="modal-header">
+						
+					<div class="modal-body" style="display: flex; flex-direction: column; justify-content: center; margin: 10px 0;">
+
+						<div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; margin: 0 0 10px 0;">
+
 							<div class="pu-tabTitle">
 								<img src="/resources/img/admin/icon_setting.png">
 							</div>
-							<ul class="pop-tabs" data-persist="true">
-								<li onclick="openUserInfoView();"><a>사용자 정보 조회</a></li>
-								<li onclick="openAddUserView();"><a>사용자 정보 등록</a></li>
-								<li onclick="openUserEnvironmentView();"><a>사용자 환경 설정</a></li>
-								<li onclick="openUserGroupView();"><a>카메라 그룹 설정</a></li>
-							</ul>
+							<div>
+								<div>사용자 정보 등록</div>
+							</div>
+							<div>
+								<a class="rollover" alt="창닫기" id="x2" data-bs-dismiss="modal" aria-label="Close">
+									<img src="/resources/img/admin/btn_POPwinClose.png"> 
+									<img src="/resources/img/admin/btn_POPwinClose_hover.png" class="over">
+								</a>
+							</div>
+						</div>
+						
+						<div style="display: flex; justify-content: center; align-items: center; margin: 20px 0;">
 
-						<a class="rollover" alt="창닫기" data-bs-dismiss="modal" aria-label="Close">
-							<img src="/resources/img/admin/btn_POPwinClose.png"> 
-							<img src="/resources/img/admin/btn_POPwinClose_hover.png" class="over">
-						</a>
-					</div>
-					<div class="modal-body" style="display: flex; justify-content: center;">
 						<div class="userInfo">
 							<dl>
 								<dt>이름<span class="required">*</span></dt>
@@ -196,72 +242,72 @@
 							<dl>
 								<dt>개인정보 백업<span class="required">*</span></dt>
 								<dd>
-									<input name="backup" id="radio" type="radio" class="btnRadio" checked="true">
+									<input name="backup" id="passibleRadio" type="radio" class="btnRadio" checked="true">
 									<label>가능</label> 
-									<input name="backup" id="radio" type="radio" class="btnRadio">
+									<input name="backup" id="impassibleRadio" type="radio" class="btnRadio">
 									<label>불가능</label>
 								</dd>
 							</dl>
 							<dl>
 								<dt>계정 상태</dt>
 								<dd>
-									<input name="used" id="radio" type="radio" class="btnRadio" checked="true">
+									<input name="used" id="usedRadio" type="Radio" class="btnRadio" checked="true">
 									<label>사용</label> 
-									<input name="used" id="radio" type="radio" class="btnRadio">
+									<input name="used" id="notUsedRadio" type="radio" class="btnRadio">
 									<label>미사용</label>
 								</dd>
 							</dl>
 						</div>
-					</div>
-					<div class="modal-footer" style="display: flex; justify-content: center;">
+						</div>
 						<div class="pop-btnBox">
 							<a class="rollover" alt="저장" id="addUserInfo" onclick="addUserInfo();">
 								<img src="/resources/img/admin/btn_save.png"> 
 								<img src="/resources/img/admin/btn_save_hover.png" class="over">
 							</a>
-							<a class="rollover" alt="취소" onclick="closePopup();">
+							<a class="rollover" alt="취소" id="closeModalButton2" data-bs-dismiss="modal">
 								<img src="/resources/img/admin/btn_cancel.png"> 
 								<img src="/resources/img/admin/btn_cancel_hover.png" class="over">
 							</a>
 						</div>
+
 					</div>
+
 				</div>
 			</div>
 		</div>
-		-->
-		<!-- 사용자 정보 조회 모달창2 끝 -->
+		<!-- 사용자 정보 등록 모달창2 끝 -->
 
 
-		<!-- 사용자 정보 조회 모달창3 시작 -->
-		<!--
-		<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+		<!-- 사용자 환경 설정 모달창3 시작 -->
+
+		<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
 			<div class="modal-dialog" style="position: absolute; top: 300px; left: 800px;">
 				<div class="modal-content" style="background-color: black; width: 900px;">
-					<div class="modal-header">
-						<div class="pu-tabTitle">
-							<img src="/resources/img/admin/icon_setting.png">
-						</div>
-						<ul class="pop-tabs" data-persist="true">
-							<li><a id="searchUserButton">사용자 정보 조회</a></li>
-							<li><a id="addUserButton">사용자 정보 등록</a></li>
-							<li><a id="settingUserButton">사용자 환경 설정</a></li>
-							<li><a id="settingCameraButton">카메라 그룹 설정</a></li>
-						</ul>
+					<div class="modal-body" style="display: flex; flex-direction: column; justify-content: center;" id="modalBody">
 
-						<a class="rollover" alt="창닫기" data-bs-dismiss="modal" aria-label="Close">
-							<img src="/resources/img/admin/btn_POPwinClose.png"> 
-							<img src="/resources/img/admin/btn_POPwinClose_hover.png" class="over">
-						</a>
-					</div>
-					<div class="modal-body" style="display: flex; justify-content: center;" id="modalBody">
-						<div class="userInfo" style="height: 400px; justify-content: center;">
+						<div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; margin: 0 0 10px 0;">
+							<div class="pu-tabTitle">
+								<img src="/resources/img/admin/icon_setting.png">
+							</div>
+							<div>
+								<div>사용자 환경 설정</div>
+							</div>
+							<div>
+								<a class="rollover" alt="창닫기" id="x3" data-bs-dismiss="modal" aria-label="Close">
+									<img src="/resources/img/admin/btn_POPwinClose.png"> 
+									<img src="/resources/img/admin/btn_POPwinClose_hover.png" class="over">
+								</a>
+							</div>
+						</div>
+
+						<div class="userInfo" style=" height: 300px; margin: 70px 0 0 200px;"  >
 							<div style="display: flex; flex-direction: row; justify-content: start; align-items: center;">
-								<div>
-									▶
+								<div style="margin: 0 10px 0 0;">
+									<i class="fa-solid fa-caret-right fa-lg" style="color: #ffffff;"></i>
 								</div>
 								<div>처음 실행페이지</div>
 								<div style="margin-left: 140px;">
-									<select name="" id="dd">
+									<select name="" id="firstPage">
 										<option value="객체우선">객체우선</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -270,12 +316,12 @@
 								</div>
 							</div>
 							<div style="display: flex; flex-direction: row; justify-content: start; align-items: center; margin-top: 20px;">
-								<div>
-									▶ 
+								<div style="margin: 0 10px 0 0;">
+									<i class="fa-solid fa-caret-right fa-lg" style="color: #ffffff;"></i>
 								</div>
 								<div>TODAY WINDOW 기본 분할 화면</div>
 								<div style="margin-left: 20px;">
-									<select name="" id="dd">
+									<select name="" id="todayWindow">
 										<option value="6분할">6분할</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -283,16 +329,14 @@
 									</select>
 								</div>
 							</div>
-							
 						</div>
-					</div>
-					<div class="modal-footer" style="display: flex; justify-content: center;" id="modalFooter">
+							
 						<div class="pop-btnBox">
 							<a class="rollover" alt="저장" id="addUserInfo" onclick="addUserInfo();">
 								<img src="/resources/img/admin/btn_save.png"> 
 								<img src="/resources/img/admin/btn_save_hover.png" class="over">
 							</a>
-							<a class="rollover" alt="취소" onclick="closePopup();">
+							<a class="rollover" alt="취소" id="closeModalButton3" data-bs-dismiss="modal" >
 								<img src="/resources/img/admin/btn_cancel.png"> 
 								<img src="/resources/img/admin/btn_cancel_hover.png" class="over">
 							</a>
@@ -301,34 +345,31 @@
 				</div>
 			</div>
 		</div>
-		-->
-		<!-- 사용자 정보 조회 모달창3 끝 -->
+		<!-- 사용자 환경 설정 모달창3 끝 -->
 
 
 
-		<!-- 사용자 정보 조회 모달창4 시작 -->
-		<!--
-		<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+		<!-- 카메라 그룹 설정 모달창4 시작 -->
+		<div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
 			<div class="modal-dialog" style="position: absolute; top: 300px; left: 800px;">
 				<div class="modal-content" style="background-color: black; width: 900px;">
-					<div class="modal-header">
-						<div class="pu-tabTitle">
-							<img src="/resources/img/admin/icon_setting.png">
-						</div>
-						<ul class="pop-tabs" data-persist="true">
-							<li onclick="openUserInfoView();"><a>사용자 정보 조회</a></li>
-							<li onclick="openAddUserView();"><a>사용자 정보 등록</a></li>
-							<li onclick="openUserEnvironmentView();"><a>사용자 환경 설정</a></li>
-							<li onclick="openUserGroupView();"><a>카메라 그룹 설정</a></li>
-						</ul>
+					<div class="modal-body" style="display: flex; flex-direction: column; justify-content: center;">
+						<div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; margin: 10px 0;">
 
-						<a class="rollover" alt="창닫기" data-bs-dismiss="modal" aria-label="Close">
-							<img src="/resources/img/admin/btn_POPwinClose.png"> 
-							<img src="/resources/img/admin/btn_POPwinClose_hover.png" class="over">
-						</a>
-					</div>
-					<div class="modal-body" style="display: flex; justify-content: center;">
-						<div class="userInfo" style="height: 500px; display: flex; justify-content: space-around; align-items: center; ">
+							<div class="pu-tabTitle">
+								<img src="/resources/img/admin/icon_setting.png">
+							</div>
+							<div>
+								<div>카메라 그룹 설정</div>
+							</div>
+							<div>
+								<a class="rollover" alt="창닫기" data-bs-dismiss="modal" aria-label="Close">
+									<img src="/resources/img/admin/btn_POPwinClose.png"> 
+									<img src="/resources/img/admin/btn_POPwinClose_hover.png" class="over">
+								</a>
+							</div>
+						</div>
+						<div class="userInfo" style="height: 500px; display: flex; justify-content: space-around; align-items: center; margin: 0  150px;">
 							<div style="height: 80%; width: 210px;">
 								<div class="userGroup_container" style="display: flex; flex-direction: column; justify-content: start;">
 									<div style="margin: 10px 0;">사용자그룹</div>
@@ -363,7 +404,7 @@
 								<div class="choiceGroup_container" style="margin-top: 15px; display: flex; flex-direction: column; justify-content: start;">
 									<div style="margin: 10px 0;">선택그룹</div>
 									<div style="background-color: #282828; width: 100%; height: 180px;">
-										<table class="choiceGroup" style="display: flex; width: 100%; height: 100%; overflow-y: scroll; border: 1px solid #333333; font-family: NanumSquareEB; ">
+										<table class="choiceGroup" style="display: block; width: 100%; height: 100%; overflow-y: scroll; border: 1px solid #333333; font-family: NanumSquareEB; ">
 											<tr style="width: 207.03px; height: 30px; border: 1px solid #333333;">
 												<td><input type="checkbox" name="" id=""></td>
 												<td style="width: 200px; height: 30px;" >오리온</td>
@@ -406,15 +447,19 @@
 								</div>
 							</div>
 							<div style="display: flex; flex-direction: column; margin: 180px 10px 0 10px;">
-								<button style="background-color: black; color: white; width: 15px; height: 40px; border-radius: 5px; margin-bottom: 10px;" >▶</button>
-								<button style="background-color: black; color: white; width: 15px; height: 40px; border-radius: 5px;">◀</button>
+								<button id="rightBtn" style="background-color: black; color: white; width: 15px; height: 40px; border-radius: 5px; margin-bottom: 10px;" >
+									<i class="fa-solid fa-caret-right fa-xl" style="color: #ffffff;"></i>
+								</button>
+								<button id="leftBtn" style="background-color: black; color: white; width: 15px; height: 40px; border-radius: 5px;">
+									<i class="fa-solid fa-caret-left fa-xl" style="color: #ffffff;"></i>
+								</button>
 							</div>
-							<div style="height: 302px; width: 350px; margin: 0 0 48px 0;">
+							<div style="height: 302px; width: 350px; margin: 0 0 82px 0;">
 								<div style="margin: 0 0 10px 0;">
 									전체카메라리스트
 								</div>
-								<div style=" overflow-y: scroll;  background-color: #282828; width: 100%; height: 335px;">
-									<table style="width: 100%; height: 100%;border: 1px solid #333333; font-family: NanumSquareEB; ">
+								<div style="  overflow-y: scroll; background-color: #282828; width: 350px; height: 335px;">
+									<table class="allCameraList" style="width: 100%; height: 100%;border: 1px solid #333333; font-family: NanumSquareEB; ">
 										<tr style="width: 207.03px; height: 30px; border: 1px solid #333333;">
 											<td style="width: 15px;"><input type="checkbox" name="" id=""></td>
 											<td>베이비</td>
@@ -503,14 +548,12 @@
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="modal-footer" style="display: flex; justify-content: center;">
 						<div class="pop-btnBox">
 							<a class="rollover" alt="저장" id="addUserInfo" onclick="addUserInfo();">
 								<img src="/resources/img/admin/btn_save.png"> 
 								<img src="/resources/img/admin/btn_save_hover.png" class="over">
 							</a>
-							<a class="rollover" alt="취소" onclick="closePopup();">
+							<a class="rollover" id="listCencle" alt="취소" data-bs-dismiss="modal" >
 								<img src="/resources/img/admin/btn_cancel.png"> 
 								<img src="/resources/img/admin/btn_cancel_hover.png" class="over">
 							</a>
@@ -519,8 +562,85 @@
 				</div>
 			</div>
 		</div>
-		-->
-		<!-- 사용자 정보 조회 모달창4 끝 -->
+		<!-- 카메라 그룹 설정 모달창4 끝 -->
+
+
+		<!-- 사용자 정보 수정 모달창5 시작 -->
+		<div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+			<div class="modal-dialog" style="position: absolute; top: 300px; left: 800px;">
+				<div class="modal-content" style="background-color: black; width: 900px;">
+					
+				<div class="modal-body" style="display: flex; flex-direction: column; justify-content: center; margin: 10px 0;">
+
+					<div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; margin: 0 0 10px 0;">
+
+						<div class="pu-tabTitle">
+							<img src="/resources/img/admin/icon_setting.png">
+						</div>
+						<div>
+							<div>사용자 정보 수정</div>
+						</div>
+						<div>
+							<a class="rollover" alt="창닫기" id="x2" data-bs-dismiss="modal" aria-label="Close">
+								<img src="/resources/img/admin/btn_POPwinClose.png"> 
+								<img src="/resources/img/admin/btn_POPwinClose_hover.png" class="over">
+							</a>
+						</div>
+					</div>
+					
+					<div style="display: flex; justify-content: center; align-items: center; margin: 20px 0;">
+
+					<div class="userInfo">
+						<dl>
+							<dt>이름<span class="required">*</span></dt>
+							<dd><input type="text" class="txt-field" placeholder="사용자 명을 입력 해 주세요." id="updateUserView_Name"> </dd>
+						</dl>
+						<dl>
+							<dt>아이디<span class="required">*</span></dt>
+							<dd><input type="text" class="txt-field" placeholder="아이디를 입력 해 주세요." id="updateUserView_Id"> </dd>
+						</dl>
+						<dl>
+							<dt>비밀번호<span class="required">*</span></dt>
+							<dd><input type="password" class="txt-field" placeholder="비밀번호를 입력 해 주세요." id="updateUserView_Pw"> </dd>
+						</dl>
+						<dl>
+							<dt>개인정보 백업<span class="required">*</span></dt>
+							<dd>
+								<input name="backup" id="updatePassibleRadio" type="radio" class="btnRadio" checked="true">
+								<label>가능</label> 
+								<input name="backup" id="updateImpassibleRadio" type="radio" class="btnRadio">
+								<label>불가능</label>
+							</dd>
+						</dl>
+						<dl>
+							<dt>계정 상태</dt>
+							<dd>
+								<input name="used" id="updateUsedRadio" type="Radio" class="btnRadio" checked="true">
+								<label>사용</label> 
+								<input name="used" id="updateNotUsedRadio" type="radio" class="btnRadio">
+								<label>미사용</label>
+							</dd>
+						</dl>
+					</div>
+					</div>
+					<div class="pop-btnBox">
+						<a class="rollover" alt="수정" id="updateUserInfo" onclick="addUserInfo();">
+							<img src="/resources/img/admin/btn_save.png"> 
+							<img src="/resources/img/admin/btn_save_hover.png" class="over">
+						</a>
+						<a class="rollover" alt="취소" id="closeModalButton2" data-bs-dismiss="modal">
+							<img src="/resources/img/admin/btn_cancel.png"> 
+							<img src="/resources/img/admin/btn_cancel_hover.png" class="over">
+						</a>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!-- 사용자 정보 수정 모달창5 끝 -->
+
 
 
 
@@ -529,9 +649,9 @@
 		<a href="/logout" class="rollover" ><img src="../../resources/img/btn_winClose.png"><img src="../../resources/img/btn_winClose_hover.png" class="over"></a>
 	</div>
 
-	<script src="../../../resources/js/popupSetting.js">
+	<!--<script src="../../../resources/js/popupSetting.js">
 
-	</script>
+	</script>-->
 
 
 	<script>
@@ -581,212 +701,287 @@
 	</script>
 
 	<script>
-		var modalBody = document.getElementById('modalBody');
-		var modalFooter = document.getElementById('modalFooter');
-		var searchUserButton = document.getElementById('searchUserButton');
-		let activeButton = null;
 
 
-
-
-
-
-		// 사용자 정보 등록 버튼 클릭 이벤트 조회
-		document.getElementById('searchUserButton').addEventListener('click',()=>{
-
-			// 현재 활성화된 버튼의 스타일을 원래대로 되돌립니다.
-			if (activeButton) {
-				activeButton.style.color = 'white'; // 빈 문자열로 설정하면 원래 색상으로 돌아갑니다.
-			}
-
-			// 클릭한 버튼의 글자 색을 변경합니다.
-			searchUserButton.style.color = '#ffa800'; // 변경하고자 하는 색상으로 설정합니다.
-
-			// 클릭한 버튼을 활성화된 버튼으로 설정합니다.
-			activeButton = searchUserButton;
-
-			// 사용자 정보 조회 버튼 클릭 시 모달 내용을 동적으로 변경하는 함수
-			modalBody.innerHTML = `
-				<div class="popupTable" id="testPopupGrid">
-					<table class="userList">
-						<colgroup>
-							<col width="8%">
-							<col width="15%">
-							<col width="20%">
-							<col width="20%">
-							<col width="20%">
-							<col width="*">
-						</colgroup>
-						<tr>
-							<th><input type="checkbox" name=""></th>
-							<th>이름</th>
-							<th>아이디</th>
-							<th>비밀번호</th>
-							<th>개인정보 백업</th>
-							<th>계정상태</th>
-						</tr>
-						<tr>
-							<td><input type="checkbox" name=""></td>
-							<td>정송이</td>
-							<td>song</td>
-							<td>아무튼그거다</td>
-							<td>?</td>
-							<td>n</td>
-						</tr>
-						<tr>
-							<td><input type="checkbox" name=""></td>
-							<td>정송이</td>
-							<td>song</td>
-							<td>아무튼그거다</td>
-							<td>?</td>
-							<td>n</td>
-						</tr>
-						<tr>
-							<td><input type="checkbox" name=""></td>
-							<td>정송이</td>
-							<td>song</td>
-							<td>아무튼그거다</td>
-							<td>?</td>
-							<td>n</td>
-						</tr>
-						<tr>
-							<td><input type="checkbox" name=""></td>
-							<td>정송이</td>
-							<td>song</td>
-							<td>아무튼그거다</td>
-							<td>?</td>
-							<td>n</td>
-						</tr>
-						<tr>
-							<td><input type="checkbox" name=""></td>
-							<td>정송이</td>
-							<td>song</td>
-							<td>아무튼그거다</td>
-							<td>?</td>
-							<td>n</td>
-						</tr>
-						<tr>
-							<td><input type="checkbox" name=""></td>
-							<td>정송이</td>
-							<td>song</td>
-							<td>아무튼그거다</td>
-							<td>?</td>
-							<td>n</td>
-						</tr>
-						<tr>
-							<td><input type="checkbox" name=""></td>
-							<td>정송이</td>
-							<td>song</td>
-							<td>아무튼그거다</td>
-							<td>?</td>
-							<td>n</td>
-						</tr>
-					</table>
-				</div>
-				
-			`;
-			modalFooter.innerHTML=`
-			<div class="pop-btnBox">
-				<a class="rollover" alt="사용자 추가" onclick="openAddUserView();">
-					<img src="/resources/img/admin/btn_user.png"> 
-					<img src="/resources/img/admin/btn_user_hover.png" class="over">
-				</a>
-				<a class="rollover" alt="수정" onclick="editUserInfo();">
-					<img src="/resources/img/admin/btn_popEdit.png"> 
-					<img src="/resources/img/admin/btn_popEdit_hover.png" class="over">
-				</a>
-				<a class="rollover" alt="사용자 삭제" data-bs-dismiss="modal">
-					<img src="/resources/img/admin/btn_userDel.png"> 
-					<img src="/resources/img/admin/btn_userDel_hover.png" class="over">
-				</a>
-			</div>
-			`
-		});
-
-
-
-
-
-		// 사용자 정보 등록 버튼 클릭 이벤트 등록
-		document.getElementById('addUserButton').addEventListener('click',()=>{
-
-			// 현재 활성화된 버튼의 스타일을 원래대로 되돌립니다.
-			if (activeButton) {
-				activeButton.style.color = 'white'; // 빈 문자열로 설정하면 원래 색상으로 돌아갑니다.
-			}
-
-			// 클릭한 버튼의 글자 색을 변경합니다.
-			addUserButton.style.color = '#ffa800'; // 변경하고자 하는 색상으로 설정합니다.
-
-			// 클릭한 버튼을 활성화된 버튼으로 설정합니다.
-			activeButton = addUserButton;
-
-			// 사용자 정보 등록 버튼 클릭 시 모달 내용을 동적으로 변경하는 함수
-			modalBody.innerHTML = `
-				<div class="userInfo">
-					<dl>
-						<dt>이름<span class="required">*</span></dt>
-						<dd><input type="text" class="txt-field" placeholder="사용자 명을 입력 해 주세요." id="AddUserView_Name"> </dd>
-						<dt>아이디<span class="required">*</span></dt>
-						<dd><input type="text" class="txt-field" placeholder="아이디를 입력 해 주세요." id="AddUserView_Id"> </dd>
-					</dl>
-					<dl>
-						<dt>비밀번호<span class="required">*</span></dt>
-						<dd><input type="password" class="txt-field" placeholder="비밀번호를 입력 해 주세요." id="AddUserView_Pw"> </dd>
-					</dl>
-					<dl>
-						<dt>개인정보 백업<span class="required">*</span></dt>
-						<dd>
-							<input name="backup" id="radio" type="radio" class="btnRadio" checked="true">
-							<label>가능</label> 
-							<input name="backup" id="radio" type="radio" class="btnRadio">
-							<label>불가능</label>
-						</dd>
-					</dl>
-					<dl>
-						<dt>계정 상태</dt>
-						<dd>
-							<input name="used" id="radio" type="radio" class="btnRadio" checked="true">
-							<label>사용</label> 
-							<input name="used" id="radio" type="radio" class="btnRadio">
-							<label>미사용</label>
-						</dd>
-					</dl>
-				</div>	
-				
-			`;
-			modalFooter.innerHTML=`
-			<div class="pop-btnBox">
-				<a class="rollover" alt="저장" id="addUserInfo" onclick="addUserInfo();">
-					<img src="/resources/img/admin/btn_save.png"> 
-					<img src="/resources/img/admin/btn_save_hover.png" class="over">
-				</a>
-				<a class="rollover" alt="취소" id="closeModalButton" data-bs-dismiss="modal" >
-					<img src="/resources/img/admin/btn_cancel.png"> 
-					<img src="/resources/img/admin/btn_cancel_hover.png" class="over">
-				</a>
-			</div>
-			`
-
-
-			// 취소 버튼 클릭 시 모달 닫기와 입력 내용 초기화 이벤트 등록
-			const closeModalButton = document.getElementById('closeModalButton');
-			closeModalButton.addEventListener('click', () => {
-				// 입력 내용 초기화
-				document.getElementById('AddUserView_Name').value = '';
-				document.getElementById('AddUserView_Id').value = '';
-				document.getElementById('AddUserView_Pw').value = '';
-
-				// 라디오 버튼 초기화
-				const backupRadios = document.querySelectorAll('input[name="backup"]');
-				backupRadios[0].checked = true;
-
-				const usedRadios = document.querySelectorAll('input[name="used"]');
-				usedRadios[0].checked = true;
-
-							
+		// 사용자 정보 등록 모달창1 x 버튼 클릭 시 모달 닫기와 입력 내용 초기화 이벤트 등록
+		const x1 = document.getElementById('x1');
+		x1.addEventListener('click', () => {
+			// 모든 체크박스 요소를 찾아서 상태를 변경합니다.
+			var checkboxes = document.querySelectorAll('.userList input[type="checkbox"]');
+			checkboxes.forEach(function(checkbox) {
+				checkbox.checked = false;
 			});
 		});
+
+
+
+
+		// 사용자 정보 조회 모달창2 x 버튼 클릭 시 모달 닫기와 입력 내용 초기화 이벤트 등록
+		const x2 = document.getElementById('x2');
+		x2.addEventListener('click', () => {
+			// 입력 내용 초기화
+			document.getElementById('AddUserView_Name').value = '';
+			document.getElementById('AddUserView_Id').value = '';
+			document.getElementById('AddUserView_Pw').value = '';
+		
+			// 라디오 버튼 초기화
+			const backupRadios = document.querySelectorAll('input[name="backup"]');
+			backupRadios[0].checked = true;
+		
+			const usedRadios = document.querySelectorAll('input[name="used"]');
+			usedRadios[0].checked = true;
+		});
+
+
+
+
+		// 사용자 정보 조회 모달창2 취소 버튼 클릭 시 모달 닫기와 입력 내용 초기화 이벤트 등록
+		const closeModalButton2 = document.getElementById('closeModalButton2');
+		closeModalButton2.addEventListener('click', () => {
+			// 입력 내용 초기화
+			document.getElementById('AddUserView_Name').value = '';
+			document.getElementById('AddUserView_Id').value = '';
+			document.getElementById('AddUserView_Pw').value = '';
+		
+			// 라디오 버튼 초기화
+			const backupRadios = document.querySelectorAll('input[name="backup"]');
+			backupRadios[0].checked = true;
+		
+			const usedRadios = document.querySelectorAll('input[name="used"]');
+			usedRadios[0].checked = true;
+		});
+
+
+
+
+		// 사용자 정보 조회 모달창3 x 버튼 클릭 시 모달 닫기와 선택 옵션 초기화 이벤트 등록
+		const x3 = document.getElementById('x3');
+		x3.addEventListener('click', () => {
+			// 선택 옵션 초기화 - "객체우선"으로 변경
+			const firstPage = document.getElementById('firstPage');
+			firstPage.selectedIndex = 0;
+
+			const todayWindow = document.getElementById('todayWindow');
+			todayWindow.selectedIndex = 0;
+
+
+			x3.style.color = 'white';
+			activeButton = searchUserButton;
+		});
+
+
+		// 사용자 정보 조회 모달창3 취소 버튼 클릭 시 모달 닫기와 선택 옵션 초기화 이벤트 등록
+		const closeModalButton3 = document.getElementById('closeModalButton3');
+		closeModalButton3.addEventListener('click', () => {
+			// 선택 옵션 초기화 - "객체우선"으로 변경
+			const firstPage = document.getElementById('firstPage');
+			firstPage.selectedIndex = 0;
+
+			const todayWindow = document.getElementById('todayWindow');
+			todayWindow.selectedIndex = 0;
+
+
+			closeModalButton3.style.color = 'white';
+			activeButton = searchUserButton;
+		});
+
+
+
+
+
+
+	</script>
+
+
+<script>
+
+// 초기 상태를 저장하는 객체를 생성합니다.
+var initialStates = {
+  choiceGroup: document.querySelector('.choiceGroup_container').innerHTML,
+  allCameraList: document.querySelector('.allCameraList').innerHTML
+};
+
+// 요소를 초기 상태로 되돌리는 함수를 정의합니다.
+function resetElementPositions() {
+  document.querySelector('.choiceGroup_container').innerHTML = initialStates.choiceGroup;
+  document.querySelector('.allCameraList').innerHTML = initialStates.allCameraList;
+
+  // 초기 상태로 되돌릴 때 복제된 노드를 다시 복제하여 삽입합니다.
+  choiceGroupContainer.innerHTML = '';
+  choiceGroupContainer.appendChild(initialStates.choiceGroup.cloneNode(true));
+
+  allCameraList.innerHTML = '';
+  allCameraList.appendChild(initialStates.allCameraList.cloneNode(true));
+
+  // 초기 상태 갱신
+  setInitialStates();
+
+}
+
+
+function moveSelectedItems() {
+	
+  // 선택그룹 테이블과 전체카메라리스트 테이블을 찾습니다.
+  var choiceGroupTable = document.querySelector('.choiceGroup');
+  var cameraListTable = document.querySelector('.allCameraList'); // 수정된 부분
+
+  // 선택그룹에서 체크된 행을 찾습니다.
+  var selectedRows = choiceGroupTable.querySelectorAll('tr input:checked');
+
+  // 각 체크된 행을 전체카메라리스트 테이블로 이동시킵니다.
+  selectedRows.forEach(function (row) {
+    // 새로운 행 생성
+    var newRow = document.createElement('tr');
+
+    // 체크박스 열 복사
+    var checkboxCell = document.createElement('td');
+    checkboxCell.innerHTML = '<input type="checkbox" name="" id="">';
+    newRow.appendChild(checkboxCell);
+
+    // 이름 열 복사
+    var nameCell = document.createElement('td');
+    nameCell.textContent = row.parentElement.nextElementSibling.textContent;
+    newRow.appendChild(nameCell);
+
+
+	// 스타일 추가
+	nameCell.style.paddingTop = '5px'; // 위쪽 padding
+    nameCell.style.paddingBottom = '5px'; // 아래쪽 padding
+    newRow.style.borderBottom = '1px solid #333333'; // 하단에 선 추가
+
+    // 선택그룹 테이블에 행 추가
+    cameraListTable.appendChild(newRow);
+
+
+
+
+
+
+    // 선택그룹에서 해당 행 삭제
+    row.parentElement.parentElement.remove();
+  });
+}
+
+// rightBtn 클릭 시 moveSelectedItems 함수 호출
+document.getElementById('rightBtn').addEventListener('click', moveSelectedItems);
+
+
+
+function moveSelectedItemsToLeft() {
+  // 선택그룹 테이블과 전체카메라리스트 테이블을 찾습니다.
+  var choiceGroupTable = document.querySelector('.choiceGroup');
+  var cameraListTable = document.querySelector('.allCameraList'); // 수정된 부분
+
+  // 전체카메라리스트에서 체크된 행을 찾습니다.
+  var selectedRows = cameraListTable.querySelectorAll('tr input:checked');
+
+  // 각 체크된 행을 선택그룹 테이블로 이동시킵니다.
+  selectedRows.forEach(function (row) {
+    // 새로운 행 생성
+    var newRow = document.createElement('tr');
+
+    // 체크박스 열 복사
+    var checkboxCell = document.createElement('td');
+    checkboxCell.innerHTML = '<input type="checkbox" name="" id="">';
+    newRow.appendChild(checkboxCell);
+
+    // 이름 열 복사
+    var nameCell = document.createElement('td');
+    nameCell.textContent = row.parentElement.nextElementSibling.textContent;
+
+    newRow.appendChild(nameCell);
+
+	// 스타일 추가
+	nameCell.style.paddingTop = '5px'; // 위쪽 padding
+    nameCell.style.paddingBottom = '5px'; // 아래쪽 padding
+    newRow.style.borderBottom = '1px solid #333333'; // 하단에 선 추가
+
+    // 선택그룹 테이블에 행 추가
+    choiceGroupTable.appendChild(newRow);
+
+    // 전체카메라리스트에서 해당 행 삭제
+    row.parentElement.parentElement.remove();
+  });
+}
+
+// leftBtn 클릭 시 moveSelectedItemsToLeft 함수 호출
+document.getElementById('leftBtn').addEventListener('click', moveSelectedItemsToLeft);
+
+
+// "취소" 버튼 클릭 이벤트 핸들러를 정의합니다.
+document.querySelector('#listCencle').addEventListener('click', function () {
+  // "취소" 버튼을 클릭했을 때 resetElementPositions 함수를 호출합니다.
+  resetElementPositions();
+});
+
+// 초기 상태를 설정합니다.
+setInitialStates();
+
+
+
+/* 사용자 조회에서 등록버튼 클릭 시 */
+function openAddUserView() {
+    // 사용자 등록 모달 창을 띄우는 코드 추가
+    $('#exampleModal2').modal('show');
+}
+
+
+</script>
+
+
+<!-- 사용자 조회 창에서 수정 버튼 클릭 시 수정모달창 생성 -->
+<script>
+	function updateUserInfo() {
+	  // 테이블 참조를 가져옵니다.
+	  var table = document.querySelector('.userList');
+  
+	  // 테이블 내 모든 체크박스를 가져옵니다.
+	  var checkboxes = table.querySelectorAll('input[type="checkbox"]');
+  
+	  // 선택된 행의 데이터를 저장할 변수를 초기화합니다.
+	  var selectedName, selectedId, selectedPw, selectedBackup, selectedUsed;
+  
+	  // 체크박스를 반복하여 선택된 행을 찾습니다.
+	  checkboxes.forEach(function (checkbox, index) {
+		if (checkbox.checked) {
+		  var row = checkbox.closest('tr');
+		  selectedName = row.cells[1].innerText;
+		  selectedId = row.cells[2].innerText;
+		  selectedPw = row.cells[3].innerText;
+		  selectedBackup = row.cells[4].innerText;
+		  selectedUsed = row.cells[5].innerText;
+		}
+	  });
+  
+	  // 두 번째 모달의 입력 필드에 선택된 데이터를 채웁니다.
+	  document.getElementById('updateUserView_Name').value = selectedName;
+	  document.getElementById('updateUserView_Id').value = selectedId;
+	  document.getElementById('updateUserView_Pw').value = selectedPw;
+  
+	  // 선택된 데이터를 기반으로 적절한 라디오 버튼을 체크합니다.
+	  document.getElementById('updatePassibleRadio').checked = selectedBackup === '가능';
+	  document.getElementById('updateImpassibleRadio').checked = selectedBackup === '불가능';
+	  document.getElementById('updateUsedRadio').checked = selectedUsed === '사용';
+	  document.getElementById('updateNotUsedRadio').checked = selectedUsed === '미사용';
+  
+	  // 두 번째 모달을 표시합니다.
+	  $('#exampleModal5').modal('show');
+	}
+  </script>
+  
+
+
+	<!--
+	<script>
+		
+
+
+
+
+
+		
+
+
 
 
 
@@ -852,20 +1047,7 @@
 			</div>
 			`
 
-			// 취소 버튼 클릭 시 모달 닫기와 선택 옵션 초기화 이벤트 등록
-			const closeModalButton = document.getElementById('closeModalButton');
-			closeModalButton.addEventListener('click', () => {
-				// 선택 옵션 초기화 - "객체우선"으로 변경
-				const firstPage = document.getElementById('firstPage');
-				firstPage.selectedIndex = 0;
-
-				const todayWindow = document.getElementById('todayWindow');
-				todayWindow.selectedIndex = 0;
-
-
-				settingUserButton.style.color = 'white';
-				activeButton = searchUserButton;
-			});
+			
 
 
 
@@ -969,8 +1151,8 @@
 					</div>
 				</div>
 				<div style="display: flex; flex-direction: column; margin: 180px 10px 0 10px;">
-					<button style="background-color: black; color: white; width: 15px; height: 40px; border-radius: 5px; margin-bottom: 10px;" >▶</button>
-					<button style="background-color: black; color: white; width: 15px; height: 40px; border-radius: 5px;">◀</button>
+					<button id="moveRightButton" style="background-color: black; color: white; width: 15px; height: 40px; border-radius: 5px; margin-bottom: 10px;" >▶</button>
+					<button id="moveLeftButton" style="background-color: black; color: white; width: 15px; height: 40px; border-radius: 5px;">◀</button>
 				</div>
 				<div style="height: 302px; width: 350px; margin: 0 0 48px 0;">
 					<div style="margin: 0 0 10px 0;">
@@ -1082,17 +1264,102 @@
 		});
 
 
+		// 오른쪽 버튼 클릭 시
+		document.getElementById("moveRightButton").addEventListener("click", function() {
+			// 선택 그룹에서 선택된 항목 가져오기
+			const selectedItems = document.querySelectorAll(".choiceGroup input:checked + td");
+
+			// 전체 카메라 리스트 테이블 엘리먼트 가져오기
+			const cameraListTable = document.querySelector(".cameraListTable");
+
+			// 선택 그룹에서 항목을 제거하고 전체 카메라 리스트에 추가
+			selectedItems.forEach(function(item) {
+				// 새로운 행을 만들어서 항목을 복사
+				const newRow = document.createElement("tr");
+				newRow.innerHTML = item.parentElement.outerHTML;
+
+				// 새로운 행을 전체 카메라 리스트에 추가
+				cameraListTable.appendChild(newRow);
+
+				// 선택 그룹에서 항목 제거
+				item.parentElement.parentElement.remove();
+			});
+		});
+
+		// 왼쪽 버튼 클릭 시
+		document.getElementById("moveLeftButton").addEventListener("click", function() {
+			// 전체 카메라 리스트에서 선택된 항목 가져오기
+			const selectedItems = document.querySelectorAll(".cameraListTable input:checked + td");
+
+			// 선택 그룹 테이블 엘리먼트 가져오기
+			const choiceGroupTable = document.querySelector(".choiceGroup");
+
+			// 전체 카메라 리스트에서 항목을 제거하고 선택 그룹에 추가
+			selectedItems.forEach(function(item) {
+				// 새로운 행을 만들어서 항목을 복사
+				const newRow = document.createElement("tr");
+				newRow.innerHTML = item.parentElement.outerHTML;
+
+				// 새로운 행을 선택 그룹에 추가
+				choiceGroupTable.appendChild(newRow);
+
+				// 전체 카메라 리스트에서 항목 제거
+				item.parentElement.parentElement.remove();
+			});
+		});
+
+		// 오른쪽 버튼 클릭 시
+document.getElementById("moveRightButton").addEventListener("click", function() {
+    // 선택 그룹에서 선택된 항목 가져오기
+    const selectedItems = document.querySelectorAll(".choiceGroup input:checked + td");
+
+    // 전체 카메라 리스트 테이블 엘리먼트 가져오기
+    const cameraListTable = document.querySelector(".cameraListTable tbody");
+
+    // 선택 그룹에서 항목을 제거하고 전체 카메라 리스트에 추가
+    selectedItems.forEach(function(item) {
+        // 새로운 행을 만들어서 항목을 복사
+        const newRow = document.createElement("tr");
+        newRow.innerHTML = item.parentElement.outerHTML;
+
+        // 새로운 행을 전체 카메라 리스트에 추가
+        cameraListTable.appendChild(newRow);
+
+        // 선택 그룹에서 항목 제거
+        item.parentElement.parentElement.remove();
+    });
+});
+
+// 왼쪽 버튼 클릭 시
+document.getElementById("moveLeftButton").addEventListener("click", function() {
+    // 전체 카메라 리스트에서 선택된 항목 가져오기
+    const selectedItems = document.querySelectorAll(".cameraListTable input:checked + td");
+
+    // 선택 그룹 테이블 엘리먼트 가져오기
+    const choiceGroupTable = document.querySelector(".choiceGroup");
+
+    // 전체 카메라 리스트에서 항목을 제거하고 선택 그룹에 추가
+    selectedItems.forEach(function(item) {
+        // 새로운 행을 만들어서 항목을 복사
+        const newRow = document.createElement("tr");
+        newRow.innerHTML = item.parentElement.outerHTML;
+
+        // 새로운 행을 선택 그룹에 추가
+        choiceGroupTable.appendChild(newRow);
+
+        // 전체 카메라 리스트에서 항목 제거
+        item.parentElement.parentElement.remove();
+    });
+});
 
 		
 		
 	</script>
 
-	<script>
+  -->
 
 
-	</script>
-
-
+  
 
 </body>
 </html>

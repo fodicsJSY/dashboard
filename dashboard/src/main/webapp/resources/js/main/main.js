@@ -54,10 +54,13 @@ document.getElementById('plusBtn').addEventListener('click', showNextDay);
 /* 하루 지난 날짜로 변경 끝*/
 
 
- 
+
+
+
+
  /* 사람 막대차트 */
   //  준비한 DOM 컨테이너에서 echarts 초기화하기
-  var myChart = echarts.init(document.getElementById('mainPerson_chart'))
+  var human_chart = echarts.init(document.getElementById('mainPerson_chart'))
 
   // 차트 옵션 작성하기
   option = {
@@ -122,7 +125,7 @@ document.getElementById('plusBtn').addEventListener('click', showNextDay);
   };
 
   //  차트 옵션 설정하기
-  myChart.setOption(option)
+  human_chart.setOption(option)
 
 
 
@@ -335,3 +338,277 @@ document.getElementById('plusBtn').addEventListener('click', showNextDay);
 
   //  차트 옵션 설정하기
   myChart.setOption(option)
+
+
+
+
+  var human_radial_bar_chart = echarts.init(document.getElementById('mainPerson_chart'))
+
+  var option = {
+  tooltip: {
+      trigger: 'item'
+  },
+  legend: {
+      bottom: 0,
+      data: ['미성년', '노년', '청년', '중장년'],
+      textStyle:{
+          color: '#fff'
+      },
+  },
+  grid: {
+      //bottom: '50%', // 그래프 영역의 하단 마진
+      containLabel: true // 라벨이 차트 밖으로 나가지 않도록 함
+  },
+  series: [
+      {
+      name: '여성',
+      type: 'pie',
+      radius: ['20%', '45%'], // 첫 번째 도넛의 반지름 범위
+      avoidLabelOverlap: false,
+      itemStyle: {
+          borderColor: 'black',
+          borderWidth: 2,
+          
+      },
+      label: {
+          show: false,
+          position: 'center',
+          
+      },
+      emphasis: {
+          
+      },
+      labelLine: {
+          show: false
+      },
+      data: [
+          { value: 1048, name: '미성년',  itemStyle: { color: '#d3f1f9' }},
+          { value: 735, name: '청년',  itemStyle: { color: '#3fd5e3' }},
+          { value: 580, name: '중장년',  itemStyle: { color: '#00a0de' } },
+          { value: 580, name: '노년',  itemStyle: { color: '#0174cf' } }
+          
+      ]
+      },
+      {
+      name: '남성',
+      type: 'pie',
+      radius: ['50%', '75%'], // 두 번째 도넛의 반지름 범위
+      avoidLabelOverlap: false,
+      itemStyle: {
+          borderColor: 'black',
+          borderWidth: 2
+      },
+      label: {
+          show: false,
+          position: 'center'
+      },
+      emphasis: {
+
+      },
+      labelLine: {
+          show: false
+      },
+      data: [
+          { value: 1048, name: '미성년',  itemStyle: { color: '#d3f1f9' }},
+          { value: 735, name: '청년',  itemStyle: { color: '#3fd5e3' }},
+          { value: 580, name: '중장년',  itemStyle: { color: '#00a0de' } },
+          { value: 310, name: '노년',  itemStyle: { color: '#0174cf' } }
+      ]
+      }
+  ]
+  };
+
+    //  차트 옵션 설정하기
+    human_radial_bar_chart.setOption(option)
+
+  
+
+  // 연령별 출입자 현황 더블 도넛차트
+
+  function LoadRadialBarChart() {	
+    var human_radial_bar_chart = echarts.init(document.getElementById('mainPerson_chart'))
+
+    var option = {
+    tooltip: {
+        trigger: 'item'
+    },
+    legend: {
+        bottom: 0,
+        data: ['미성년', '노년', '청년', '중장년'],
+        textStyle:{
+            color: '#fff'
+        },
+    },
+    grid: {
+        //bottom: '50%', // 그래프 영역의 하단 마진
+        containLabel: true // 라벨이 차트 밖으로 나가지 않도록 함
+    },
+    series: [
+        {
+        name: '여성',
+        type: 'pie',
+        radius: ['20%', '45%'], // 첫 번째 도넛의 반지름 범위
+        avoidLabelOverlap: false,
+        itemStyle: {
+            borderColor: 'black',
+            borderWidth: 2,
+            
+        },
+        label: {
+            show: false,
+            position: 'center',
+            
+        },
+        emphasis: {
+            
+        },
+        labelLine: {
+            show: false
+        },
+        data: [
+            { value: 1048, name: '미성년',  itemStyle: { color: '#d3f1f9' }},
+            { value: 735, name: '청년',  itemStyle: { color: '#3fd5e3' }},
+            { value: 580, name: '중장년',  itemStyle: { color: '#00a0de' } },
+            { value: 580, name: '노년',  itemStyle: { color: '#0174cf' } }
+            
+        ]
+        },
+        {
+        name: '남성',
+        type: 'pie',
+        radius: ['50%', '75%'], // 두 번째 도넛의 반지름 범위
+        avoidLabelOverlap: false,
+        itemStyle: {
+            borderColor: 'black',
+            borderWidth: 2
+        },
+        label: {
+            show: false,
+            position: 'center'
+        },
+        emphasis: {
+
+        },
+        labelLine: {
+            show: false
+        },
+        data: [
+            { value: 1048, name: '미성년',  itemStyle: { color: '#d3f1f9' }},
+            { value: 735, name: '청년',  itemStyle: { color: '#3fd5e3' }},
+            { value: 580, name: '중장년',  itemStyle: { color: '#00a0de' }},
+            { value: 310, name: '노년',  itemStyle: { color: '#0174cf' }}
+        ]
+        }
+    ]
+    };
+
+      //  차트 옵션 설정하기
+      human_radial_bar_chart.setOption(option)
+  }
+
+
+  function showPersonChart(){
+    /* 사람 막대차트 */
+  //  준비한 DOM 컨테이너에서 echarts 초기화하기
+  var human_chart = echarts.init(document.getElementById('mainPerson_chart'))
+
+  // 차트 옵션 작성하기
+  option = {
+      color: ["#006699", "#e5323e"],
+      tooltip: {
+          trigger: 'axis',
+          axisPointer: {
+          // Use axis to trigger tooltip
+          type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
+          }
+      },
+      legend: {
+        bottom: 0,
+        data: ['남자', '여자'],
+        textStyle:{
+        color: "rgba(255, 255, 255, 1)"
+        },
+        padding: [50, 0, 0, 0], // 범례 위 아래에 마진을 추가
+
+      },
+      grid: {
+          left: '3%',
+          right: '4%',
+          bottom: '10%',
+          containLabel: true
+      },
+      xAxis: {
+          type: 'value',
+      },
+      yAxis: {
+          type: 'category',
+          data: ['노년', '중장년', '청년', '미성년']
+      },
+      series: [
+          {
+          name: '남자',
+          type: 'bar',
+          stack: 'total',
+          label: {
+              show: true
+          },
+          emphasis: {
+              focus: 'series'
+          },
+          itemStyle: { color: '#0f9faf' },
+          data: [320, 302, 301, 334]
+          },
+          {
+          name: '여자',
+          type: 'bar',
+          stack: 'total',
+          label: {
+              show: true
+          },
+          emphasis: {
+              focus: 'series'
+          },
+          itemStyle: { color: '#e8534c' },
+          data: [120, 132, 101, 134]
+          }
+        
+      ]
+  };
+
+  //  차트 옵션 설정하기
+  human_chart.setOption(option)
+
+
+  } 
+
+
+
+
+  var bCheckHuman = false;
+
+/* 차트 변경 js 시작 */
+function OnHumanGraphChange(){
+  
+  if (bCheckHuman == false){
+    human_chart.dispose();
+    LoadRadialBarChart();
+    bCheckHuman = true;
+  }else{
+    human_radial_bar_chart.dispose();
+    showPersonChart();
+    bCheckHuman = false;
+  }
+}
+
+function OnCarGraphChange(){
+if (bCheckCar == false){
+  vehicle_chart.dispose();
+  showCarPieChart();
+  bCheckCar = true;
+}else{
+  car_pie_chart.dispose();
+  showVehicleChart();
+  bCheckCar = false;
+}
+}
+/* 차트 변경 js 끝 */ 

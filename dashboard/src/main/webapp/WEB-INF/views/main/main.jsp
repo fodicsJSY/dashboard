@@ -38,7 +38,7 @@
     <link rel="stylesheet" href="/resources/css/style_grid.css">
 
     <!-- bootstrap -->
-    <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     
 	  <!-- fontawesome -->
@@ -52,6 +52,7 @@
 		
 		<!-- 헤더.S -->
 		<header id="header"> 
+			<jsp:include page="/WEB-INF/views/common/dropdown.jsp"/>
 			<jsp:include page="/WEB-INF/views/common/inc_header.jsp"/>
 		</header>
 		<!-- 헤더.E -->
@@ -132,8 +133,8 @@
 								</div>
 							</div>
 							<a href="/sub_object">
-								<div class="data" id="mainPerson" style="margin-top : 5px;">
-									<div id="mainPerson_chart" style="width: 800px; height: 350px;">
+								<div class="data" id="mainPerson" style="width: 830px; height: 350px; margin-top : 5px;">
+									<div id="mainPerson_chart" style="width: 100%; height: 100%;">
 										<!-- 사람 막대그래프 영역 -->
 									</div>
 								</div>
@@ -219,119 +220,119 @@
 									<h4>최다검지 카메라 TOP10 CH</h4>
 								</div>
 								<div class="partBTN">
-									<!-- <a class="changeGraph" onclick="setMainEventTop10()"; style="margin-top:3px;"><img id="changeEvent_btn" src="img/btn_human.png"><img id="changeEvent_btn" src="img/btn_human_on.png" class="over"></a> -->
-									<!-- <a class="changeGraph" onclick="setMainVehicleTop10()"; style="margin-top:3px;"><img id="changeVehicle_btn" src="img/btn_car.png"> <img src="img/btn_car_on.png" class="over"></a>									 -->
+									<a class="changeGraph" id="humanBtn" onclick="setMainEventTop10()"; style="margin-top:3px;"><img id="changeEvent_btn" src="/resources/img/btn_human.png"><img id="changeEvent_btn" src="/resources/img/btn_human_on.png" class="over"></a> 
+									<a class="changeGraph" id="vehicleBtn" onclick="setMainVehicleTop10()"; style="margin-top:3px;"><img id="changeVehicle_btn" src="/resources/img/btn_car.png"> <img src="/resources/img/btn_car_on.png" class="over"></a>									
 								</div>
 							</div>
-              <div>
-                <table class="cameraTable">
-                  <thead>
-                      <tr>
-                        <th scope="col">카메라명</th>
-                        <th scope="col">사람</th>
-                        <th scope="col">얼굴</th>
-                        <th scope="col">침입</th>
-                        <th scope="col">배회</th>
-                        <th scope="col">쓰러짐</th>
-                        <th scope="col">카운팅</th>
-                      </tr>
-                    </thead>
-                    <tbody class="table-group-divider">
-                      <tr>
-                        <th scope="row" class="loadName">신촌사거리</th>
-                        <td>164</td>
-                        <td>125</td>
-                        <td>25</td>
-                        <td>124</td>
-                        <td>18</td>
-                        <td>251</td>
-                      </tr>
-                      <tr>
-                        <th scope="row" class="loadName">장수사거리</th>
-                        <td>151</td>
-                        <td>126</td>
-                        <td>23</td>
-                        <td>277</td>      
-                        <td>19</td>
-                        <td>226</td>
-                      </tr>
-                      <tr>
-                        <th scope="row" class="loadName">가정오거리</th>
-                        <td>151</td>
-                        <td>133</td>
-                        <td>22</td>
-                        <td>220</td>
-                        <td>26</td>
-                        <td>218</td>
-                      </tr>
-                      <tr>
-                        <th scope="row" class="loadName">연수사거리</th>
-                        <td>147</td>
-                        <td>133</td>
-                        <td>24</td>
-                        <td>219</td>
-                        <td>15</td>
-                        <td>218</td>
-                      </tr>
-                      <tr>
-                        <th scope="row" class="loadName">남동IC</th>
-                        <td>145</td>
-                        <td>130</td>
-                        <td>19</td>
-                        <td>210</td>
-                        <td>21</td>
-                        <td>228</td>
-                      </tr>
-                      <tr>
-                        <th scope="row" class="loadName">간석사거리</th>
-                        <td>143</td>
-                        <td>111</td>
-                        <td>16</td>
-                        <td>214</td>
-                        <td>58</td>
-                        <td>125</td>
-                      </tr>
-                      <tr>
-                        <th scope="row" class="loadName">학익사거리</th>
-                        <td>151</td>
-                        <td>133</td>
-                        <td>22</td>
-                        <td>220</td>
-                        <td>26</td>
-                        <td>218</td>
-                      </tr>
-                      <tr>
-                        <th scope="row" class="loadName">숭의로터리</th>
-                        <td>147</td>
-                        <td>133</td>
-                        <td>24</td>
-                        <td>219</td>
-                        <td>15</td>
-                        <td>218</td>
-                      </tr>
-                      <tr>
-                        <th scope="row" class="loadName">원당사거리</th>
-                        <td>145</td>
-                        <td>130</td>
-                        <td>19</td>
-                        <td>210</td>
-                        <td>21</td>
-                        <td>228</td>
-                      </tr>
-                      <tr>
-                        <th scope="row" class="loadName">남동공단입구사거리</th>
-                        <td>143</td>
-                        <td>111</td>
-                        <td>16</td>
-                        <td>214</td>
-                        <td>58</td>
-                        <td>125</td>
-                      </tr>
-                    </tbody>
-              </table>
-              </div>
-							<div class="data" id="subTop10Cameras" style="margin: 10px"></div>						
-							<div class="data" id="subTop10CamerasCar" style="margin: 10px"></div>
+							<div class="data" id="subTop10Cameras" style="margin: 10px">
+								<table class="cameraTable">
+									<thead>
+										<tr>
+											<th scope="col">카메라명</th>
+											<th scope="col">사람</th>
+											<th scope="col">얼굴</th>
+											<th scope="col">침입</th>
+											<th scope="col">배회</th>
+											<th scope="col">쓰러짐</th>
+											<th scope="col">카운팅</th>
+										</tr>
+										</thead>
+										<tbody class="table-group-divider">
+										<tr>
+											<th scope="row" class="loadName">신촌사거리</th>
+											<td>164</td>
+											<td>125</td>
+											<td>25</td>
+											<td>124</td>
+											<td>18</td>
+											<td>251</td>
+										</tr>
+										<tr>
+											<th scope="row" class="loadName">장수사거리</th>
+											<td>151</td>
+											<td>126</td>
+											<td>23</td>
+											<td>277</td>      
+											<td>19</td>
+											<td>226</td>
+										</tr>
+										<tr>
+											<th scope="row" class="loadName">가정오거리</th>
+											<td>151</td>
+											<td>133</td>
+											<td>22</td>
+											<td>220</td>
+											<td>26</td>
+											<td>218</td>
+										</tr>
+										<tr>
+											<th scope="row" class="loadName">연수사거리</th>
+											<td>147</td>
+											<td>133</td>
+											<td>24</td>
+											<td>219</td>
+											<td>15</td>
+											<td>218</td>
+										</tr>
+										<tr>
+											<th scope="row" class="loadName">남동IC</th>
+											<td>145</td>
+											<td>130</td>
+											<td>19</td>
+											<td>210</td>
+											<td>21</td>
+											<td>228</td>
+										</tr>
+										<tr>
+											<th scope="row" class="loadName">간석사거리</th>
+											<td>143</td>
+											<td>111</td>
+											<td>16</td>
+											<td>214</td>
+											<td>58</td>
+											<td>125</td>
+										</tr>
+										<tr>
+											<th scope="row" class="loadName">학익사거리</th>
+											<td>151</td>
+											<td>133</td>
+											<td>22</td>
+											<td>220</td>
+											<td>26</td>
+											<td>218</td>
+										</tr>
+										<tr>
+											<th scope="row" class="loadName">숭의로터리</th>
+											<td>147</td>
+											<td>133</td>
+											<td>24</td>
+											<td>219</td>
+											<td>15</td>
+											<td>218</td>
+										</tr>
+										<tr>
+											<th scope="row" class="loadName">원당사거리</th>
+											<td>145</td>
+											<td>130</td>
+											<td>19</td>
+											<td>210</td>
+											<td>21</td>
+											<td>228</td>
+										</tr>
+										<tr>
+											<th scope="row" class="loadName">남동공단입구사거리</th>
+											<td>143</td>
+											<td>111</td>
+											<td>16</td>
+											<td>214</td>
+											<td>58</td>
+											<td>125</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>		
+							<div class="data" id="subTop10CamerasCar" style="margin: 10px">
+							</div>
 						</div>
 					</div>	
 					<!-- 섹션 우측.E -->
@@ -1088,42 +1089,84 @@
 
 		/* CSV 대화상자 끝 */
 
-
-    /* 차트 변경 js 시작 */
-    function OnHumanGraphChange(){
-      
-      if (bCheckHuman == false){
-        human_chart.destroy();
-        LoadRadialBarChart();
-        bCheckHuman = true;
-      }else{
-        human_radial_bar_chart.destroy();
-        showPersonChart();
-        bCheckHuman = false;
-      }
-    }
-    
-  function OnCarGraphChange(){
-    if (bCheckCar == false){
-      vehicle_chart.destroy();
-      showCarPieChart();
-      bCheckCar = true;
-    }else{
-      car_pie_chart.destroy();
-      showVehicleChart();
-      bCheckCar = false;
-    }
-  }
-  /* 차트 변경 js 끝 */
-
-
 		  // input date태그 기본값 변경
 		  document.getElementById('tui-date-picker-target').value = new Date().toISOString().substring(0, 10);	
 
 
 
+		
 
-  
+ /* 사람 막대차트 */
+  //  준비한 DOM 컨테이너에서 echarts 초기화하기
+  var human_chart = echarts.init(document.getElementById('mainPerson_chart'))
+
+  // 차트 옵션 작성하기
+  option = {
+      color: ["#006699", "#e5323e"],
+      tooltip: {
+          trigger: 'axis',
+          axisPointer: {
+          // Use axis to trigger tooltip
+          type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
+          }
+      },
+      legend: {
+        bottom: 0,
+		data: ['남자', '여자'],
+        textStyle:{
+        color: "#fff"
+        },
+        padding: [50, 0, 0, 0], // 범례 위 아래에 마진을 추가
+
+      },
+      grid: {
+          left: '3%',
+          right: '4%',
+          bottom: '10%',
+          containLabel: true
+      },
+      xAxis: {
+          type: 'value',
+      },
+      yAxis: {
+          type: 'category',
+          data: ['노년', '중장년', '청년', '미성년']
+      },
+      series: [
+          {
+          name: '남자',
+          type: 'bar',
+          stack: 'total',
+          label: {
+              show: true
+          },
+          emphasis: {
+              focus: 'series'
+          },
+          itemStyle: { color: '#0f9faf' },
+          data: [320, 302, 301, 334]
+          },
+          {
+          name: '여자',
+          type: 'bar',
+          stack: 'total',
+          label: {
+              show: true
+          },
+          emphasis: {
+              focus: 'series'
+          },
+          itemStyle: { color: '#e8534c' },
+          data: [120, 132, 101, 134]
+          }
+        
+      ]
+  };
+
+  //  차트 옵션 설정하기
+  human_chart.setOption(option)
+
+
 
   </script>
 

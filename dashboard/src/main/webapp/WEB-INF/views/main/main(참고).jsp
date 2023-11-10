@@ -251,7 +251,7 @@
 						<a class="rollover" alt="취소" OnClick="OnCSV_Cancel()"><img src="../../resources/img/btn_popCancel.png"> <img src="../../resources/img/btn_popCancel_hover.png" class="over"></a>
 					</div>
 				</dialog>
-<!-- BMP 대화상자 -->
+				<!-- BMP 대화상자 -->
 				<dialog open id="bmp_dialog" style = "display:none; background-color: rgba(30,30,30,1); color:rgba(192,192,192,1); width: 336px; padding: 0px; top:30px; left:1070px;">		
 					<div style = "font-size: 14px; width: 330px; background-color: rgba(45,45,45,1); color:rgba(255,255,255,1); padding: 16px; ">
 						<p>.bmp 파일로 내려받기를 원하시는 항목을 선택</p>						

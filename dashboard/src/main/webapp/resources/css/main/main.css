@@ -35,12 +35,14 @@
 /* 테이블 css */
 
 .cameraTable{
-    width: 800px;
+    width: 800px !important;
     height: 350px;
     
     margin: 29px 0px 29px 80px;
     
 }
+
+
 
 .cameraTable *{
     text-align: center;
@@ -49,7 +51,7 @@
     
 }
 
-.cameraTable td, .cameraTable th {
+.cameraTable td, .cameraTable th{
     vertical-align: middle; /* 세로 가운데 정렬 */
 }
 
@@ -57,7 +59,7 @@
     padding: 5px;
 }
 
-.cameraTable td, .loadName {
+.cameraTable td, .loadName{
     background-color: #282828;
 }
 
@@ -69,4 +71,9 @@
 .fa-caret-left:hover{
     color: #ffa800 !important;
 
+}
+
+
+.changeGraph:hover{
+    cursor: pointer;
 }
