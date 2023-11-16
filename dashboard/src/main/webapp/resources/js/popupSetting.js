@@ -730,7 +730,7 @@ function openUserEnvironmentView()
 
     nView = 2;
     changeTabColor(nView);   
-     
+
     //resetData();
     // 데이터 셋팅
     SetConfigData();

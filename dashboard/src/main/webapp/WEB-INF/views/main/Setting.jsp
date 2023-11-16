@@ -11,7 +11,7 @@
 
 
 
-	<!--<link rel="stylesheet" href="/resources/css/popup.css">-->
+	<%--<link rel="stylesheet" href="/resources/css/popup.css">--%>
 </head>
 <body>
 	
@@ -19,14 +19,14 @@
 
 
 <div class="divpop" id="modal">
-	<!-- POPUP --> 
+	<%-- POPUP --%> 
 	<div class="divpop-content" >
 		<div class="pu-tabBox">
 			<div class="pu-tabTitle">
 				<img src="/resources/img/admin/icon_setting.png">
 			</div>
 			<div class="pop-btnWin">
-				<!--<a class="rollover" alt="창내림" ><img src="img/admin/btn_POPwinMini.png"> <img src="img/admin/btn_POPwinMini_hover.png" class="over"></a>-->
+				<%--<a class="rollover" alt="창내림" ><img src="img/admin/btn_POPwinMini.png"> <img src="img/admin/btn_POPwinMini_hover.png" class="over"></a>--%>
 				<a class="rollover" alt="창닫기" onclick="closePopup();">
 					<img src="/resources/img/admin/btn_POPwinClose.png"> 
 					<img src="/resources/img/admin/btn_POPwinClose_hover.png" class="over">
@@ -40,11 +40,11 @@
 			</ul>
 		</div>
 
-		<!-- 1-사용자 정보 조회.S -->
+		<%-- 1-사용자 정보 조회.S --%>
 		<div id="view1" class="settingBox">
 
 			<div class="pop-background"> 
-				<!-- 사용자 정보 -->
+				<%-- 사용자 정보 --%>
 				<div class="popupTable" id="testPopupGrid">
 					<table class="userList" onclick="clickUserTable(event);" ondblclick="dblClickUserTable(event);">
 						<colgroup>
@@ -66,7 +66,7 @@
 					</table>
 				</div>
 
-				<!--  테이블 영역 샘플.e -->
+				<%--  테이블 영역 샘플.e --%>
 				<div class="pop-btnBox">
 					<a class="rollover" alt="사용자 추가" onclick="openAddUserView();">
 						<img src="/resources/img/admin/btn_user.png"> 
@@ -82,10 +82,10 @@
 					</a>
 				</div>
 			</div>
-			<!-- 1-사용자 정보 조회.E -->
+			<%-- 1-사용자 정보 조회.E --%>
 		</div>
 			
-		<!-- 2-사용자 정보 등록.S -->
+		<%-- 2-사용자 정보 등록.S --%>
 		<div id="view2" class="settingBox ">
 			<div class="userInfo">
 				<dl>
@@ -122,9 +122,9 @@
 				</a>
 			</div>
 		</div>
-		<!-- 2-사용자 정보 등록.E -->
+		<%-- 2-사용자 정보 등록.E --%>
 
-		<!-- 3-사용자 환경설정.S -->
+		<%-- 3-사용자 환경설정.S --%>
 		<div id="view3" class="settingBox ">
 			
 			<div class="userEnvironment">
@@ -183,7 +183,7 @@
 				</div>
 			</div>
 
-			<!--
+			<%--
 			<div>
 				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;► &emsp;처음 실행 페이지&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;
 					<select id="default_page" name="default_page" onchange="handlePageOnChange(this)">					
@@ -208,7 +208,7 @@
 				</p>
 
 			</div>
-			-->
+			--%>
 			<div class="pop-btnBox">
 				<a class="rollover" alt="저장" id="addUserInfo" onclick="saveConfigInfo();">
 					<img src="/resources/img/admin/btn_save.png"> 
@@ -220,9 +220,9 @@
 				</a>
 			</div>
 		</div>
-		<!-- 3-사용자 환경설정.E -->
+		<%-- 3-사용자 환경설정.E --%>
 		
-		<!-- 4-카메라 그룹설정.S -->
+		<%-- 4-카메라 그룹설정.S --%>
 		<div id="view4" class="settingBox ">
 
 			<div class="cameraSet">
@@ -247,8 +247,8 @@
 							</div>
 						</div>
 					
-						<!-- 그룹 -->
-						<!--<div id="lstGroup"></div> -->
+						<%-- 그룹 --%>
+						<%--<div id="lstGroup"></div> --%>
 						<ul id="lstGroup" onclick="clickCameraGroup(event);" ondblclick="dbclickCameraGroup(event);">
 
 						</ul>
@@ -260,8 +260,8 @@
 						</div>
 						
 
-						<!-- 선택 그룹 -->
-						<!--<div id="lstSelectedGroup"></div>-->
+						<%-- 선택 그룹 --%>
+						<%--<div id="lstSelectedGroup"></div>--%>
 						<ul id="lstSelectedGroup">
 
 						</ul>
@@ -281,8 +281,8 @@
 						<div class="cameraCH" id="totalCameraCH">0 CH</div>
 					</div>
 
-					<!-- 카메라 -->
-					<!--<div id="lstCamera"></div>-->
+					<%-- 카메라 --%>
+					<%--<div id="lstCamera"></div>--%>
 					<ul id="lstCamera">
 
 					</ul>
@@ -300,9 +300,9 @@
 				</a>
 			</div>
 		</div>
-		<!-- 4-카메라 그룹설정.E -->
+		<%-- 4-카메라 그룹설정.E --%>
 	</div>
-	<!-- POPUP --> 
+	<%-- POPUP --%> 
 
 </div> 
 

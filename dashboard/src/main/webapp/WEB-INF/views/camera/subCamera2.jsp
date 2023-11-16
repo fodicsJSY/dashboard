@@ -9,8 +9,8 @@
 
 	<title>Ai VinUS DASHBOARD</title>
 
-	<!-- css -->
-	<!-- <link rel="stylesheet" href="css/style.css"> -->
+	<%-- css --%>
+	<%-- <link rel="stylesheet" href="css/style.css"> --%>
 	<link rel="stylesheet" href="/resources/css/camera/subCamera2.css">
 
 	<link rel="stylesheet" href="/resources/css/popup.css">
@@ -19,7 +19,7 @@
 	<link rel="stylesheet" href="/resources/css/style_graph.css"/>  
 	<link rel="stylesheet" href="/resources/css/style_grid.css"/>  
 	<link rel="stylesheet" href="/resources/css/style_scrollBar.css"/>  
-	<!-- <link rel="stylesheet" href="css/style.css"/>   -->
+	<%-- <link rel="stylesheet" href="css/style.css"/>   --%>
 	<link rel="shortcut icon" href="/resources/img/favicon.ico" type="image/x-icon" />
 	
 	<link rel="stylesheet" href="./node_modules/tui-chart/dist/toastui-chart.css">
@@ -27,7 +27,7 @@
 	<link rel="stylesheet" href="./node_modules/tui-date-picker/dist/tui-date-picker.css">
 	
 	
-	<!-- // 다른 테이블에 영향이 있을 수 있어 여기에 따로 스타일 정의  -->
+	<%-- // 다른 테이블에 영향이 있을 수 있어 여기에 따로 스타일 정의  --%>
 	<style>
 	
 	
@@ -52,56 +52,56 @@
 </head>
 
 	<body>
-	<!-- 전체 wrap.S -->
+	<%-- 전체 wrap.S --%>
 	<div class="wrap" id="indexWrap">  
 		<jsp:include page="/WEB-INF/views/main/setting.jsp"/>
 
-		<!-- 헤더.S -->
+		<%-- 헤더.S --%>
 		<header id="header"> 
 			<jsp:include page="/WEB-INF/views/common/inc_header.jsp"/>
 		</header>
-		<!-- 헤더.E -->
+		<%-- 헤더.E --%>
 
-		<!-- 내용.S -->		
+		<%-- 내용.S --%>		
 		<div class="container">
 
-			<!-- side 영역.S -->
+			<%-- side 영역.S --%>
 			<div id="side">
 
-				<!-- 좌측 네비.S -->
+				<%-- 좌측 네비.S --%>
 				<div class="btn-navi" >
 					<a href="/main">
 						<button type="button" class="btn_object">M A I N</button>
 					</a>
-					<!-- <button type="button" class="btn_evnet" onClick="OnClickEvent();">E V E N T</button> -->
+					<%-- <button type="button" class="btn_evnet" onClick="OnClickEvent();">E V E N T</button> --%>
 					<a href="/mainCamera">
 						<button type="button" class="btn_camera_on">C A M E R A</button>
 					</a>
 				</div>
-				<!-- 좌측 네비.E -->
+				<%-- 좌측 네비.E --%>
 
-				<!-- 실시간 채널.S -->
+				<%-- 실시간 채널.S --%>
 				<jsp:include page="/WEB-INF/views/main/inc_side.jsp"/>
-				<!-- 실시간 채널.E -->
+				<%-- 실시간 채널.E --%>
 				
 			</div>
-			<!-- side 영역.E -->
+			<%-- side 영역.E --%>
 
 
-			<!-- 우측 메인.S -->
+			<%-- 우측 메인.S --%>
 			<div id="contentsWrap">
-				<!-- 상단 날짜,버튼 영역.S -->
+				<%-- 상단 날짜,버튼 영역.S --%>
 				<div class="mainTop">
 					<div class=" dateArea" style="display: flex; flex-direction: row; align-items: center;">
 
-						<!-- 달력 -->
+						<%-- 달력 --%>
 						<div class="tui-datepicker-input tui-datetime-input tui-has-focus">
 							<input type="date" id="tui-date-picker-target"
 								aria-label="Date-Time" style = "margin-top: 1px;">
 							<span class="tui-ico-date"></span>
 							<div id="tui-date-picker-container"></div>
 						</div>
-						<!-- <div id="tui-date-picker-container"></div>
+						<%-- <div id="tui-date-picker-container"></div>
 						<a class="rollover" alt="달력" id="tui-date-picker-main" style = "margin-top: 1px;">
 							<img src="img/btn-calendar.png"> 
 							<img src="img/btn-calendar.png" class="over">
@@ -110,31 +110,31 @@
 						<div class="tui-datepicker-input tui-datetime-input tui-has-focus" style = "margin-top: 2px;">
 							<input type="text" id="datepicker-input" aria-label="Date-Time">
 							<div id="wrapper" style="margin-left : -3px; margin-top : 5px;"></div>								
-						</div> -->
-						<!-- <p class="date" id='mainDate'>2021년 07월 21일</p> -->
-						<button type="button" class="btn-date" onClick="OnPrevDate()"   style = "margin-top: 1px;">◀<!-- <img src="img/btn-calendarLeft.png">--></button>
+						</div> --%>
+						<%-- <p class="date" id='mainDate'>2021년 07월 21일</p> --%>
+						<button type="button" class="btn-date" onClick="OnPrevDate()"   style = "margin-top: 1px;">◀<%-- <img src="img/btn-calendarLeft.png">--%></button>
 						<button type="button" class="btn" onClick="OnTodayDate()"  style = "margin: 1px 4px 0 4px;">오늘</button>
-						<button type="button" class="btn-date" onClick="OnNextDate()" style = "margin-top: 1px;">▶<!-- <img src="img/btn-calendarRight.png">--></button>
+						<button type="button" class="btn-date" onClick="OnNextDate()" style = "margin-top: 1px;">▶<%-- <img src="img/btn-calendarRight.png">--%></button>
 					</div>	
 				</div>
-				<!-- 상단 날짜,버튼 영역.E -->
+				<%-- 상단 날짜,버튼 영역.E --%>
 
-				<!-- 메인컨텐츠.S -->
+				<%-- 메인컨텐츠.S --%>
 				<div class="contents">
 
-					<!-- 섹션 좌측.S -->
+					<%-- 섹션 좌측.S --%>
 					<div class="sectionBox" style="width: 1055px;">
 						<div class="innerBox" style="width: 100%; height: 855px !important;">
 							<div class="subTabs">
 								<div class="tabsTitle"><img src="/resources/img/navi_camera.png"></div>
-						        <ul class="tabs" data-persist="true">
-						            <li><a href="/mainCamera/subCamera" onClick="TabOneChange()" class="tab-viewTime">전체 카메라 이벤트 발생 현황</a></li>
-						            <li><a href="/mainCamera/subCamera2" onClick="TabTwoChange()" class="tab-viewTime" style="background-color: #1e1e1e; color: white;">카메라 이벤트별 데이터 비교</a></li>
-						        </ul>
+								<ul class="tabs" data-persist="true">
+									<li><a href="/mainCamera/subCamera" onClick="TabOneChange()" class="tab-viewTime">전체 카메라 이벤트 발생 현황</a></li>
+									<li><a href="/mainCamera/subCamera2" onClick="TabTwoChange()" class="tab-viewTime" style="background-color: #1e1e1e; color: white;">카메라 이벤트별 데이터 비교</a></li>
+								</ul>
 								<div class="sub-btnArea" style="display: flex; flex-direction: row; ">
 									<div class="csvContainer" style="position: relative; margin: 0 10px;">
 										<a class="rollover" alt="csv파일" onClick="OnCSV_Click()"><img src="../../resources/img/btn-downCSV.png"> <img src="../../resources/img/btn-downCSV_hover.png" class="over"></a>
-										<!-- CSV 대화상자 -->
+										<%-- CSV 대화상자 --%>
 										<dialog open id="csv_dialog" style = "display:none; background-color: rgba(30,30,30,1); color:rgba(192,192,192,1); width: 336px; padding: 0px; top:30px; left:900px; position: absolute; z-index: 1; left: -8px;">		
 											<div style = "font-size: 14px; width: 330px; background-color: rgba(45,45,45,1); color:rgba(255,255,255,1); padding: 16px; ">
 												<p>.csv 파일로 내려받기를 원하시는 항목을 선택</p>						
@@ -158,7 +158,7 @@
 								</div>
 							</div>
 						
-							<!-- 카메라 이벤트별 데이터 비교 -->
+							<%-- 카메라 이벤트별 데이터 비교 --%>
 							
 							<div id="view2" class="data" style="height:855px;">
 								<div class="dataSelect" style="margin-bottom:0px;" >									
@@ -211,14 +211,14 @@
 												<h4>이벤트 기간별 추이 비교성별/연령 비교</h4>
 											</div>
 										</div>									
-										<!--<div style = "width:100%; height:40px; background-color:rgba(30,30,30,1);"></div>-->
+										<%--<div style = "width:100%; height:40px; background-color:rgba(30,30,30,1);"></div>--%>
 										<div style = "margin-left: 10px; width:100%; height:450px; background-color:rgba(30,30,30,1);" >
-											<!--이벤트 기간별 추이 비교성별/연령 비교 차트 공간-->
+											<%--이벤트 기간별 추이 비교성별/연령 비교 차트 공간--%>
 											<div id = "camera_evt_graph" style="width: 100%; height: 100%;"></div>
 										</div>
 										
 										<div class="camera-container" style = "margin-top:2%; width:100%; height:250px; " id = "compare_wnd"> 	
-											<!--
+											<%--
 											<div class="grid-item-camera-header" style = "width: 50"> </div>
 											<div class="grid-item-camera-header" style = "width: 80">오늘</div>
 											<div class="grid-item-camera-header">어제</div>
@@ -249,9 +249,9 @@
 											<div class="grid-camera-item-other" id = "unmask_yesterdayCompare">0%</div>
 											<div class="grid-camera-item-other" id = "unmask_Week">0</div>
 											<div class="grid-camera-item-other" id = "unmask_WeekCompare">0%</div>		
-											-->
+											--%>
 
-											<!-- 위의 주석(div그리드로 표만들어 놓은 것)을 표로 만듬 -->
+											<%-- 위의 주석(div그리드로 표만들어 놓은 것)을 표로 만듬 --%>
 											<table class="camera-containerTable" style="width: 100%; height: 100%;" >
 												<thead>
 													<tr>
@@ -306,9 +306,9 @@
 							<div id="loading"><img id="loading-image" src="/resources/img/loading_animated.png" alt="Loading..." /></div>						
 						</div>
 					</div>
-					<!-- 섹션 좌측.E -->
+					<%-- 섹션 좌측.E --%>
 
-					<!-- 섹션 우측.S -->
+					<%-- 섹션 우측.S --%>
 					<div class="sectionBox2">
 						<div class="innerBox divSideAge" style="height:25vh;  height:450px; margin-bottom: 13px !important;">
 							<div class="contentsTitle chartTitle">
@@ -321,18 +321,18 @@
 							</div>
 							<div class="chart01">
 								<div>
-									<!-- 연령별 출입자 현황 도넛그래프 영역 -->
+									<%-- 연령별 출입자 현황 도넛그래프 영역 --%>
 									<div class="chart" id="chart_radial_age" style="width: 250px; height: 350px; margin: 0 0 0 5%; padding: 0 0 10% 0; ">
 										<div id="chart_radial_age" style="width: 100%; height: 100%;" ></div>
 									</div>   
 								</div>
 								<div class="genderMaskChart" >
 									<div class="chart" style="width: 250px; height: 180px; ">
-										<!-- 남성 마스크 착용 비율 게이지 차트 -->
+										<%-- 남성 마스크 착용 비율 게이지 차트 --%>
 										<div id="chart_pie_donut" style="width: 100%; height: 100%;"></div>
 									</div>   								
 									<div class="chart"  style="width: 250px; height: 180px;">
-										<!-- 여성 마스크 착용 비율 게이지 차트 -->
+										<%-- 여성 마스크 착용 비율 게이지 차트 --%>
 										<div id="chart_pie_donut2" style="width: 100%; height: 100%;"></div>
 									</div> 
 									<div class="corlorGuide alignL">
@@ -359,7 +359,7 @@
 								</div>
 							</div>
 							<div class="data" style="height: 10px !important;">
-								<!--  테이블 영역.S -->
+								<%--  테이블 영역.S --%>
 
 								<div id="grid_main_event" style = "margin-left : 15px; margin-top : 10px;" >
 									<div class="container">
@@ -471,36 +471,36 @@
 										</table>
 									</div>
 								</div>
-								<!--  테이블 영역.E -->
+								<%--  테이블 영역.E --%>
 
 
-								<!-- document.getElementById('camera_vec'+parseInt(i+1)).innerHTML = grid_top10_data[i].CAMERA_NAME;
+								<%-- document.getElementById('camera_vec'+parseInt(i+1)).innerHTML = grid_top10_data[i].CAMERA_NAME;
 								document.getElementById('car'+parseInt(i+1)).innerHTML = grid_top10_data[i].VEHICLE_CAR;
 								document.getElementById('bus'+parseInt(i+1)).innerHTML = grid_top10_data[i].VEHICLE_BUS;
 								document.getElementById('truck'+parseInt(i+1)).innerHTML = grid_top10_data[i].VEHICLE_TRUCK;
 								document.getElementById('motorcycle'+parseInt(i+1)).innerHTML = grid_top10_data[i].VEHICLE_MOTORCYCLE;
-								document.getElementById('bicycle'+parseInt(i+1)).innerHTML = grid_top10_data[i].VEHICLE_BICYCLE;	-->
+								document.getElementById('bicycle'+parseInt(i+1)).innerHTML = grid_top10_data[i].VEHICLE_BICYCLE;	--%>
 
 							</div>
 						</div>
 					</div>	
-					<!-- 섹션 우측.E -->
+					<%-- 섹션 우측.E --%>
 				</div>
-				<!-- 메인컨텐츠.E -->
+				<%-- 메인컨텐츠.E --%>
 				<div id="bottom">
 					<p class="Notice">※ 화면에 표시되는 모든 실시간 데이터는 1분마다 자동으로 업데이트 합니다. 다만 “시간대별 현황” 그래프의 실시간 데이터는 정시에 한 번씩 업데이트 합니다.</p>
 					<div class="madeFodics" style="margin: 0 40px 0 0;">포딕스시스템</div>
 				</div>
 			</div>
-			<!-- 우측 메인.E -->
+			<%-- 우측 메인.E --%>
 
 		</div>
-		<!--  내용.E -->
+		<%--  내용.E --%>
 	</div>
-	<!-- 전체 wrap.E -->
+	<%-- 전체 wrap.E --%>
 
 
-	<!-- echarts -->
+	<%-- echarts --%>
 	<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
 
 	<script src="/resources/js/camera/subCamera2.js"></script>
@@ -516,9 +516,9 @@
 	<script src="./node_modules/tui-date-picker/dist/tui-date-picker.js"></script>	
 
 	<script src="/resources/js/commonFunctions.js"></script>   
-	<!-- 탭버튼 스크립트.S-->
+	<%-- 탭버튼 스크립트.S--%>
 	<script type="text/javascript" src="/resources/js/tabcontent.js"></script>
-	<!-- 탭버튼 스크립트.E-->
+	<%-- 탭버튼 스크립트.E--%>
 	<script type="text/javascript" src="/resources/js/popupSetting.js"></script>
 	<script type="text/javascript" src="/resources/js/CsvMakeFile.js"></script>
 	<script type="text/javascript" src="dashboard_config.json"></script> 
@@ -822,7 +822,7 @@
     
 	</script>	
 
-	<!--
+	<%--
 	<script>		
 		const chart = toastui.Chart;
 		var camera_evt_chart;
@@ -2161,7 +2161,7 @@
 			datePicker1.setDate(today);
 		}
 	</script>
-	-->
+	--%>
 	<script>
 		  // input date태그 기본값 변경
 		  document.getElementById('tui-date-picker-target').value = new Date().toISOString().substring(0, 10);	

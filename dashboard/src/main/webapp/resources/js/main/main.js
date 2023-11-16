@@ -1,614 +1,509 @@
- /* 오늘 날짜로 변경 시작*/
- 
- // 버튼 클릭 시 오늘 날짜를 입력 필드에 넣는 함수
- function insertTodaysDate() {
-   var today = new Date();
-   var year = today.getFullYear();
-   var month = String(today.getMonth() + 1).padStart(2, '0');
-   var day = String(today.getDate()).padStart(2, '0');
-   var formattedDate = year + '-' + month + '-' + day;
-   document.getElementById('tui-date-picker-target').value = formattedDate;
-  }
-  
-  // 버튼 클릭 이벤트에 함수 연결
-  document.getElementById('todayBtn').addEventListener('click', insertTodaysDate);
-  
-/* 오늘 날짜로 변경 끝 */
- 
 
-  /* 하루 전 날짜로 변경 시작*/
+/* 사람 막대차트 */
+    //  준비한 DOM 컨테이너에서 echarts 초기화하기
+    var human_chart = echarts.init(document.getElementById('mainPerson_chart'))
 
- // 버튼 클릭 시 입력된 날짜에서 하루 전 날짜를 계산하여 표시하는 함수
- function showPreviousDay() {
-  var inputDate = new Date(document.getElementById('tui-date-picker-target').value);
-  inputDate.setDate(inputDate.getDate() - 1);
-  var year = inputDate.getFullYear();
-  var month = String(inputDate.getMonth() + 1).padStart(2, '0');
-  var day = String(inputDate.getDate()).padStart(2, '0');
-  var formattedDate = year + '-' + month + '-' + day;
-  document.getElementById('tui-date-picker-target').value = formattedDate;
-}
-
-// 버튼 클릭 이벤트에 함수 연결
-document.getElementById('minusBtn').addEventListener('click', showPreviousDay);
-
-/* 하루 전 날짜로 변경 끝*/
-
-
-/* 하루 지난 날짜로 변경 시작*/
-
- // 버튼 클릭 시 입력된 날짜에서 하루 지난 날짜를 계산하여 표시하는 함수
- function showNextDay() {
-  var inputDate = new Date(document.getElementById('tui-date-picker-target').value);
-  inputDate.setDate(inputDate.getDate() + 1);
-  var year = inputDate.getFullYear();
-  var month = String(inputDate.getMonth() + 1).padStart(2, '0');
-  var day = String(inputDate.getDate()).padStart(2, '0');
-  var formattedDate = year + '-' + month + '-' + day;
-  document.getElementById('tui-date-picker-target').value = formattedDate;
-}
-
-// 버튼 클릭 이벤트에 함수 연결
-document.getElementById('plusBtn').addEventListener('click', showNextDay);
-
-/* 하루 지난 날짜로 변경 끝*/
-
-
-
-
-
-
- /* 사람 막대차트 */
-  //  준비한 DOM 컨테이너에서 echarts 초기화하기
-  var human_chart = echarts.init(document.getElementById('mainPerson_chart'))
-
-  // 차트 옵션 작성하기
-  option = {
-      color: ["#006699", "#e5323e"],
-      tooltip: {
-          trigger: 'axis',
-          axisPointer: {
-          // Use axis to trigger tooltip
-          type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
-          }
-      },
-      legend: {
-        bottom: 0,
-        textStyle:{
-        color: "rgba(255, 255, 255, 1)"
+    // 차트 옵션 작성하기
+    option = {
+        color: ["#006699", "#e5323e"],
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+        // Use axis to trigger tooltip
+        type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
+            }
+        },
+        legend: {
+            bottom: 0,
+            data: ['남자', '여자'],
+            textStyle:{
+            color: "#fff"
         },
         padding: [50, 0, 0, 0], // 범례 위 아래에 마진을 추가
 
-      },
-      grid: {
-          left: '3%',
-          right: '4%',
-          bottom: '10%',
-          containLabel: true
-      },
-      xAxis: {
-          type: 'value',
-      },
-      yAxis: {
-          type: 'category',
-          data: ['노년', '중장년', '청년', '미성년']
-      },
-      series: [
-          {
-          name: '남자',
-          type: 'bar',
-          stack: 'total',
-          label: {
-              show: true
-          },
-          emphasis: {
-              focus: 'series'
-          },
-          itemStyle: { color: '#0f9faf' },
-          data: [320, 302, 301, 334]
-          },
-          {
-          name: '여자',
-          type: 'bar',
-          stack: 'total',
-          label: {
-              show: true
-          },
-          emphasis: {
-              focus: 'series'
-          },
-          itemStyle: { color: '#e8534c' },
-          data: [120, 132, 101, 134]
-          }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '10%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'value',
+        },
+        yAxis: {
+            type: 'category',
+            data: ['노년', '중장년', '청년', '미성년']
+        },
+        series: [
+            {
+                name: '남자',
+                type: 'bar',
+                stack: 'total',
+                label: {
+                    show: true
+                },
+                emphasis: {
+                    focus: 'series'
+                },
+                itemStyle: { color: '#0f9faf' },
+                data: [seniorMale, middleMale, adultMale, youngMale]
+            },
+            {
+                name: '여자',
+                type: 'bar',
+                stack: 'total',
+                label: {
+                    show: true
+                },
+                emphasis: {
+                    focus: 'series'
+                },
+                itemStyle: { color: '#e8534c' },
+                data: [seniorFemale, middleFemale, adultFemale, youngFemale]
+            }
         
-      ]
-  };
-
-  //  차트 옵션 설정하기
-  human_chart.setOption(option)
-
-
-
-
-  /* 남자 도넛 그래프 */
-  //  준비한 DOM 컨테이너에서 echarts 초기화하기
-  var myChart = echarts.init(document.getElementById('mainFace1_chart'))
-
-  // 차트 옵션 작성하기
-  option = {
-      tooltip: {
-          trigger: 'item'
-      },
-      legend: {
-          bottom: '5%',
-          left: 'center',
-          textStyle:{
-            color: "rgba(255, 255, 255, 1)"
-           },
-          //top: 'bottom', // 범례를 그래프 하단에 배치
-          //padding: [50, 0, 0, 0], // 범례 위 아래에 마진을 추가
-      },
-      series: [
-          {
-          name: '남성 마스크 미착용자 연령 비교',
-          type: 'pie',
-          radius: ['40%', '70%'],
-          avoidLabelOverlap: false,
-          itemStyle: {
-              borderColor: 'rgba(30, 30, 30, 1)',
-              borderWidth: 5
-          },
-            label: {
-            show: true,
-            position: 'inside',
-            formatter: '{c}',
-            fontSize: 12,
-                fontWeight: 'bold',
-            fontColor: '#fff'
-          },
-          emphasis: {
-              // label: {
-              // show: true,
-              // fontSize: 40,
-              // fontWeight: 'bold'
-              // }
-          },
-          labelLine: {
-              show: false
-          },
-          data: [
-              { value: 1048, name: '미성년', itemStyle: { color: '#d3f1f9' }},
-              { value: 735, name: '청년', itemStyle: { color: '#3fd5e3' }},
-              { value: 580, name: '중장년', itemStyle: { color: '#00a0de' }},
-              { value: 484, name: '노년', itemStyle: { color: '#0174cf' }}
-          ]
-          }
-      ]
-  };
-
-  //  차트 옵션 설정하기
-  myChart.setOption(option)
-
-
-
-  /* 여자도넛그래프 */
-  //  준비한 DOM 컨테이너에서 echarts 초기화하기
-  var myChart = echarts.init(document.getElementById('mainFace2_chart'))
-
-  // 차트 옵션 작성하기
-  option = {
-      tooltip: {
-          trigger: 'item'
-      },
-      legend: {
-          bottom: '5%',
-          left: 'center',
-          textStyle:{
-            color: "rgba(255, 255, 255, 1)"
-          },
-          //top: 'bottom', // 범례를 그래프 하단에 배치
-        // padding: [50, 0, 0, 0], // 범례 위 아래에 마진을 추가
-      },
-      series: [
-          {
-          name: '여성 마스크 미착용자 연령 비교',
-          type: 'pie',
-          radius: ['40%', '70%'],
-          avoidLabelOverlap: false,
-          itemStyle: {
-            borderColor: 'rgba(30, 30, 30, 1)',
-            borderWidth: 5
-        },
-
-          label: {
-            show: true,
-            position: 'inside',
-            formatter: '{c}',
-            fontSize: 12,
-                fontWeight: 'bold',
-            fontColor: '#fff'
-          },
-          emphasis: {
-              // label: {
-              // show: true,
-              // fontSize: 40,
-              // fontWeight: 'bold'
-              // }
-          },
-          labelLine: {
-              show: false
-          },
-          data: [
-              { value: 1048, name: '미성년', itemStyle: { color: '#d3f1f9' } },
-              { value: 735, name: '청년', itemStyle: { color: '#3fd5e3' } },
-              { value: 580, name: '중장년', itemStyle: { color: '#00a0de' } },
-              { value: 484, name: '노년', itemStyle: { color: '#0174cf' } },
-          ]
-          }
-      ]
-  };
-
-  //  차트 옵션 설정하기
-  myChart.setOption(option)
-
-
-
-
-
-  /* 시간대별 라인그래프 */
-  //  준비한 DOM 컨테이너에서 echarts 초기화하기
-  var myChart = echarts.init(document.getElementById('main'))
-
-  // 차트 옵션 작성하기
-  var option = {
-    // 차트 제목
-    title: {
-      
-    },
-    // 범례명
-    legend: {
-      data: ['사람', '차량', '얼굴', '번호판','침입', '배회', '카운팅', '쓰러짐'],
-      bottom: '3%',
-      textStyle:{
-        color: "rgba(255, 255, 255, 1)"
-      }
-    },
-    // x축 라벨
-    xAxis: {
-      data: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
-              '10', '11', '12', '13', '14', '15', '16', '17', '18', '19',
-              '20', '21', '22', '23'],
-    },
-    yAxis: {
-      //data: ['0', '500', '1000', '1500', '2000'],
-    },
-    series: [
-      {
-        name: '사람',
-        type: 'line', 
-        data: [10, 32, 32, 21, 42, 42, 43, 34, 24, 123, 113, 543, 434, 433, 132, 42, 32, 43, 32, 32, 23, 32, 32, 42],
-        itemStyle: { color: '#94e9ec' }
-      },
-      {
-        name: '차량',
-        type: 'line', 
-        data: [1, 32, 32, 21, 43, 42, 43, 34, 24, 123, 113, 543, 434, 433, 132, 42, 32, 43, 32, 32, 23, 32, 32, 42],
-        itemStyle: { color: '#d4e079' }
-      },
-      {
-        name: '얼굴',
-        type: 'line', 
-        data: [5, 32, 32, 21, 42, 42, 43, 34, 24, 123, 113, 543, 434, 433, 132, 42, 32, 43, 32, 32, 23, 32, 32, 42],
-        itemStyle: { color: '#b4a1d8' }
-      },
-      {
-        name: '번호판',
-        type: 'line', 
-        data: [10, 7, 32, 21, 42, 42, 63, 34, 24, 123, 113, 543, 434, 433, 132, 42, 32, 43, 32, 32, 23, 32, 32, 42],
-        itemStyle: { color: '#f19ec2' }
-      },
-      {
-        name: '침입',
-        type: 'line', 
-        data: [10, 32, 32, 21, 42, 42, 3, 34, 24, 123, 113, 543, 434, 433, 132, 42, 32, 43, 32, 32, 23, 32, 32, 42],
-        itemStyle: { color: '#4176df' }
-      },
-      {
-        name: '배회',
-        type: 'line', 
-        data: [1, 32, 32, 21, 43, 42, 43, 34, 24, 123, 113, 543, 434, 433, 132, 42, 32, 43, 32, 32, 23, 32, 32, 42],
-        itemStyle: { color: '#fec070' }
-      },
-      {
-          name: '카운팅',
-          type: 'line',
-          stack: 'Total',
-          data: [10, 32, 32, 21, 42, 42, 43, 34, 24, 23, 113, 232, 434, 433, 132, 42, 32, 43, 32, 32, 23, 32, 32, 42],
-          itemStyle: { color: '#ff7978' }
-      },
-      {
-          name: '쓰러짐',
-          type: 'line',
-          stack: 'Total',
-          data: [10, 32, 32, 21, 42, 42, 43, 34, 24, 123, 113, 343, 434, 433, 132, 42, 32, 43, 32, 32, 23, 32, 32, 42],
-          itemStyle: { color: '#52c3f7' }
-      }
-    ],
-  }
-
-  //  차트 옵션 설정하기
-  myChart.setOption(option)
-
-
-
-
-  var human_radial_bar_chart = echarts.init(document.getElementById('mainPerson_chart'))
-
-  var option = {
-  tooltip: {
-      trigger: 'item'
-  },
-  legend: {
-      bottom: 0,
-      data: ['미성년', '노년', '청년', '중장년'],
-      textStyle:{
-          color: '#fff'
-      },
-  },
-  grid: {
-      //bottom: '50%', // 그래프 영역의 하단 마진
-      containLabel: true // 라벨이 차트 밖으로 나가지 않도록 함
-  },
-  series: [
-      {
-      name: '여성',
-      type: 'pie',
-      radius: ['20%', '45%'], // 첫 번째 도넛의 반지름 범위
-      avoidLabelOverlap: false,
-      itemStyle: {
-          borderColor: 'black',
-          borderWidth: 2,
-          
-      },
-      label: {
-          show: false,
-          position: 'center',
-          
-      },
-      emphasis: {
-          
-      },
-      labelLine: {
-          show: false
-      },
-      data: [
-          { value: 1048, name: '미성년',  itemStyle: { color: '#d3f1f9' }},
-          { value: 735, name: '청년',  itemStyle: { color: '#3fd5e3' }},
-          { value: 580, name: '중장년',  itemStyle: { color: '#00a0de' } },
-          { value: 580, name: '노년',  itemStyle: { color: '#0174cf' } }
-          
-      ]
-      },
-      {
-      name: '남성',
-      type: 'pie',
-      radius: ['50%', '75%'], // 두 번째 도넛의 반지름 범위
-      avoidLabelOverlap: false,
-      itemStyle: {
-          borderColor: 'black',
-          borderWidth: 2
-      },
-      label: {
-          show: false,
-          position: 'center'
-      },
-      emphasis: {
-
-      },
-      labelLine: {
-          show: false
-      },
-      data: [
-          { value: 1048, name: '미성년',  itemStyle: { color: '#d3f1f9' }},
-          { value: 735, name: '청년',  itemStyle: { color: '#3fd5e3' }},
-          { value: 580, name: '중장년',  itemStyle: { color: '#00a0de' } },
-          { value: 310, name: '노년',  itemStyle: { color: '#0174cf' } }
-      ]
-      }
-  ]
-  };
-
-    //  차트 옵션 설정하기
-    human_radial_bar_chart.setOption(option)
-
-  
-
-  // 연령별 출입자 현황 더블 도넛차트
-
-  function LoadRadialBarChart() {	
-    var human_radial_bar_chart = echarts.init(document.getElementById('mainPerson_chart'))
-
-    var option = {
-    tooltip: {
-        trigger: 'item'
-    },
-    legend: {
-        bottom: 0,
-        data: ['미성년', '노년', '청년', '중장년'],
-        textStyle:{
-            color: '#fff'
-        },
-    },
-    grid: {
-        //bottom: '50%', // 그래프 영역의 하단 마진
-        containLabel: true // 라벨이 차트 밖으로 나가지 않도록 함
-    },
-    series: [
-        {
-        name: '여성',
-        type: 'pie',
-        radius: ['20%', '45%'], // 첫 번째 도넛의 반지름 범위
-        avoidLabelOverlap: false,
-        itemStyle: {
-            borderColor: 'black',
-            borderWidth: 2,
-            
-        },
-        label: {
-            show: false,
-            position: 'center',
-            
-        },
-        emphasis: {
-            
-        },
-        labelLine: {
-            show: false
-        },
-        data: [
-            { value: 1048, name: '미성년',  itemStyle: { color: '#d3f1f9' }},
-            { value: 735, name: '청년',  itemStyle: { color: '#3fd5e3' }},
-            { value: 580, name: '중장년',  itemStyle: { color: '#00a0de' } },
-            { value: 580, name: '노년',  itemStyle: { color: '#0174cf' } }
-            
         ]
-        },
-        {
-        name: '남성',
-        type: 'pie',
-        radius: ['50%', '75%'], // 두 번째 도넛의 반지름 범위
-        avoidLabelOverlap: false,
-        itemStyle: {
-            borderColor: 'black',
-            borderWidth: 2
-        },
-        label: {
-            show: false,
-            position: 'center'
-        },
-        emphasis: {
-
-        },
-        labelLine: {
-            show: false
-        },
-        data: [
-            { value: 1048, name: '미성년',  itemStyle: { color: '#d3f1f9' }},
-            { value: 735, name: '청년',  itemStyle: { color: '#3fd5e3' }},
-            { value: 580, name: '중장년',  itemStyle: { color: '#00a0de' }},
-            { value: 310, name: '노년',  itemStyle: { color: '#0174cf' }}
-        ]
-        }
-    ]
     };
 
-      //  차트 옵션 설정하기
-      human_radial_bar_chart.setOption(option)
-  }
+    //  차트 옵션 설정하기
+    human_chart.setOption(option)
 
 
-  function showPersonChart(){
-    /* 사람 막대차트 */
-  //  준비한 DOM 컨테이너에서 echarts 초기화하기
-  var human_chart = echarts.init(document.getElementById('mainPerson_chart'))
 
-  // 차트 옵션 작성하기
-  option = {
-      color: ["#006699", "#e5323e"],
-      tooltip: {
-          trigger: 'axis',
-          axisPointer: {
-          // Use axis to trigger tooltip
-          type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
-          }
-      },
-      legend: {
-        bottom: 0,
-        data: ['남자', '여자'],
-        textStyle:{
-        color: "rgba(255, 255, 255, 1)"
+
+
+
+    /* 남자 도넛 그래프 */
+    //  준비한 DOM 컨테이너에서 echarts 초기화하기
+    var myChart = echarts.init(document.getElementById('mainFace1_chart'))
+
+    // 차트 옵션 작성하기
+    option = {
+        tooltip: {
+            trigger: 'item'
         },
-        padding: [50, 0, 0, 0], // 범례 위 아래에 마진을 추가
+        legend: {
+            bottom: '5%',
+            left: 'center',
+            textStyle:{
+                color: "rgba(255, 255, 255, 1)"
+            },
+            //top: 'bottom', // 범례를 그래프 하단에 배치
+            //padding: [50, 0, 0, 0], // 범례 위 아래에 마진을 추가
+        },
+        series: [
+            {
+            name: '남성 마스크 미착용자 연령 비교',
+            type: 'pie',
+            radius: ['40%', '70%'],
+            avoidLabelOverlap: false,
+            itemStyle: {
+                borderColor: 'rgba(30, 30, 30, 1)',
+                borderWidth: 5
+            },
+                label: {
+                show: true,
+                position: 'inside',
+                formatter: '{c}',
+                fontSize: 12,
+                    fontWeight: 'bold',
+                fontColor: '#fff'
+            },
+            emphasis: {
+                // label: {
+                // show: true,
+                // fontSize: 40,
+                // fontWeight: 'bold'
+                // }
+            },
+            labelLine: {
+                show: false
+            },
+            data: [
+                { value: noMaskMaleYoung, name: '미성년', itemStyle: { color: '#d3f1f9' }},
+                { value: noMaskMaleAdlut, name: '청년', itemStyle: { color: '#3fd5e3' }},
+                { value: noMaskMaleMiddle, name: '중장년', itemStyle: { color: '#00a0de' }},
+                { value: noMaskMaleSenior, name: '노년', itemStyle: { color: '#0174cf' }}
+            ]
+            }
+        ]
+    };
 
-      },
-      grid: {
-          left: '3%',
-          right: '4%',
-          bottom: '10%',
-          containLabel: true
-      },
-      xAxis: {
-          type: 'value',
-      },
-      yAxis: {
-          type: 'category',
-          data: ['노년', '중장년', '청년', '미성년']
-      },
-      series: [
-          {
-          name: '남자',
-          type: 'bar',
-          stack: 'total',
-          label: {
-              show: true
-          },
-          emphasis: {
-              focus: 'series'
-          },
-          itemStyle: { color: '#0f9faf' },
-          data: [320, 302, 301, 334]
-          },
-          {
-          name: '여자',
-          type: 'bar',
-          stack: 'total',
-          label: {
-              show: true
-          },
-          emphasis: {
-              focus: 'series'
-          },
-          itemStyle: { color: '#e8534c' },
-          data: [120, 132, 101, 134]
-          }
+    //  차트 옵션 설정하기
+    myChart.setOption(option)
+
+
+
+    /* 여자도넛그래프 */
+    //  준비한 DOM 컨테이너에서 echarts 초기화하기
+    var myChart = echarts.init(document.getElementById('mainFace2_chart'))
+
+    // 차트 옵션 작성하기
+    option = {
+        tooltip: {
+            trigger: 'item'
+        },
+        legend: {
+            bottom: '5%',
+            left: 'center',
+            textStyle:{
+                color: "rgba(255, 255, 255, 1)"
+            },
+            //top: 'bottom', // 범례를 그래프 하단에 배치
+            // padding: [50, 0, 0, 0], // 범례 위 아래에 마진을 추가
+        },
+        series: [
+            {
+            name: '여성 마스크 미착용자 연령 비교',
+            type: 'pie',
+            radius: ['40%', '70%'],
+            avoidLabelOverlap: false,
+            itemStyle: {
+                borderColor: 'rgba(30, 30, 30, 1)',
+                borderWidth: 5
+            },
+
+            label: {
+                show: true,
+                position: 'inside',
+                formatter: '{c}',
+                fontSize: 12,
+                    fontWeight: 'bold',
+                fontColor: '#fff'
+            },
+            emphasis: {
+                // label: {
+                // show: true,
+                // fontSize: 40,
+                // fontWeight: 'bold'
+                // }
+            },
+            labelLine: {
+                show: false
+            },
+            data: [
+                { value: noMaskFemaleYoung, name: '미성년', itemStyle: { color: '#d3f1f9' } },
+                { value: noMaskFemaleAdult, name: '청년', itemStyle: { color: '#3fd5e3' } },
+                { value: noMaskFemaleMiddle, name: '중장년', itemStyle: { color: '#00a0de' } },
+                { value: noMaskFemaleSenior, name: '노년', itemStyle: { color: '#0174cf' } },
+            ]
+            }
+        ]
+    };
+
+    //  차트 옵션 설정하기
+    myChart.setOption(option)
+
+
+
+
+
+    /* 시간대별 라인그래프 */
+    //  준비한 DOM 컨테이너에서 echarts 초기화하기
+    var myChart = echarts.init(document.getElementById('main'))
+
+    // 차트 옵션 작성하기
+    var option = {
+        // 차트 제목
+        title: {
         
-      ]
-  };
+        },
+        // 범례명
+        legend: {
+        data: ['사람', '차량', '얼굴', '번호판','침입', '배회', '카운팅', '쓰러짐'],
+        bottom: '3%',
+        textStyle:{
+            color: "rgba(255, 255, 255, 1)"
+        }
+        },
+        // x축 라벨
+        xAxis: {
+        data: [time1, time2, time3, time4, time5, time6, time7, time8, time9, time10,
+                time11, time12, time13, time14, time15, time16, time17, time18, time19, time20,
+                time21, time22, time23, time24],
+        },
+        yAxis: {
+        //data: ['0', '500', '1000', '1500', '2000'],
+        },
+        series: [
+        {
+            name: '사람',
+            type: 'line', 
+            data: [person1, person2, person3, person4, person5, person6, person7, person8, person9, person10, person11, person12, person13, person14, person15, person16, person17, person18, person19, person20, person21, person22, person23 ],
+            itemStyle: { color: '#94e9ec' }
+        },
+        {
+            name: '차량',
+            type: 'line', 
+            data: [vehicle1, vehicle2, vehicle3, vehicle4, vehicle5, vehicle6, vehicle7, vehicle8, vehicle9, vehicle10, vehicle11, vehicle12, vehicle13, vehicle14, vehicle15, vehicle16, vehicle17, vehicle18, vehicle19, vehicle20, vehicle21, vehicle22, vehicle23],
+            itemStyle: { color: '#d4e079' }
+        },
+        {
+            name: '얼굴',
+            type: 'line', 
+            data: [face1, face2, face3, face4, face5, face6, face7, face8, face9, face10, face11, face12, face13, face14, face15, face16, face17, face18, face19, face20, face21, face22, face23],
+            itemStyle: { color: '#b4a1d8' }
+        },
+        {
+            name: '번호판',
+            type: 'line', 
+            data: [lpr1, lpr2, lpr3, lpr4, lpr5, lpr6, lpr7, lpr8, lpr9, lpr10, lpr11, lpr12, lpr13, lpr14, lpr15, lpr16, lpr17, lpr18, lpr19, lpr20, lpr21, lpr22, lpr23],
+            itemStyle: { color: '#f19ec2' }
+        },
+        {
+            name: '침입',
+            type: 'line', 
+            data: [invCnt1, invCnt2, invCnt3, invCnt4, invCnt5, invCnt5, invCnt6, invCnt7, invCnt8, invCnt9, invCnt10, invCnt11, invCnt12, invCnt13, invCnt14, invCnt15, invCnt16, invCnt17, invCnt18, invCnt19, invCnt20, invCnt21, invCnt22, invCnt23],
+            itemStyle: { color: '#4176df' }
+        },
+        {
+            name: '배회',
+            type: 'line', 
+            data: [lotCnt1, lotCnt2, lotCnt3, lotCnt4, lotCnt5, lotCnt6, lotCnt7, lotCnt8, lotCnt9, lotCnt10, lotCnt11, lotCnt12, lotCnt13, lotCnt14, lotCnt15, lotCnt16, lotCnt17, lotCnt18, lotCnt19, lotCnt20, lotCnt21, lotCnt22, lotCnt23],
+            itemStyle: { color: '#fec070' }
+        },
+        {
+            name: '카운팅',
+            type: 'line',
+            stack: 'Total',
+            data: [cntCnt1, cntCnt2, cntCnt3, cntCnt4],
+            itemStyle: { color: '#ff7978' }
+        },
+        {
+            name: '쓰러짐',
+            type: 'line',
+            stack: 'Total',
+            data: [fatCnt1, fatCnt2, fatCnt3, fatCnt4],
+            itemStyle: { color: '#52c3f7' }
+        }
+        ],
+    }
 
-  //  차트 옵션 설정하기
-  human_chart.setOption(option)
-
-
-  } 
+    //  차트 옵션 설정하기
+    myChart.setOption(option)
 
 
 
 
-  var bCheckHuman = false;
 
-/* 차트 변경 js 시작 */
-function OnHumanGraphChange(){
-  
-  if (bCheckHuman == false){
-    human_chart.dispose();
-    LoadRadialBarChart();
-    bCheckHuman = true;
-  }else{
-    human_radial_bar_chart.dispose();
-    showPersonChart();
-    bCheckHuman = false;
-  }
-}
 
-function OnCarGraphChange(){
-if (bCheckCar == false){
-  vehicle_chart.dispose();
-  showCarPieChart();
-  bCheckCar = true;
-}else{
-  car_pie_chart.dispose();
-  showVehicleChart();
-  bCheckCar = false;
-}
-}
+    /* 사람 막대 <-> 도넛 차트 변경 시작*/
+    
+    var human_radial_bar_chart = null;
+    var human_chart = null;
+    var bCheckHuman = false;
+
+
+    // 연령별 출입자 현황 더블 도넛차트
+
+    function LoadRadialBarChart() {
+        // 이전에 초기화한 차트가 있다면 dispose
+        if (human_chart) {
+            human_chart.dispose();
+        }
+    
+        // 초기화된 차트가 없다면 초기화
+        if (!human_radial_bar_chart) {
+            human_radial_bar_chart = echarts.init(document.getElementById('mainPerson_chart'));
+        }
+    
+        // 차트 옵션 설정
+        var option = {
+            tooltip: {
+                trigger: 'item'
+            },
+            legend: {
+                bottom: 0,
+                data: ['미성년', '노년', '청년', '중장년'],
+                textStyle:{
+                    color: '#fff'
+                },
+            },
+            grid: {
+                //bottom: '50%', // 그래프 영역의 하단 마진
+                containLabel: true // 라벨이 차트 밖으로 나가지 않도록 함
+            },
+            series: [
+                {
+                name: '여성',
+                type: 'pie',
+                radius: ['20%', '45%'], // 첫 번째 도넛의 반지름 범위
+                avoidLabelOverlap: false,
+                itemStyle: {
+                    borderColor: 'black',
+                    borderWidth: 2,
+                    
+                },
+                label: {
+                    show: false,
+                    position: 'center',
+                    
+                },
+                emphasis: {
+                    
+                },
+                labelLine: {
+                    show: false
+                },
+                data: [
+                    { value: youngFemale, name: '미성년',  itemStyle: { color: '#d3f1f9' }},
+                    { value: adultFemale, name: '청년',  itemStyle: { color: '#3fd5e3' }},
+                    { value: middleFemale, name: '중장년',  itemStyle: { color: '#00a0de' } },
+                    { value: seniorFemale, name: '노년',  itemStyle: { color: '#0174cf' } }
+                    
+                ]
+                },
+                {
+                name: '남성',
+                type: 'pie',
+                radius: ['50%', '75%'], // 두 번째 도넛의 반지름 범위
+                avoidLabelOverlap: false,
+                itemStyle: {
+                    borderColor: 'black',
+                    borderWidth: 2
+                },
+                label: {
+                    show: false,
+                    position: 'center'
+                },
+                emphasis: {
+    
+                },
+                labelLine: {
+                    show: false
+                },
+                data: [
+                    { value: youngMale, name: '미성년',  itemStyle: { color: '#d3f1f9' }},
+                    { value: adultMale, name: '청년',  itemStyle: { color: '#3fd5e3' }},
+                    { value: middleMale, name: '중장년',  itemStyle: { color: '#00a0de' }},
+                    { value: seniorMale, name: '노년',  itemStyle: { color: '#0174cf' }}
+                ]
+                }
+            ]
+            };
+    
+        // 차트에 옵션 설정하기
+        human_radial_bar_chart.setOption(option);
+    }
+
+
+    /* 막대 차트 표시 함수 */
+    function showPersonChart() {
+        // 이전에 초기화한 차트가 있다면 dispose
+        if (human_radial_bar_chart) {
+            human_radial_bar_chart.dispose();
+        }
+
+        // 초기화된 차트가 없다면 초기화
+        if (!human_chart) {
+            human_chart = echarts.init(document.getElementById('mainPerson_chart'));
+        }
+
+        // 차트 옵션 설정
+        option = {
+            color: ["#006699", "#e5323e"],
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                // Use axis to trigger tooltip
+                type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
+                }
+            },
+            legend: {
+                bottom: 0,
+                data: ['남자', '여자'],
+                textStyle:{
+                color: "rgba(255, 255, 255, 1)"
+                },
+                padding: [50, 0, 0, 0], // 범례 위 아래에 마진을 추가
+        
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '10%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'value',
+            },
+            yAxis: {
+                type: 'category',
+                data: ['노년', '중장년', '청년', '미성년']
+            },
+            series: [
+                {
+                name: '남자',
+                type: 'bar',
+                stack: 'total',
+                label: {
+                    show: true
+                },
+                emphasis: {
+                    focus: 'series'
+                },
+                itemStyle: { color: '#0f9faf' },
+                data: [seniorMale, middleMale, adultMale, youngMale]
+                },
+                {
+                name: '여자',
+                type: 'bar',
+                stack: 'total',
+                label: {
+                    show: true
+                },
+                emphasis: {
+                    focus: 'series'
+                },
+                itemStyle: { color: '#e8534c' },
+                data: [seniorFemale, middleFemale, adultFemale, youngFemale]
+                }
+                
+            ]
+        };
+        // 차트에 옵션 설정하기
+        human_chart.setOption(option);
+    }
+
+
+
+
+    /* 차트 변경 js 시작 */
+    function OnHumanGraphChange() {
+        if (bCheckHuman) {
+            // 도넛 차트가 표시된 경우
+            if (human_radial_bar_chart) {
+                human_radial_bar_chart.dispose();
+                console.log(bCheckHuman);
+            }
+            showPersonChart();
+        } else {
+            // 막대 차트가 표시된 경우
+            if (human_chart) {
+                human_chart.dispose();
+                console.log(bCheckHuman);
+            }
+            LoadRadialBarChart();
+        }
+    
+        // bCheckHuman 상태 토글
+        bCheckHuman = !bCheckHuman;
+    }
+
+    function OnCarGraphChange(){
+        if (bCheckCar == false){
+            vehicle_chart.dispose();
+            showCarPieChart();
+            bCheckCar = true;
+        }else{
+            car_pie_chart.dispose();
+            showVehicleChart();
+            bCheckCar = false;
+        }
+    }
 /* 차트 변경 js 끝 */ 
+
+
+
+    /* 사람 막대 <-> 도넛 차트 변경 끝*/

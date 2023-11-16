@@ -6,79 +6,79 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ai VinUS DASHBOARD</title>
+	<title>Ai VinUS DASHBOARD</title>
 
 
 
-    <!-- toust UI 시작 -->
+    <%-- toust UI 시작 --%>
 	<link rel="stylesheet" href="./node_modules/tui-chart/dist/toastui-chart.css">
 	<script src="./node_modules/tui-chart/dist/toastui-chart.js"></script>
 	<link rel="stylesheet" href="./node_modules/tui-grid/dist/tui-grid.css" />
 	<script src="./node_modules/tui-grid/dist/tui-grid.js"></script>    
 	<link rel="stylesheet" href="./node_modules/tui-date-picker/dist/tui-date-picker.css">
 	<script src="./node_modules/tui-date-picker/dist/tui-date-picker.js"></script>
-	<!-- toust UI 끝 -->
-  
+	<%-- toust UI 끝 --%>
+
 
 	<script src="./node_modules/jquery/3.6.0/jquery.min.js"></script>
 
-  <!-- css -->
-  <link rel="stylesheet" href="/resources/css/popup.css">
-  <link rel="stylesheet" href="/resources/css/style.css">
-  <link rel="stylesheet" href="/resources/css/camera.css">
-  <link rel="stylesheet" href="/resources/font/nanumsquare.css">
-  <link rel="shortcut icon" href="/resources/img/favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="/resources/css/style_scrollBar.css"/>  
-  <link rel="stylesheet" href="/resources/css/style_grid.css">
-  <link rel="stylesheet" href="/resources/css/style_graph.css" />   
-  
+	<%-- css --%>
+	<link rel="stylesheet" href="/resources/css/popup.css">
+	<link rel="stylesheet" href="/resources/css/style.css">
+	<link rel="stylesheet" href="/resources/css/camera.css">
+	<link rel="stylesheet" href="/resources/font/nanumsquare.css">
+	<link rel="shortcut icon" href="/resources/img/favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" href="/resources/css/style_scrollBar.css"/>  
+	<link rel="stylesheet" href="/resources/css/style_grid.css">
+	<link rel="stylesheet" href="/resources/css/style_graph.css" />   
 
-  
 
- </head>
 
- <body>
-	<!-- 전체 wrap.S -->
+
+</head>
+
+<body>
+	<%-- 전체 wrap.S --%>
 	<div class="wrap"  id="indexWrap">  
 
-		<!-- 헤더.S -->
+		<%-- 헤더.S --%>
 		<header id="header"> 
 			<jsp:include page="/WEB-INF/views/common/inc_header.jsp"/>
 		</header>
-		<!-- 헤더.E -->
+		<%-- 헤더.E --%>
 
-		<!-- 내용.S -->		
+		<%-- 내용.S --%>		
 		<div class="container">
 
-			<!-- side 영역.S -->
+			<%-- side 영역.S --%>
 			<div id="side">
 
-				<!-- 좌측 네비.S -->
+				<%-- 좌측 네비.S --%>
 				<div class="btn-navi" >
 					<a href="/main">
 						<button type="button" class="btn_object">M A I N</button>
 					</a>
-					<!-- <button type="button" class="btn_evnet" onClick="OnClickEvent();">E V E N T</button> -->
+					<%-- <button type="button" class="btn_evnet" onClick="OnClickEvent();">E V E N T</button> --%>
 					<a href="/mainCamera">
 						<button type="button" class="btn_camera_on">C A M E R A</button>
 					</a>
 				</div>
-				<!-- 좌측 네비.E -->
+				<%-- 좌측 네비.E --%>
 
-				<!-- 실시간 채널.S -->
+				<%-- 실시간 채널.S --%>
 				<jsp:include page="/WEB-INF/views/main/inc_side.jsp"/>
-				<!-- 실시간 채널.E -->
+				<%-- 실시간 채널.E --%>
 				
-			<!-- side 영역.E -->
+			<%-- side 영역.E --%>
 
 
-			<!-- 우측 메인.S -->
+			<%-- 우측 메인.S --%>
 			<div id="contentsWrap">
-				<!-- 상단 날짜,버튼 영역.S -->
+				<%-- 상단 날짜,버튼 영역.S --%>
 				<div class="mainTop">
 					<div class=" dateArea">
 
-						<!-- 달력 -->
+						<%-- 달력 --%>
 						<div id="tui-date-picker-container"></div>
 						<a class="rollover" alt="달력" id="tui-date-picker-main" style="display:none;">
 							<img src="/resources/img/btn-calendar.png"> 
@@ -86,17 +86,17 @@
 						</a>
 
 						<p class="date" id='mainDate'>2021년 07월 21일</p>
-						<button type="button" class="btn-date" href="#" style="display:none;">◀<!-- <img src="img/btn-calendarLeft.png">--></button>
+						<button type="button" class="btn-date" href="#" style="display:none;">◀<%-- <img src="img/btn-calendarLeft.png">--%></button>
 						<button type="button" class="btn" href="#" style="display:none;">오늘</button>
-						<button type="button" class="btn-date" href="#" style="display:none;">▶<!-- <img src="img/btn-calendarRight.png">--></button>
+						<button type="button" class="btn-date" href="#" style="display:none;">▶<%-- <img src="img/btn-calendarRight.png">--%></button>
 					</div>						
 				</div>
-				<!-- 상단 날짜,버튼 영역.E -->
+				<%-- 상단 날짜,버튼 영역.E --%>
 
-				<!-- 메인컨텐츠.S -->
+				<%-- 메인컨텐츠.S --%>
 				<div class="contents">
 
-					<!-- 섹션 좌측.S -->
+					<%-- 섹션 좌측.S --%>
 					<div class="sectionBox">
 						<div class="innerBox divCameraToday">
 							<div class="contentsTitle">
@@ -135,9 +135,9 @@
 						</div>
 
 					</div>
-					<!-- 섹션 좌측.E -->
+					<%-- 섹션 좌측.E --%>
 
-					<!-- 섹션 우측.S -->
+					<%-- 섹션 우측.S --%>
 					<div class="sectionBox">
 						<div class="innerBox divEventAge">
 							<div class="contentsTitle">
@@ -175,23 +175,23 @@
 							</div>
 						</div>	
 					</div>	
-					<!-- 섹션 우측.E -->
+					<%-- 섹션 우측.E --%>
 				</div>
-				<!-- 메인컨텐츠.E -->
+				<%-- 메인컨텐츠.E --%>
 				<div id="bottom">
 					<p class="Notice">※ 화면에 표시되는 모든 실시간 데이터는 1분마다 자동으로 업데이트 합니다. 다만 “시간대별 현황” 그래프의 실시간 데이터는 정시에 한 번씩 업데이트 합니다.</p>
 					<div class="madeFodics">포딕스시스템</div>
 				</div>
 			</div>
-			<!-- 우측 메인.E -->
+			<%-- 우측 메인.E --%>
 
 		</div>
-		<!--  내용.E -->
+		<%--  내용.E --%>
 	</div>
-	<!-- 전체 wrap.E -->
+	<%-- 전체 wrap.E --%>
 
 
-	<!-- js -->
+	<%-- js --%>
 	<script src="/resources/js/commonFunctions.js"></script>    
 	<script type="text/javascript" src="/resources/js/EventAccPieChart.js"></script>
 	<script type="text/javascript" src="/resources/js/EventChart.js"></script>
@@ -199,199 +199,199 @@
 	<script type="text/javascript" src="/resources/js/popupSetting.js"></script>
 	<script type="text/javascript" src="dashboard_config.json"></script> 
 	<script>
-		  const chart = toastui.Chart;
-		  window.addEventListener('load', function() {
-			  var allElements = document.getElementsByTagName('*');
-			  Array.prototype.forEach.call(allElements, function(el) {
-				  var includePath = el.dataset.includePath;
-				  if (includePath) {
-					  var xhttp = new XMLHttpRequest();
-					  xhttp.onreadystatechange = function () {
-						  if (this.readyState == 4 && this.status == 200) {
-							  var file = el.getAttribute('file');
-							  if (file == "inc_side") {
-								  readTextFile("/data/dailyCount.json", saveDailyData);
-								  loadCameraGroupData();
-							  }
-							  el.outerHTML = this.responseText;
-  
-							  if (file == "inc_header") {
-								  if(config_data[0].exe_type=='1')
-								  {
-									  document.getElementById("main_title").innerText = "Ai VinUS DASHBOARD SERVER";
-								  }
-							  }
-						  }
-					  };
-					  xhttp.open('GET', includePath, true);
-					  xhttp.send();
-				  }
-			  });	
-			  
-			  calendarToday();
-			  readTextFile("./data/dailyCount.json",
-				  function (text) {
-					  DataEvtObj = JSON.parse(text);
-					  LoadInvasionCount();
-					  LoadLoiteringCount();	
-					  LoadEvemtAccPieChart(DataEvtObj);
-				  }
-			  ); 	
-		  
-			  readTextFile("./data/dailyCountByCamera.json",
-				  function (text) {
-					  DataGridObj = JSON.parse(text);		
-					  LoadWndCountGrid(); 
-				  }
-			  );
-						  
-			  // Righe Page 처리
-			  LoadRadialBarChart();
-			  LoadPieDonutChartMale();
-			  LoadPieDonutChartFemale();	
-			  
-		  
+		const chart = toastui.Chart;
+		window.addEventListener('load', function() {
+			var allElements = document.getElementsByTagName('*');
+			Array.prototype.forEach.call(allElements, function(el) {
+				var includePath = el.dataset.includePath;
+				if (includePath) {
+					var xhttp = new XMLHttpRequest();
+					xhttp.onreadystatechange = function () {
+						if (this.readyState == 4 && this.status == 200) {
+							var file = el.getAttribute('file');
+							if (file == "inc_side") {
+								readTextFile("/data/dailyCount.json", saveDailyData);
+								loadCameraGroupData();
+							}
+							el.outerHTML = this.responseText;
+
+							if (file == "inc_header") {
+								if(config_data[0].exe_type=='1')
+								{
+									document.getElementById("main_title").innerText = "Ai VinUS DASHBOARD SERVER";
+								}
+							}
+						}
+					};
+					xhttp.open('GET', includePath, true);
+					xhttp.send();
+				}
+			});	
+			
+			calendarToday();
+			readTextFile("./data/dailyCount.json",
+				function (text) {
+					DataEvtObj = JSON.parse(text);
+					LoadInvasionCount();
+					LoadLoiteringCount();	
+					LoadEvemtAccPieChart(DataEvtObj);
+				}
+			); 	
+		
+			readTextFile("./data/dailyCountByCamera.json",
+				function (text) {
+					DataGridObj = JSON.parse(text);		
+					LoadWndCountGrid(); 
+				}
+			);
+						
+			// Righe Page 처리
+			LoadRadialBarChart();
+			LoadPieDonutChartMale();
+			LoadPieDonutChartFemale();	
+			
+		
 		});
-  
-  
-	  function LoadInvasionCount()
-	  {
-		  for( var i = 0; i < DataEvtObj.length ; i++){				
-			  var compare_value = parseInt(DataEvtObj[i].INV_CNT_BACK_1D) - parseInt(DataEvtObj[i].INV_CNT);
-			  var display_value;
-			  if(compare_value < 0){
-				  display_value = '▲' + Math.abs(compare_value);
-				  document.getElementById('compare_inv_cnt').style.color = '#eb6877';
-				  $('#compare_inv_cnt').html(display_value);
-			  }else{						
-				  display_value = '▼' +  Math.abs(compare_value);
-				  document.getElementById('compare_inv_cnt').style.color = '#00b7ee';
-				  $('#compare_inv_cnt').html(display_value);
-			  }
-			  $('#total_inv_cnt').html(DataEvtObj[i].INV_CNT);			
-		  }	
-	  }
-  
-	  function LoadLoiteringCount()
-	  {
-		  for( var i = 0; i < DataEvtObj.length ; i++){				
-			  var compare_value = parseInt(DataEvtObj[i].LOT_CNT_BACK_1D) - parseInt(DataEvtObj[i].LOT_CNT);
-			  var display_value;
-			  if(compare_value < 0){
-				  display_value = '▲' + Math.abs(compare_value);
-				  document.getElementById('compare_lot_cnt').style.color = '#eb6877';
-				  $('#compare_lot_cnt').html(display_value);
-			  }else{						
-				  display_value = '▼' +  Math.abs(compare_value);
-				  document.getElementById('compare_lot_cnt').style.color = '#00b7ee';
-				  $('#compare_lot_cnt').html(display_value);
-			  }
-			  $('#total_lot_cnt').html(DataEvtObj[i].LOT_CNT);			
-		  }	
-	  }
-  
-	  function LoadWndCountGrid()
-	  {
-		  tui.Grid.applyTheme("default", {
-			  area: {
-			  header: {
-				  border: '#2d2d2d'
-			  }
-		  },
-		  outline: {
-			  border: "#2d2d2d",
-		  },
-		  cell: {
-			  normal: {
-				  background: "rgba(30,30,30,1)",
-				  border: 'rgba(30,30,30,1)',
-				  text: '#c5c5c5',
-				  showHorizontalBorder: true,
-				  showVerticalBorder: true,
-			  },
-			  header: {
-				  background: "rgba(30,30,30,1)",
-				  border: "rgba(30,30,30,1)",
-				  text: '#c5c5c5',
-				  showHorizontalBorder: true,
-				  showVerticalBorder: true,
-			  },				
-		  },
-		  scrollbar:
-			  {
-				  border: "#2d2d2d",
-				  background: "#2d2d2d",
-				  emptySpace: "#1a1a1a",
-				  thumb : "#838383",
-				  active: "#aaa",
-			  },
-		  }),
-  
-		  grid_Inv = new tui.Grid({
-			  el: document.getElementById('Inv_grid_area'),
-			  data: DataGridObj,
-			  scrollX: false,
-			  scrollY: true,    
-  
-			  rowHeight: 49,
-			  bodyHeight: 730,
-			  header: {
-				  height: '0px',					
-			  },
-			  columns: [
-				  {
-				  align: 'left',
-				  name: 'CAMERA_NAME',  
-				  width: 350,                             
-				  },
-				  {								
-					  align: 'right',               
-					  name: 'INV_CNT',   
-					  sortable:true,
-					  renderer: {
-					  styles: {
-							  color: '#94e9ec',
-						  },            			            
-					  }		
-				  }			  
-			  ],
-  
-		  });	
-  
-		  grid_Lot = new tui.Grid({
-			  el: document.getElementById('Lot_grid_area'),
-			  data: DataGridObj,
-			  scrollX: false,
-			  scrollY: true,    
-  
-			  rowHeight: 49,
-			  bodyHeight: 730,
-			  header: {
-				  height: '0px',					
-			  },
-			  columns: [
-				  {
-				  align: 'left',
-				  name: 'CAMERA_NAME',  
-				  width: 350,                             
-				  },
-				  {								
-					  align: 'right',               
-					  name: 'LOT_CNT',   
-					  sortable:true,
-					  renderer: {
-					  styles: {
-							  color: '#d4e079',
-						  },            			            
-					  }		
-				  }			  
-			  ],
-  
-		  });	
-		  
-		  grid_Inv.sort('INV_CNT', false, false);
-		  grid_Lot.sort('LOT_CNT', false, false);
-	  }
-   </script>
- </body>
+
+
+	function LoadInvasionCount()
+	{
+		for( var i = 0; i < DataEvtObj.length ; i++){				
+			var compare_value = parseInt(DataEvtObj[i].INV_CNT_BACK_1D) - parseInt(DataEvtObj[i].INV_CNT);
+			var display_value;
+			if(compare_value < 0){
+				display_value = '▲' + Math.abs(compare_value);
+				document.getElementById('compare_inv_cnt').style.color = '#eb6877';
+				$('#compare_inv_cnt').html(display_value);
+			}else{						
+				display_value = '▼' +  Math.abs(compare_value);
+				document.getElementById('compare_inv_cnt').style.color = '#00b7ee';
+				$('#compare_inv_cnt').html(display_value);
+			}
+			$('#total_inv_cnt').html(DataEvtObj[i].INV_CNT);			
+		}	
+	}
+
+	function LoadLoiteringCount()
+	{
+		for( var i = 0; i < DataEvtObj.length ; i++){				
+			var compare_value = parseInt(DataEvtObj[i].LOT_CNT_BACK_1D) - parseInt(DataEvtObj[i].LOT_CNT);
+			var display_value;
+			if(compare_value < 0){
+				display_value = '▲' + Math.abs(compare_value);
+				document.getElementById('compare_lot_cnt').style.color = '#eb6877';
+				$('#compare_lot_cnt').html(display_value);
+			}else{						
+				display_value = '▼' +  Math.abs(compare_value);
+				document.getElementById('compare_lot_cnt').style.color = '#00b7ee';
+				$('#compare_lot_cnt').html(display_value);
+			}
+			$('#total_lot_cnt').html(DataEvtObj[i].LOT_CNT);			
+		}	
+	}
+
+	function LoadWndCountGrid()
+	{
+		tui.Grid.applyTheme("default", {
+			area: {
+			header: {
+				border: '#2d2d2d'
+			}
+		},
+		outline: {
+			border: "#2d2d2d",
+		},
+		cell: {
+			normal: {
+				background: "rgba(30,30,30,1)",
+				border: 'rgba(30,30,30,1)',
+				text: '#c5c5c5',
+				showHorizontalBorder: true,
+				showVerticalBorder: true,
+			},
+			header: {
+				background: "rgba(30,30,30,1)",
+				border: "rgba(30,30,30,1)",
+				text: '#c5c5c5',
+				showHorizontalBorder: true,
+				showVerticalBorder: true,
+			},				
+		},
+		scrollbar:
+			{
+				border: "#2d2d2d",
+				background: "#2d2d2d",
+				emptySpace: "#1a1a1a",
+				thumb : "#838383",
+				active: "#aaa",
+			},
+		}),
+
+		grid_Inv = new tui.Grid({
+			el: document.getElementById('Inv_grid_area'),
+			data: DataGridObj,
+			scrollX: false,
+			scrollY: true,    
+
+			rowHeight: 49,
+			bodyHeight: 730,
+			header: {
+				height: '0px',					
+			},
+			columns: [
+				{
+				align: 'left',
+				name: 'CAMERA_NAME',  
+				width: 350,                             
+				},
+				{								
+					align: 'right',               
+					name: 'INV_CNT',   
+					sortable:true,
+					renderer: {
+					styles: {
+							color: '#94e9ec',
+						},            			            
+					}		
+				}			  
+			],
+
+		});	
+
+		grid_Lot = new tui.Grid({
+			el: document.getElementById('Lot_grid_area'),
+			data: DataGridObj,
+			scrollX: false,
+			scrollY: true,    
+
+			rowHeight: 49,
+			bodyHeight: 730,
+			header: {
+				height: '0px',					
+			},
+			columns: [
+				{
+				align: 'left',
+				name: 'CAMERA_NAME',  
+				width: 350,                             
+				},
+				{								
+					align: 'right',               
+					name: 'LOT_CNT',   
+					sortable:true,
+					renderer: {
+					styles: {
+							color: '#d4e079',
+						},            			            
+					}		
+				}			  
+			],
+
+		});	
+		
+		grid_Inv.sort('INV_CNT', false, false);
+		grid_Lot.sort('LOT_CNT', false, false);
+	}
+	</script>
+</body>
 </html>

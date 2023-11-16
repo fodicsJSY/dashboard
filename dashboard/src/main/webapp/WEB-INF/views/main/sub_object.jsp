@@ -10,16 +10,16 @@
 
 
 
-  <!-- toust UI 시작 -->
+  <%-- toust UI 시작 --%>
   <link rel="stylesheet" href="./node_modules/tui-chart/dist/toastui-chart.css">
   <script src="./node_modules/tui-chart/dist/toastui-chart.js"></script>
   <link rel="stylesheet" href="./node_modules/tui-grid/dist/tui-grid.css" />
   <script src="./node_modules/tui-grid/dist/tui-grid.js"></script>    
   <link rel="stylesheet" href="./node_modules/tui-date-picker/dist/tui-date-picker.css">
   <script src="./node_modules/tui-date-picker/dist/tui-date-picker.js"></script>
-  <!-- toust UI 끝 -->
+  <%-- toust UI 끝 --%>
 
-  <!-- jquery -->
+  <%-- jquery --%>
   <script src="./node_modules/jquery/3.6.0/jquery.min.js"></script>
   
   
@@ -36,45 +36,45 @@
 </head>
 
 <body>
-  <!-- 전체 wrap.S -->
+  <%-- 전체 wrap.S --%>
   <div class="wrap" id="indexWrap">
 
-    <!-- 헤더.S -->
+    <%-- 헤더.S --%>
     <header id="header">
       <jsp:include page="/WEB-INF/views/common/inc_header.jsp"/>
     </header>
-    <!-- 헤더.E -->
+    <%-- 헤더.E --%>
 
-    <!-- 내용.S -->
+    <%-- 내용.S --%>
     <div class="container">
 
-      <!-- side 영역.S -->
+      <%-- side 영역.S --%>
       <div id="side">
 
-        <!-- 좌측 네비.S -->
+        <%-- 좌측 네비.S --%>
         <div class="btn-navi">
           <a href="/main">
 						<button type="button" class="btn_object">M A I N</button>
 					</a>
-					<!-- <button type="button" class="btn_evnet_on" onClick="OnClickEvent();">E V E N T</button> -->
-				  <a href="/mainCamera">
+					<%-- <button type="button" class="btn_evnet_on" onClick="OnClickEvent();">E V E N T</button> --%>
+          <a href="/mainCamera">
 						<button type="button" class="btn_camera_on">C A M E R A</button>
 					</a>
         </div>
-        <!-- 좌측 네비.E -->
+        <%-- 좌측 네비.E --%>
 
-        <!-- 실시간 채널.S -->
+        <%-- 실시간 채널.S --%>
         <jsp:include page="/WEB-INF/views/main/inc_side.jsp"/>
-        <!-- 실시간 채널.E -->
+        <%-- 실시간 채널.E --%>
 
       </div>
-      <!-- side 영역.E -->
+      <%-- side 영역.E --%>
 
-      <!-- 우측 메인.S -->
+      <%-- 우측 메인.S --%>
       <div id="contentsWrap">
-        <!-- 상단 날짜,버튼 영역.S -->
+        <%-- 상단 날짜,버튼 영역.S --%>
         <div class="mainTop">
-          <!-- <div class=" dateArea">
+          <%-- <div class=" dateArea">
             <a class="rollover" alt="달력"><img src="img/btn-calendar.png"> <img src="img/btn-calendar_hover.png"
                 class="over"></a>
             <p class="date">2021년 07월 21일</p>
@@ -83,21 +83,21 @@
             <button type="button" class="btn-date" href="#">▶
             </button>
             <button type="button" class="btn" href="#">오늘</button>
-          </div> -->
+          </div> --%>
 
         </div>
-        <!-- 상단 날짜,버튼 영역.E -->
+        <%-- 상단 날짜,버튼 영역.E --%>
 
 
         <div class="contentsArea">
-          <!-- 
+          <%-- 
 					<div class="subTabs">
 						<div class="tabsTitle"><img src="img/navi_object.png"></div>
 						<ul class="tabs" data-persist="true">
 							<li class="tabsON"><a href="sub_object.html" >사람 카메라 정보 상세</a></li>
 							<li><a href="sub_object_car.html" >차량 카메라 정보 상세</a></li>
 						</ul>
-					</div> -->
+					</div> --%>
 
           <div class="subTabs">
             <div class="tabsTitle"><img src="/resources/img/navi_object.png"></div>
@@ -112,10 +112,10 @@
             </div>
           </div>
 
-          <!-- 메인컨텐츠.S -->
+          <%-- 메인컨텐츠.S --%>
           <div class="contentsGridDataArea">
 
-            <!-- 탭 view1.S -->
+            <%-- 탭 view1.S --%>
             <div id="view1">
               <div class="sectionDate">
                 <span>기간</span>
@@ -138,7 +138,7 @@
               </div>
 
               <div class="sectionBox1type">
-                <!--사람 카메라 정보 상세-->
+                <%--사람 카메라 정보 상세--%>
                 <div class="gridTitle">
                   <table class="grid_object_person_title">
                     <tr>
@@ -381,7 +381,7 @@
                     </tbody>
                 </table>
               </div>
-              <!--사람 카메라 정보 상세-->
+              <%--사람 카메라 정보 상세--%>
               <div class="gridTotal">
                 <table class="grid_object_person_total">
                   <th scope="row" class="loadName">전체 카메라 총계</th>
@@ -395,20 +395,20 @@
                   <td>125</td>
                   <td style="width: 10px; margin: 0;"></td>
                 </table>
-                <!--
+                <%--
                   <div id="grid_object_person_total"></div>
-                -->
+                --%>
               </div>
-              <!-- <div class="Loading">   </div> -->
+              <%-- <div class="Loading">   </div> --%>
 
 
 
             </div>
-            <!-- 탭 view1.E -->
+            <%-- 탭 view1.E --%>
 
 
-            <!-- 탭 view2.S -->
-            <!-- <div id="view2">
+            <%-- 탭 view2.S --%>
+            <%-- <div id="view2">
               <div class="sectionDate2">
                 <span>기간</span>
                 <div class="tui-datepicker-input tui-datetime-input tui-has-focus">
@@ -439,35 +439,35 @@
                 
                 <div id="grid_object_vehicle_total"></div>
               </div>
-            </div> -->
+            </div> --%>
 
 
 
 
-            <!-- 탭 view2.E -->
+            <%-- 탭 view2.E --%>
             <div id="loading"><img id="loading-image" src="/resources/img/loading_animated.png" alt="Loading..." /></div>
           </div>
         </div>
 
 
-        <!-- 메인컨텐츠.E -->
+        <%-- 메인컨텐츠.E --%>
         <div id="bottom" style="margin: 10px 0 0 0;">
           <p class="Notice">※ 화면에 표시되는 모든 실시간 데이터는 1분마다 자동으로 업데이트 합니다. 다만 “시간대별 현황” 그래프의 실시간 데이터는 정시에 한 번씩 업데이트 합니다.</p>
           <div class="madeFodics">포딕스시스템</div>
         </div>
       </div>
-      <!-- 우측 메인.E -->
+      <%-- 우측 메인.E --%>
 
     </div>
-    <!--  내용.E -->
+    <%--  내용.E --%>
   </div>
-  <!-- 전체 wrap.E -->
+  <%-- 전체 wrap.E --%>
 
   <script src="../../../resources/js/main/loading.js"></script>
   <script src="./data/data_sample.js"></script>
-  <!-- 탭버튼 스크립트.S-->
+  <%-- 탭버튼 스크립트.S--%>
   <script src="/resources/js/tabcontent.js"></script>
-  <!-- 탭버튼 스크립트.E-->
+  <%-- 탭버튼 스크립트.E--%>
   <script src="/resources/js/popupSetting.js"></script>
   <script src="/resources/js/commonFunctions.js"></script>
   <script src="/resources/js/CsvMakeFile.js"></script>
@@ -1339,7 +1339,7 @@
 				};
         
 
-			  var itemsFormatted = [];
+        var itemsFormatted = [];
 				var itemsNotFormatted = [];
 
 				var headers = {						

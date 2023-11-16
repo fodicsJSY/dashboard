@@ -9,19 +9,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ai VinUS DASHBOARD</title>
 
-    <!-- toust UI 시작 -->
+    <%-- toust UI 시작 --%>
 	<link rel="stylesheet" href="./node_modules/tui-chart/dist/toastui-chart.css">
 	<script src="./node_modules/tui-chart/dist/toastui-chart.js"></script>
 	<link rel="stylesheet" href="./node_modules/tui-grid/dist/tui-grid.css" />
 	<script src="./node_modules/tui-grid/dist/tui-grid.js"></script>    
 	<link rel="stylesheet" href="./node_modules/tui-date-picker/dist/tui-date-picker.css">
 	<script src="./node_modules/tui-date-picker/dist/tui-date-picker.js"></script>
-	<!-- toust UI 끝 -->
+	<%-- toust UI 끝 --%>
   
 	<script src=  "./node_modules/tui-etc/Fabric/fabric.min.js"></script>
 	<script src="./node_modules/jquery/3.6.0/jquery.min.js"></script>
 
-  <!-- css -->
+  <%-- css --%>
   <link rel="stylesheet" href="/resources/css/popup.css">
   <link rel="stylesheet" href="/resources/css/style.css">
   <link rel="stylesheet" href="/resources/css/camera.css">
@@ -36,47 +36,47 @@
  </head>
 
  <body>
-	<!-- 전체 wrap.S -->
+	<%-- 전체 wrap.S --%>
 	<div class="wrap" id="indexWrap">  
-		<!-- 헤더.S -->
+		<%-- 헤더.S --%>
 		<header id="header"> 
 			<jsp:include page="/WEB-INF/views/common/inc_header.jsp"/>
 		</header>
-		<!-- 헤더.E -->
+		<%-- 헤더.E --%>
 
-		<!-- 내용.S -->		
+		<%-- 내용.S --%>		
 		<div class="container">
 
-			<!-- side 영역.S -->
+			<%-- side 영역.S --%>
 			<div id="side">
 
-				<!-- 좌측 네비.S -->
+				<%-- 좌측 네비.S --%>
 				<div class="btn-navi" >
 					<a href="/main">
 						<button type="button" class="btn_object">M A I N</button>
 					</a>
-					<!-- <button type="button" class="btn_evnet" onClick="OnClickEvent();">E V E N T</button> -->
+					<%-- <button type="button" class="btn_evnet" onClick="OnClickEvent();">E V E N T</button> --%>
 					<a href="/mainCamera">
 						<button type="button" class="btn_camera_on">C A M E R A</button>
 					</a>
 				</div>
-				<!-- 좌측 네비.E -->
+				<%-- 좌측 네비.E --%>
 
-				<!-- 실시간 채널.S -->
+				<%-- 실시간 채널.S --%>
 				<jsp:include page="/WEB-INF/views/main/inc_side.jsp"/>
-				<!-- 실시간 채널.E -->
+				<%-- 실시간 채널.E --%>
 				
 			</div>
-			<!-- side 영역.E -->
+			<%-- side 영역.E --%>
 
 
-			<!-- 우측 메인.S -->
+			<%-- 우측 메인.S --%>
 			<div id="contentsWrap">
-				<!-- 상단 날짜,버튼 영역.S -->
+				<%-- 상단 날짜,버튼 영역.S --%>
 				<div class="mainTop">
 					<div class=" dateArea">
 
-						<!-- 달력 -->
+						<%-- 달력 --%>
 						<div id="tui-date-picker-container"></div>
 						<a class="rollover" alt="달력" id="tui-date-picker-main" style="display:none;">
 							<img src="/resources/img/btn-calendar.png"> 
@@ -84,17 +84,17 @@
 						</a>
 
 						<p class="date" id='mainDate'></p>
-						<button type="button" class="btn-date" style="display:none;">◀<!-- <img src="img/btn-calendarLeft.png">--></button>
+						<button type="button" class="btn-date" style="display:none;">◀<%-- <img src="img/btn-calendarLeft.png">--%></button>
 						<button type="button" class="btn" style="display:none;">오늘</button>
-						<button type="button" class="btn-date" style="display:none;">▶<!-- <img src="img/btn-calendarRight.png">--></button>
+						<button type="button" class="btn-date" style="display:none;">▶<%-- <img src="img/btn-calendarRight.png">--%></button>
 					</div>					
 				</div>
-				<!-- 상단 날짜,버튼 영역.E -->
+				<%-- 상단 날짜,버튼 영역.E --%>
 
-				<!-- 메인컨텐츠.S -->
+				<%-- 메인컨텐츠.S --%>
 				<div class="contents">
 
-					<!-- 섹션 좌측.S -->
+					<%-- 섹션 좌측.S --%>
 					<div class="sectionBox2" style="height: 930px; display: flex; flex-direction: row;">
 						<div class="innerBox divCameraToday">
 							<div class="contentsTitle">
@@ -222,7 +222,7 @@
 											</div>
 											<div style="width:80%; height:80%; margin: 0 0 0 10%; padding: 8% 0 0 0;">
 												<div style="width:100%; height:100%; " id="sex_pie_wnd"></div>
-													<!--<div id = "sex_pie_wnd" style="width: 200px; height: 333px;"> -->
+													<%--<div id = "sex_pie_wnd" style="width: 200px; height: 333px;"> --%>
 											</div>
 											
 										</div>
@@ -290,8 +290,8 @@
 													</table>
 												</div>
 											</div>
-										<!-- 토스트 Grid 테마 중복으로 인해 CSS Grid 사용 -->
-										<!--
+										<%-- 토스트 Grid 테마 중복으로 인해 CSS Grid 사용 --%>
+										<%--
 										<div class="grid-container" style = "padding-left:3%; padding-top:13%; width:98%; height:100px; " id = "cloth_wnd"> 	
 											<div class="grid-item_header"> </div>
 											<div class="grid-item_header"><img src="/resources/img/icon_titleMale.png" style = "margin-top: -5px; margin-left: 60px; float:left;"><div style = "margin-top: 3px; text-align: left;">&nbsp;&nbsp;남자</div></div>
@@ -310,16 +310,16 @@
 											<div class="grid-item" id = "man_down_color_rate"></div>
 											<div class="grid-item" id = "woman_down_color_rate"></div>
 										</div >				
-										-->
+										--%>
 									</div>  
 								</div>
 							</div>
 						</div>
 					</div>
-					<!-- 섹션 좌측.E -->
+					<%-- 섹션 좌측.E --%>
 
 
-					<!-- 섹션 우측.S -->
+					<%-- 섹션 우측.S --%>
 					<div class="sectionBox2" style="width: 600px; height: 930px; margin: 0 0 0 15px;">
 						<div class="innerBox divSideAge" style="height:25vh;  height:450px;">
 							<div class="contentsTitle chartTitle">
@@ -332,18 +332,18 @@
 							</div>
 							<div class="chart01" >
 								<div>
-									<!-- 연령별 출입자 현황 도넛그래프 영역 -->
+									<%-- 연령별 출입자 현황 도넛그래프 영역 --%>
 									<div class="chart" style="width: 250px; height: 350px; margin: 0 0 0 5%; padding: 0 0 10% 0; ">
 										<div id="chart_radial_age" style="width: 100%; height: 100%;" ></div>
 									</div>   
 								</div>
 								<div class="genderMaskChart" style="margin: 15px 0 0 0;">
 									<div class="chart" style="width: 250px; height: 160px; ">
-										<!-- 남성 마스크 착용 비율 게이지 차트 -->
+										<%-- 남성 마스크 착용 비율 게이지 차트 --%>
 										<div id="chart_pie_donut" style="width: 100%; height: 100%;"></div>
 									</div>   								
 									<div class="chart"  style="width: 250px; height: 160px;">
-										<!-- 여성 마스크 착용 비율 게이지 차트 -->
+										<%-- 여성 마스크 착용 비율 게이지 차트 --%>
 										<div id="chart_pie_donut2" style="width: 100%; height: 100%;"></div>
 									</div> 
 									<div class="corlorGuide alignL">
@@ -370,38 +370,38 @@
 									</div>
 								</div>
 								<div class="data">
-									<!--<div id = "event_acc_wnd" style="margin-top: 30px; width:100%; height:350px; "></div>-->
+									<%--<div id = "event_acc_wnd" style="margin-top: 30px; width:100%; height:350px; "></div>--%>
 									<div id = "event_acc_wnd" style="margin-top: 30px; width:100%; height:350px; ">
-										<!-- 이벤트 발생 비율 도넛 차트 -->
+										<%-- 이벤트 발생 비율 도넛 차트 --%>
 									</div>
 								</div>
 								
 							</div>
 						</div>	
 					</div>	
-					<!-- 섹션 우측.E -->
+					<%-- 섹션 우측.E --%>
 				</div>
-				<!-- 메인컨텐츠.E -->
+				<%-- 메인컨텐츠.E --%>
 				<div id="bottom">
 					<p class="Notice">※ 화면에 표시되는 모든 실시간 데이터는 1분마다 자동으로 업데이트 합니다. 다만 “시간대별 현황” 그래프의 실시간 데이터는 정시에 한 번씩 업데이트 합니다.</p>
 					<div class="madeFodics" style="margin: 0 50px 0 0;">포딕스시스템</div>
 				</div>
 			</div>
-			<!-- 우측 메인.E -->
+			<%-- 우측 메인.E --%>
 
 		</div>
-		<!--  내용.E -->
+		<%--  내용.E --%>
 	</div>
-	<!-- 전체 wrap.E -->
+	<%-- 전체 wrap.E --%>
 
 
 	
 	
 
-	<!-- echarts -->
+	<%-- echarts --%>
 	<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
 		
-	<!-- js -->
+	<%-- js --%>
 	<script src="/resources/js/camera/main_camera_part1_human.js"></script> 
 	<script src="/resources/js/commonFunctions.js"></script> 
 	<script type="text/javascript" src="/resources/js/EventAccPieChart.js"></script>
@@ -413,7 +413,7 @@
  
 
 
-	<!--
+	<%--
 	<script>	    
 		  const chart = toastui.Chart;
 		  var DataGridObj = [];
@@ -1063,6 +1063,6 @@
 			  }
 		  }
 	 </script>
-	 -->
+	 --%>
  </body>
 </html>

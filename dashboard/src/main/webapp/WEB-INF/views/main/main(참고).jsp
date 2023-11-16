@@ -10,34 +10,34 @@
 	<title>Ai VinUS DASHBOARD</title>
 
 
-	<!-- css -->
+	<%-- css --%>
 
 
 
-	<!-- <link rel="stylesheet" href="css/style.css"> -->
+	<%-- <link rel="stylesheet" href="css/style.css"> --%>
 	<link rel="stylesheet" href="/resources/css/style.css">
-	<!-- <link rel="stylesheet" href="css/object.css"> -->
+	<%-- <link rel="stylesheet" href="css/object.css"> --%>
 	<link rel="stylesheet" href="/resources/css/object.css">
-	<!-- <link rel="stylesheet" href="css/popup.css"> -->
+	<%-- <link rel="stylesheet" href="css/popup.css"> --%>
 	<link rel="stylesheet" href="/resources/css/popup.css">
-	<!-- <link rel="stylesheet" href="css/style_scrollBar.css"/>   -->
+	<%-- <link rel="stylesheet" href="css/style_scrollBar.css"/>   --%>
 	<link rel="stylesheet" href="/resources/css/style_scrollBar.css"/>  
 	
-	<!-- <link rel="stylesheet" href="font/nanumsquare.css"> -->
+	<%-- <link rel="stylesheet" href="font/nanumsquare.css"> --%>
 	<link rel="stylesheet" href="/resources/font/nanumsquare.css">
 
-	<!-- <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" /> -->
+	<%-- <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" /> --%>
 	<link rel="shortcut icon" href="/resources/img/favicon.ico" type="image/x-icon" />
 	
-	<!-- <link rel="stylesheet" href="/css/style_grid.css"> -->
+	<%-- <link rel="stylesheet" href="/css/style_grid.css"> --%>
 	<link rel="stylesheet" href="/resources/css/style_grid.css">
 
 
-	<!--
+	<%--
 	<link rel="stylesheet" href="/resources/node_modules/tui-chart/dist/toastui-chart.css">
 	<link rel="stylesheet" href="/resources/node_modules/tui-grid/dist/tui-grid.css" />
 	<link rel="stylesheet" href="/resources/node_modules/tui-date-picker/dist/tui-date-picker.css">
-	-->
+	--%>
 	
 	<style>
 		
@@ -69,40 +69,40 @@
 </head>
 
 <body>
-	<!-- 전체 wrap.S -->
+	<%-- 전체 wrap.S --%>
 	<div class="wrap" id="indexWrap">  
 		<div data-include-path="Setting.html" file="Setting"></div>
 		
-		<!-- 헤더.S -->
+		<%-- 헤더.S --%>
 		<header id="header"> 
 			<jsp:include page="/WEB-INF/views/common/inc_header.jsp"/>
 		</header>
-		<!-- 헤더.E -->
+		<%-- 헤더.E --%>
 
-		<!-- 내용.S -->		
+		<%-- 내용.S --%>		
 		<div class="container">
 
-			<!-- side 영역.S -->
+			<%-- side 영역.S --%>
 			<div id="side">
 
-				<!-- 좌측 네비.S -->
+				<%-- 좌측 네비.S --%>
 				<div class="btn-navi" >
 					<a href="/main"><button type="button" class="btn_object_on" onClick="OnClickCtrl();">M A I N</button></a>
-					<!-- <button type="button" class="btn_evnet" onClick="OnClickEvent();">E V E N T</button> -->
+					<%-- <button type="button" class="btn_evnet" onClick="OnClickEvent();">E V E N T</button> --%>
 					<a href="/camera/mainCamera"><button type="button" class="btn_camera" onClick="OnClickDivide();">C A M E R A</button></a>
 				</div>
-				<!-- 좌측 네비.E -->
+				<%-- 좌측 네비.E --%>
 
-				<!-- 실시간 채널.S -->
+				<%-- 실시간 채널.S --%>
 				<div data-include-path="inc_side.html" file="inc_side"></div>
-				<!-- 실시간 채널.E -->
+				<%-- 실시간 채널.E --%>
 			</div>
-			<!-- side 영역.E -->
+			<%-- side 영역.E --%>
 
 
-			<!-- 우측 메인.S -->
+			<%-- 우측 메인.S --%>
 			<div id="contentsWrap">
-				<!-- 상단 날짜,버튼 영역.S -->
+				<%-- 상단 날짜,버튼 영역.S --%>
 				<div class="mainTop">
 					<div class=" dateArea">
 
@@ -114,7 +114,7 @@
 							<div id="tui-date-picker-container"></div>
 						</div>
 
-						<!-- 달력						
+						<%-- 달력						
 						<div id="tui-date-picker-container"></div>
 						<a class="rollover" alt="달력" id="tui-date-picker-main">
 							<img src="img/btn-calendar.png"> 
@@ -122,24 +122,24 @@
 						</a>
 
 						<p class="date" id='mainDate'>2021년 07월 21일</p>
-						-->
-						<button type="button" class="btn-date" onclick="OnPrevDate();" href="#">◀<!-- <img src="img/btn-calendarLeft.png">--></button>
+						--%>
+						<button type="button" class="btn-date" onclick="OnPrevDate();" href="#">◀<%-- <img src="img/btn-calendarLeft.png">--%></button>
 						<button type="button" class="btn" onclick="OnTodayDate();" href="#">오늘</button>
-						<button type="button" class="btn-date" onclick="OnNextDate();" href="#">▶<!-- <img src="img/btn-calendarRight.png">--></button>
+						<button type="button" class="btn-date" onclick="OnNextDate();" href="#">▶<%-- <img src="img/btn-calendarRight.png">--%></button>
 					</div>
 					<div class="btnArea">						
-						<!-- <a class="rollover" alt="csv파일" OnClick="OnCSV_Click()"><img src="img/btn-downCSV.png"> <img src="img/btn-downCSV_hover.png" class="over"></a> -->
+						<%-- <a class="rollover" alt="csv파일" OnClick="OnCSV_Click()"><img src="img/btn-downCSV.png"> <img src="img/btn-downCSV_hover.png" class="over"></a> --%>
 						<a class="rollover" alt="csv파일" OnClick="OnCSV_Click()"><img src="../../resources/img/btn-downCSV.png"> <img src="../../resources/img/btn-downCSV_hover.png" class="over"></a>
 						<a class="rollover" alt="bmp파일" OnClick="OnBMP_Click()"><img src="../../resources/img/btn-downBMP.png"> <img src="../../resources/img/btn-downBMP_hover.png" class="over"></a>
 						<a class="rollover" alt="csv파일" OnClick="OnPrint_Click()"><img src="../../resources/img/btn-downPrint.png"> <img src="../../resources/img/btn-downPrint_hover.png" class="over"></a>
 					</div>
 				</div>
-				<!-- 상단 날짜,버튼 영역.E -->
+				<%-- 상단 날짜,버튼 영역.E --%>
 
-				<!-- 메인컨텐츠.S -->
+				<%-- 메인컨텐츠.S --%>
 				<div class="contents">
 
-					<!-- 섹션 좌측.S -->
+					<%-- 섹션 좌측.S --%>
 					<div class="sectionBox">
 						<div class="innerBox divHuman" id="human_rect">
 							<div class="contentsTitle">
@@ -154,7 +154,7 @@
 							<div class="data" id="mainPerson" style="margin-top : 20px;" onclick="location.href='sub_object.html'">
 							</div>
 						</div>
-						<!-- <div class="innerBox divCar" id="vehicle_rect" >
+						<%-- <div class="innerBox divCar" id="vehicle_rect" >
 							<div class="contentsTitle">
 								<div class="title">
 									<h4>차량</h4>
@@ -166,7 +166,7 @@
 							</div>
 							<div class="data" id="mainVehicle" style="margin-left : 20px; margin-top : 20px;" onclick="location.href='sub_object.html'">						
 							</div>
-						</div> -->
+						</div> --%>
 						<div class="innerBox divAge" id="nomask_rect">
 							<div class="contentsTitle">
 								<div class="title">
@@ -182,11 +182,11 @@
 
 						</div>						
 					</div>
-					<!-- 섹션 좌측.E -->
+					<%-- 섹션 좌측.E --%>
 
-					<!-- 섹션 우측.S -->
+					<%-- 섹션 우측.S --%>
 					<div class="sectionBox">
-						<!-- <div class="innerBox divEvent" id="event_acc_rect">
+						<%-- <div class="innerBox divEvent" id="event_acc_rect">
 							<div class="contentsTitle">
 								<div class="title">
 									<h4>이벤트 발생 비율</h4>
@@ -194,7 +194,7 @@
 							</div>
 							<div class="data" id="subEventRatio" style="margin-top: 20px;">								
 							</div>
-						</div>	 -->	
+						</div>	 --%>	
 						
 						<div class="innerBox divTime" id="time_rect">
 							<div class="contentsTitle">
@@ -203,7 +203,7 @@
 								</div>
 							</div>
 							<div class="data" id="mainHourly" style="margin-top : 20px">
-								<!--  테이블 영역 샘플.s -->							
+								<%--  테이블 영역 샘플.s --%>							
 							</div>
 						</div>
 
@@ -213,26 +213,26 @@
 									<h4>최다검지 카메라 TOP10 CH</h4>
 								</div>
 								<div class="partBTN">
-									<!-- <a class="changeGraph" onclick="setMainEventTop10()"; style="margin-top:3px;"><img id="changeEvent_btn" src="img/btn_human.png"><img id="changeEvent_btn" src="img/btn_human_on.png" class="over"></a> -->
-									<!-- <a class="changeGraph" onclick="setMainVehicleTop10()"; style="margin-top:3px;"><img id="changeVehicle_btn" src="img/btn_car.png"> <img src="img/btn_car_on.png" class="over"></a>									 -->
+									<%-- <a class="changeGraph" onclick="setMainEventTop10()"; style="margin-top:3px;"><img id="changeEvent_btn" src="img/btn_human.png"><img id="changeEvent_btn" src="img/btn_human_on.png" class="over"></a> --%>
+									<%-- <a class="changeGraph" onclick="setMainVehicleTop10()"; style="margin-top:3px;"><img id="changeVehicle_btn" src="img/btn_car.png"> <img src="img/btn_car_on.png" class="over"></a>									 --%>
 								</div>
 							</div>
 							<div class="data" id="subTop10Cameras" style="margin: 10px"></div>						
 							<div class="data" id="subTop10CamerasCar" style="margin: 10px"></div>
 						</div>
 					</div>	
-					<!-- 섹션 우측.E -->
+					<%-- 섹션 우측.E --%>
 				</div>
 
-				<!-- 로딩 -->
+				<%-- 로딩 --%>
 				<div id="loading"><img id="loading-image" src="../../resources/img/loading_animated.png" alt="Loading..." /></div>
 
-				<!-- 메인컨텐츠.E -->
+				<%-- 메인컨텐츠.E --%>
 				<div id="bottom">
 					<p class="Notice">※ 화면에 표시되는 모든 실시간 데이터는 1분마다 자동으로 업데이트 합니다. 다만 “시간대별 현황” 그래프의 실시간 데이터는 정시에 한 번씩 업데이트 합니다.</p>
 					<div class="madeFodics">포딕스시스템</div>
 				</div>
-				<!-- CSV 대화상자 -->
+				<%-- CSV 대화상자 --%>
 				<dialog open id="csv_dialog" style = "display:none; background-color: rgba(30,30,30,1); color:rgba(192,192,192,1); width: 336px; padding: 0px; top:30px; left:900px;">		
 					<div style = "font-size: 14px; width: 330px; background-color: rgba(45,45,45,1); color:rgba(255,255,255,1); padding: 16px; ">
 						<p>.csv 파일로 내려받기를 원하시는 항목을 선택</p>						
@@ -251,7 +251,7 @@
 						<a class="rollover" alt="취소" OnClick="OnCSV_Cancel()"><img src="../../resources/img/btn_popCancel.png"> <img src="../../resources/img/btn_popCancel_hover.png" class="over"></a>
 					</div>
 				</dialog>
-				<!-- BMP 대화상자 -->
+				<%-- BMP 대화상자 --%>
 				<dialog open id="bmp_dialog" style = "display:none; background-color: rgba(30,30,30,1); color:rgba(192,192,192,1); width: 336px; padding: 0px; top:30px; left:1070px;">		
 					<div style = "font-size: 14px; width: 330px; background-color: rgba(45,45,45,1); color:rgba(255,255,255,1); padding: 16px; ">
 						<p>.bmp 파일로 내려받기를 원하시는 항목을 선택</p>						
@@ -270,7 +270,7 @@
 						<a class="rollover" alt="취소" OnClick="OnBMP_Cancel()"><img src="../../resources/img/btn_popCancel.png"> <img src="../../resources/img/btn_popCancel_hover.png" class="over "></a>
 					</div>
 				</dialog>
-<!-- 출력 대화상자 -->
+<%-- 출력 대화상자 --%>
 				<dialog open id="print_dialog" style = "display:none; background-color: rgba(30,30,30,1); color:rgba(192,192,192,1); width: 566px; padding: 0px; top:30px; left:1040px;">		
 					<div style = "font-size: 14px; width: 560px; background-color: rgba(45,45,45,1); color:rgba(255,255,255,1); padding: 16px; ">
 						<p>보고서 인쇄를 원하시는 항목을 선택하여</p>						
@@ -294,7 +294,7 @@
 						<div style = "margin-top : 15px;">&emsp;&emsp;&emsp;보고서 제목<input type="text" id="report_title" style = "margin-left : 28px;"></div>
 						<div style = "margin-top : 15px;">&emsp;&emsp;&emsp;보고자 이름<input type="text" id="report_name" style = "margin-left : 28px;"></div>
 						<div style = "margin-top : 15px;">&emsp;&emsp;&emsp;목적 및 요지<input type="text" id="report_purpose" style = "margin-left : 25px;"></div>
-						<!-- <div style = "margin : 15px;">&emsp;&emsp;&emsp;결재란 유/무<input type="checkbox" name="type" onclick="chkPaymentClick(this)" id="report_payment_block" style = "margin-left : 25px;">  유<input type="checkbox"  name="type" onclick="chkPaymentClick(this)" id="report_payment_none" style = "margin-left : 25px;">  무</div> -->
+						<%-- <div style = "margin : 15px;">&emsp;&emsp;&emsp;결재란 유/무<input type="checkbox" name="type" onclick="chkPaymentClick(this)" id="report_payment_block" style = "margin-left : 25px;">  유<input type="checkbox"  name="type" onclick="chkPaymentClick(this)" id="report_payment_none" style = "margin-left : 25px;">  무</div> --%>
 						<div style = "margin-top : 15px; ">&emsp;&emsp;&emsp;결재란 유/무<input type="file" id="input_file_yes" style = "width: 180px; margin-left : 25px;"></div>
 						
 					</div>
@@ -304,42 +304,42 @@
 					</div>
 				</dialog>
 			</div>
-			<!-- 우측 메인.E -->
+			<%-- 우측 메인.E --%>
 
 		</div>
-		<!--  내용.E -->
+		<%--  내용.E --%>
 	</div>
-	<!-- 전체 wrap.E -->
+	<%-- 전체 wrap.E --%>
 
 
 
-	<!-- js -->
+	<%-- js --%>
 	<script src="/resources/js/commonFunctions.js"></script>
 	<script src="/resources/js/tabcontent.js"></script>
 	<script src="/resources/js/popupSetting.js"></script>
 	<script src="/resources/js/inc_side.js"></script>
 	<script src="/resources/js/CsvMakeFile.js"></script>
 
-	<!-- echarts -->
+	<%-- echarts --%>
 	<script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
 	
 	
-	<!--jquery-->
+	<%--jquery--%>
 	<script src="/resources/node_modules/jquery/3.6.0/jquery.min.js"></script>
 	
-	<!--toastui -->
+	<%--toastui --%>
 	<script src="/resources/node_modules/tui-chart/dist/toastui-chart.js"></script>
 	<script src="/resources/node_modules/tui-grid/dist/tui-grid.js"></script>      	
 	<script src="/resources/node_modules/tui-date-picker/dist/tui-date-picker.js"></script>
 	
-	<!-- node_modules -->
-	<!--
+	<%-- node_modules --%>
+	<%--
 	<script src = "/resources/node_modules/tui-etc/FileSaver/FileSaver.js"></script>	
 	<script src = "/resources/node_modules/tui-etc/html2canvas/html2canvas.min.js"></script>
 	<script src=  "/resources/node_modules/tui-etc/Fabric/fabric.min.js"></script>
-	-->
+	--%>
 
-	<!--<script type="text/javascript" src="dashboard_config.json"></script> -->
+	<%--<script type="text/javascript" src="dashboard_config.json"></script> --%>
 
   	<script>
 		var move_day = 0;

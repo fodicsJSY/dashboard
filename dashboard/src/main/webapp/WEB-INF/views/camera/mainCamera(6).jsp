@@ -109,8 +109,8 @@
 								<%--
 								<div style="position: relative; left: 700px; float: left;">
 									<button type="button" style="margin-top: 3px" class ="btn" onClick="location.href='main_camera_part2.html'">2분할</button>
-									<button type="button" style="margin-top: 3px" class="btn" onClick="location.href='main_camera_part4.html'">4분할</button>
 									<button type="button" style="margin-top: 3px" class="btn" onClick="location.href='main_camera_part6.html'">6분할</button>
+									<button type="button" style="margin-top: 3px" class="btn" onClick="location.href='main_camera_part4.html'">4분할</button>
 									<button type="button" style="margin-top: 3px" class="btn" onClick="location.href='main_camera.html'">8분할</button> 
 								</div>--%>
 							</div>

@@ -3,74 +3,119 @@
 <mapper namespace="mainPageMapper">
 
 
-<resultMap type="edu.nojo.vote.main.model.dto.Petition" id="petition_rm">
-		<result property="petitionContent" column="PT_CONTENT" jdbcType="CLOB" javaType="String" />
-		 <result property="petitionNo" column="PT_NO" />
-      	<result property="petitionTitle" column="PT_TITLE" />
-      	<result property="petitionContent" column="PT_CONTENT" />
-      	<result property="petitionDate" column="PT_DATE" />
-      	<result property="petitionViewCount" column="PT_VIEW_COUNT" />
-      	<result property="petitionImage" column="PT_IMG" />
-      	<result property="petitionVictory" column="PT_VICT" />
-      	
-      	<result property="userNo" column="USER_NO" />
-      	<result property="userImage" column="USER_IMG" />
-      	<result property="userNickname" column="USER_NICKNAME" />
-      	<result property="userAddress" column="USER_ADD" />
-      	
-      	<result property="categoryNo" column="CAT_NO" />
-      	<result property="categoryName" column="CAT_NAME" />
-      	
-      	<result property="petitionLikeCount" column="LIKE_COUNT" />
+<resultMap type="fo.di.cs.main.model.dto.DC_summary" id="DC_summary_rm">
+		 <result property="face_youngMale" column="FACE_YOUNGMALE" />
+      	<result property="face_youngFemale" column="FACE_YOUNGFEMALE" />
+      	<result property="face_adultMale" column="FACE_ADULTMALE" />
+      	<result property="face_adultFemale" column="FACE_ADULTFEMALE" />
+      	<result property="face_middleMale" column="FACE_MIDDLEMALE" />
+      	<result property="face_middleFemale" column="FACE_MIDDLEFEMALE" />
+      	<result property="face_seniorMale" column="FACE_SENIORMALE" />
+      	<result property="face_seniorFemale" column="FACE_SENIORFEMALE" />
+      	<result property="occuDate" column="FACE_SENIORFEMALE" />
 </resultMap> 
 
-<resultMap type="edu.nojo.vote.writePetition.model.dto.PetitionCategory" id="category_rm">
-      	<result property="categoryNo" column="CAT_NO" />
-      	<result property="categoryName" column="CAT_NAME" />
-      	<result property="categoryMainFl" column="CAT_MAIN_FL" />
 
-</resultMap>
+<resultMap type="fo.di.cs.main.model.dto.DailyCount" id="DailyCount_rm">
+		 <result property="time" column="time" />
+		 <result property="person" column="PERSON" />
+      	<result property="vehicle" column="VEHICLE" />
+      	<result property="face" column="FACE" />
+      	<result property="lpr" column="LPR" />
+      	<result property="invCnt" column="INV_CNT" />
+      	<result property="lotCnt" column="LOT_CNT" />
+      	<result property="cntCnt" column="CNT_CNT" />
+      	<result property="fatCnt" column="FAL_CNT" />
+      	<result property="occuTime" column="OCCU_TIME" />
+      	<result property="cameraName" column="CAMERA_NAME" />
+      	<result property="personCount" column="personCount" />
+      	<result property="vehicleCount" column="vehicleCount" />
+      	<result property="faceCount" column="faceCount" />
+      	<result property="lprCount" column="lprCount" />
+      	<result property="invCntCount" column="invCntCount" />
+      	<result property="lotCntCount" column="lotCntCount" />
+      	<result property="cntCntCount" column="cntCntCount" />
+      	<result property="falCntCont" column="falCntCont" />
+</resultMap> 
+
+<resultMap type="fo.di.cs.main.model.dto.DailyCount_summary" id="DailyCount_summary_rm">
+		 <result property="faceNoMaskMaleYoung" column="FACE_NOMASKMALEYOUNG" />
+      	<result property="faceNoMaskMaleAdlut" column="FACE_NOMASKMALEADULT" />
+      	<result property="faceNoMaskMaleMiddle" column="FACE_NOMASKMALEMIDDLE" />
+      	<result property="faceNoMaskMaleSenior" column="FACE_NOMASKMALESENIOR" />
+      	<result property="faceNoMaskFemaleYoung" column="FACE_NOMASKFEMALEYOUNG" />
+      	<result property="faceNoMaskFemaleAdult" column="FACE_NOMASKFEMALEADULT" />
+      	<result property="faceNoMaskFemaleMiddle" column="FACE_NOMASKFEMALEMIDDLE" />
+      	<result property="faceNoMaskFemaleSenior" column="FACE_NOMASKFEMALESENIOR" />
+      	<result property="occuDate" column="OCCU_DATE" />
+</resultMap> 
 	
 		
-		<!-- 메인페이지 박스에 청원 보이기 -->
-	<select id="selectMainPtList" resultMap="petition_rm">
-		SELECT PT_TITLE, PT_CONTENT, PT_IMG, USER_NICKNAME, USER_NO, NVL2(USER_IMG, USER_IMG, '/resources/images/common/icon.png') USER_IMG, SUBSTR(USER_ADD, 1, INSTR(USER_ADD, ' ', 1, 2) - 1) AS USER_ADD, PT_VIEW_COUNT, MP.PT_NO,
-		(SELECT COUNT(*) FROM PETITION_LIKE PL WHERE PL.PT_NO = PT.PT_NO) "LIKE_COUNT"
-		FROM PETITION PT
-		JOIN "USER" USING(USER_NO)
-		JOIN MAIN_PETITION MP ON(PT.PT_NO=MP.PT_NO)
-		WHERE PT_DEL_FL = 'N'
-		ORDER BY "ORDER"
+	<!-- 메인페이지 사람 막대그래프 & 도넛그래프(금일)-->
+	<select id="selectMainHumanChart" resultMap="DC_summary_rm">
+		SELECT
+			FACE_YOUNGMALE   
+			, FACE_YOUNGFEMALE 
+			, FACE_ADULTMALE
+			, FACE_ADULTFEMALE 
+			, FACE_MIDDLEMALE
+			, FACE_MIDDLEFEMALE 
+			, FACE_SENIORMALE   
+			, FACE_SENIORFEMALE 
+			FROM "TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY"
+		WHERE OCCU_DATE = CONVERT(varchar, GETDATE(), 112)
 	</select>
 	
-	
-
-	
-	<select id="selectMainUserList" resultType="map">
-		SELECT * FROM "USER"
+	<!-- 시간대별 라인차트 (금일)-->
+	<select id="selectMainLineChart" resultMap="DailyCount_rm">
+		SELECT
+		SUBSTRING(OCCU_TIME, 9, 2)  AS time
+		, PERSON             
+		, VEHICLE             
+		, FACE                   
+		, LPR                     
+		, INV_CNT              
+		, LOT_CNT              
+		, CNT_CNT             
+		, FAL_CNT
+		FROM "TB_AI_NVR_DASH_BOARD_DAILY_COUNT"
+		WHERE SUBSTRING(OCCU_TIME, 1, 8) = CONVERT(varchar, GETDATE(), 112)
+		ORDER BY OCCU_TIME
 	</select>
 	
-	
-	<select id="selectMainPtNoList" resultType="int">
-		SELECT * FROM "MAIN_PETITION"
+	<!-- 마스크 미착용자 성별/연령 비교 (금일)-->
+	<select id="selectMainMaskChart" resultMap="DailyCount_summary_rm">
+		SELECT
+			FACE_NOMASKMALEYOUNG      
+			, FACE_NOMASKMALEADULT         
+			, FACE_NOMASKMALEMIDDLE       
+			, FACE_NOMASKMALESENIOR      
+			, FACE_NOMASKFEMALEYOUNG     
+			, FACE_NOMASKFEMALEADULT     
+			, FACE_NOMASKFEMALEMIDDLE    
+			, FACE_NOMASKFEMALESENIOR     
+		FROM "TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY"
+		WHERE OCCU_DATE = CONVERT(varchar, GETDATE(), 112)
 	</select>
 	
-	<select id="selectPetition" resultMap="petition_rm">
-		SELECT PT_NO, PT_TITLE, PT_CONTENT, PT_IMG, USER_NICKNAME, USER_NO, NVL2(USER_IMG, USER_IMG, '/resources/images/common/icon.png') USER_IMG, USER_ADD,
-		(SELECT COUNT(*) FROM PETITION_LIKE WHERE PT_NO = P.PT_NO) "LIKE_COUNT"
-		FROM PETITION P
-		JOIN "USER" USING(USER_NO)
-		WHERE PT_DEL_FL = 'N'
-		ORDER BY PT_NO
+	<!-- 최다검지카메라 사람 테이블(금일) --> 
+	<select id="selectMainHumanTable" resultMap="DailyCount_rm">
+		SELECT
+			TOP 10
+			CNT.CAMERA_NAME   
+			, SUM(CNT.PERSON)   AS personCount     
+			, SUM(CNT.VEHICLE)  AS vehicleCount     
+			, SUM(CNT.FACE)   AS faceCount             
+			, SUM(CNT.LPR)    AS lprCount               
+			, SUM(CNT.INV_CNT)  AS invCntCount   
+			, SUM(CNT.LOT_CNT)  AS lotCntCount   
+			, SUM(CNT.CNT_CNT)  AS cntCntCount   
+			, SUM(CNT.FAL_CNT)  AS falCntCont     
+		FROM "TB_AI_NVR_DASH_BOARD_DAILY_COUNT" CNT
+		WHERE SUBSTRING(CNT.OCCU_TIME, 1, 8) = CONVERT(varchar, GETDATE(), 112)
+		GROUP BY CNT.CAMERA_NAME
+		ORDER BY SUM(CNT.TOT_CNT)
 	</select>
-	
-	<select id="selectCategoryList" resultMap="category_rm">
-		SELECT CAT_NO, CAT_NAME
-		FROM PETITION_CATEGORY PC
-		JOIN PETITION_CATEGORY_LIST PCL USING (CAT_NO)
-		WHERE PT_NO=#{petitionNo}
-	</select>
-	
 	
 	
 	

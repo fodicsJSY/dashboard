@@ -11,8 +11,8 @@
 
 
     
-    <!-- css -->
-    <!-- sweetalert2 -->
+    <%-- css --%>
+    <%-- sweetalert2 --%>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.min.css">
 
     <link rel="stylesheet" href="../../resources/css/style.css">
@@ -23,7 +23,7 @@
 <body>
 
 
-    <!-- 로그인 -->
+    <%-- 로그인 --%>
 	<section class="loginWrap">  
 		<div class="loginTop">
 			<div class="loginLogo">
@@ -46,8 +46,8 @@
 
 
 
-    <!-- js -->
-    <!-- sweetalert2 -->
+    <%-- js --%>
+    <%-- sweetalert2 --%>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.all.min.js"></script>
     <script>
         const loginForm = document.getElementById("loginFrm"); //로그인 폼
@@ -82,7 +82,7 @@
             }
 
         })
-   </script>
+    </script>
 
 </body>
 </html>

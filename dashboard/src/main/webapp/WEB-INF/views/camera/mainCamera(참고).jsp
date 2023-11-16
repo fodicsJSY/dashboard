@@ -9,14 +9,14 @@
 
 
 
-	  <!-- toust UI 시작 -->
-	  <link rel="stylesheet" href="./node_modules/tui-chart/dist/toastui-chart.css">
-	  <script src="./node_modules/tui-chart/dist/toastui-chart.js"></script>
-	  <link rel="stylesheet" href="./node_modules/tui-grid/dist/tui-grid.css" />
-	  <script src="./node_modules/tui-grid/dist/tui-grid.js"></script>    
-	  <link rel="stylesheet" href="./node_modules/tui-date-picker/dist/tui-date-picker.css">
-	  <script src="./node_modules/tui-date-picker/dist/tui-date-picker.js"></script>
-	  <!-- toust UI 끝 -->
+	<!-- toust UI 시작 -->
+	<link rel="stylesheet" href="./node_modules/tui-chart/dist/toastui-chart.css">
+	<script src="./node_modules/tui-chart/dist/toastui-chart.js"></script>
+	<link rel="stylesheet" href="./node_modules/tui-grid/dist/tui-grid.css" />
+	<script src="./node_modules/tui-grid/dist/tui-grid.js"></script>    
+	<link rel="stylesheet" href="./node_modules/tui-date-picker/dist/tui-date-picker.css">
+	<script src="./node_modules/tui-date-picker/dist/tui-date-picker.js"></script>
+	<!-- toust UI 끝 -->
 
 	<!-- css -->
 	<link rel="stylesheet" href="/resources/css/popup.css">
@@ -31,9 +31,9 @@
 	<link rel="shortcut icon" href="/resources/img/favicon.ico" type="image/x-icon" />
 
 
- </head>
+</head>
 
- <body>
+<body>
 	<!-- 전체 wrap.S -->
 	<div class="wrap" id="indexWrap">  
 		<div data-include-path="Setting.html" file="Setting"></div>
@@ -110,8 +110,8 @@
 
 								<div style="position: relative; left: 700px; float: left;">
 									<!-- <button type="button" style="margin-top: 3px" class ="btn" onClick="location.href='main_camera_part2.html'">2분할</button>
-								  	<button type="button" style="margin-top: 3px" class="btn" onClick="location.href='main_camera_part4.html'">4분할</button>
-								    <button type="button" style="margin-top: 3px" class="btn" onClick="location.href='main_camera_part6.html'">6분할</button>
+									<button type="button" style="margin-top: 3px" class="btn" onClick="location.href='main_camera_part4.html'">4분할</button>
+									<button type="button" style="margin-top: 3px" class="btn" onClick="location.href='main_camera_part6.html'">6분할</button>
 									<button type="button" style="margin-top: 3px" class="btn" onClick="location.href='main_camera.html'">8분할</button> -->
 								</div>
 							</div>
@@ -299,427 +299,427 @@
 	<script src="/resources/js/EventAccPieChart.js"></script>
 	<script src="/resources/js/popupSetting.js"></script>
 	<!-- <script type="text/javascript" src="dashboard_config.json"></script>  -->
-  
+
 	<script>
-	  const chart = toastui.Chart;
-	  var DataGridObj = [];
-	  var DataEvtObj = [];
-  
-	  var grid_Human = null;
-	  var grid_Car = null;
-	  var grid_Counting = null;
-	  var grid_Invasion = null;
-	  var grid_Face = null;
-	  var grid_Loitering = null;
-	  var grid_LPR = null;
-	  var grid_Parking = null;
-  
-			 window.addEventListener('load', function() {
-			  var allElements = document.getElementsByTagName('*');
-			  Array.prototype.forEach.call(allElements, function(el) {
-				  var includePath = el.dataset.includePath;
-				  if (includePath) {
-					  var xhttp = new XMLHttpRequest();
-					  xhttp.onreadystatechange = function () {
-						  if (this.readyState == 4 && this.status == 200) {
-  
-							  var file = el.getAttribute('file');
-							  if (file == "inc_side") {
-								  readTextFile("/data/dailyCount.json", saveDailyData);
-								  loadCameraGroupData();
-							  }
-								  
-							  el.outerHTML = this.responseText;
-							  
-							  if (file == "inc_header") {
-								  if(config_data[0].exe_type=='1')
-								  {
-									  document.getElementById("main_title").innerText = "Ai VinUS DASHBOARD SERVER";
-								  }
-							  }
-  
-							  
-						  }
-					  };
-					  xhttp.open('GET', includePath, true);
-					  xhttp.send();
-				  }
-			  });
-			  
-			  readTextFile("./data/dailyCount.json",
-				  function (text) {
-					  DataEvtObj = JSON.parse(text);
-					  LoadEvemtAccPieChart(DataEvtObj);		
-				  }
-			  ); 
-  
-			  calendarToday();
-			  loadData();					
-			  setInterval('loadData()', 60 * 1000);		
-			  
-			  // Righe Page 처리
-			  LoadRadialBarChart();
-			  LoadPieDonutChartMale();
-			  LoadPieDonutChartFemale();	
-  
+		const chart = toastui.Chart;
+		var DataGridObj = [];
+		var DataEvtObj = [];
+
+		var grid_Human = null;
+		var grid_Car = null;
+		var grid_Counting = null;
+		var grid_Invasion = null;
+		var grid_Face = null;
+		var grid_Loitering = null;
+		var grid_LPR = null;
+		var grid_Parking = null;
+
+		window.addEventListener('load', function() {
+			var allElements = document.getElementsByTagName('*');
+			Array.prototype.forEach.call(allElements, function(el) {
+				var includePath = el.dataset.includePath;
+				if (includePath) {
+					var xhttp = new XMLHttpRequest();
+					xhttp.onreadystatechange = function () {
+						if (this.readyState == 4 && this.status == 200) {
+
+							var file = el.getAttribute('file');
+							if (file == "inc_side") {
+								readTextFile("/data/dailyCount.json", saveDailyData);
+								loadCameraGroupData();
+							}
+								
+							el.outerHTML = this.responseText;
+							
+							if (file == "inc_header") {
+								if(config_data[0].exe_type=='1')
+								{
+									document.getElementById("main_title").innerText = "Ai VinUS DASHBOARD SERVER";
+								}
+							}
+
+							
+						}
+					};
+					xhttp.open('GET', includePath, true);
+					xhttp.send();
+				}
+			});
+				
+			readTextFile("./data/dailyCount.json",
+				function (text) {
+					DataEvtObj = JSON.parse(text);
+					LoadEvemtAccPieChart(DataEvtObj);		
+				}
+			); 
+
+			calendarToday();
+			loadData();					
+			setInterval('loadData()', 60 * 1000);		
+			
+			// Righe Page 처리
+			LoadRadialBarChart();
+			LoadPieDonutChartMale();
+			LoadPieDonutChartFemale();	
+
 		});
-  
+
 		function loadData()
 		{	
-		  readTextFile("./data/dailyCount.json",
-			  function (text) {
-				  DataEvtObj = JSON.parse(text);		
-				  LoadHumanCount(DataEvtObj);					
-				  LoadVehicleCount(DataEvtObj);
-				  LoadFaceCount(DataEvtObj);
-				  LoadInvCount(DataEvtObj);
-				  LoadCountingCount(DataEvtObj);
-				  LoadLotCount(DataEvtObj);	
-			  }
-		  ); 											
-			  
-		  readTextFile("./data/dailyCountByCamera.json",
-			  function (text) {
-				  DataGridObj = JSON.parse(text);		
-  
-				  if( grid_Human != null ){
-					  grid_Human.destroy();
-					  grid_Human = null;
-				  }
-				  if( grid_Car != null ){
-					  grid_Car.destroy();
-					  grid_Car = null;
-				  }
-				  if( grid_Counting != null ){
-					  grid_Counting.destroy();
-					  grid_Counting = null;
-				  }
-				  if( grid_Invasion != null ){
-					  grid_Invasion.destroy();
-					  grid_Invasion = null;
-				  }
-				  if( grid_Face != null ){
-					  grid_Face.destroy();
-					  grid_Face = null;
-				  }
-				  if( grid_Loitering != null ){
-					  grid_Loitering.destroy();
-					  grid_Loitering = null;
-				  }
-				  if( grid_LPR != null ){
-					  grid_LPR.destroy();
-					  grid_LPR = null;
-				  }
-				  if( grid_Parking != null ){
-					  grid_Parking.destroy();
-					  grid_Parking = null;
-				  }
-				  LoadWndCountGrid(); 
-			  }
-		  );	
+			readTextFile("./data/dailyCount.json",
+				function (text) {
+					DataEvtObj = JSON.parse(text);		
+					LoadHumanCount(DataEvtObj);					
+					LoadVehicleCount(DataEvtObj);
+					LoadFaceCount(DataEvtObj);
+					LoadInvCount(DataEvtObj);
+					LoadCountingCount(DataEvtObj);
+					LoadLotCount(DataEvtObj);	
+				}
+			); 											
+				
+			readTextFile("./data/dailyCountByCamera.json",
+				function (text) {
+					DataGridObj = JSON.parse(text);		
+
+					if( grid_Human != null ){
+						grid_Human.destroy();
+						grid_Human = null;
+					}
+					if( grid_Car != null ){
+						grid_Car.destroy();
+						grid_Car = null;
+					}
+					if( grid_Counting != null ){
+						grid_Counting.destroy();
+						grid_Counting = null;
+					}
+					if( grid_Invasion != null ){
+						grid_Invasion.destroy();
+						grid_Invasion = null;
+					}
+					if( grid_Face != null ){
+						grid_Face.destroy();
+						grid_Face = null;
+					}
+					if( grid_Loitering != null ){
+						grid_Loitering.destroy();
+						grid_Loitering = null;
+					}
+					if( grid_LPR != null ){
+						grid_LPR.destroy();
+						grid_LPR = null;
+					}
+					if( grid_Parking != null ){
+						grid_Parking.destroy();
+						grid_Parking = null;
+					}
+					LoadWndCountGrid(); 
+				}
+			);	
 		}
-  
+
 		function LoadWndCountGrid()
-		  {
-			  tui.Grid.applyTheme("default", {
-				  area: {
-				  header: {
-					  border: '#2d2d2d'
-				  }
-			  },
-			  outline: {
-				  border: "#2d2d2d",
-			  },
-			  cell: {
-				  normal: {
-					  background: "rgba(30,30,30,1)",
-					  border: 'rgba(30,30,30,1)',
-					  text: '#c5c5c5',
-					  showHorizontalBorder: true,
-					  showVerticalBorder: true,
-				  },
-				  header: {
-					  background: "rgba(30,30,30,1)",
-					  border: "rgba(30,30,30,1)",
-					  text: '#c5c5c5',
-					  showHorizontalBorder: true,
-					  showVerticalBorder: true,
-				  },				
-			  },
-			  scrollbar:
-				  {
-					  border: "#2d2d2d",
-					  background: "#2d2d2d",
-					  emptySpace: "#1a1a1a",
-					  thumb : "#838383",
-					  active: "#aaa",
-				  },
-			  }),
-  
-			  grid_Human = new tui.Grid({
-				  el: document.getElementById('Human_grid_area'),
-				  data: DataGridObj,
-				  scrollX: false,
-				  scrollY: false,    
-  
-				  rowHeight: 48,
-				  bodyHeight: 190,
-				  
-				  header: {
-					  height: '0px',					
-				  },
-				  columns: [
-					  {
-					  align: 'left',
-					  name: 'CAMERA_NAME',  
-					  width: 220,     
-					  },
-					  {								
-						  align: 'right',               
-						  name: 'PERSON',   
-						  sortable:true,   
-						  renderer: {
-						  styles: {
-							  color: 'rgba(148, 233, 236, 1)',
-							  },            			            
-						  }		
-					  }			  
-				  ],				
-			  });				
-  
-			  grid_Car = new tui.Grid({
-				  el: document.getElementById('Car_grid_area'),
-				  data: DataGridObj,
-				  scrollX: false,
-				  scrollY: false,    
-  
-				  rowHeight: 48,
-				  bodyHeight: 190,
-				  
-				  header: {
-					  height: '0px',					
-				  },
-				  columns: [
-					  {
-					  align: 'left',
-					  name: 'CAMERA_NAME',  
-					  width: 220,      
-					  },
-					  {								
-						  align: 'right',               
-						  name: 'VEHICLE',   
-						  sortable:true,    
-						  renderer: {
-						  styles: {
-							  color: 'rgba(212, 224, 121, 1)',
-							  },            			            
-						  }		
-					  }			  
-				  ],
-  
-			  });	
-  
-			  grid_Face = new tui.Grid({
-				  el: document.getElementById('Face_grid_area'),
-				  data: DataGridObj,
-				  scrollX: false,
-				  scrollY: false,    
-  
-				  rowHeight: 48,
-				  bodyHeight: 190,
-				  
-				  header: {
-					  height: '0px',					
-				  },
-				  columns: [
-					  {
-					  align: 'left',
-					  name: 'CAMERA_NAME',  
-					  width: 220,               
-					  },
-					  {								
-						  align: 'right',               
-						  name: 'FACE',   
-						  sortable:true,
-						  renderer: {
-						  styles: {
-							  color: 'rgba(180, 161, 216, 1)',
-							  },            			            
-						  }		
-					  }			  
-				  ],
-  
-			  });	
-  
-			  grid_Invasion = new tui.Grid({
-				  el: document.getElementById('Invasion_grid_area'),
-				  data: DataGridObj,
-				  scrollX: false,
-				  scrollY: false,    
-  
-				  rowHeight: 48,
-				  bodyHeight: 190,
-				  
-				  header: {
-					  height: '0px',					
-				  },
-				  columns: [
-					  {
-					  align: 'left',
-					  name: 'CAMERA_NAME',  
-					  width: 220,             
-					  },
-					  {								
-						  align: 'right',               
-						  name: 'INV_CNT',   
-						  sortable:true,
-						  renderer: {
-						  styles: {
-							  color: '#4176df',
-							  },            			            
-						  }		
-					  }			  
-				  ],
-  
-			  });	
-  
-			  grid_Counting = new tui.Grid({
-				  el: document.getElementById('Counting_grid_area'),
-				  data: DataGridObj,
-				  scrollX: false,
-				  scrollY: false,    
-  
-				  rowHeight: 48,
-				  bodyHeight: 190,
-				  
-				  header: {
-					  height: '0px',					
-				  },
-				  columns: [
-					  {
-					  align: 'left',
-					  name: 'CAMERA_NAME',  
-					  width: 220,          
-					  },
-					  {								
-						  align: 'right',               
-						  name: 'CNT_CNT',   
-						  sortable:true,
-						  renderer: {
-						  styles: {
-								  color: '#ff7978',
-							  },            			            
-						  }		
-					  }			  
-				  ],
-  
-			  });	
-  
-			  grid_Loitering = new tui.Grid({
-				  el: document.getElementById('Loitering_grid_area'),
-				  data: DataGridObj,
-				  scrollX: false,
-				  scrollY: false,    
-  
-				  rowHeight: 48,
-				  bodyHeight: 190,
-				  
-				  header: {
-					  height: '0px',					
-				  },
-				  columns: [
-					  {
-					  align: 'left',
-					  name: 'CAMERA_NAME',  
-					  width: 220,                 
-					  },
-					  {								
-						  align: 'right',               
-						  name: 'LOT_CNT',   
-						  sortable:true,
-						  renderer: {
-						  styles: {
-							  color: '#fec070',
-							  },            			            
-						  }		
-					  }			  
-				  ],
-  
-			  });	
-  
-			  grid_LPR = new tui.Grid({
-				  el: document.getElementById('LPR_grid_area'),
-				  data: DataGridObj,
-				  scrollX: false,
-				  scrollY: false,    
-  
-				  rowHeight: 48,
-				  bodyHeight: 190,
-				  
-				  header: {
-					  height: '0px',					
-				  },
-				  columns: [
-					  {
-					  align: 'left',
-					  name: 'CAMERA_NAME',  
-					  width: 220,           
-					  },
-					  {								
-						  align: 'right',               
-						  name: 'CNT_LPR',   
-						  sortable:true,
-						  renderer: {
-						  styles: {
-								  color: '#f19ec2',
-							  },            			            
-						  }		
-					  }			  
-				  ],
-  
-			  });	
-  
-			  grid_Parking = new tui.Grid({
-				  el: document.getElementById('Parking_grid_area'),
-				  data: DataGridObj,
-				  scrollX: false,
-				  scrollY: false,    
-  
-				  rowHeight: 48,
-				  bodyHeight: 190,
-				  
-				  header: {
-					  height: '0px',					
-				  },
-				  columns: [
-					  {
-					  align: 'left',
-					  name: 'CAMERA_NAME',  
-					  width: 220,              
-					  },
-					  {								
-						  align: 'right',               
-						  name: '"PAK_CNT',   
-						  sortable:true,
-						  renderer: {
-						  styles: {
-								  color: '#aecf61',
-							  },            			            
-						  }		
-					  }			  
-				  ],
-  
-			  });	
-			  grid_Human.sort('PERSON', false, false);
-			  grid_Car.sort('VEHICLE', false, false);
-			  grid_Counting.sort('CNT_CNT', false, false);
-			  grid_Invasion.sort('INV_CNT', false, false);
-			  grid_Face.sort('FACE', false, false);
-			  grid_Loitering.sort('LOT_CNT', false, false);
-			  grid_LPR.sort('CNT_LPR', false, false);				// 확정안됨.
-			  //grid_Parking.sort('PAK_CNT', false, false);
-		  }
-  
-	 </script>
- </body>
+		{
+			tui.Grid.applyTheme("default", {
+				area: {
+				header: {
+					border: '#2d2d2d'
+				}
+			},
+			outline: {
+				border: "#2d2d2d",
+			},
+			cell: {
+				normal: {
+					background: "rgba(30,30,30,1)",
+					border: 'rgba(30,30,30,1)',
+					text: '#c5c5c5',
+					showHorizontalBorder: true,
+					showVerticalBorder: true,
+				},
+				header: {
+					background: "rgba(30,30,30,1)",
+					border: "rgba(30,30,30,1)",
+					text: '#c5c5c5',
+					showHorizontalBorder: true,
+					showVerticalBorder: true,
+				},				
+			},
+			scrollbar:
+				{
+					border: "#2d2d2d",
+					background: "#2d2d2d",
+					emptySpace: "#1a1a1a",
+					thumb : "#838383",
+					active: "#aaa",
+				},
+			}),
+
+			grid_Human = new tui.Grid({
+				el: document.getElementById('Human_grid_area'),
+				data: DataGridObj,
+				scrollX: false,
+				scrollY: false,    
+
+				rowHeight: 48,
+				bodyHeight: 190,
+				
+				header: {
+					height: '0px',					
+				},
+				columns: [
+					{
+					align: 'left',
+					name: 'CAMERA_NAME',  
+					width: 220,     
+					},
+					{								
+						align: 'right',               
+						name: 'PERSON',   
+						sortable:true,   
+						renderer: {
+						styles: {
+							color: 'rgba(148, 233, 236, 1)',
+							},            			            
+						}		
+					}			  
+				],				
+			});				
+
+			grid_Car = new tui.Grid({
+				el: document.getElementById('Car_grid_area'),
+				data: DataGridObj,
+				scrollX: false,
+				scrollY: false,    
+
+				rowHeight: 48,
+				bodyHeight: 190,
+				
+				header: {
+					height: '0px',					
+				},
+				columns: [
+					{
+					align: 'left',
+					name: 'CAMERA_NAME',  
+					width: 220,      
+					},
+					{								
+						align: 'right',               
+						name: 'VEHICLE',   
+						sortable:true,    
+						renderer: {
+						styles: {
+							color: 'rgba(212, 224, 121, 1)',
+							},            			            
+						}		
+					}			  
+				],
+
+			});	
+
+			grid_Face = new tui.Grid({
+				el: document.getElementById('Face_grid_area'),
+				data: DataGridObj,
+				scrollX: false,
+				scrollY: false,    
+
+				rowHeight: 48,
+				bodyHeight: 190,
+				
+				header: {
+					height: '0px',					
+				},
+				columns: [
+					{
+					align: 'left',
+					name: 'CAMERA_NAME',  
+					width: 220,               
+					},
+					{								
+						align: 'right',               
+						name: 'FACE',   
+						sortable:true,
+						renderer: {
+						styles: {
+							color: 'rgba(180, 161, 216, 1)',
+							},            			            
+						}		
+					}			  
+				],
+
+			});	
+
+			grid_Invasion = new tui.Grid({
+				el: document.getElementById('Invasion_grid_area'),
+				data: DataGridObj,
+				scrollX: false,
+				scrollY: false,    
+
+				rowHeight: 48,
+				bodyHeight: 190,
+				
+				header: {
+					height: '0px',					
+				},
+				columns: [
+					{
+					align: 'left',
+					name: 'CAMERA_NAME',  
+					width: 220,             
+					},
+					{								
+						align: 'right',               
+						name: 'INV_CNT',   
+						sortable:true,
+						renderer: {
+						styles: {
+							color: '#4176df',
+							},            			            
+						}		
+					}			  
+				],
+
+			});	
+
+			grid_Counting = new tui.Grid({
+				el: document.getElementById('Counting_grid_area'),
+				data: DataGridObj,
+				scrollX: false,
+				scrollY: false,    
+
+				rowHeight: 48,
+				bodyHeight: 190,
+				
+				header: {
+					height: '0px',					
+				},
+				columns: [
+					{
+					align: 'left',
+					name: 'CAMERA_NAME',  
+					width: 220,          
+					},
+					{								
+						align: 'right',               
+						name: 'CNT_CNT',   
+						sortable:true,
+						renderer: {
+						styles: {
+								color: '#ff7978',
+							},            			            
+						}		
+					}			  
+				],
+
+			});	
+
+			grid_Loitering = new tui.Grid({
+				el: document.getElementById('Loitering_grid_area'),
+				data: DataGridObj,
+				scrollX: false,
+				scrollY: false,    
+
+				rowHeight: 48,
+				bodyHeight: 190,
+				
+				header: {
+					height: '0px',					
+				},
+				columns: [
+					{
+					align: 'left',
+					name: 'CAMERA_NAME',  
+					width: 220,                 
+					},
+					{								
+						align: 'right',               
+						name: 'LOT_CNT',   
+						sortable:true,
+						renderer: {
+						styles: {
+							color: '#fec070',
+							},            			            
+						}		
+					}			  
+				],
+
+			});	
+
+			grid_LPR = new tui.Grid({
+				el: document.getElementById('LPR_grid_area'),
+				data: DataGridObj,
+				scrollX: false,
+				scrollY: false,    
+
+				rowHeight: 48,
+				bodyHeight: 190,
+				
+				header: {
+					height: '0px',					
+				},
+				columns: [
+					{
+					align: 'left',
+					name: 'CAMERA_NAME',  
+					width: 220,           
+					},
+					{								
+						align: 'right',               
+						name: 'CNT_LPR',   
+						sortable:true,
+						renderer: {
+						styles: {
+								color: '#f19ec2',
+							},            			            
+						}		
+					}			  
+				],
+
+			});	
+
+			grid_Parking = new tui.Grid({
+				el: document.getElementById('Parking_grid_area'),
+				data: DataGridObj,
+				scrollX: false,
+				scrollY: false,    
+
+				rowHeight: 48,
+				bodyHeight: 190,
+				
+				header: {
+					height: '0px',					
+				},
+				columns: [
+					{
+					align: 'left',
+					name: 'CAMERA_NAME',  
+					width: 220,              
+					},
+					{								
+						align: 'right',               
+						name: '"PAK_CNT',   
+						sortable:true,
+						renderer: {
+						styles: {
+								color: '#aecf61',
+							},            			            
+						}		
+					}			  
+				],
+
+			});	
+			grid_Human.sort('PERSON', false, false);
+			grid_Car.sort('VEHICLE', false, false);
+			grid_Counting.sort('CNT_CNT', false, false);
+			grid_Invasion.sort('INV_CNT', false, false);
+			grid_Face.sort('FACE', false, false);
+			grid_Loitering.sort('LOT_CNT', false, false);
+			grid_LPR.sort('CNT_LPR', false, false);				// 확정안됨.
+			//grid_Parking.sort('PAK_CNT', false, false);
+		}
+
+	</script>
+</body>
 </html>
