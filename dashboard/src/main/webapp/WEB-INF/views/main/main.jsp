@@ -102,19 +102,19 @@
 
 
 		.innerBox:nth-child(1){
-			order:1;
+			order:4;
 		}
 
 		.innerBox:nth-child(2){
-			order:3;
-		}
-
-		.innerBox:nth-child(3){
 			order:2;
 		}
 
+		.innerBox:nth-child(3){
+			order:3;
+		}
+
 		.innerBox:nth-child(4){
-			order:4;
+			order:1;
 		}
 	/* 그리드로 차트 위치 변경 끝 */
 
@@ -197,24 +197,24 @@
 
 					<%-- 섹션 좌측.S --%>
 					<%--<div class="sectionBox">--%>
-						<div class="innerBox divHuman" id="human_rect">
-							<div class="contentsTitle">
-								<div class="title">
-									<h4>사람</h4>
-									<p class="summary">일 누적 <span>12,812</span>명</p>
-								</div>
-								<div class="partBTN">
-									<a class="changeGraph" onclick="OnHumanGraphChange()" ><img src="../../resources/img/btn_cangeDiagram.png"> <img src="../../resources/img/btn_cangeDiagram_hover.png" class="over"></a>									
+					<div class="innerBox divHuman" id="human_rect">
+						<div class="contentsTitle">
+							<div class="title">
+								<h4>사람</h4>
+								<p class="summary">일 누적 <span>12,812</span>명</p>
+							</div>
+							<div class="partBTN">
+								<a class="changeGraph" onclick="OnHumanGraphChange()" ><img src="../../resources/img/btn_cangeDiagram.png"> <img src="../../resources/img/btn_cangeDiagram_hover.png" class="over"></a>									
+							</div>
+						</div>
+						<a href="/sub_object">
+							<div class="data" id="mainPerson" style="width: 830px; height: 350px; margin-top : 5px;">
+								<div id="mainPerson_chart" style="width: 100%; height: 100%;">
+									<%-- 사람 막대그래프 영역 --%>
 								</div>
 							</div>
-							<a href="/sub_object">
-								<div class="data" id="mainPerson" style="width: 830px; height: 350px; margin-top : 5px;">
-									<div id="mainPerson_chart" style="width: 100%; height: 100%;">
-										<%-- 사람 막대그래프 영역 --%>
-									</div>
-								</div>
-							</a>
-						<%--</div>--%>
+						</a>
+					</div>
 						<%-- <div class="innerBox divCar" id="vehicle_rect" >
 							<div class="contentsTitle">
 								<div class="title">
@@ -228,7 +228,7 @@
 							<div class="data" id="mainVehicle" style="margin-left : 20px; margin-top : 20px;" onclick="location.href='sub_object.html'">						
 							</div>
 						</div> --%>
-					</div>
+				<%--</div>--%>
 					<div class="innerBox divAge" id="nomask_rect">
 						<div class="contentsTitle">
 							<div class="title">
