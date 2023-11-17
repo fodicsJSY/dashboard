@@ -1,3 +1,24 @@
+/* 정각이 되면 페이지 리프레쉬 시작 */
+function refreshAtMidnight() {
+    var now = new Date();
+    var millisTillMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 24, 0, 0, 0) - now;
+    if (millisTillMidnight < 0) {
+        millisTillMidnight += 86400000; // 다음날 정각까지의 시간 (24시간 = 86400000 밀리초)
+    }
+    
+    setTimeout(function () {
+        location.reload(true); // true 파라미터는 캐시를 무시하고 새로고침
+    }, millisTillMidnight);
+}
+
+// 페이지 로드 시 실행
+document.addEventListener("DOMContentLoaded", function () {
+    refreshAtMidnight();
+});
+/* 정각이 되면 페이지 리프레쉬 끝 */
+
+
+
 // 최다검지 카메라 TOP10 CH 사람으로 변경
 function setMainEventTop10() {
     document.getElementById('subTop10Cameras').style.display = 'block';
