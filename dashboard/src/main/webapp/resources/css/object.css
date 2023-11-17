@@ -7,7 +7,7 @@
 
 
  /* main01. 객체우선 - 컨텐츠 구획별 */
-.divHuman {float:left; width:100%; min-width:750px; height:43vh;  min-height:450px;  margin-bottom:15px; }
+.divHuman {float:left; width:100%; min-width:750px; height:43vh;  min-height:450px;  }
 .divHuman .data {display: block; margin-top:50px; text-align:center;}
 
 .divCar {float:right; width:49.5%; min-width:510px; height:43vh;  min-height:450px;  margin-bottom:15px;}

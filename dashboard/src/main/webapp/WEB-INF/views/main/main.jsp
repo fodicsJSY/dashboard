@@ -90,6 +90,35 @@
     
 	<%-- fontawesome --%>
 	<script src="https://kit.fontawesome.com/e75afc7597.js" crossorigin="anonymous"></script>
+
+	<style>
+
+	/* 그리드로 차트 위치 변경 시작 */
+		.contents{
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-gap: 10px;
+		}
+
+
+		.innerBox:nth-child(1){
+			order:1;
+		}
+
+		.innerBox:nth-child(2){
+			order:3;
+		}
+
+		.innerBox:nth-child(3){
+			order:2;
+		}
+
+		.innerBox:nth-child(4){
+			order:4;
+		}
+	/* 그리드로 차트 위치 변경 끝 */
+
+	</style>
 </head>
 <body>
 
@@ -167,7 +196,7 @@
 				<div class="contents">
 
 					<%-- 섹션 좌측.S --%>
-					<div class="sectionBox">
+					<%--<div class="sectionBox">--%>
 						<div class="innerBox divHuman" id="human_rect">
 							<div class="contentsTitle">
 								<div class="title">
@@ -185,7 +214,7 @@
 									</div>
 								</div>
 							</a>
-						</div>
+						<%--</div>--%>
 						<%-- <div class="innerBox divCar" id="vehicle_rect" >
 							<div class="contentsTitle">
 								<div class="title">
@@ -199,41 +228,41 @@
 							<div class="data" id="mainVehicle" style="margin-left : 20px; margin-top : 20px;" onclick="location.href='sub_object.html'">						
 							</div>
 						</div> --%>
-						<div class="innerBox divAge" id="nomask_rect">
-							<div class="contentsTitle">
-								<div class="title">
-									<h4>마스크 미착용자 성별/연령 비교</h4>
+					</div>
+					<div class="innerBox divAge" id="nomask_rect">
+						<div class="contentsTitle">
+							<div class="title">
+								<h4>마스크 미착용자 성별/연령 비교</h4>
+							</div>
+						</div>
+						<section class="chart">
+							<div class="data" id="mainFace1" style="margin-top: 7px; margin-left: 30px">
+								<div class="manChart">
+									<a href="/sub_object">
+										<div id="mainFace1_chart" style="width: 400px; height: 400px">
+											<%-- 남성 마스크 미착용자 도넛그래프 영역 --%>
+										</div>
+									</a>					
+									<img class="image-thumbnail-mask_man" id="manImg" src ="/resources/img/icon_male75px.png">
 								</div>
 							</div>
-							<section class="chart">
-								<div class="data" id="mainFace1" style="margin-top: 7px; margin-left: 30px">
-									<div class="manChart">
-										<a href="/sub_object">
-											<div id="mainFace1_chart" style="width: 400px; height: 400px">
-												<%-- 남성 마스크 미착용자 도넛그래프 영역 --%>
-											</div>
-										</a>					
-										<img class="image-thumbnail-mask_man" id="manImg" src ="/resources/img/icon_male75px.png">
-									</div>
+							<div class="data" id="mainFace2" style="margin-top: 7px" >		
+								<div class="womanChart">					
+									<a href="/sub_object">
+										<div id="mainFace2_chart" style="width: 400px; height: 400px">
+											<%-- 여성 마스크 미착용자 도넛그래프 영역 --%>
+												
+										</div>
+									</a>				
+									<img class="image-thumbnail-mask_woman" id="womanImg" src ="/resources/img/icon_female75px.png">
 								</div>
-								<div class="data" id="mainFace2" style="margin-top: 7px" >		
-									<div class="womanChart">					
-										<a href="/sub_object">
-											<div id="mainFace2_chart" style="width: 400px; height: 400px">
-												<%-- 여성 마스크 미착용자 도넛그래프 영역 --%>
-													
-											</div>
-										</a>				
-										<img class="image-thumbnail-mask_woman" id="womanImg" src ="/resources/img/icon_female75px.png">
-									</div>
-								</div>
-							</section>
-						</div>						
-					</div>
+							</div>
+						</section>
+					</div>						
 					<%-- 섹션 좌측.E --%>
 
 					<%-- 섹션 우측.S --%>
-					<div class="sectionBox">
+					<%--<div class="sectionBox">--%>
 						<%-- <div class="innerBox divEvent" id="event_acc_rect">
 							<div class="contentsTitle">
 								<div class="title">
@@ -261,7 +290,7 @@
                             </div>
 						</div>
 
-						<div class="innerBox divTop10" id="top10_rect" style="margin-top: 15px;">
+						<div class="innerBox divTop10" id="top10_rect" >
 							<div class="contentsTitle">
 								<div class="title">
 									<h4>최다검지 카메라 TOP10 CH</h4>
@@ -271,7 +300,7 @@
 									<a class="changeGraph" id="vehicleBtn" onclick="setMainVehicleTop10()"; style="margin-top:3px;"><img id="changeVehicle_btn" src="/resources/img/btn_car.png"> <img src="/resources/img/btn_car_on.png" class="over"></a>									
 								</div>
 							</div>
-							<div class="data" id="subTop10Cameras" style="margin: 10px">
+							<div class="data" id="subTop10Cameras" style="">
 								<table class="cameraTable">
 									<thead>
 										<tr>
@@ -300,7 +329,7 @@
 									</tbody>
 								</table>
 							</div>		
-							<div class="data" id="subTop10CamerasCar" style="margin: 10px; display: none;">
+							<div class="data" id="subTop10CamerasCar" style=" display: none;">
 								<table class="cameraTable">
 									<thead>
 										<tr>
@@ -328,7 +357,7 @@
 								</table>
 							</div>
 						</div>
-					</div>	
+					<%--</div>	--%>
 					<%-- 섹션 우측.E --%>
 				</div>
 
