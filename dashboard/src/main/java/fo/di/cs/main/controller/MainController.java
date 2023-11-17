@@ -48,11 +48,17 @@ public class MainController {
 		List<DailyCount> dailyCount_CNT = service.selectMainHumanTable();
 		model.addAttribute("dailyCount_CNT", dailyCount_CNT);
 		
+		
+		// 최다검지카메라 차량 테이블(금일)
+		List<DailyCount> vehicleDailyCount_CNT = service.selectMainVehicleTable();
+		model.addAttribute("vehicleDailyCount_CNT", vehicleDailyCount_CNT);
+		
 		// list들어왔는지 확인
 		System.out.println("DC_summaryList : "+ DC_summaryList);
 		System.out.println("dailyCount : "+ dailyCount);
 		System.out.println("DailyCount_summary : "+ DailyCount_summary);
 		System.out.println("dailyCount_CNT : "+ dailyCount_CNT);
+		System.out.println("vehicleDailyCount_CNT : "+ vehicleDailyCount_CNT);
 		
 		return "main/main";
 	}

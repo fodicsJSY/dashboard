@@ -35,5 +35,14 @@ public class DailyCount {
 	private int lotCntCount; //배회 수
 	private int cntCntCount; // 카운팅 수
 	private int falCntCont; // 쓰러짐 수
+	
+	
+	// 최다검지카메라 차량 테이블(금일)
 
+	private int carCount; // 자동차 수
+	private int busCount; // 버스 수
+	private int truckCount; // 트럭 수
+	private int motocycleCount; // 오토바이 수
+	private int bicycleCount; // 자전거 수
+	
 }

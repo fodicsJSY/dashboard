@@ -118,5 +118,22 @@
 	</select>
 	
 	
+	<!-- 최다검지카메라 사람 테이블(금일) --> 
+	<select id="selectMainVehicleTable" resultMap="DailyCount_rm">
+		SELECT TOP 10
+		    CNT.CAMERA_NAME,
+		    SUM(CNT.TOT_CNT) AS total_count,
+		    SUM(CNT.VEHICLE_CAR) AS carCount,
+		    SUM(CNT.VEHICLE_BUS) AS busCount,
+		    SUM(CNT.VEHICLE_TRUCK) AS truckCount,
+		    SUM(CNT.VEHICLE_MOTORCYCLE) AS motocycleCount,
+		    SUM(CNT.VEHICLE_BICYCLE) AS bicycleCount
+		FROM "TB_AI_NVR_DASH_BOARD_DAILY_COUNT" CNT
+		WHERE SUBSTRING(CNT.OCCU_TIME, 1, 8) = CONVERT(varchar, GETDATE(), 112)
+		GROUP BY CNT.CAMERA_NAME
+		ORDER BY SUM(CNT.TOT_CNT) DESC
+	</select>
+	
+	
 	
 </mapper>

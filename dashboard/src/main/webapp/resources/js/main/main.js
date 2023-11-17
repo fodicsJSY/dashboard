@@ -1,3 +1,15 @@
+// 최다검지 카메라 TOP10 CH 사람으로 변경
+function setMainEventTop10() {
+    document.getElementById('subTop10Cameras').style.display = 'block';
+    document.getElementById('subTop10CamerasCar').style.display = 'none';
+}
+
+
+// 최다검지 카메라 TOP10 CH 차량으로 변경
+function setMainVehicleTop10() {
+    document.getElementById('subTop10Cameras').style.display = 'none';
+    document.getElementById('subTop10CamerasCar').style.display = 'block';
+}
 
 /* 사람 막대차트 */
     //  준비한 DOM 컨테이너에서 echarts 초기화하기

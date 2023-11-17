@@ -44,6 +44,13 @@ public class MainDAO {
 		return sql.selectList("mainPageMapper.selectMainHumanTable");
 	}
 
+	/** 최다검지카메라 차량 테이블(금일)
+	 * @return list
+	 */
+	public List<DailyCount> selectMainVehicleTable() {
+		return sql.selectList("mainPageMapper.selectMainVehicleTable");
+	}
+
 	
 	
 }

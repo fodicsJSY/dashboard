@@ -298,7 +298,32 @@
 									</tbody>
 								</table>
 							</div>		
-							<div class="data" id="subTop10CamerasCar" style="margin: 10px">
+							<div class="data" id="subTop10CamerasCar" style="margin: 10px; display: none;">
+								<table class="cameraTable">
+									<thead>
+										<tr>
+											<th scope="col">카메라명</th>
+											<th scope="col">자동차</th>
+											<th scope="col">버스</th>
+											<th scope="col">트럭</th>
+											<th scope="col">오토바이</th>
+											<th scope="col">자전거</th>
+										</tr>
+									</thead>
+									<tbody class="table-group-divider">
+										<c:forEach items="${vehicleDailyCount_CNT}" var="vehicleDailyCount_CNT">
+											<tr>
+												<th scope="row" class="loadName">${vehicleDailyCount_CNT.carCount}</th>
+												<td>${vehicleDailyCount_CNT.busCount}</td>
+												<td>${vehicleDailyCount_CNT.faceCount}</td>
+												<td>${vehicleDailyCount_CNT.truckCount}</td>
+												<td>${vehicleDailyCount_CNT.motocycleCount}</td>
+												<td>${vehicleDailyCount_CNT.bicycleCount}</td>
+											</tr>
+										</c:forEach>
+										
+									</tbody>
+								</table>
 							</div>
 						</div>
 					</div>	
@@ -1137,26 +1162,29 @@
 		/* 하루 지난 날짜로 변경 끝*/
 
 
-		/* 전역변수 보내기 시작???? */
-		function sendToServer() {
-			// 형식을 YYYYMMDD로 변경
-    		occuDate = formatToYYYYMMDD(forDate);
-			console.log('Sending occuDate to server:', occuDate); // 콘솔에 occuDate 값 로그 출력
-        // 서버로 데이터 전송
-        $.ajax({
-            url: '/main',
-            type: 'GET',
-            data: { occuDate: occuDate },
-            success: function(response) {
-                console.log('Data sent successfully to server!');
-            },
-            error: function(error) {
-                console.error('Error sending data to server:', error);
-            }
-        });
-    
+		/* 날짜 input값 바뀔때마다 서버로 보내기 */
+		document.getElementById('tui-date-picker-target').addEventListener('change', function(){
+			sendToServer(this.value);
+		});
 
-		
+		/* 전역변수 보내기 시작???? */
+		function sendToServer(value) {
+			// 형식을 YYYYMMDD로 변경
+			occuDate = formatToYYYYMMDD(value || forDate);
+			console.log('Sending occuDate to server:', occuDate); // 콘솔에 occuDate 값 로그 출력
+		// 서버로 데이터 전송
+		$.ajax({
+			url: '/main',
+			type: 'GET',
+			data: { occuDate: occuDate },
+			success: function(response) {
+				console.log('Data sent successfully to server!');
+			},
+			error: function(error) {
+				console.error('Error sending data to server:', error);
+			}
+		});
+
 
 		/* 날짜 형식화 함수 */
 		/* YYYYMMDD 형식으로 변환하는 함수 */

@@ -49,4 +49,13 @@ public class MainServiceImpl implements MainService{
 	public List<DailyCount> selectMainHumanTable() {
 		return dao.selectMainHumanTable();
 	}
+	
+	
+	/**
+	 * 최다검지카메라 차량 테이블(금일)
+	 */
+	@Override
+	public List<DailyCount> selectMainVehicleTable() {
+		return dao.selectMainVehicleTable();
+	}
 }
