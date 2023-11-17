@@ -70,7 +70,10 @@
     human_chart.setOption(option)
 
 
+    var currentChart = 'bar'; // 초기에는 막대형 차트를 표시
 
+    // 초기 차트 설정
+    renderBarChart();
 
 
 
@@ -290,23 +293,81 @@
 
     /* 사람 막대 <-> 도넛 차트 변경 시작*/
     
-    var human_radial_bar_chart = null;
-    var human_chart = null;
-    var bCheckHuman = false;
+    var human_chart = echarts.init(document.getElementById('mainPerson_chart'));
+    var human_radial_bar_chart = echarts.init(document.getElementById('mainPerson_chart'));
 
+    function renderBarChart() {
+        human_chart.clear();
+        var option = {
+            color: ["#006699", "#e5323e"],
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                // Use axis to trigger tooltip
+                type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
+                }
+            },
+            legend: {
+                bottom: 0,
+                data: ['남자', '여자'],
+                textStyle:{
+                color: "rgba(255, 255, 255, 1)"
+                },
+                padding: [50, 0, 0, 0], // 범례 위 아래에 마진을 추가
+        
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '10%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'value',
+            },
+            yAxis: {
+                type: 'category',
+                data: ['노년', '중장년', '청년', '미성년']
+            },
+            series: [
+                {
+                name: '남자',
+                type: 'bar',
+                stack: 'total',
+                label: {
+                    show: true
+                },
+                emphasis: {
+                    focus: 'series'
+                },
+                itemStyle: { color: '#0f9faf' },
+                data: [seniorMale, middleMale, adultMale, youngMale]
+                },
+                {
+                name: '여자',
+                type: 'bar',
+                stack: 'total',
+                label: {
+                    show: true
+                },
+                emphasis: {
+                    focus: 'series'
+                },
+                itemStyle: { color: '#e8534c' },
+                data: [seniorFemale, middleFemale, adultFemale, youngFemale]
+                }
+                
+            ]
+
+        };
+        human_chart.setOption(option);
+    }
 
     // 연령별 출입자 현황 더블 도넛차트
 
-    function LoadRadialBarChart() {
-        // 이전에 초기화한 차트가 있다면 dispose
-        if (human_chart) {
-            human_chart.dispose();
-        }
-    
-        // 초기화된 차트가 없다면 초기화
-        if (!human_radial_bar_chart) {
-            human_radial_bar_chart = echarts.init(document.getElementById('mainPerson_chart'));
-        }
+    function renderRadialBarChart() {
+        human_radial_bar_chart.clear();
+        human_radial_bar_chart = echarts.init(document.getElementById('mainPerson_chart'));
     
         // 차트 옵션 설정
         var option = {
@@ -388,108 +449,21 @@
     }
 
 
-    /* 막대 차트 표시 함수 */
-    function showPersonChart() {
-        // 이전에 초기화한 차트가 있다면 dispose
-        if (human_radial_bar_chart) {
-            human_radial_bar_chart.dispose();
-        }
-
-        // 초기화된 차트가 없다면 초기화
-        if (!human_chart) {
-            human_chart = echarts.init(document.getElementById('mainPerson_chart'));
-        }
-
-        // 차트 옵션 설정
-        option = {
-            color: ["#006699", "#e5323e"],
-            tooltip: {
-                trigger: 'axis',
-                axisPointer: {
-                // Use axis to trigger tooltip
-                type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
-                }
-            },
-            legend: {
-                bottom: 0,
-                data: ['남자', '여자'],
-                textStyle:{
-                color: "rgba(255, 255, 255, 1)"
-                },
-                padding: [50, 0, 0, 0], // 범례 위 아래에 마진을 추가
-        
-            },
-            grid: {
-                left: '3%',
-                right: '4%',
-                bottom: '10%',
-                containLabel: true
-            },
-            xAxis: {
-                type: 'value',
-            },
-            yAxis: {
-                type: 'category',
-                data: ['노년', '중장년', '청년', '미성년']
-            },
-            series: [
-                {
-                name: '남자',
-                type: 'bar',
-                stack: 'total',
-                label: {
-                    show: true
-                },
-                emphasis: {
-                    focus: 'series'
-                },
-                itemStyle: { color: '#0f9faf' },
-                data: [seniorMale, middleMale, adultMale, youngMale]
-                },
-                {
-                name: '여자',
-                type: 'bar',
-                stack: 'total',
-                label: {
-                    show: true
-                },
-                emphasis: {
-                    focus: 'series'
-                },
-                itemStyle: { color: '#e8534c' },
-                data: [seniorFemale, middleFemale, adultFemale, youngFemale]
-                }
-                
-            ]
-        };
-        // 차트에 옵션 설정하기
-        human_chart.setOption(option);
-    }
-
-
 
 
     /* 차트 변경 js 시작 */
+
+    /* 사람 차트  */
     function OnHumanGraphChange() {
-        if (bCheckHuman) {
-            // 도넛 차트가 표시된 경우
-            if (human_radial_bar_chart) {
-                human_radial_bar_chart.dispose();
-                console.log(bCheckHuman);
-            }
-            showPersonChart();
+        if (currentChart === 'bar') {
+            currentChart = 'radial';
+            renderRadialBarChart();
         } else {
-            // 막대 차트가 표시된 경우
-            if (human_chart) {
-                human_chart.dispose();
-                console.log(bCheckHuman);
-            }
-            LoadRadialBarChart();
+            currentChart = 'bar';
+            renderBarChart();
         }
-    
-        // bCheckHuman 상태 토글
-        bCheckHuman = !bCheckHuman;
     }
+
 
     function OnCarGraphChange(){
         if (bCheckCar == false){
