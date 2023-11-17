@@ -136,6 +136,7 @@
 			<%-- 우측 메인.S --%>
 			<div id="contentsWrap">
 				<%-- 상단 날짜,버튼 영역.S --%>
+				<form action="/main" method="get" >
 				<div class="mainTop">
 					<div class=" dateArea" style="display: flex; flex-direction: row; align-items: center;">
 
@@ -159,6 +160,7 @@
 						<a class="rollover" alt="csv파일" OnClick="OnPrint_Click()"><img src="../../resources/img/btn-downPrint.png"> <img src="../../resources/img/btn-downPrint_hover.png" class="over"></a>
 					</div>
 				</div>
+				</form>
 				<%-- 상단 날짜,버튼 영역.E --%>
 
 				<%-- 메인컨텐츠.S --%>
@@ -204,7 +206,7 @@
 								</div>
 							</div>
 							<section class="chart">
-								<div class="data" id="mainFace1" style="margin-top: 20px; margin-left: 30px">
+								<div class="data" id="mainFace1" style="margin-top: 7px; margin-left: 30px">
 									<div class="manChart">
 										<a href="/sub_object">
 											<div id="mainFace1_chart" style="width: 400px; height: 400px">
@@ -214,7 +216,7 @@
 										<img class="image-thumbnail-mask_man" id="manImg" src ="/resources/img/icon_male75px.png">
 									</div>
 								</div>
-								<div class="data" id="mainFace2" style="margin-top: 20px" >		
+								<div class="data" id="mainFace2" style="margin-top: 7px" >		
 									<div class="womanChart">					
 										<a href="/sub_object">
 											<div id="mainFace2_chart" style="width: 400px; height: 400px">
