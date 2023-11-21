@@ -92,6 +92,15 @@ $.ajax({
         console.log('Data sent successfully to server!');
         console.log(response);
 
+        // 라인 차트 숨기기
+        myChart.dispose();
+        // 남자도넛 그래프 숨기기
+        manDountChart.dispose();
+        //여자 도넛 그래프 숨기기
+        womanDountChart.dispose();
+
+
+
         // 서버에서 받은 JSON 데이터를 사용
 
         //메인페이지 사람 막대 차트(날짜 바꾸면~~)
@@ -114,6 +123,10 @@ $.ajax({
         }
         
 
+
+
+
+
         // 메인페이지 시간대별라인차트(날짜 바꾸면~~)
         var dailyCountChangeList = response.dailyCountChangeList;
         //console.log(dailyCountChangeList);
@@ -121,18 +134,21 @@ $.ajax({
         for (var i = 0; i < dailyCountChangeList.length; i++) {
             var currentItem = dailyCountChangeList[i];
             //console.log(currentItem);
-            
-            // currentItem의 속성에 접근 확인
-            // console.log(currentItem.time);
-            // console.log(currentItem.person);
-            // console.log(currentItem.vehicle);
-            // console.log(currentItem.face);
-            // console.log(currentItem.lpr);
-            // console.log(currentItem.invCnt);
-            // console.log(currentItem.lotCnt);
-            // console.log(currentItem.cntCnt);
-            // console.log(currentItem.fatCnt);
         }
+        // currentItem의 속성에 접근 확인
+        // console.log(currentItem.time);
+        // console.log(currentItem.person);
+        // console.log(currentItem.vehicle);
+        // console.log(currentItem.face);
+        // console.log(currentItem.lpr);
+        // console.log(currentItem.invCnt);
+        // console.log(currentItem.lotCnt);
+        // console.log(currentItem.cntCnt);
+        // console.log(currentItem.fatCnt);
+
+
+    
+
 
         // 마스크 미착용자 성별/연령 비교 (날짜 바꾸면~~)
         var DailyCount_summaryChangeList = response.DailyCount_summaryChangeList;
@@ -152,6 +168,128 @@ $.ajax({
             // console.log(currentItem.faceNoMaskFemaleMiddle);
             // console.log(currentItem.faceNoMaskFemaleSenior);
         }
+
+    /* 여자도넛그래프 */
+    //  준비한 DOM 컨테이너에서 echarts 초기화하기
+    var womanDountChangeChart = echarts.init(document.getElementById('mainFace2_chart'))
+
+    // 차트 옵션 작성하기
+    option = {
+        tooltip: {
+            trigger: 'item'
+        },
+        legend: {
+            bottom: '5%',
+            left: 'center',
+            textStyle:{
+                color: "rgba(255, 255, 255, 1)"
+            },
+            //top: 'bottom', // 범례를 그래프 하단에 배치
+            // padding: [50, 0, 0, 0], // 범례 위 아래에 마진을 추가
+        },
+        series: [
+            {
+            name: '여성 마스크 미착용자 연령 비교',
+            type: 'pie',
+            radius: ['40%', '70%'],
+            avoidLabelOverlap: false,
+            itemStyle: {
+                borderColor: 'rgba(30, 30, 30, 1)',
+                borderWidth: 5
+            },
+
+            label: {
+                show: true,
+                position: 'inside',
+                formatter: '{c}',
+                fontSize: 12,
+                    fontWeight: 'bold',
+                fontColor: '#fff'
+            },
+            emphasis: {
+                // label: {
+                // show: true,
+                // fontSize: 40,
+                // fontWeight: 'bold'
+                // }
+            },
+            labelLine: {
+                show: false
+            },
+            data: [
+                { value: currentItem.faceNoMaskFemaleYoung, name: '미성년', itemStyle: { color: '#d3f1f9' } },
+                { value: currentItem.faceNoMaskFemaleAdult, name: '청년', itemStyle: { color: '#3fd5e3' } },
+                { value: currentItem.faceNoMaskFemaleMiddle, name: '중장년', itemStyle: { color: '#00a0de' } },
+                { value: currentItem.faceNoMaskFemaleSenior, name: '노년', itemStyle: { color: '#0174cf' } },
+            ]
+            }
+        ]
+    };
+
+    //  차트 옵션 설정하기
+    womanDountChangeChart.setOption(option)
+
+
+
+        /* 남자 도넛 그래프 */
+    //  준비한 DOM 컨테이너에서 echarts 초기화하기
+    var manDountChangeChart = echarts.init(document.getElementById('mainFace1_chart'))
+
+    // 차트 옵션 작성하기
+    option = {
+        tooltip: {
+            trigger: 'item'
+        },
+        legend: {
+            bottom: '5%',
+            left: 'center',
+            textStyle:{
+                color: "rgba(255, 255, 255, 1)"
+            },
+            //top: 'bottom', // 범례를 그래프 하단에 배치
+            //padding: [50, 0, 0, 0], // 범례 위 아래에 마진을 추가
+        },
+        series: [
+            {
+            name: '남성 마스크 미착용자 연령 비교',
+            type: 'pie',
+            radius: ['40%', '70%'],
+            avoidLabelOverlap: false,
+            itemStyle: {
+                borderColor: 'rgba(30, 30, 30, 1)',
+                borderWidth: 5
+            },
+                label: {
+                show: true,
+                position: 'inside',
+                formatter: '{c}',
+                fontSize: 12,
+                    fontWeight: 'bold',
+                fontColor: '#fff'
+            },
+            emphasis: {
+                // label: {
+                // show: true,
+                // fontSize: 40,
+                // fontWeight: 'bold'
+                // }
+            },
+            labelLine: {
+                show: false
+            },
+            data: [
+                { value: currentItem.faceNoMaskMaleYoung, name: '미성년', itemStyle: { color: '#d3f1f9' }},
+                { value: currentItem.faceNoMaskMaleAdlut, name: '청년', itemStyle: { color: '#3fd5e3' }},
+                { value: currentItem.faceNoMaskMaleMiddle, name: '중장년', itemStyle: { color: '#00a0de' }},
+                { value: currentItem.faceNoMaskMaleSenior, name: '노년', itemStyle: { color: '#0174cf' }}
+            ]
+            }
+        ]
+    };
+
+    //  차트 옵션 설정하기
+    manDountChangeChart.setOption(option)
+
 
 
 
@@ -179,7 +317,7 @@ $.ajax({
 
         // 최다검지카메라 차량 테이블(날짜 바꾸면~~)
         var vehicleDailyCount_CNT_changeList = response.vehicleDailyCount_CNT_changeList;
-        console.log(vehicleDailyCount_CNT_changeList);
+        //console.log(vehicleDailyCount_CNT_changeList);
         //for문 사용해서 요소 꺼내기
         for (var i = 0; i < vehicleDailyCount_CNT_changeList.length; i++) {
             var currentItem = vehicleDailyCount_CNT_changeList[i];
@@ -197,8 +335,11 @@ $.ajax({
         
 
 
+    
 
 
+    console.log("noMaskMaleYoung :"+noMaskMaleYoung);
+    console.log("currentItem.faceNoMaskFemaleYoung :"+currentItem.faceNoMaskFemaleYoung);
 
     },
     error: function(xhr, status, error) {

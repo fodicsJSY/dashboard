@@ -112,7 +112,7 @@ function setMainVehicleTop10() {
 
     /* 남자 도넛 그래프 */
     //  준비한 DOM 컨테이너에서 echarts 초기화하기
-    var myChart = echarts.init(document.getElementById('mainFace1_chart'))
+    var manDountChart = echarts.init(document.getElementById('mainFace1_chart'))
 
     // 차트 옵션 작성하기
     option = {
@@ -167,13 +167,13 @@ function setMainVehicleTop10() {
     };
 
     //  차트 옵션 설정하기
-    myChart.setOption(option)
+    manDountChart.setOption(option)
 
 
 
     /* 여자도넛그래프 */
     //  준비한 DOM 컨테이너에서 echarts 초기화하기
-    var myChart = echarts.init(document.getElementById('mainFace2_chart'))
+    var womanDountChart = echarts.init(document.getElementById('mainFace2_chart'))
 
     // 차트 옵션 작성하기
     option = {
@@ -229,7 +229,7 @@ function setMainVehicleTop10() {
     };
 
     //  차트 옵션 설정하기
-    myChart.setOption(option)
+    womanDountChart.setOption(option)
 
 
 
