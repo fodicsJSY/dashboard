@@ -129,12 +129,32 @@ $.ajax({
 
         // 메인페이지 시간대별라인차트(날짜 바꾸면~~)
         var dailyCountChangeList = response.dailyCountChangeList;
+        let timeList = [];
+        let personList = [];
+        let vehicleList = [];
+        let faceList = [];
+        let lprList = [];
+        let invCntList = [];
+        let lotCntList = [];
+        let cntCntList = [];
+        let fatCntList = [];
         //console.log(dailyCountChangeList);
         //for문 사용해서 요소 꺼내기
         for (var i = 0; i < dailyCountChangeList.length; i++) {
             var currentItem = dailyCountChangeList[i];
             //console.log(currentItem);
+            // console.log(currentItem.time);
+            timeList.push(currentItem.time);
+            personList.push(currentItem.person);
+            vehicleList.push(currentItem.vehicle);
+            faceList.push(currentItem.face);
+            lprList.push(currentItem.lpr);
+            invCntList.push(currentItem.invCnt);
+            lotCntList.push(currentItem.lotCnt);
+            cntCntList.push(currentItem.cntCnt);
+            fatCntList.push(currentItem.fatCnt);
         }
+        console.log("timeList : "+timeList);
         // currentItem의 속성에 접근 확인
         // console.log(currentItem.time);
         // console.log(currentItem.person);
@@ -145,6 +165,90 @@ $.ajax({
         // console.log(currentItem.lotCnt);
         // console.log(currentItem.cntCnt);
         // console.log(currentItem.fatCnt);
+
+         /* 시간대별 라인그래프 */
+    //  준비한 DOM 컨테이너에서 echarts 초기화하기
+    var lineChart = echarts.init(document.getElementById('main'))
+
+    // 차트 옵션 작성하기
+    var option = {
+        // 차트 제목
+        title: {
+        
+        },
+        // 범례명
+        legend: {
+        data: ['사람', '차량', '얼굴', '번호판','침입', '배회', '카운팅', '쓰러짐'],
+        bottom: '3%',
+        textStyle:{
+            color: "rgba(255, 255, 255, 1)"
+        }
+        },
+        // x축 라벨
+        xAxis: {
+        data: timeList,
+        },
+        yAxis: {
+        //data: ['0', '500', '1000', '1500', '2000'],
+        },
+        series: [
+        {
+            name: '사람',
+            type: 'line', 
+            data: personList,
+            itemStyle: { color: '#94e9ec' }
+        },
+        {
+            name: '차량',
+            type: 'line', 
+            data: vehicleList,
+            itemStyle: { color: '#d4e079' }
+        },
+        {
+            name: '얼굴',
+            type: 'line', 
+            data: faceList,
+            itemStyle: { color: '#b4a1d8' }
+        },
+        {
+            name: '번호판',
+            type: 'line', 
+            data: lprList,
+            itemStyle: { color: '#f19ec2' }
+        },
+        {
+            name: '침입',
+            type: 'line', 
+            data: invCntList,
+            itemStyle: { color: '#4176df' }
+        },
+        {
+            name: '배회',
+            type: 'line', 
+            data: lotCntList,
+            itemStyle: { color: '#fec070' }
+        },
+        {
+            name: '카운팅',
+            type: 'line',
+            stack: 'Total',
+            data: cntCntList,
+            itemStyle: { color: '#ff7978' }
+        },
+        {
+            name: '쓰러짐',
+            type: 'line',
+            stack: 'Total',
+            data: fatCntList,
+            itemStyle: { color: '#52c3f7' }
+        }
+        ],
+    }
+
+    //  차트 옵션 설정하기
+    lineChart.setOption(option)
+
+
 
 
     
