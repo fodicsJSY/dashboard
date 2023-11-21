@@ -51,6 +51,46 @@ public class MainDAO {
 		return sql.selectList("mainPageMapper.selectMainVehicleTable");
 	}
 
+	/** 메인페이지 사람 막대그래프 & 도넛그래프(날짜 바꾸면~~)
+	 * @param occuDate
+	 * @return list
+	 */
+	public List<DC_summary> mainHumanChartChange(String occuDate) {
+		return sql.selectList("mainPageMapper.mainHumanChartChange", occuDate);
+	}
+
+	/** 시간대별 라인차트 (날짜 바꾸면~~)
+	 * @param occuDate
+	 * @return list
+	 */
+	public List<DailyCount> selectMainLineChartChange(String occuDate) {
+		return sql.selectList("mainPageMapper.selectMainLineChartChange", occuDate);
+	}
+
+	/** 마스크 미착용자 성별/연령 비교 (날짜 바꾸면~~)
+	 * @param occuDate
+	 * @return list
+	 */
+	public List<DailyCount_summary> selectMainMaskChartChange(String occuDate) {
+		return sql.selectList("mainPageMapper.selectMainMaskChartChange", occuDate);
+	}
+
+	/** 최다검지카메라 사람 테이블(날짜 바꾸면~~)
+	 * @param occuDate
+	 * @return list
+	 */
+	public List<DailyCount> selectMainHumanTableChange(String occuDate) {
+		return sql.selectList("mainPageMapper.selectMainHumanTableChange", occuDate);
+	}
+
+	/** 최다검지카메라 차량 테이블(날짜 바꾸면~~) 
+	 * @param occuDate
+	 * @return list
+	 */
+	public List<DailyCount> selectMainVehicleTableChange(String occuDate) {
+		return sql.selectList("mainPageMapper.selectMainVehicleTableChange", occuDate);
+	}
+
 	
 	
 }

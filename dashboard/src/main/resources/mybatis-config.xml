@@ -17,6 +17,7 @@
 		 <typeAlias type="fo.di.cs.main.model.dto.DC_summary" alias="DC_summary" /> 
 		 <typeAlias type="fo.di.cs.main.model.dto.DailyCount" alias="DailyCount" /> 
 		 <typeAlias type="fo.di.cs.main.model.dto.DailyCount_summary" alias="DailyCount_summary" /> 
+		 <typeAlias type="fo.di.cs.main.model.dto.Main" alias="Main" /> 
 	</typeAliases>
 	
 	<!-- mapper 파일(SQL 작성되는파일) 위치 등록 부분 -->

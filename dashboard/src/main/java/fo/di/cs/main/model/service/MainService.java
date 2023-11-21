@@ -36,6 +36,33 @@ public interface MainService {
 	 */
 	List<DailyCount> selectMainVehicleTable();
 
+	
+	/** 메인페이지 사람 막대 차트(날짜 바꾸면~~)
+	 * @param occuDate
+	 * @return list
+	 */
+	List<DC_summary> mainHumanChartChange(String occuDate);
+
+	/** 시간대별 라인차트 (날짜 바꾸면~~)
+	 * @return list
+	 */
+	List<DailyCount> selectMainLineChartChange(String occuDate);
+
+	/** 마스크 미착용자 성별/연령 비교 (날짜 바꾸면~~)
+	 * @return list
+	 */
+	List<DailyCount_summary> selectMainMaskChartChange(String occuDate);
+
+	/** 최다검지카메라 사람 테이블(날짜 바꾸면~~)
+	 * @return list
+	 */
+	List<DailyCount> selectMainHumanTableChange(String occuDate);
+
+	/** 최다검지카메라 차량 테이블(날짜 바꾸면~~)
+	 * @return list
+	 */
+	List<DailyCount> selectMainVehicleTableChange(String occuDate);
+
 
 
 

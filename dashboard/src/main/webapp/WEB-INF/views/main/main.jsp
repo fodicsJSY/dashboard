@@ -126,6 +126,10 @@
 	<c:set var="dailyCount" value="${dailyCount}"/>
 	<c:set var="DailyCount_summary" value="${DailyCount_summary}"/>
 
+	<c:set var="vehicleDailyCount_CNT_changeList" value="${map.vehicleDailyCount_CNT_changeList}"/>
+	<c:set var="DC_summaryChangeList" value="${DC_summaryChangeList}"/>
+
+
 
     <%-- 전체 wrap.S --%>
 	<div class="wrap" id="indexWrap">  
@@ -169,7 +173,7 @@
 				<div class="mainTop">
 					<div class=" dateArea" style="display: flex; flex-direction: row; align-items: center;">
 
-
+						
 						<div class="tui-datepicker-input tui-datetime-input tui-has-focus">
 							<input type="date" id="tui-date-picker-target" aria-label="Date-Time">
 							<span class="tui-ico-date"></span>
@@ -369,8 +373,10 @@
 					<p class="Notice">※ 화면에 표시되는 모든 실시간 데이터는 1분마다 자동으로 업데이트 합니다. 다만 “시간대별 현황” 그래프의 실시간 데이터는 정시에 한 번씩 업데이트 합니다.</p>
 					<div class="madeFodics" style="margin: 0 40px 0 0;">포딕스시스템</div>
 				</div>
-				
-				
+				${dailyCount_CNT}
+				${vehicleDailyCount_CNT_changeList}
+				${DC_summaryChangeList}
+
 				<%-- CSV 대화상자 --%>
 				<dialog open id="csv_dialog" style = "display:none; background-color: rgba(30,30,30,1); color:rgba(192,192,192,1); width: 336px; padding: 0px; top:30px; left:900px;">		
 					<div style = "font-size: 14px; width: 330px; background-color: rgba(45,45,45,1); color:rgba(255,255,255,1); padding: 16px; ">
@@ -462,6 +468,7 @@
 
    
     <script src="../../../resources/js/main/loading.js"></script>
+    <script src="../../../resources/js/main/mainDateChange.js"></script>
 
 
     <script>
@@ -1117,117 +1124,7 @@
 
 </script>
 
-	<script>
-
-		/* 전역변수 시작 */
-		var forDate = document.getElementById('tui-date-picker-target').value
-		/* 전역변수 끝 */
-
-		/* 오늘 날짜로 초기화*/
-		// 페이지 로드 시 오늘 날짜로 초기화
-		document.addEventListener("DOMContentLoaded", function() {
-			var today = new Date();
-			var formattedDate = today.toISOString().substring(0, 10);
-			document.getElementById('tui-date-picker-target').value = formattedDate;
-			forDate = formattedDate; // forDate 초기화
-		});
 	
-
-		//var formattedDate = year + '-' + month + '-' + day;
-
-
-		// 버튼 클릭 시 오늘 날짜를 입력 필드에 넣는 함수
-		function insertTodaysDate() {
-		var today = new Date();
-		var formattedDate = today.toISOString().substring(0, 10);
-        document.getElementById('tui-date-picker-target').value = formattedDate;
-        forDate = formattedDate; // forDate 업데이트
-		}
-		
-		// 버튼 클릭 이벤트에 함수 연결
-		document.getElementById('todayBtn').addEventListener('click', function() {
-			insertTodaysDate();
-			sendToServer();
-		});
-		
-		/* 오늘 날짜로 변경 끝 */
-		
-
-		/* 하루 전 날짜로 변경 시작*/
-
-		// 버튼 클릭 시 입력된 날짜에서 하루 전 날짜를 계산하여 표시하는 함수
-		function showPreviousDay() {
-			var inputDate = new Date(document.getElementById('tui-date-picker-target').value);
-			inputDate.setDate(inputDate.getDate() - 1);
-			var formattedDate = inputDate.toISOString().substring(0, 10);
-			document.getElementById('tui-date-picker-target').value = formattedDate;
-			forDate = formattedDate; // forDate 업데이트
-		}
-
-		// 버튼 클릭 이벤트에 함수 연결
-		document.getElementById('minusBtn').addEventListener('click', function() {
-			showPreviousDay();
-			sendToServer();
-		});
-
-		/* 하루 전 날짜로 변경 끝*/
-
-
-		/* 하루 지난 날짜로 변경 시작*/
-
-		// 버튼 클릭 시 입력된 날짜에서 하루 지난 날짜를 계산하여 표시하는 함수
-		function showNextDay() {
-		var inputDate = new Date(document.getElementById('tui-date-picker-target').value);
-        inputDate.setDate(inputDate.getDate() + 1);
-        var formattedDate = inputDate.toISOString().substring(0, 10);
-        document.getElementById('tui-date-picker-target').value = formattedDate;
-        forDate = formattedDate; // forDate 업데이트
-		}
-
-		// 버튼 클릭 이벤트에 함수 연결
-		document.getElementById('plusBtn').addEventListener('click', function() {
-			showNextDay();
-			sendToServer();
-		});
-
-		/* 하루 지난 날짜로 변경 끝*/
-
-
-		/* 날짜 input값 바뀔때마다 서버로 보내기 */
-		document.getElementById('tui-date-picker-target').addEventListener('change', function(){
-			sendToServer(this.value);
-		});
-
-		/* 전역변수 보내기 시작???? */
-		function sendToServer(value) {
-			// 형식을 YYYYMMDD로 변경
-			occuDate = formatToYYYYMMDD(value || forDate);
-			console.log('Sending occuDate to server:', occuDate); // 콘솔에 occuDate 값 로그 출력
-		// 서버로 데이터 전송
-		$.ajax({
-			url: '/main',
-			type: 'GET',
-			data: { occuDate: occuDate },
-			success: function(response) {
-				console.log('Data sent successfully to server!');
-			},
-			error: function(error) {
-				console.error('Error sending data to server:', error);
-			}
-		});
-
-
-		/* 날짜 형식화 함수 */
-		/* YYYYMMDD 형식으로 변환하는 함수 */
-		function formatToYYYYMMDD(dateString) {
-			var year = dateString.substring(0, 4);
-			var month = dateString.substring(5, 7);
-			var day = dateString.substring(8, 10);
-			return year + month + day;
-		}
-		}
-
-	</script>
 
 	<%-- 메인페이지 사람 막대차트 전역변수(페이지 로딩 시 오늘날짜) --%>
 

@@ -50,6 +50,8 @@
       	<result property="occuDate" column="OCCU_DATE" />
 </resultMap> 
 	
+
+	
 		
 	<!-- 메인페이지 사람 막대그래프 & 도넛그래프(금일)-->
 	<select id="selectMainHumanChart" resultMap="DC_summary_rm">
@@ -130,6 +132,91 @@
 		    SUM(CNT.VEHICLE_BICYCLE) AS bicycleCount
 		FROM "TB_AI_NVR_DASH_BOARD_DAILY_COUNT" CNT
 		WHERE SUBSTRING(CNT.OCCU_TIME, 1, 8) = CONVERT(varchar, GETDATE(), 112)
+		GROUP BY CNT.CAMERA_NAME
+		ORDER BY SUM(CNT.TOT_CNT) DESC
+	</select>
+	
+	
+	
+	<!-- 메인페이지 사람 막대그래프 & 도넛그래프(날짜 바꾸면~~)-->
+	<select id="mainHumanChartChange" resultMap="DC_summary_rm">
+		SELECT
+			FACE_YOUNGMALE   
+			, FACE_YOUNGFEMALE 
+			, FACE_ADULTMALE
+			, FACE_ADULTFEMALE 
+			, FACE_MIDDLEMALE
+			, FACE_MIDDLEFEMALE 
+			, FACE_SENIORMALE   
+			, FACE_SENIORFEMALE 
+			FROM "TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY"
+		WHERE OCCU_DATE = #{occuDate}
+	</select>
+	
+		<!-- 시간대별 라인차트 (날짜 바꾸면~~)-->
+	<select id="selectMainLineChartChange" resultMap="DailyCount_rm">
+		SELECT
+		SUBSTRING(OCCU_TIME, 9, 2)  AS time
+		, PERSON             
+		, VEHICLE             
+		, FACE                   
+		, LPR                     
+		, INV_CNT              
+		, LOT_CNT              
+		, CNT_CNT             
+		, FAL_CNT
+		FROM "TB_AI_NVR_DASH_BOARD_DAILY_COUNT"
+		WHERE SUBSTRING(OCCU_TIME, 1, 8) = #{occuDate}
+		ORDER BY OCCU_TIME
+	</select>
+	
+	<!-- 마스크 미착용자 성별/연령 비교 (날짜 바꾸면~~)-->
+	<select id="selectMainMaskChartChange" resultMap="DailyCount_summary_rm">
+		SELECT
+			FACE_NOMASKMALEYOUNG      
+			, FACE_NOMASKMALEADULT         
+			, FACE_NOMASKMALEMIDDLE       
+			, FACE_NOMASKMALESENIOR      
+			, FACE_NOMASKFEMALEYOUNG     
+			, FACE_NOMASKFEMALEADULT     
+			, FACE_NOMASKFEMALEMIDDLE    
+			, FACE_NOMASKFEMALESENIOR     
+		FROM "TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY"
+		WHERE OCCU_DATE = #{occuDate}
+	</select>
+	
+	<!-- 최다검지카메라 사람 테이블(날짜 바꾸면~~) --> 
+	<select id="selectMainHumanTableChange" resultMap="DailyCount_rm">
+		SELECT
+			TOP 10
+			CNT.CAMERA_NAME   
+			, SUM(CNT.PERSON)   AS personCount     
+			, SUM(CNT.VEHICLE)  AS vehicleCount     
+			, SUM(CNT.FACE)   AS faceCount             
+			, SUM(CNT.LPR)    AS lprCount               
+			, SUM(CNT.INV_CNT)  AS invCntCount   
+			, SUM(CNT.LOT_CNT)  AS lotCntCount   
+			, SUM(CNT.CNT_CNT)  AS cntCntCount   
+			, SUM(CNT.FAL_CNT)  AS falCntCont     
+		FROM "TB_AI_NVR_DASH_BOARD_DAILY_COUNT" CNT
+		WHERE SUBSTRING(CNT.OCCU_TIME, 1, 8) = #{occuDate}
+		GROUP BY CNT.CAMERA_NAME
+		ORDER BY SUM(CNT.TOT_CNT)
+	</select>
+	
+	
+	<!-- 최다검지카메라 차량 테이블(날짜 바꾸면~~) --> 
+	<select id="selectMainVehicleTableChange" resultMap="DailyCount_rm">
+		SELECT TOP 10
+		    CNT.CAMERA_NAME,
+		    SUM(CNT.TOT_CNT) AS total_count,
+		    SUM(CNT.VEHICLE_CAR) AS carCount,
+		    SUM(CNT.VEHICLE_BUS) AS busCount,
+		    SUM(CNT.VEHICLE_TRUCK) AS truckCount,
+		    SUM(CNT.VEHICLE_MOTORCYCLE) AS motocycleCount,
+		    SUM(CNT.VEHICLE_BICYCLE) AS bicycleCount
+		FROM "TB_AI_NVR_DASH_BOARD_DAILY_COUNT" CNT
+		WHERE SUBSTRING(CNT.OCCU_TIME, 1, 8) = #{occuDate}
 		GROUP BY CNT.CAMERA_NAME
 		ORDER BY SUM(CNT.TOT_CNT) DESC
 	</select>

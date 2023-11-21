@@ -1,6 +1,7 @@
 package fo.di.cs.main.controller;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -10,8 +11,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import fo.di.cs.main.model.dto.DC_summary;
 import fo.di.cs.main.model.dto.DailyCount;
@@ -27,7 +33,6 @@ public class MainController {
 	
 	//초기화면(메인페이지)로 이동
 	 @GetMapping("/main")
-	 //@ResponseBody
 	public String mainForward(
 			Model model
 			) {
@@ -54,14 +59,60 @@ public class MainController {
 		model.addAttribute("vehicleDailyCount_CNT", vehicleDailyCount_CNT);
 		
 		// list들어왔는지 확인
-		System.out.println("DC_summaryList : "+ DC_summaryList);
-		System.out.println("dailyCount : "+ dailyCount);
-		System.out.println("DailyCount_summary : "+ DailyCount_summary);
-		System.out.println("dailyCount_CNT : "+ dailyCount_CNT);
-		System.out.println("vehicleDailyCount_CNT : "+ vehicleDailyCount_CNT);
+//		System.out.println("DC_summaryList : "+ DC_summaryList);
+//		System.out.println("dailyCount : "+ dailyCount);
+//		System.out.println("DailyCount_summary : "+ DailyCount_summary);
+//		System.out.println("dailyCount_CNT : "+ dailyCount_CNT);
+//		System.out.println("vehicleDailyCount_CNT : "+ vehicleDailyCount_CNT);
 		
 		return "main/main";
 	}
+	 
+	 
+	 
+	 // 날짜 변경 시 차트데이터 변경하기
+	 @GetMapping("/dateChange")
+	 @ResponseBody
+	 public Map<String, Object> changeChart(
+			 @RequestParam(value="occuDate") String occuDate
+			 ) {
+		 Map<String, Object> map = new HashMap<>();
+		 
+		 
+		
+		// 메인페이지 사람 막대 차트(날짜 바꾸면~~)
+		List<DC_summary> DC_summaryChangeList = service.mainHumanChartChange(occuDate);
+		map.put("DC_summaryChangeList", DC_summaryChangeList);
+		
+		// 메인페이지 시간대별라인차트(날짜 바꾸면~~)
+		List<DailyCount> dailyCountChangeList = service.selectMainLineChartChange(occuDate);
+		map.put("dailyCountChangeList", dailyCountChangeList);
+		
+		// 마스크 미착용자 성별/연령 비교 (날짜 바꾸면~~)
+		List<DailyCount_summary> DailyCount_summaryChangeList = service.selectMainMaskChartChange(occuDate);
+		map.put("DailyCount_summaryChangeList", DailyCount_summaryChangeList);
+		
+		// 최다검지카메라 사람 테이블(날짜 바꾸면~~)
+		List<DailyCount> dailyCount_CNT_changeList = service.selectMainHumanTableChange(occuDate);
+		map.put("dailyCount_CNT_changeList", dailyCount_CNT_changeList);
+		
+		
+		// 최다검지카메라 차량 테이블(날짜 바꾸면~~)
+		List<DailyCount> vehicleDailyCount_CNT_changeList = service.selectMainVehicleTableChange(occuDate);
+		map.put("vehicleDailyCount_CNT_changeList", vehicleDailyCount_CNT_changeList);
+
+		System.out.println("occuDate : "+ occuDate);
+//		System.out.println("DC_summaryChangeList : "+ DC_summaryChangeList);
+//		System.out.println("dailyCountChangeList : "+ dailyCountChangeList);
+//		System.out.println("DailyCount_summaryChangeList : "+ DailyCount_summaryChangeList);
+//		System.out.println("dailyCount_CNT_changeList : "+ dailyCount_CNT_changeList);
+//		System.out.println("vehicleDailyCount_CNT_changeList : "+ vehicleDailyCount_CNT_changeList);
+		System.out.println("map"+map);
+		
+		
+	    return map;
+	 }
+	 
 	
 
 	// 설정페이지 이동
