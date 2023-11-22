@@ -137,6 +137,8 @@ function sendToServer(value) {
                 );
 
 
+                
+                
                 // currentItem의 속성에 접근 확인
                 // console.log(currentItem.face_youngMale);
                 // console.log(currentItem.face_youngFemale);
@@ -150,7 +152,15 @@ function sendToServer(value) {
             // 콘솔확인
             // console.log("femaleList : " +femaleList);
             // console.log("manList : "+manList);
-
+            
+            const face_youngMale = currentItem.face_youngMale || 0;
+            const face_youngFemale = currentItem.face_youngFemale || 0;
+            const face_adultMale = currentItem.face_adultMale || 0;
+            const face_adultFemale = currentItem.face_adultFemale || 0;
+            const face_middleMale = currentItem.face_middleMale || 0;
+            const face_middleFemale = currentItem.face_middleFemale || 0;
+            const face_seniorMale = currentItem.face_seniorMale || 0;
+            const face_seniorFemale = currentItem.face_seniorFemale || 0;
             /* 사람 막대차트 */
             //  준비한 DOM 컨테이너에서 echarts 초기화하기
             var human_chartChange = echarts.init(document.getElementById('mainPerson_chart'))
@@ -357,10 +367,10 @@ function sendToServer(value) {
                                 show: false
                             },
                             data: [
-                                { value: currentItem.face_youngFemale, name: '미성년', itemStyle: { color: '#d3f1f9' } },
-                                { value: currentItem.face_adultFemale, name: '청년', itemStyle: { color: '#3fd5e3' } },
-                                { value: currentItem.face_middleFemale, name: '중장년', itemStyle: { color: '#00a0de' } },
-                                { value: currentItem.face_seniorFemale, name: '노년', itemStyle: { color: '#0174cf' } }
+                                { value: face_youngFemale, name: '미성년', itemStyle: { color: '#d3f1f9' } },
+                                { value: face_adultFemale, name: '청년', itemStyle: { color: '#3fd5e3' } },
+                                { value: face_middleFemale, name: '중장년', itemStyle: { color: '#00a0de' } },
+                                { value: face_seniorFemale, name: '노년', itemStyle: { color: '#0174cf' } }
 
                             ]
                         },
@@ -384,10 +394,10 @@ function sendToServer(value) {
                                 show: false
                             },
                             data: [
-                                { value: currentItem.face_youngMale, name: '미성년', itemStyle: { color: '#d3f1f9' } },
-                                { value: currentItem.face_adultMale, name: '청년', itemStyle: { color: '#3fd5e3' } },
-                                { value: currentItem.face_middleMale, name: '중장년', itemStyle: { color: '#00a0de' } },
-                                { value: currentItem.face_seniorMale, name: '노년', itemStyle: { color: '#0174cf' } }
+                                { value: face_youngMale, name: '미성년', itemStyle: { color: '#d3f1f9' } },
+                                { value: face_adultMale, name: '청년', itemStyle: { color: '#3fd5e3' } },
+                                { value: face_middleMale, name: '중장년', itemStyle: { color: '#00a0de' } },
+                                { value: face_seniorMale, name: '노년', itemStyle: { color: '#0174cf' } }
                             ]
                         }
                     ]
