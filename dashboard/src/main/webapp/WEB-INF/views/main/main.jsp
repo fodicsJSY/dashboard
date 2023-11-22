@@ -173,7 +173,7 @@
 				<div class="mainTop">
 					<div class=" dateArea" style="display: flex; flex-direction: row; align-items: center;">
 
-						
+
 						<div class="tui-datepicker-input tui-datetime-input tui-has-focus">
 							<input type="date" id="tui-date-picker-target" aria-label="Date-Time">
 							<span class="tui-ico-date"></span>
@@ -317,7 +317,7 @@
 											<th scope="col">카운팅</th>
 										</tr>
 									</thead>
-									<tbody class="table-group-divider">
+									<tbody class="table-group-divider" id="humanTable">
 										<c:forEach items="${dailyCount_CNT}" var="dailyCount_CNT">
 											<tr>
 												<th scope="row" class="loadName">${dailyCount_CNT.cameraName}</th>
