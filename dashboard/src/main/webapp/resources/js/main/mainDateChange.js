@@ -230,14 +230,15 @@ function sendToServer(value) {
             document.getElementById("graphChange").addEventListener("click", ()=>{
                 if (currentChart === 'bar') {
                     currentChart = 'radial';
-                    renderRadialBarChart();
+                    renderRadialBarChartChange();
                 } else {
                     currentChart = 'bar';
-                    renderBarChart();
+                    renderBarChartChange();
                 }
 
             });
 
+            var human_chartChange = echarts.init(document.getElementById('mainPerson_chart'));
             var human_radial_bar_chartChange = echarts.init(document.getElementById('mainPerson_chart'));
 
             function renderBarChartChange() {
@@ -285,7 +286,7 @@ function sendToServer(value) {
                                 focus: 'series'
                             },
                             itemStyle: { color: '#0f9faf' },
-                            data: maleList
+                            data: manList
                         },
                         {
                             name: '여자',
@@ -310,12 +311,12 @@ function sendToServer(value) {
             // 연령별 출입자 현황 더블 도넛차트
             // 전역 변수로 선언
             var human_chartChange = echarts.init(document.getElementById('mainPerson_chart'));
+            var human_radial_bar_chartChange = echarts.init(document.getElementById('mainPerson_chart'));
 
             function renderRadialBarChartChange() {
 
                 human_chartChange.clear();
                 human_radial_bar_chartChange.clear();
-                human_radial_bar_chartChange = echarts.init(document.getElementById('mainPerson_chart'));
 
                 // 차트 옵션 설정
                 var option = {
