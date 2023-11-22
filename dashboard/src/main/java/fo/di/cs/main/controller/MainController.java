@@ -116,7 +116,7 @@ public class MainController {
 	 }
 	 
 	 
-	
+	// 사람버튼 클릭 시 데이터 변경(금일)
 	 @GetMapping("/humanTable")
 	 @ResponseBody
 	 public Map<String, Object> humanTable(
@@ -128,13 +128,14 @@ public class MainController {
 		List<DailyCount> dailyCount_CNT = service.selectMainHumanTable();
 		map.put("dailyCount_CNT", dailyCount_CNT);
 		 
-		 System.out.println("map2 : "+map);
+		 //System.out.println("map2 : "+map);
 		 
 		 return map;
 	 }
 	 
 	 
 	 
+	 // 차량버튼 클릭 시 데이터 변경(금일)
 	 @GetMapping("/vehicleTable")
 	 @ResponseBody
 	 public Map<String, Object> vehicleTable(
@@ -145,7 +146,7 @@ public class MainController {
 		List<DailyCount> vehicleDailyCount_CNT = service.selectMainVehicleTable();
 		map.put("vehicleDailyCount_CNT", vehicleDailyCount_CNT);
 		 
-		System.out.println("map2 : "+map);
+		//System.out.println("map2 : "+map);
 		 
 		 return map;
 	 }
