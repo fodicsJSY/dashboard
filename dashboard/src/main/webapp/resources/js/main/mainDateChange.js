@@ -136,7 +136,14 @@ function sendToServer(value) {
                     , currentItem.face_seniorFemale
                 );
 
-
+                var face_youngMale = currentItem.face_youngMale || 0;
+                var face_youngFemale = currentItem.face_youngFemale || 0;
+                var face_adultMale = currentItem.face_adultMale || 0;
+                var face_adultFemale = currentItem.face_adultFemale || 0;
+                var face_middleMale = currentItem.face_middleMale || 0;
+                var face_middleFemale = currentItem.face_middleFemale || 0;
+                var face_seniorMale = currentItem.face_seniorMale || 0;
+                var face_seniorFemale = currentItem.face_seniorFemale || 0;
                 
                 
                 // currentItem의 속성에 접근 확인
@@ -153,14 +160,7 @@ function sendToServer(value) {
             // console.log("femaleList : " +femaleList);
             // console.log("manList : "+manList);
             
-            const face_youngMale = currentItem.face_youngMale || 0;
-            const face_youngFemale = currentItem.face_youngFemale || 0;
-            const face_adultMale = currentItem.face_adultMale || 0;
-            const face_adultFemale = currentItem.face_adultFemale || 0;
-            const face_middleMale = currentItem.face_middleMale || 0;
-            const face_middleFemale = currentItem.face_middleFemale || 0;
-            const face_seniorMale = currentItem.face_seniorMale || 0;
-            const face_seniorFemale = currentItem.face_seniorFemale || 0;
+
             /* 사람 막대차트 */
             //  준비한 DOM 컨테이너에서 echarts 초기화하기
             var human_chartChange = echarts.init(document.getElementById('mainPerson_chart'))
