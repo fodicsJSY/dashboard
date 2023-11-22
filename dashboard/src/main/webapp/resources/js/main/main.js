@@ -397,7 +397,6 @@ function setMainVehicleTop10() {
     }
 
     // 연령별 출입자 현황 더블 도넛차트
-
     function renderRadialBarChart() {
         human_radial_bar_chart.clear();
         human_radial_bar_chart = echarts.init(document.getElementById('mainPerson_chart'));

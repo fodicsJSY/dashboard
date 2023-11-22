@@ -34,7 +34,7 @@ public class DailyCount {
 	private int invCntCount; // 침입 수
 	private int lotCntCount; //배회 수
 	private int cntCntCount; // 카운팅 수
-	private int falCntCont; // 쓰러짐 수
+	private int falCntCount; // 쓰러짐 수
 	
 	
 	// 최다검지카메라 차량 테이블(금일)

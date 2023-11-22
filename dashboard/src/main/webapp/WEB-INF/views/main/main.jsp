@@ -208,7 +208,7 @@
 								<p class="summary">일 누적 <span>12,812</span>명</p>
 							</div>
 							<div class="partBTN">
-								<a class="changeGraph" onclick="OnHumanGraphChange()" ><img src="../../resources/img/btn_cangeDiagram.png"> <img src="../../resources/img/btn_cangeDiagram_hover.png" class="over"></a>									
+								<a class="changeGraph" id="graphChange" onclick="OnHumanGraphChange()" ><img src="../../resources/img/btn_cangeDiagram.png"> <img src="../../resources/img/btn_cangeDiagram_hover.png" class="over"></a>									
 							</div>
 						</div>
 						<a href="/sub_object">
@@ -300,12 +300,12 @@
 									<h4>최다검지 카메라 TOP10 CH</h4>
 								</div>
 								<div class="partBTN">
-									<a class="changeGraph" id="humanBtn" onclick="setMainEventTop10()"; style="margin-top:3px;"><img id="changeEvent_btn" src="/resources/img/btn_human.png"><img id="changeEvent_btn" src="/resources/img/btn_human_on.png" class="over"></a> 
-									<a class="changeGraph" id="vehicleBtn" onclick="setMainVehicleTop10()"; style="margin-top:3px;"><img id="changeVehicle_btn" src="/resources/img/btn_car.png"> <img src="/resources/img/btn_car_on.png" class="over"></a>									
+									<a class="changeGraph" id="humanBtn" style="margin-top:3px;"><img id="changeEvent_btn" src="/resources/img/btn_human.png"><img id="changeEvent_btn" src="/resources/img/btn_human_on.png" class="over"></a> 
+									<a class="changeGraph" id="vehicleBtn" style="margin-top:3px;"><img id="changeVehicle_btn" src="/resources/img/btn_car.png"> <img src="/resources/img/btn_car_on.png" class="over"></a>									
 								</div>
 							</div>
 							<div class="data" id="subTop10Cameras" style="">
-								<table class="cameraTable">
+								<table class="cameraTable" id="humanCameraTable">
 									<thead>
 										<tr>
 											<th scope="col">카메라명</th>
@@ -326,14 +326,15 @@
 												<td>${dailyCount_CNT.invCntCount}</td>
 												<td>${dailyCount_CNT.lotCntCount}</td>
 												<td>${dailyCount_CNT.cntCntCount}</td>
-												<td>${dailyCount_CNT.falCntCont}</td>
+												<td>${dailyCount_CNT.falCntCount}</td>
 											</tr>
 										</c:forEach>
 										
 									</tbody>
 								</table>
 							</div>		
-							<div class="data" id="subTop10CamerasCar" style=" display: none;">
+
+							<%-- <div class="data" id="subTop10CamerasCar" style=" display: none;">
 								<table class="cameraTable">
 									<thead>
 										<tr>
@@ -345,7 +346,7 @@
 											<th scope="col">자전거</th>
 										</tr>
 									</thead>
-									<tbody class="table-group-divider">
+									<tbody class="table-group-divider" id="vehicleTable">
 										<c:forEach items="${vehicleDailyCount_CNT}" var="vehicleDailyCount_CNT">
 											<tr>
 												<th scope="row" class="loadName">${vehicleDailyCount_CNT.carCount}</th>
@@ -359,7 +360,7 @@
 										
 									</tbody>
 								</table>
-							</div>
+							</div> --%>
 						</div>
 					<%--</div>	--%>
 					<%-- 섹션 우측.E --%>
@@ -373,9 +374,9 @@
 					<p class="Notice">※ 화면에 표시되는 모든 실시간 데이터는 1분마다 자동으로 업데이트 합니다. 다만 “시간대별 현황” 그래프의 실시간 데이터는 정시에 한 번씩 업데이트 합니다.</p>
 					<div class="madeFodics" style="margin: 0 40px 0 0;">포딕스시스템</div>
 				</div>
-				${dailyCount_CNT}
+				<%-- ${dailyCount_CNT}
 				${vehicleDailyCount_CNT_changeList}
-				${DC_summaryChangeList}
+				${DC_summaryChangeList} --%>
 
 				<%-- CSV 대화상자 --%>
 				<dialog open id="csv_dialog" style = "display:none; background-color: rgba(30,30,30,1); color:rgba(192,192,192,1); width: 336px; padding: 0px; top:30px; left:900px;">		
@@ -468,6 +469,8 @@
 
    
     <script src="../../../resources/js/main/loading.js"></script>
+    <%-- <script src="../../../resources/js/main/vehicleTable.js"></script> --%>
+    <script src="../../../resources/js/main/tableChange.js"></script>
     <script src="../../../resources/js/main/mainDateChange.js"></script>
 
 

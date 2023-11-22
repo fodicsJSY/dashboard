@@ -35,7 +35,7 @@
       	<result property="invCntCount" column="invCntCount" />
       	<result property="lotCntCount" column="lotCntCount" />
       	<result property="cntCntCount" column="cntCntCount" />
-      	<result property="falCntCont" column="falCntCont" />
+      	<result property="falCntCont" column="falCntCount" />
 </resultMap> 
 
 <resultMap type="fo.di.cs.main.model.dto.DailyCount_summary" id="DailyCount_summary_rm">

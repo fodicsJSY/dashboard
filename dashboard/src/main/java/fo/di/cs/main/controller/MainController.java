@@ -96,24 +96,61 @@ public class MainController {
 		List<DailyCount> dailyCount_CNT_changeList = service.selectMainHumanTableChange(occuDate);
 		map.put("dailyCount_CNT_changeList", dailyCount_CNT_changeList);
 		
-		
 		// 최다검지카메라 차량 테이블(날짜 바꾸면~~)
 		List<DailyCount> vehicleDailyCount_CNT_changeList = service.selectMainVehicleTableChange(occuDate);
 		map.put("vehicleDailyCount_CNT_changeList", vehicleDailyCount_CNT_changeList);
+		 
+		
+	
 
-		System.out.println("occuDate : "+ occuDate);
+//		System.out.println("occuDate : "+ occuDate);
 //		System.out.println("DC_summaryChangeList : "+ DC_summaryChangeList);
 //		System.out.println("dailyCountChangeList : "+ dailyCountChangeList);
 //		System.out.println("DailyCount_summaryChangeList : "+ DailyCount_summaryChangeList);
 //		System.out.println("dailyCount_CNT_changeList : "+ dailyCount_CNT_changeList);
 //		System.out.println("vehicleDailyCount_CNT_changeList : "+ vehicleDailyCount_CNT_changeList);
-		System.out.println("map"+map);
+//		System.out.println("map"+map);
 		
 		
 	    return map;
 	 }
 	 
+	 
 	
+	 @GetMapping("/humanTable")
+	 @ResponseBody
+	 public Map<String, Object> humanTable(
+			 ){
+		 Map<String, Object> map = new HashMap<>();
+		 
+
+		// 최다검지카메라 사람 테이블(금일)
+		List<DailyCount> dailyCount_CNT = service.selectMainHumanTable();
+		map.put("dailyCount_CNT", dailyCount_CNT);
+		 
+		 System.out.println("map2 : "+map);
+		 
+		 return map;
+	 }
+	 
+	 
+	 
+	 @GetMapping("/vehicleTable")
+	 @ResponseBody
+	 public Map<String, Object> vehicleTable(
+			 ){
+		 Map<String, Object> map = new HashMap<>();
+		 
+		// 최다검지카메라 차량 테이블(날짜 바꾸면~~)
+		List<DailyCount> vehicleDailyCount_CNT = service.selectMainVehicleTable();
+		map.put("vehicleDailyCount_CNT", vehicleDailyCount_CNT);
+		 
+		System.out.println("map2 : "+map);
+		 
+		 return map;
+	 }
+	 
+	 
 
 	// 설정페이지 이동
 	@GetMapping("/setting")
