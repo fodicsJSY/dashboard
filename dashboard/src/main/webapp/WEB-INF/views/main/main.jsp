@@ -102,19 +102,19 @@
 
 
 		.innerBox:nth-child(1){
-			order:4;
-		}
-
-		.innerBox:nth-child(2){
 			order:2;
 		}
 
+		.innerBox:nth-child(2){
+			order:4;
+		}
+
 		.innerBox:nth-child(3){
-			order:3;
+			order:1;
 		}
 
 		.innerBox:nth-child(4){
-			order:1;
+			order:3;
 		}
 	/* 그리드로 차트 위치 변경 끝 */
 
@@ -247,7 +247,7 @@
 							</div>
 						</div> --%>
 				<%--</div>--%>
-					<div class="innerBox divAge" id="nomask_rect">
+					<div class="innerBox divAge1" id="nomask_rect">
 						<div class="contentsTitle">
 							<div class="title">
 								<h4>마스크 미착용자 성별/연령 비교</h4>
@@ -257,7 +257,7 @@
 							<div class="data" id="mainFace1" style="margin-top: 7px; margin-left: 30px">
 								<div class="manChart">
 									<a href="/sub_object">
-										<div id="mainFace1_chart" style="width: 400px; height: 400px">
+										<div id="mainFace1_chart" style="width: 400px; height: 350px">
 											<%-- 남성 마스크 미착용자 도넛그래프 영역 --%>
 										</div>
 									</a>					
@@ -267,7 +267,7 @@
 							<div class="data" id="mainFace2" style="margin-top: 7px" >		
 								<div class="womanChart">					
 									<a href="/sub_object">
-										<div id="mainFace2_chart" style="width: 400px; height: 400px">
+										<div id="mainFace2_chart" style="width: 400px; height: 350px">
 											<%-- 여성 마스크 미착용자 도넛그래프 영역 --%>
 												
 										</div>
@@ -308,7 +308,7 @@
                             </div>
 						</div>
 
-						<div class="innerBox divTop10" id="top10_rect" >
+						<div class="innerBox divTop10_1" id="top10_rect" >
 							<div class="contentsTitle">
 								<div class="title">
 									<h4>최다검지 카메라 TOP10 CH</h4>
