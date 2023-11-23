@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .contents {
+            display: grid;
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .innerBox {
+            height: 450px;
+            max-width: 845px;
+            width: 100%;
+            background-color: lightblue;
+            border: 1px solid blue;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 600px) {
+            .contents.fourColumns {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .contents.fourColumns .innerBox {
+                display: none;
+            }
+
+            .contents.fourColumns .innerBox:nth-child(-n+4) {
+                display: block;
+            }
+
+            .contents.sixColumns .innerBox {
+                display: block;
+                max-width: none;
+            }
+        }
+
+        @media (min-width: 601px) {
+            .contents.fourColumns {
+                grid-template-columns: repeat(2, minmax(0, 1fr)); /* 수정된 부분 */
+            }
+
+            .contents.fourColumns .innerBox {
+                display: block;
+            }
+
+            .contents.fourColumns .innerBox:nth-child(n+5) {
+                display: none;
+            }
+
+            .contents.sixColumns {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .contents.sixColumns .innerBox {
+                display: block;
+                max-width: 510px;
+            }
+
+            .contents.sixColumns .innerBox:nth-child(n+7) {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button id="sixInnerBox">6개</button>
+    <button id="fourInnerBox">4개</button>
+    <br><br>
+    <div class="contents">
+        <div class="innerBox"></div>
+        <div class="innerBox"></div>
+        <div class="innerBox"></div>
+        <div class="innerBox"></div>
+        <div class="innerBox"></div>
+        <div class="innerBox"></div>
+    </div>
+
+    <script>
+        document.getElementById('sixInnerBox').addEventListener('click', function () {
+            document.querySelector('.contents').classList.remove('fourColumns');
+            document.querySelector('.contents').classList.add('sixColumns');
+        });
+
+        document.getElementById('fourInnerBox').addEventListener('click', function () {
+            document.querySelector('.contents').classList.remove('sixColumns');
+            document.querySelector('.contents').classList.add('fourColumns');
+        });
+    </script>
+</body>
+</html>

@@ -101,24 +101,78 @@
 		}
 
 
+		/* 막대 */
 		.innerBox:nth-child(1){
-			order:2;
-		}
-
-		.innerBox:nth-child(2){
-			order:4;
-		}
-
-		.innerBox:nth-child(3){
 			order:1;
 		}
 
-		.innerBox:nth-child(4){
+		/* 도넛 */
+		.innerBox:nth-child(2){
 			order:3;
+		}
+
+		/* 라인 */
+		.innerBox:nth-child(3){
+			order:2;
+		}
+
+		/* 테이블 */
+		.innerBox:nth-child(4){
+			order:4;
 		}
 	/* 그리드로 차트 위치 변경 끝 */
 
+
+		@media (max-width: 600px) {
+            .contents.fourColumns {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .contents.fourColumns .innerBox {
+                display: none;
+            }
+
+            .contents.fourColumns .innerBox:nth-child(-n+4) {
+                display: block;
+            }
+
+            .contents.sixColumns .innerBox {
+                display: block;
+                max-width: none;
+            }
+        }
+
+        @media (min-width: 601px) {
+            .contents.fourColumns {
+                grid-template-columns: repeat(2, minmax(0, 1fr)); /* 수정된 부분 */
+            }
+
+            .contents.fourColumns .innerBox {
+                display: block;
+            }
+
+            .contents.fourColumns .innerBox:nth-child(n+5) {
+                display: none;
+            }
+
+            .contents.sixColumns {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .contents.sixColumns .innerBox {
+                display: block;
+                max-width: 510px;
+            }
+
+            .contents.sixColumns .innerBox:nth-child(n+7) {
+                display: none;
+            }
+        }
+	
+
 	</style>
+
+
 </head>
 <body>
 
@@ -187,6 +241,8 @@
 							<button type="button" class="btn-date" id="plusBtn"><i class="fa-solid fa-caret-right fa-xl" style="color: #ffffff;"></i></button>
 						</div>
 					</div>
+					<button id="sixInnerBox" style="width:50px; hight:20px; margin-left:10px;">임시버튼6</button>
+					<button id="fourInnerBox" style="width:50px; hight:20px; margin-left:10px;">임시버튼4</button>
 					<div class="btnArea">						
 						<%-- <a class="rollover" alt="csv파일" OnClick="OnCSV_Click()"><img src="img/btn-downCSV.png"> <img src="img/btn-downCSV_hover.png" class="over"></a> --%>
 						<a class="rollover" alt="csv파일" OnClick="OnCSV_Click()"><img src="../../resources/img/btn-downCSV.png"> <img src="../../resources/img/btn-downCSV_hover.png" class="over"></a>
@@ -202,7 +258,7 @@
 
 					<%-- 섹션 좌측.S --%>
 					<%--<div class="sectionBox">--%>
-					<div class="innerBox divHuman" id="human_rect">
+					<div class="innerBox" id="human_rect">
 						<div class="contentsTitle">
 							<div class="title" id="tableTitle">
 								<h4>사람</h4>
@@ -226,48 +282,48 @@
 							</div>
 						</div>
 						<a href="/sub_object">
-							<div class="data" id="mainPerson" style="width: 830px; height: 350px; margin-top : 5px;">
+							<div class="data" id="mainPerson" style="width: 100%; height: 350px; margin-top : 5px;">
 								<div id="mainPerson_chart" style="width: 100%; height: 100%;">
 									<%-- 사람 막대그래프 영역 --%>
 								</div>
 							</div>
 						</a>
 					</div>
-						<%-- <div class="innerBox divCar" id="vehicle_rect" >
-							<div class="contentsTitle">
-								<div class="title">
-									<h4>차량</h4>
-									<p class="summary">일 누적 <span>12,812</span>개</p>
-								</div>
-								<div class="partBTN">
-									<a class="changeGraph" onclick="OnCarGraphChange()"><img src="img/btn_cangeDiagram.png"> <img src="img/btn_cangeDiagram_hover.png" class="over"></a>									
-								</div>
+					<div class="innerBox" id="vehicle_rect" >
+						<div class="contentsTitle">
+							<div class="title">
+								<h4>차량</h4>
+								<p class="summary">일 누적 <span>12,812</span>개</p>
 							</div>
-							<div class="data" id="mainVehicle" style="margin-left : 20px; margin-top : 20px;" onclick="location.href='sub_object.html'">						
+							<div class="partBTN">
+								<a class="changeGraph" onclick="OnCarGraphChange()"><img src="../../resources/img/btn_cangeDiagram.png"> <img src="../../resources/img/btn_cangeDiagram_hover.png" class="over"></a>									
 							</div>
-						</div> --%>
+						</div>
+						<div class="data" id="mainVehicle" style="margin-left : 20px; margin-top : 20px;" onclick="location.href='sub_object.html'">						
+						</div>
+					</div> 
 				<%--</div>--%>
-					<div class="innerBox divAge1" id="nomask_rect">
+					<div class="innerBox" id="nomask_rect">
 						<div class="contentsTitle">
 							<div class="title">
 								<h4>마스크 미착용자 성별/연령 비교</h4>
 							</div>
 						</div>
 						<section class="chart">
-							<div class="data" id="mainFace1" style="margin-top: 7px; margin-left: 30px">
+							<div class="data" id="mainFace1" style=" margin-left: 30px">
 								<div class="manChart">
 									<a href="/sub_object">
-										<div id="mainFace1_chart" style="width: 400px; height: 350px">
+										<div id="mainFace1_chart" style="width: 400px; height: 390px">
 											<%-- 남성 마스크 미착용자 도넛그래프 영역 --%>
 										</div>
 									</a>					
 									<img class="image-thumbnail-mask_man" id="manImg" src ="/resources/img/icon_male75px.png">
 								</div>
 							</div>
-							<div class="data" id="mainFace2" style="margin-top: 7px" >		
+							<div class="data" id="mainFace2" >		
 								<div class="womanChart">					
 									<a href="/sub_object">
-										<div id="mainFace2_chart" style="width: 400px; height: 350px">
+										<div id="mainFace2_chart" style="width: 400px; height: 390px">
 											<%-- 여성 마스크 미착용자 도넛그래프 영역 --%>
 												
 										</div>
@@ -281,7 +337,7 @@
 
 					<%-- 섹션 우측.S --%>
 					<%--<div class="sectionBox">--%>
-						<%-- <div class="innerBox divEvent" id="event_acc_rect">
+						<div class="innerBox" id="event_acc_rect">
 							<div class="contentsTitle">
 								<div class="title">
 									<h4>이벤트 발생 비율</h4>
@@ -289,9 +345,9 @@
 							</div>
 							<div class="data" id="subEventRatio" style="margin-top: 20px;">								
 							</div>
-						</div>	 --%>	
+						</div>	
 						
-						<div class="innerBox divTime" id="time_rect">
+						<div class="innerBox" id="time_rect">
 							<div class="contentsTitle">
 								<div class="title">
 									<h4>시간대별 현황</h4>
@@ -308,7 +364,7 @@
                             </div>
 						</div>
 
-						<div class="innerBox divTop10_1" id="top10_rect" >
+						<div class="innerBox" id="top10_rect" >
 							<div class="contentsTitle">
 								<div class="title">
 									<h4>최다검지 카메라 TOP10 CH</h4>
@@ -475,6 +531,20 @@
 
 
     <%-- js --%>
+
+	<%-- media연습 시작 --%>
+	<script>
+        document.getElementById('sixInnerBox').addEventListener('click', function () {
+			document.querySelector('.contents').classList.remove('fourColumns');
+            document.querySelector('.contents').classList.add('sixColumns');
+        });
+
+        document.getElementById('fourInnerBox').addEventListener('click', function () {
+			document.querySelector('.contents').classList.remove('sixColumns');
+            document.querySelector('.contents').classList.add('fourColumns');
+        });
+    </script>
+	<%-- media연습 끝 --%>
 
     <%-- echarts --%>
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>

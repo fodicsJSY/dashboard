@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .contents {
+            display: grid;
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .innerBox {
+            height: 450px;
+            max-width: 845px;
+            width: 100%;
+            background-color: lightblue;
+            border: 1px solid blue;
+            box-sizing: border-box;
+        }
+
+        .contentsTitle {
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+
+        .title h4 {
+            margin: 0;
+        }
+
+        @media (max-width: 600px) {
+            .contents .innerBox {
+                display: none;
+            }
+
+            .contents.fourColumns .innerBox:nth-child(-n+4) {
+                display: block;
+            }
+
+            .contents.sixColumns .innerBox {
+                display: block;
+                max-width: none;
+            }
+        }
+
+        @media (min-width: 601px) {
+            .contents .innerBox {
+                display: block;
+            }
+
+            .contents.fourColumns .innerBox:nth-child(n+5) {
+                display: none;
+            }
+
+            .contents.sixColumns .innerBox {
+                display: block;
+                max-width: 510px;
+            }
+
+            .contents.sixColumns .innerBox:nth-child(n+7) {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button id="sixInnerBox">6개</button>
+    <button id="fourInnerBox">4개</button>
+    <br><br>
+    <div class="contents fourColumns">
+        <div class="innerBox"></div>
+        <div class="innerBox" id="nomask_rect">
+            <div class="contentsTitle">
+                <div class="title">
+                    <h4>마스크 미착용자 성별/연령 비교</h4>
+                </div>
+            </div>
+            <section class="chart">
+                <div class="data" id="mainFace1" style=" margin-left: 30px">
+                    <div class="manChart">
+                        <a href="/sub_object">
+                            <div id="mainFace1_chart" style="width: 400px; height: 390px">
+                                <!-- 남성 마스크 미착용자 도넛그래프 영역 -->
+                            </div>
+                        </a>
+                        <img class="image-thumbnail-mask_man" id="manImg" src="/resources/img/icon_male75px.png">
+                    </div>
+                </div>
+                <div class="data" id="mainFace2">
+                    <div class="womanChart">
+                        <a href="/sub_object">
+                            <div id="mainFace2_chart" style="width: 400px; height: 390px">
+                                <!-- 여성 마스크 미착용자 도넛그래프 영역 -->
+                            </div>
+                        </a>
+                        <img class="image-thumbnail-mask_woman" id="womanImg" src="/resources/img/icon_female75px.png">
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="innerBox"></div>
+        <div class="innerBox"></div>
+        <div class="innerBox"></div>
+        <div class="innerBox"></div>
+    </div>
+
+    <script>
+        document.getElementById('sixInnerBox').addEventListener('click', function () {
+            document.querySelector('.contents').classList.remove('fourColumns');
+            document.querySelector('.contents').classList.add('sixColumns');
+    
+            // 여기서 도넛 그래프 영역의 크기를 동적으로 조절
+            var chartContainer = document.getElementById('mainFace1_chart');
+            chartContainer.style.width = '600px';  // 적절한 가로 크기로 변경
+            chartContainer.style.height = '390px'; // 적절한 세로 크기로 변경
+        });
+    
+        document.getElementById('fourInnerBox').addEventListener('click', function () {
+            document.querySelector('.contents').classList.remove('sixColumns');
+            document.querySelector('.contents').classList.add('fourColumns');
+    
+            // 여기서 도넛 그래프 영역의 크기를 동적으로 조절
+            var chartContainer = document.getElementById('mainFace1_chart');
+            chartContainer.style.width = '400px';  // 적절한 가로 크기로 변경
+            chartContainer.style.height = '390px'; // 적절한 세로 크기로 변경
+        });
+    </script>
+</body>
+
+</html>
