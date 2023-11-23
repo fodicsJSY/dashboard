@@ -50,7 +50,7 @@
       	<result property="occuDate" column="OCCU_DATE" />
 </resultMap> 
 	
-
+<resultMap id="_int" type="java.lang.Integer" />
 	
 		
 	<!-- 메인페이지 사람 막대그래프 & 도넛그래프(금일)-->
@@ -65,6 +65,16 @@
 			, FACE_SENIORMALE   
 			, FACE_SENIORFEMALE 
 			FROM "TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY"
+		WHERE OCCU_DATE = CONVERT(varchar, GETDATE(), 112)
+	</select>
+	
+	<!-- 메인페이지 사람 막대그래프 & 도넛그래프 사람 수 누적합계(금일)-->
+	<select id="mainHumanCount" resultMap="_int">
+		SELECT ISNULL(
+		           SUM(FACE_YOUNGMALE + FACE_YOUNGFEMALE + FACE_ADULTMALE + FACE_ADULTFEMALE + FACE_MIDDLEMALE + FACE_MIDDLEFEMALE + FACE_SENIORMALE + FACE_SENIORFEMALE),
+		           0
+		       ) AS TotalSum
+		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY
 		WHERE OCCU_DATE = CONVERT(varchar, GETDATE(), 112)
 	</select>
 	
@@ -138,6 +148,10 @@
 	
 	
 	
+	
+	
+	
+	
 	<!-- 메인페이지 사람 막대그래프 & 도넛그래프(날짜 바꾸면~~)-->
 	<select id="mainHumanChartChange" resultMap="DC_summary_rm">
 		SELECT
@@ -152,6 +166,18 @@
 			FROM "TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY"
 		WHERE OCCU_DATE = #{occuDate}
 	</select>
+	
+	
+	<!-- 메인페이지 사람 막대그래프 & 도넛그래프 사람 수 누적합계(날짜 바꾸면~~)-->
+	<select id="humanCountChange" resultMap="_int">
+		SELECT ISNULL(
+		           SUM(FACE_YOUNGMALE + FACE_YOUNGFEMALE + FACE_ADULTMALE + FACE_ADULTFEMALE + FACE_MIDDLEMALE + FACE_MIDDLEFEMALE + FACE_SENIORMALE + FACE_SENIORFEMALE),
+		           0
+		       ) AS TotalSum
+		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY
+		WHERE OCCU_DATE = #{occuDate}
+	</select>
+	
 	
 		<!-- 시간대별 라인차트 (날짜 바꾸면~~)-->
 	<select id="selectMainLineChartChange" resultMap="DailyCount_rm">

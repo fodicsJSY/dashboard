@@ -15,6 +15,11 @@ public interface MainService {
 	 * @return list
 	 */
 	List<DC_summary> selectMainHumanChart();
+	
+	/** 메인페이지 사람 막대차트 타이틀 누적 수(금일)
+	 * @return count
+	 */
+	int mainHumanCount();
 
 	/** 메인페이지 라인차트(금일)
 	 * @return list
@@ -42,6 +47,12 @@ public interface MainService {
 	 * @return list
 	 */
 	List<DC_summary> mainHumanChartChange(String occuDate);
+	
+	/** // 메인페이지 사람 막대 차트 타이틀 사람 누적 수(날짜 바꾸면~~)
+	 * @param occuDate
+	 * @return count
+	 */
+	int humanCountChange(String occuDate);
 
 	/** 시간대별 라인차트 (날짜 바꾸면~~)
 	 * @return list
@@ -62,6 +73,10 @@ public interface MainService {
 	 * @return list
 	 */
 	List<DailyCount> selectMainVehicleTableChange(String occuDate);
+
+
+
+
 
 
 

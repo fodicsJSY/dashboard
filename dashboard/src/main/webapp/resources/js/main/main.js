@@ -235,6 +235,7 @@ function setMainVehicleTop10() {
 
 
 
+
     /* 시간대별 라인그래프 */
     //  준비한 DOM 컨테이너에서 echarts 초기화하기
     var myChart = echarts.init(document.getElementById('main'))
@@ -255,7 +256,8 @@ function setMainVehicleTop10() {
         },
         // x축 라벨
         xAxis: {
-        data: [time1, time2, time3, time4, time5, time6, time7, time8, time9, time10,
+        data: 
+        [time1, time2, time3, time4, time5, time6, time7, time8, time9, time10,
                 time11, time12, time13, time14, time15, time16, time17, time18, time19, time20,
                 time21, time22, time23, time24],
         },
@@ -325,7 +327,6 @@ function setMainVehicleTop10() {
 
 
     /* 사람 막대 <-> 도넛 차트 변경 시작*/
-    
     var human_chart = echarts.init(document.getElementById('mainPerson_chart'));
     var human_radial_bar_chart = echarts.init(document.getElementById('mainPerson_chart'));
 

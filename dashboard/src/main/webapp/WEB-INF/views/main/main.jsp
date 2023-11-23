@@ -123,6 +123,7 @@
 <body>
 
 	<c:set var="summaryList" value="${DC_summaryList}"/>
+	<c:set var="humanCount" value="${humanCount}"/>
 	<c:set var="dailyCount" value="${dailyCount}"/>
 	<c:set var="DailyCount_summary" value="${DailyCount_summary}"/>
 
@@ -203,9 +204,22 @@
 					<%--<div class="sectionBox">--%>
 					<div class="innerBox divHuman" id="human_rect">
 						<div class="contentsTitle">
-							<div class="title">
+							<div class="title" id="tableTitle">
 								<h4>사람</h4>
-								<p class="summary">일 누적 <span>12,812</span>명</p>
+								<p class="summary">일 누적 
+									<span id=humanCount_c>
+										<c:choose>
+											<c:when test="${empty humanCount}">
+												<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+												<span>0</span>
+											</c:when>
+											<c:otherwise>
+												<!-- 리스트의 요소 개수를 출력 -->
+												<span>${humanCount}</span>
+											</c:otherwise>
+										</c:choose>	
+									</span>
+								명</p>
 							</div>
 							<div class="partBTN">
 								<a class="changeGraph" id="graphChange" onclick="OnHumanGraphChange()" ><img src="../../resources/img/btn_cangeDiagram.png"> <img src="../../resources/img/btn_cangeDiagram_hover.png" class="over"></a>									
@@ -1220,8 +1234,49 @@
 	<%-- 전역변수 시작--%>
 	<script>
 
+		/* 시간대별 라인그래프 전역변수 초기화 시작(for문 돌려서 사용...? 확인 후 안되면 수정 or 삭제)*/
+		var dailyCountList = ${dailyCount};
 
-		/* 시간대별 라인그래프 전역변수 초기화 시작*/
+
+		var dailyCount_timeList = [];
+		var dailyCount_personList = [];
+		var dailyCount_vehicleList = [];
+		var dailyCount_faceList = [];
+		var dailyCount_lprList = [];
+		var dailyCount_invCntList = [];
+		var dailyCount_lotCntList = [];
+		var dailyCount_cntCntList = [];
+		var dailyCount_fatCntList = [];
+
+		for (var i = 0; i < dailyCountList.length; i++) {
+            
+			var dailyCountItem = dailyCountList[i];
+
+			dailyCount_timeList.push(dailyCountItem.time);
+			dailyCount_personList.push(dailyCountItem.person);
+			dailyCount_vehicleList.push(dailyCountItem.vehicle);
+			dailyCount_faceList.push(dailyCountItem.face);
+			dailyCount_lprList.push(dailyCountItem.lpr);
+			dailyCount_invCntList.push(dailyCountItem.invCnt);
+			dailyCount_lotCntList.push(dailyCountItem.lotCnt);
+			dailyCount_cntCntList.push(dailyCountItem.cntCnt);
+			dailyCount_fatCntList.push(dailyCountItem.fatCnt);
+		}
+
+
+		dailyCount_timeList = ${dailyCount_timeList[i] != null ? dailyCount_timeList[i].time : 0};
+		dailyCount_personList = ${dailyCount_personList[i] != null ? dailyCount_personList[i].person : 0};
+		dailyCount_vehicleList = dailyCount_vehicleList[i] != null ? dailyCount_vehicleList[i].vehicle : 0;
+		dailyCount_faceList = dailyCount_faceList[i] != null ? dailyCount_faceList[i].face : 0;
+		dailyCount_lprList = dailyCount_lprList[i] != null ? dailyCount_lprList[i].lpr : 0;
+		dailyCount_invCntList = dailyCount_invCntList[i] != null ? dailyCount_invCntList[i].invCnt : 0;
+		dailyCount_lotCntList = dailyCount_lotCntList[i] != null ? dailyCount_lotCntList[i].lotCnt : 0;
+		dailyCount_cntCntList = dailyCount_cntCntList[i] != null ? dailyCount_cntCntList[i].cntCnt : 0;
+		dailyCount_fatCntList = dailyCount_fatCntList[i] != null ? dailyCount_fatCntList[i].fatCnt : 0;
+		/* 시간대별 라인그래프 전역변수 초기화 끝(for문 돌려서 사용)*/
+
+
+		/* 시간대별 라인그래프 전역변수 초기화 시작(전역변수 하나하나 작성)*/
 		var time1 = ${dailyCount[0] != null ? dailyCount[0].time : 0};
 		var time2 = ${dailyCount[1] != null ? dailyCount[1].time : 0};
 		var time3 = ${dailyCount[2] != null ? dailyCount[2].time : 0};
@@ -1350,7 +1405,7 @@
 		var lpr21 = ${dailyCount[20] != null ? dailyCount[20].lpr : 0};
 		var lpr22 = ${dailyCount[21] != null ? dailyCount[21].lpr : 0};
 		var lpr23 = ${dailyCount[22] != null ? dailyCount[22].lpr : 0};
-		var lpr24 = ${dailyCount[23] != null ? dailyCount[3].lpr : 0};
+		var lpr24 = ${dailyCount[23] != null ? dailyCount[23].lpr : 0};
 
 
 

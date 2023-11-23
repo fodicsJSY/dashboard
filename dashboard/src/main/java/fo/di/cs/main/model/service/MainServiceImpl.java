@@ -25,6 +25,15 @@ public class MainServiceImpl implements MainService{
 	}
 	
 	/**
+	 * 메인페이지 사람 막대차트 타이틀 사람 누적 수(금일)
+	 */
+	@Override
+	public int mainHumanCount() {
+		return dao.mainHumanCount();
+	}
+	
+	
+	/**
 	 * 메인페이지 라인 차트(금일)
 	 */
 	@Override
@@ -68,6 +77,15 @@ public class MainServiceImpl implements MainService{
 	@Override
 	public List<DC_summary> mainHumanChartChange(String occuDate) {
 		return dao.mainHumanChartChange(occuDate);
+	}
+	
+	
+	/**
+	 * 메인페이지 사람 막대 차트 타이틀 사람 누적 수(날짜 바꾸면~~)
+	 */
+	@Override
+	public int humanCountChange(String occuDate) {
+		return dao.humanCountChange(occuDate);
 	}
 	
 	

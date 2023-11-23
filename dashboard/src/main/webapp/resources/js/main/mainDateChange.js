@@ -113,6 +113,9 @@ function sendToServer(value) {
             // 서버에서 받은 JSON 데이터를 사용
             // --------------------------------------------------------
 
+            
+
+
             //메인페이지 사람 막대 차트(날짜 바꾸면~~)
             var DC_summaryChangeList = response.DC_summaryChangeList;
             let manList = [];
@@ -122,6 +125,8 @@ function sendToServer(value) {
             for (var i = 0; i < DC_summaryChangeList.length; i++) {
                 var currentItem = DC_summaryChangeList[i];
                 //console.log(currentItem);
+
+                var humanCount = currentItem.face_youngMale + currentItem.face_adultMale + currentItem.face_middleMale +currentItem.face_seniorMale;
 
                 manList.push(
                     currentItem.face_youngMale
@@ -237,7 +242,9 @@ function sendToServer(value) {
             // 초기 차트 설정
             // renderBarChart();
 
+
             document.getElementById("graphChange").addEventListener("click", ()=>{
+
                 if (currentChart === 'bar') {
                     currentChart = 'radial';
                     renderRadialBarChartChange();
@@ -317,6 +324,9 @@ function sendToServer(value) {
                 };
                 human_chartChange.setOption(option);
             }
+
+
+
 
             // 연령별 출입자 현황 더블 도넛차트
             // 전역 변수로 선언
@@ -409,6 +419,20 @@ function sendToServer(value) {
 
 
 
+
+            // --------------------------------------------------------
+
+            // 사람 차트 타이틀 누적 수 변경
+
+            var humanCountChange = response.humanCountChange;
+
+            const humanCount_c = document.getElementById("humanCount_c");
+
+            if(humanCount_c){
+                humanCount_c.innerHTML = ""; 
+            }
+
+            humanCount_c.innerHTML = humanCountChange; 
 
             // --------------------------------------------------------
 

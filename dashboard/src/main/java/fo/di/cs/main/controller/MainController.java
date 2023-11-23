@@ -41,6 +41,12 @@ public class MainController {
 		List<DC_summary> DC_summaryList = service.selectMainHumanChart();
 		model.addAttribute("DC_summaryList", DC_summaryList);
 		
+		
+		// 메인페이지 사람 막대 차트 타이틀 사람 누적 수(금일)
+		int humanCount = service.mainHumanCount();
+		model.addAttribute("humanCount", humanCount);
+		
+		
 		// 메인페이지 시간대별라인차트(금일)
 		List<DailyCount> dailyCount = service.selectMainLineChart();
 		model.addAttribute("dailyCount", dailyCount);
@@ -64,6 +70,7 @@ public class MainController {
 //		System.out.println("DailyCount_summary : "+ DailyCount_summary);
 //		System.out.println("dailyCount_CNT : "+ dailyCount_CNT);
 //		System.out.println("vehicleDailyCount_CNT : "+ vehicleDailyCount_CNT);
+		System.out.println("humanCount : "+ humanCount);
 		
 		return "main/main";
 	}
@@ -84,6 +91,11 @@ public class MainController {
 		List<DC_summary> DC_summaryChangeList = service.mainHumanChartChange(occuDate);
 		map.put("DC_summaryChangeList", DC_summaryChangeList);
 		
+		// 메인페이지 사람 막대 차트 타이틀 사람 누적 수(날짜 바꾸면~~)
+		int humanCountChange = service.humanCountChange(occuDate);
+		map.put("humanCountChange", humanCountChange);
+		
+	
 		// 메인페이지 시간대별라인차트(날짜 바꾸면~~)
 		List<DailyCount> dailyCountChangeList = service.selectMainLineChartChange(occuDate);
 		map.put("dailyCountChangeList", dailyCountChangeList);
@@ -110,6 +122,7 @@ public class MainController {
 //		System.out.println("dailyCount_CNT_changeList : "+ dailyCount_CNT_changeList);
 //		System.out.println("vehicleDailyCount_CNT_changeList : "+ vehicleDailyCount_CNT_changeList);
 //		System.out.println("map"+map);
+		System.out.println("humanCountChange"+humanCountChange);
 		
 		
 	    return map;
