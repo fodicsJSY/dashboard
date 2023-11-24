@@ -532,6 +532,9 @@
 
     <%-- js --%>
 
+	<%-- refresh --%>
+	<script src="../../../resources/js/refresh.js"></script>
+
 	<%-- media연습 시작 --%>
 	<script>
         document.getElementById('sixInnerBox').addEventListener('click', function () {
