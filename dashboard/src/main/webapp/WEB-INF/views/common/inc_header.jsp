@@ -770,7 +770,7 @@
 	</script>
 
 
-<script>
+<%-- <script>
 
 // 초기 상태를 저장하는 객체를 생성합니다.
 var initialStates = {
@@ -904,7 +904,7 @@ function openAddUserView() {
 
 
 </script>
-
+--%>
 
 <%-- 사용자 조회 창에서 수정 버튼 클릭 시 수정모달창 생성 --%>
 <script>

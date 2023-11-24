@@ -185,7 +185,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 
 .sectionBox {display:block; width:100%; padding:0; }
 .sectionBox:nth-child(1) {width:49%; float:left; margin-right:15px;  }
-.sectionBox:nth-child(2) {width:49%; float:left;margin-right:0;  }
+.sectionBox:nth-child(2) {width:49%; float:left; margin-right:0;  }
 
 .sectionBox2 {display:block; width:100%; padding:0; }
 .sectionBox2:nth-child(1) {width:63%; float:left; margin-right:15px;  }

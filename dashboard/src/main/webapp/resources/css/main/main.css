@@ -14,7 +14,7 @@
 #manImg{
     position: absolute; 
     top: 160px; 
-    left: 162px; 
+    left: 155px; 
     z-index: 0;
 }
 
@@ -25,8 +25,8 @@
 
 #womanImg{
     position: absolute; 
-    top: 160px; 
-    left: 162px; 
+    top: 40%; 
+    left: 36%;
     z-index: 0;
 }
 
@@ -35,10 +35,11 @@
 /* 테이블 css */
 
 .cameraTable{
-    width: 800px !important;
+    /* max-width: 800px !important; */
+    width: 90% !important;
     height: 350px;
     
-    margin: 20px 0px 20px 20px;
+    margin: 20px 5% 20px 5%;
     
 }
 
