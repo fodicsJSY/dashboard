@@ -9,14 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import fo.di.cs.main.model.dto.DC_summary;
@@ -70,7 +67,7 @@ public class MainController {
 //		System.out.println("DailyCount_summary : "+ DailyCount_summary);
 //		System.out.println("dailyCount_CNT : "+ dailyCount_CNT);
 //		System.out.println("vehicleDailyCount_CNT : "+ vehicleDailyCount_CNT);
-		System.out.println("humanCount : "+ humanCount);
+//		System.out.println("humanCount : "+ humanCount);
 		
 		return "main/main";
 	}
@@ -114,7 +111,7 @@ public class MainController {
 		 
 		
 	
-
+		// list들어왔는지 확인
 //		System.out.println("occuDate : "+ occuDate);
 //		System.out.println("DC_summaryChangeList : "+ DC_summaryChangeList);
 //		System.out.println("dailyCountChangeList : "+ dailyCountChangeList);
@@ -122,7 +119,7 @@ public class MainController {
 //		System.out.println("dailyCount_CNT_changeList : "+ dailyCount_CNT_changeList);
 //		System.out.println("vehicleDailyCount_CNT_changeList : "+ vehicleDailyCount_CNT_changeList);
 //		System.out.println("map"+map);
-		System.out.println("humanCountChange"+humanCountChange);
+//		System.out.println("humanCountChange : "+humanCountChange);
 		
 		
 	    return map;
