@@ -235,7 +235,7 @@ function sendToServer(value) {
 
             //  차트 옵션 설정하기
             human_chartChange.setOption(option)
-
+           
 
             var currentChart = 'bar'; // 초기에는 막대형 차트를 표시
 
@@ -1095,6 +1095,25 @@ function sendToServer(value) {
             //----------------------------------------------------------------------
 
 
+            document.getElementById('fourInnerBox').addEventListener('click', function () {
+                document.querySelector('.contents').classList.remove('sixColumns');
+                document.querySelector('.contents').classList.add('fourColumns');
+                human_radial_bar_chartChange.resize();
+                human_chartChange.resize();
+                lineChart.resize();
+                womanDountChangeChart.resize();
+                manDountChangeChart.resize();
+            });
+            document.getElementById('sixInnerBox').addEventListener('click', function () {
+                document.querySelector('.contents').classList.remove('fourColumns');
+                document.querySelector('.contents').classList.add('sixColumns');
+                human_radial_bar_chartChange.resize();
+                human_chartChange.resize();
+                lineChart.resize();
+                manDountChangeChart.resize();
+                womanDountChangeChart.resize();
+            });
+    
 
         },
         error: function (xhr, status, error) {
@@ -1224,15 +1243,12 @@ function sendToServer2() {
             row1.appendChild(bicycleCountDataCell);
 
             subTop10Cameras.appendChild(table);
-
-
-
         }
-
         },
         error: function (xhr, status, error) {
             console.error('Error sending data to server:', error);
             console.log('Status:', xhr.status);
         }
+
     })
 }    

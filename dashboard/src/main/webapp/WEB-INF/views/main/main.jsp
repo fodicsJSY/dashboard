@@ -586,7 +586,7 @@
     
 
 
-   
+
     <script src="../../../resources/js/main/loading.js"></script>
     <%-- <script src="../../../resources/js/main/vehicleTable.js"></script> --%>
     <script src="../../../resources/js/main/tableChange.js"></script>
@@ -599,7 +599,7 @@
 
 		/*
       // 어제
-      function OnPrevDate(){
+    function OnPrevDate(){
         move_day = move_day - 1;				
         var yesterday = new Date();
         yesterday.setDate(yesterday.getDate() + move_day);
@@ -608,8 +608,8 @@
         var year = yesterday.getFullYear();
         var month = yesterday.getMonth() + 1;
         var day = yesterday.getDate();	  			
-          datePicker1.setDate(yesterday); 			
-		  }
+		datePicker1.setDate(yesterday); 			
+		}
 
 
       // 오늘

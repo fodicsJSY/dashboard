@@ -129,7 +129,11 @@
 
             .contents.sixColumns .innerBox {
                 display: block;
-                max-width: 580px;
+                max-width: 560px;
+            }
+
+            .contents.sixColumns #mainFace1 {
+                width: 100%;
             }
 
             .contents.sixColumns .innerBox:nth-child(n+7) {
