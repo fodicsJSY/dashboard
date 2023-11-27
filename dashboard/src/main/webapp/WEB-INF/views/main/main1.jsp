@@ -9,7 +9,7 @@
 
 
         <%-- css --%>
-
+        <script src="/resources/node_modules/jquery/3.6.0/jquery.min.js"></script>
         <link rel="stylesheet" href="/resources/css/main/main.css">
         <link rel="stylesheet" href="/resources/css/style.css">
         <link rel="stylesheet" href="/resources/css/object.css">
@@ -155,6 +155,14 @@
             }
 
         }
+
+
+        #bottom{
+            position: absolute;
+            display: table;
+            min-width: 1700px;
+            margin: 980px 15px 0 215px;
+        }
     </style>
 </head>
 <body>
@@ -230,7 +238,7 @@
 				<%-- 상단 날짜,버튼 영역.E --%>
         
 
-            <%-- 여기서 부터 그리드 연습장 --%>
+                <%-- 여기서 부터 그리드 연습장 --%>
                 <button id="sixInnerBox">6개</button>
                 <button id="fourInnerBox">4개</button>
                 <br><br>
@@ -381,25 +389,107 @@
                     </div>
                 </div>
                 <%-- 섹션 우측.E --%>
-            <%-- 여기까지 그리드 연습장 --%>
+                <%-- 여기까지 그리드 연습장 --%>
 
 
 
 
 
-        </div>
-        <%-- 로딩 --%>
-        <div id="loading"><img id="loading-image" src="../../resources/img/loading_animated.png" alt="Loading..." /></div>
+                </div>
+                <%-- 로딩 --%>
+                <div id="loading"><img id="loading-image" src="../../resources/img/loading_animated.png" alt="Loading..." /></div>
 
-        <%-- 메인컨텐츠.E --%>
-        <div id="bottom" style="magin-left: 200px;">
-            <div>
-            <p class="Notice">※ 화면에 표시되는 모든 실시간 데이터는 1분마다 자동으로 업데이트 합니다. 다만 “시간대별 현황” 그래프의 실시간 데이터는 정시에 한 번씩 업데이트 합니다.</p>
-            </div>
-            <div class="madeFodics" style="margin: 0 40px 0 0;">포딕스시스템</div>
-        </div>
+                <%-- 메인컨텐츠.E --%>
+                <div id="bottom" >
+                    <div class="Notice">
+                    ※ 화면에 표시되는 모든 실시간 데이터는 1분마다 자동으로 업데이트 합니다. 다만 “시간대별 현황” 그래프의 실시간 데이터는 정시에 한 번씩 업데이트 합니다.
+                    </div>
+                    <div class="madeFodics">포딕스시스템</div>
+                </div>
 
 
+                <%-- CSV 대화상자 --%>
+				<dialog open id="csv_dialog" style = "display:none; background-color: rgba(30,30,30,1); color:rgba(192,192,192,1); width: 336px; padding: 0px; top:80px; left:980px;">		
+					<div style = "font-size: 14px; width: 330px; background-color: rgba(45,45,45,1); color:rgba(255,255,255,1); padding: 16px; ">
+						<p>.csv 파일로 내려받기를 원하시는 항목을 선택</p>						
+						<p style = "margin-top: 6px">하여 체크한 후 [확인] 버튼을 누르세요.</p>
+					</div>
+					<div style = "width: 330px;  border: 1px solid gray;"></div>
+					<div style = "margin : 15px;"><input name="round" id="chk_csv_human" type="checkbox">  사람</div>
+					<div style = "margin : 15px;"><input name="round" id="chk_csv_vehicle" type="checkbox">  차량</div>
+					<div style = "margin : 15px;"><input name="round" id="chk_csv_event_acc" type="checkbox">  이벤트 발생 비율</div>
+					<div style = "margin : 15px;"><input name="round" id="chk_csv_unmask_sex" type="checkbox">  마스크 미착용자 성별/연령 비교</div>
+					<div style = "margin : 15px;"><input name="round" id="chk_csv_time_chk" type="checkbox">  시간대별 객체 현황</div>
+					<div style = "margin : 15px;"><input name="round" id="chk_csv_camera_10ch_human" type="checkbox">  검지 카메라 TOP 10ch - 사람</div>
+					<div style = "margin : 15px;"><input name="round" id="chk_csv_camera_10ch_vehicle" type="checkbox">  검지 카메라 TOP 10ch - 차량</div>
+					<div style = "margin : 10px; float: right;">
+						<a class="rollover" alt="확인" OnClick="OnCSV_OK()"><img  src="../../resources/img/btn_popConfirm.png"> <img src="../../resources/img/btn_popConfirm_hover.png" class="over"></a>
+						<a class="rollover" alt="취소" OnClick="OnCSV_Cancel()"><img src="../../resources/img/btn_popCancel.png"> <img src="../../resources/img/btn_popCancel_hover.png" class="over"></a>
+					</div>
+				</dialog>
+                <%-- BMP 대화상자 --%>
+				<dialog open id="bmp_dialog" style = "display:none; background-color: rgba(30,30,30,1); color:rgba(192,192,192,1); width: 336px; padding: 0px; top:80px; left:1150px;">		
+					<div style = "font-size: 14px; width: 330px; background-color: rgba(45,45,45,1); color:rgba(255,255,255,1); padding: 16px; ">
+						<p>.bmp 파일로 내려받기를 원하시는 항목을 선택</p>						
+						<p style = "margin-top: 6px">하여 체크한 후 [확인] 버튼을 누르세요.</p>
+					</div>
+					<div style = "width: 330px;  border: 1px solid gray;"></div>
+					<div style = "margin : 15px;"><input name="round" id="chk_bmp_human" type="checkbox">  사람</div>
+					<div style = "margin : 15px;"><input name="round" id="chk_bmp_vehicle" type="checkbox">  차량</div>
+					<div style = "margin : 15px;"><input name="round" id="chk_bmp_event_acc" type="checkbox">  이벤트 발생 비율</div>
+					<div style = "margin : 15px;"><input name="round" id="chk_bmp_unmask_sex" type="checkbox">  마스크 미착용자 성별/연령 비교</div>
+					<div style = "margin : 15px;"><input name="round" id="chk_bmp_time_chk" type="checkbox">  시간대별 객체 현황</div>
+					<div style = "margin : 15px;"><input name="10ch" onclick="chkHumanVehicleClick(this)" id="chk_bmp_camera_10ch_human" type="checkbox">  검지 카메라 TOP 10ch - 사람</div>
+					<div style = "margin : 15px;"><input name="10ch" onclick="chkHumanVehicleClick(this)" id="chk_bmp_camera_10ch_vehicle" type="checkbox">  검지 카메라 TOP 10ch - 차량</div>
+					<div style = "margin : 10px; float: right;">
+						<a class="rollover" alt="확인" OnClick="OnBMP_OK()"><img  src="../../resources/img/btn_popConfirm.png"> <img src="../../resources/img/btn_popConfirm_hover.png" class="over "></a>
+						<a class="rollover" alt="취소" OnClick="OnBMP_Cancel()"><img src="../../resources/img/btn_popCancel.png"> <img src="../../resources/img/btn_popCancel_hover.png" class="over "></a>
+					</div>
+				</dialog>
+                <%-- 출력 대화상자 --%>
+				<dialog open id="print_dialog" style = "display:none; background-color: rgba(30,30,30,1); color:rgba(192,192,192,1); width: 566px; padding: 0px; top:80px; left:1100px;">		
+					<div style = "font-size: 14px; width: 560px; background-color: rgba(45,45,45,1); color:rgba(255,255,255,1); padding: 16px; ">
+						<p>보고서 인쇄를 원하시는 항목을 선택하여</p>						
+						<p style = "margin-top: 6px"> 체크 한 후 [확인] 버튼을 누르세요.</p>
+					</div>
+					<div style = "width: 560px;  border: 1px solid gray;"></div>
+					<div id='check_rect' style="float:left">
+						
+						<div style = "margin : 15px;"><input name="round" onclick="chkPrintClick(this)" id="chk_print_human" type="checkbox">  사람</div>
+						<div style = "margin : 15px;"><input name="round" onclick="chkPrintClick(this)" id="chk_print_vehicle" type="checkbox">  차량</div>
+						<div style = "margin : 15px;"><input name="round" onclick="chkPrintClick(this)" id="chk_print_event_acc" type="checkbox">  이벤트 발생 비율</div>
+						<div style = "margin : 15px;"><input name="round" onclick="chkPrintClick(this)" id="chk_print_unmask_sex" type="checkbox">  마스크 미착용자 성별/연령 비교</div>
+						<div style = "margin : 15px;"><input name="round" onclick="chkPrintClick(this)" id="chk_print_time_chk" type="checkbox">  시간대별 객체 현황</div>
+						<div style = "margin : 15px;"><input name="round" onclick="chkPrintClick(this)" id="chk_print_camera_10ch_human" type="checkbox">  검지 카메라 TOP 10ch - 사람</div>
+						<div style = "margin : 15px;"><input name="round" onclick="chkPrintClick(this)" id="chk_print_camera_10ch_vehicle" type="checkbox">  검지 카메라 TOP 10ch - 차량</div>						
+					</div>					
+					<div id='display_option_rect'>
+						<div style = "margin-top : 15px;">&emsp;&emsp;&emsp;관리 번호<input type="text" id="manage_num" style = "margin-left : 40px;"></div>
+						<div style = "margin-top : 15px;">&emsp;&emsp;&emsp;관할 기관<input type="text" id="manage_agency" style = "margin-left : 40px;"></div>
+						<div style = "margin-top : 15px;">&emsp;&emsp;&emsp;관리 부서<input type="text" id="manage_department" style = "margin-left : 40px;"></div>
+						<div style = "margin-top : 15px;">&emsp;&emsp;&emsp;보고서 제목<input type="text" id="report_title" style = "margin-left : 28px;"></div>
+						<div style = "margin-top : 15px;">&emsp;&emsp;&emsp;보고자 이름<input type="text" id="report_name" style = "margin-left : 28px;"></div>
+						<div style = "margin-top : 15px;">&emsp;&emsp;&emsp;목적 및 요지<input type="text" id="report_purpose" style = "margin-left : 25px;"></div>
+						<%-- <div style = "margin : 15px;">&emsp;&emsp;&emsp;결재란 유/무<input type="checkbox" name="type" onclick="chkPaymentClick(this)" id="report_payment_block" style = "margin-left : 25px;">  유<input type="checkbox"  name="type" onclick="chkPaymentClick(this)" id="report_payment_none" style = "margin-left : 25px;">  무</div> --%>
+						<div style = "margin-top : 15px; ">&emsp;&emsp;&emsp;결재란 유/무<input type="file" id="input_file_yes" style = "width: 180px; margin-left : 25px;"></div>
+						
+					</div>
+					<div style = "margin : 10px; float: right;">
+						<a class="rollover" alt="확인" OnClick="OnPRINT_OK()"><img  src="/resources/img/btn_popConfirm.png"> <img src="../../resources/img/btn_popConfirm_hover.png" class="over "></a>
+						<a class="rollover" alt="취소" OnClick="OnPRINT_Cancel()"><img src="/resources/img/btn_popCancel.png"> <img src="../../resources/img/btn_popCancel_hover.png" class="over "></a>
+					</div>
+				</dialog>
+			</div>
+			<%-- 우측 메인.E --%>
+
+		</div>
+		<%--  내용.E --%>
+	</div>
+    <%-- 전체 wrap.E --%>
+
+
+
+    <%-- js --%>
 
     <script>
         document.getElementById('fourInnerBox').addEventListener('click', function () {
@@ -440,6 +530,7 @@
     <%-- <script src="../../../resources/js/main/vehicleTable.js"></script> --%>
     <script src="../../../resources/js/main/tableChange.js"></script>
     <script src="../../../resources/js/main/mainDateChange.js"></script>
+    <script src="../../../resources/js/main/dialog.js"></script>
 
     
 
