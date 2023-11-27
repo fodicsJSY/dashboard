@@ -42,6 +42,36 @@
             box-sizing: border-box;
         }
 
+        /* 막대 */
+		.innerBox:nth-child(1){
+			order:1;
+		}
+
+		/* 차량 */
+		.innerBox:nth-child(2){
+			order:3;
+		}
+
+		/* 라인 */
+		.innerBox:nth-child(3){
+			order:2;
+		}
+
+		/* 테이블 */
+		.innerBox:nth-child(4){
+			order:6;
+		}
+
+		/* 도넛 */
+		.innerBox:nth-child(5){
+			order:5;
+		}
+		
+		/* 이벤트 발생 비율 */
+		.innerBox:nth-child(6){
+			order:4;
+		}
+
         @media (max-width: 600px) {
             .contents.fourColumns {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -123,6 +153,13 @@
     </style>
 </head>
 <body>
+    <c:set var="summaryList" value="${DC_summaryList}"/>
+	<c:set var="humanCount" value="${humanCount}"/>
+	<c:set var="dailyCount" value="${dailyCount}"/>
+	<c:set var="DailyCount_summary" value="${DailyCount_summary}"/>
+
+	<c:set var="vehicleDailyCount_CNT_changeList" value="${map.vehicleDailyCount_CNT_changeList}"/>
+	<c:set var="DC_summaryChangeList" value="${DC_summaryChangeList}"/>
 
     <%-- 전체 wrap.S --%>
 	<div class="wrap" id="indexWrap">  
@@ -236,7 +273,7 @@
 								<a class="changeGraph" onclick="OnCarGraphChange()"><img src="../../resources/img/btn_cangeDiagram.png"> <img src="../../resources/img/btn_cangeDiagram_hover.png" class="over"></a>									
 							</div>
 						</div>
-						<div class="data" style="margin-left : 20px; margin-top : 20px; width: 100%;" onclick="location.href='sub_object.html'">	
+						<div class="data" style="width: 100%;" onclick="location.href='sub_object.html'">	
 							<div id="mainVehicle" style="width: 100%; height: 350px;">
 							</div>					
 						</div>
@@ -291,11 +328,6 @@
                                 <h4>시간대별 현황</h4>
                             </div>
                         </div>
-                        <%--
-                        <div>
-                            <canvas id="myChart"></canvas>
-                        </div>
-                        --%>
                         <div class="data"  id="mainHourly" style="width: 100%; margin-top: 0px;">
                             <%--  테이블 영역 샘플.s --%>							
                             <div id="main" style="width: 100%; height: 400px"></div>
