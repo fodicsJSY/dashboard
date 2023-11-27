@@ -626,7 +626,7 @@ function showCarPieChart(){
             left: 'center',
             textStyle: {
                 color: '#fff'
-            }
+            },
         },
         series: [
             {
@@ -635,7 +635,7 @@ function showCarPieChart(){
                 avoidLabelOverlap: false,
                 itemStyle: {
     
-                    borderColor: '#fff',
+                    borderColor: '#1e1e1e',
                     borderWidth: 2
                 },
                 label: {
