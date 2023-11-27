@@ -19,18 +19,6 @@ function setMainVehicleTop10() {
 }
 
 
-// 차트 크기를 조절하는 함수
-function resizeChart() {
-    human_chart.resize(); // 차트 리사이즈 메서드 호출
-    manDountChart.resize(); // 차트 리사이즈 메서드 호출
-    womanDountChart.resize(); // 차트 리사이즈 메서드 호출
-    myChart.resize(); // 차트 리사이즈 메서드 호출
-    human_radial_bar_chart.resize(); // 차트 리사이즈 메서드 호출
-}
-
-// 창 크기가 변경될 때마다 차트 크기 조절
-window.addEventListener('resize', resizeChart);
-
 
 
 /* 사람 막대차트 */
@@ -111,7 +99,7 @@ renderBarChart();
 
 
 // 차량 막대차트
-var mainVehicle = echarts.init(document.getElementById('mainVehicle'))
+var vehicleBarChart = echarts.init(document.getElementById('mainVehicle'))
 option = {
     xAxis: {
         type: 'category',
@@ -145,8 +133,10 @@ option = {
 };
 
 //  차트 옵션 설정하기
-mainVehicle.setOption(option)
+vehicleBarChart.setOption(option)
 
+var bCheckCar = 'bar'; // 초기에는 막대형 차트를 표시
+showVehicleChart()
 
 
 
@@ -576,7 +566,109 @@ function renderRadialBarChart() {
     // 차트에 옵션 설정하기
     human_radial_bar_chart.setOption(option);
 }
+/* 사람 막대 <-> 도넛 차트 변경 끝*/
 
+
+
+/* 차량 막대 <-> 도넛 차트 변경 시작*/
+var vehicleBarChart = echarts.init(document.getElementById('mainVehicle'));
+var carPieChart = echarts.init(document.getElementById('mainVehicle'));
+function showVehicleChart(){
+    vehicleBarChart.clear();
+    option = {
+        xAxis: {
+            type: 'category',
+            data: ['자동차', '버스', '트럭', '오토바이', '자전거']
+        },
+        yAxis: {
+            type: 'value'
+        },
+        legend: {
+    
+            top: '90%',
+            data: ['자동차', '버스', '트럭', '오토바이', '자전거'],
+            textStyle: {
+                color: '#fff'
+            }
+        },
+        series: [
+            {
+                type: 'bar',
+                data: [
+                    { value: 120, name: '자동차', itemStyle: { color: 'rgba(240,120,95,1)' } },
+                    { value: 200, name: '버스', itemStyle: { color: 'rgba(86,109,245,1)' } },
+                    { value: 150, name: '트럭', itemStyle: { color: 'rgba(165,245,60,1)' } },
+                    { value: 135, name: '오토바이', itemStyle: { color: 'rgba(73,245,170,1)' } },
+                    { value: 140, name: '자전거', itemStyle: { color: 'rgba(255,204,69,1)' } }
+                ],
+                barWidth: 50 // 바의 넓이를 조절합니다.
+            },
+    
+        ]
+    };
+    
+    //  차트 옵션 설정하기
+    vehicleBarChart.setOption(option)
+}
+
+
+
+// 차량 도넛차트(변수초기화&차트할당 전) 
+function showCarPieChart(){
+    carPieChart.clear();
+    carPieChart = echarts.init(document.getElementById('mainVehicle'));
+    option = {
+        tooltip: {
+            trigger: 'item'
+        },
+        legend: {
+            bottom: '5%',
+            left: 'center',
+            textStyle: {
+                color: '#fff'
+            }
+        },
+        series: [
+            {
+                type: 'pie',
+                radius: ['28%', '70%'],
+                avoidLabelOverlap: false,
+                itemStyle: {
+    
+                    borderColor: '#fff',
+                    borderWidth: 2
+                },
+                label: {
+                    show: true,
+                    position: 'inside',
+                    formatter: '{c}',
+                    fontSize: 12,
+                    fontWeight: 'bold',
+                    fontColor: '#fff'
+                },
+                emphasis: {
+                    label: {
+                        show: true,
+                        fontSize: 40,
+                        fontWeight: 'bold'
+                    }
+                },
+                labelLine: {
+                    show: false
+                },
+                data: [
+                    { value: 1048, name: '자동차', itemStyle: { color: 'rgba(240,120,95,1)' } },
+                    { value: 735, name: '버스', itemStyle: { color: 'rgba(86,109,245,1)' } },
+                    { value: 580, name: '트럭', itemStyle: { color: 'rgba(165,245,60,1)' } },
+                    { value: 484, name: '오토바이', itemStyle: { color: 'rgba(73,245,170,1)' } },
+                    { value: 300, name: '자전거', itemStyle: { color: 'rgba(255,204,69,1)' } }
+                ]
+            }
+        ]
+    };
+    carPieChart.setOption(option);
+}
+/* 차량 막대 <-> 도넛 차트 변경 끝*/
 
 
 
@@ -595,74 +687,18 @@ function OnHumanGraphChange() {
 
 
 function OnCarGraphChange() {
-    if (bCheckCar == false) {
-        vehicle_chart.dispose();
+    if (bCheckCar == 'bar') {
+        bCheckCar = 'radial';
         showCarPieChart();
-        bCheckCar = true;
     } else {
-        car_pie_chart.dispose();
+        bCheckCar = 'bar'
         showVehicleChart();
-        bCheckCar = false;
     }
 }
 /* 차트 변경 js 끝 */
 
 
 
-/* 사람 막대 <-> 도넛 차트 변경 끝*/
 
 
 
-
-
-
-/* 차량 도넛차트(변수초기화&차트할당 전) */
-option = {
-    tooltip: {
-        trigger: 'item'
-    },
-    legend: {
-        bottom: '5%',
-        left: 'center',
-        textStyle: {
-            color: '#fff'
-        }
-    },
-    series: [
-        {
-            type: 'pie',
-            radius: ['28%', '70%'],
-            avoidLabelOverlap: false,
-            itemStyle: {
-
-                borderColor: '#fff',
-                borderWidth: 2
-            },
-            label: {
-                show: true,
-                position: 'inside',
-                formatter: '{c}',
-                fontSize: 12,
-                fontWeight: 'bold',
-                fontColor: '#fff'
-            },
-            emphasis: {
-                label: {
-                    show: true,
-                    fontSize: 40,
-                    fontWeight: 'bold'
-                }
-            },
-            labelLine: {
-                show: false
-            },
-            data: [
-                { value: 1048, name: '자동차', itemStyle: { color: 'rgba(240,120,95,1)' } },
-                { value: 735, name: '버스', itemStyle: { color: 'rgba(86,109,245,1)' } },
-                { value: 580, name: '트럭', itemStyle: { color: 'rgba(165,245,60,1)' } },
-                { value: 484, name: '오토바이', itemStyle: { color: 'rgba(73,245,170,1)' } },
-                { value: 300, name: '자전거', itemStyle: { color: 'rgba(255,204,69,1)' } }
-            ]
-        }
-    ]
-};
