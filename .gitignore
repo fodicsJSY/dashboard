@@ -11,6 +11,7 @@ bin/
 *.tar.gz
 *.rar
 
+
 # Servers 폴더
 Servers
 *.ttf
@@ -30,3 +31,5 @@ MANIFEST.MF
 
 .factorypath
 settings.json
+
+*.svn
