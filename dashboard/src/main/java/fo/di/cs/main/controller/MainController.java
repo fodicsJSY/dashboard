@@ -72,6 +72,50 @@ public class MainController {
 		return "main/main";
 	}
 	 
+	 //메인페이지 그리드 연습
+	 @GetMapping("/main1")
+	 public String mainForward1(
+			 Model model
+			 ) {
+		 
+		 // 메인페이지 사람 막대 차트(금일)
+		 List<DC_summary> DC_summaryList = service.selectMainHumanChart();
+		 model.addAttribute("DC_summaryList", DC_summaryList);
+		 
+		 
+		 // 메인페이지 사람 막대 차트 타이틀 사람 누적 수(금일)
+		 int humanCount = service.mainHumanCount();
+		 model.addAttribute("humanCount", humanCount);
+		 
+		 
+		 // 메인페이지 시간대별라인차트(금일)
+		 List<DailyCount> dailyCount = service.selectMainLineChart();
+		 model.addAttribute("dailyCount", dailyCount);
+		 
+		 // 마스크 미착용자 성별/연령 비교 (금일)
+		 List<DailyCount_summary> DailyCount_summary = service.selectMainMaskChart();
+		 model.addAttribute("DailyCount_summary", DailyCount_summary);
+		 
+		 // 최다검지카메라 사람 테이블(금일)
+		 List<DailyCount> dailyCount_CNT = service.selectMainHumanTable();
+		 model.addAttribute("dailyCount_CNT", dailyCount_CNT);
+		 
+		 
+		 // 최다검지카메라 차량 테이블(금일)
+		 List<DailyCount> vehicleDailyCount_CNT = service.selectMainVehicleTable();
+		 model.addAttribute("vehicleDailyCount_CNT", vehicleDailyCount_CNT);
+		 
+		 // list들어왔는지 확인
+//		System.out.println("DC_summaryList : "+ DC_summaryList);
+//		System.out.println("dailyCount : "+ dailyCount);
+//		System.out.println("DailyCount_summary : "+ DailyCount_summary);
+//		System.out.println("dailyCount_CNT : "+ dailyCount_CNT);
+//		System.out.println("vehicleDailyCount_CNT : "+ vehicleDailyCount_CNT);
+//		System.out.println("humanCount : "+ humanCount);
+		 
+		 return "main/main1";
+	 }
+	 
 	 
 	 
 	 // 날짜 변경 시 차트데이터 변경하기

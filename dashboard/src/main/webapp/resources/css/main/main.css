@@ -13,8 +13,8 @@
 
 #manImg{
     position: absolute; 
-    top: 160px; 
-    left: 155px; 
+    top: 40%; 
+    left: 36%;
     z-index: 0;
 }
 
