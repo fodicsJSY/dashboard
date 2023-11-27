@@ -25,6 +25,14 @@ public class MainServiceImpl implements MainService{
 	}
 	
 	/**
+	 *  메인페이지 차량 막대&도넛차트(금일)
+	 */
+	@Override
+	public List<DC_summary> selectMainVehicleChart() {
+		return dao.selectMainVehicleChart();
+	}
+	
+	/**
 	 * 메인페이지 사람 막대차트 타이틀 사람 누적 수(금일)
 	 */
 	@Override
@@ -87,6 +95,15 @@ public class MainServiceImpl implements MainService{
 	public int humanCountChange(String occuDate) {
 		return dao.humanCountChange(occuDate);
 	}
+	
+	/**
+	 * 메인페이지 차량 막대그래프 & 도넛그래프(날짜 바꾸면~~)
+	 */
+	@Override
+	public List<DC_summary> mainVehicleChartChange(String occuDate) {
+		return dao.mainVehicleChartChange(occuDate);
+	}
+	
 	
 	
 	/**

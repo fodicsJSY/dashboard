@@ -435,6 +435,176 @@ function sendToServer(value) {
             humanCount_c.innerHTML = humanCountChange; 
 
             // --------------------------------------------------------
+            
+            
+            // 차량 막대&도넛차트 
+            var DC_summaryVehicleChangeList = response.DC_summaryVehicleChangeList;
+
+            for (var i = 0; i < DC_summaryVehicleChangeList.length; i++) {
+                var currentItem = DC_summaryVehicleChangeList[i];
+
+                var carCountChange = currentItem.carCount || 0;
+                var busCountChange = currentItem.busCount || 0;
+                var truckCountChange = currentItem.truckCount || 0;
+                var motocycleCountChange = currentItem.motocycleCount || 0;
+                var bicycleCountChange = currentItem.bicycleCount || 0;
+            }
+            
+            // 차량 막대차트
+            var vehicleBarChartChange = echarts.init(document.getElementById('mainVehicle'))
+            option = {
+                xAxis: {
+                    type: 'category',
+                    data: ['자동차', '버스', '트럭', '오토바이', '자전거']
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                legend: {
+
+                    top: '90%',
+                    data: ['자동차', '버스', '트럭', '오토바이', '자전거'],
+                    textStyle: {
+                        color: '#fff'
+                    }
+                },
+                series: [
+                    {
+                        type: 'bar',
+                        data: [
+                            { value: carCountChange, name: '자동차', itemStyle: { color: 'rgba(240,120,95,1)' } },
+                            { value: busCountChange, name: '버스', itemStyle: { color: 'rgba(86,109,245,1)' } },
+                            { value: truckCountChange, name: '트럭', itemStyle: { color: 'rgba(165,245,60,1)' } },
+                            { value: motocycleCountChange, name: '오토바이', itemStyle: { color: 'rgba(73,245,170,1)' } },
+                            { value: bicycleCountChange, name: '자전거', itemStyle: { color: 'rgba(255,204,69,1)' } }
+                        ],
+                        barWidth: 50 // 바의 넓이를 조절합니다.
+                    },
+
+                ]
+            };
+
+            //  차트 옵션 설정하기
+            vehicleBarChartChange.setOption(option)
+
+            var bCheckCarChange = 'bar'; // 초기에는 막대형 차트를 표시
+
+            /* 차량 막대 <-> 도넛 차트 변경 시작*/
+            var vehicleBarChartChange = echarts.init(document.getElementById('mainVehicle'));
+            var carPieChartChange = echarts.init(document.getElementById('mainVehicle'));
+            function showVehicleChartChange(){
+                vehicleBarChartChange.clear();
+                option = {
+                    xAxis: {
+                        type: 'category',
+                        data: ['자동차', '버스', '트럭', '오토바이', '자전거']
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    legend: {
+                
+                        top: '90%',
+                        data: ['자동차', '버스', '트럭', '오토바이', '자전거'],
+                        textStyle: {
+                            color: '#fff'
+                        }
+                    },
+                    series: [
+                        {
+                            type: 'bar',
+                            data: [
+                                { value: carCountChange, name: '자동차', itemStyle: { color: 'rgba(240,120,95,1)' } },
+                                { value: busCountChange, name: '버스', itemStyle: { color: 'rgba(86,109,245,1)' } },
+                                { value: truckCountChange, name: '트럭', itemStyle: { color: 'rgba(165,245,60,1)' } },
+                                { value: motocycleCountChange, name: '오토바이', itemStyle: { color: 'rgba(73,245,170,1)' } },
+                                { value: bicycleCountChange, name: '자전거', itemStyle: { color: 'rgba(255,204,69,1)' } }
+                            ],
+                            barWidth: 50 // 바의 넓이를 조절합니다.
+                        },
+                
+                    ]
+                };
+                
+                //  차트 옵션 설정하기
+                vehicleBarChartChange.setOption(option)
+            }
+
+
+
+            // 차량 도넛차트(변수초기화&차트할당 전) 
+            function showCarPieChartChange(){
+                carPieChartChange.clear();
+                carPieChartChange = echarts.init(document.getElementById('mainVehicle'));
+                option = {
+                    tooltip: {
+                        trigger: 'item'
+                    },
+                    legend: {
+                        bottom: '5%',
+                        left: 'center',
+                        textStyle: {
+                            color: '#fff'
+                        },
+                    },
+                    series: [
+                        {
+                            type: 'pie',
+                            radius: ['28%', '70%'],
+                            avoidLabelOverlap: false,
+                            itemStyle: {
+                
+                                borderColor: '#1e1e1e',
+                                borderWidth: 2
+                            },
+                            label: {
+                                show: true,
+                                position: 'inside',
+                                formatter: '{c}',
+                                fontSize: 12,
+                                fontWeight: 'bold',
+                                fontColor: '#fff'
+                            },
+                            emphasis: {
+                                label: {
+                                    show: true,
+                                    fontSize: 40,
+                                    fontWeight: 'bold'
+                                }
+                            },
+                            labelLine: {
+                                show: false
+                            },
+                            data: [
+                                { value: carCountChange, name: '자동차', itemStyle: { color: 'rgba(240,120,95,1)' } },
+                                { value: busCountChange, name: '버스', itemStyle: { color: 'rgba(86,109,245,1)' } },
+                                { value: truckCountChange, name: '트럭', itemStyle: { color: 'rgba(165,245,60,1)' } },
+                                { value: motocycleCountChange, name: '오토바이', itemStyle: { color: 'rgba(73,245,170,1)' } },
+                                { value: bicycleCountChange, name: '자전거', itemStyle: { color: 'rgba(255,204,69,1)' } }
+                            ]
+                        }
+                    ]
+                };
+                carPieChartChange.setOption(option);
+            }
+            /* 차량 막대 <-> 도넛 차트 변경 끝*/
+
+            
+            document.getElementById("vehicleGraphChange").addEventListener("click", ()=>{
+                if (bCheckCarChange == 'bar') {
+                    bCheckCarChange = 'radial';
+                    showCarPieChartChange();
+                } else {
+                    bCheckCarChange = 'bar'
+                    showVehicleChartChange();
+                }
+
+            });
+
+
+
+
+            // --------------------------------------------------------
 
 
 

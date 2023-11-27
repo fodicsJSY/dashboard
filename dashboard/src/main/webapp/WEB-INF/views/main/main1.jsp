@@ -173,6 +173,7 @@
 
 	<c:set var="vehicleDailyCount_CNT_changeList" value="${map.vehicleDailyCount_CNT_changeList}"/>
 	<c:set var="DC_summaryChangeList" value="${DC_summaryChangeList}"/>
+	<c:set var="DC_summaryVehicleList" value="${DC_summaryVehicleList}"/>
 
     <%-- 전체 wrap.S --%>
 	<div class="wrap" id="indexWrap">  
@@ -283,7 +284,7 @@
 								<p class="summary">일 누적 <span>12,812</span>개</p>
 							</div>
 							<div class="partBTN">
-								<a class="changeGraph" onclick="OnCarGraphChange()"><img src="../../resources/img/btn_cangeDiagram.png"> <img src="../../resources/img/btn_cangeDiagram_hover.png" class="over"></a>									
+								<a class="changeGraph" id="vehicleGraphChange" onclick="OnCarGraphChange()"><img src="../../resources/img/btn_cangeDiagram.png"> <img src="../../resources/img/btn_cangeDiagram_hover.png" class="over"></a>									
 							</div>
 						</div>
 						<div class="data" style="width: 100%;" onclick="location.href='sub_object.html'">	
@@ -394,7 +395,6 @@
 
 
 
-
                 </div>
                 <%-- 로딩 --%>
                 <div id="loading"><img id="loading-image" src="../../resources/img/loading_animated.png" alt="Loading..." /></div>
@@ -406,6 +406,8 @@
                     </div>
                     <div class="madeFodics">포딕스시스템</div>
                 </div>
+                <%-- ${DC_summaryVehicleList} --%>
+
 
 
                 <%-- CSV 대화상자 --%>
@@ -536,9 +538,9 @@
 
 	<%-- 메인페이지 사람 막대차트 전역변수(페이지 로딩 시 오늘날짜) --%>
 
-	<%-- 사람 막대차트 script --%>
+	<%-- 사람&차량 막대차트 script --%>
 	<script>
-		/* 사람 막대차트 전역변수 */
+		/* 사람 막대차트 전역변수 시작*/
 		var youngMale = ${summaryList[0] != null ? summaryList[0].face_youngMale : 0};
 		var youngFemale = ${summaryList[0] != null ? summaryList[0].face_youngFemale : 0};
 		var adultMale = ${summaryList[0] != null ? summaryList[0].face_adultMale : 0};
@@ -547,79 +549,19 @@
 		var middleFemale = ${summaryList[0] != null ? summaryList[0].face_middleFemale : 0};
 		var seniorMale = ${summaryList[0] != null ? summaryList[0].face_seniorMale : 0};
 		var seniorFemale = ${summaryList[0] != null ? summaryList[0].face_seniorFemale : 0};
-	
+		/* 사람 막대차트 전역변수 끝*/
 
 
-		/* 사람 막대차트 */
-		//  준비한 DOM 컨테이너에서 echarts 초기화하기
-			var human_chart = echarts.init(document.getElementById('mainPerson_chart'))
-
-		// 차트 옵션 작성하기
-			option = {
-				color: ["#006699", "#e5323e"],
-				tooltip: {
-					trigger: 'axis',
-					axisPointer: {
-				// Use axis to trigger tooltip
-				type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
-					}
-				},
-				legend: {
-					bottom: 0,
-					data: ['남자', '여자'],
-					textStyle:{
-					color: "#fff"
-				},
-				padding: [50, 0, 0, 0], // 범례 위 아래에 마진을 추가
-
-				},
-				grid: {
-					left: '3%',
-					right: '4%',
-					bottom: '10%',
-					containLabel: true
-				},
-				xAxis: {
-					type: 'value',
-				},
-				yAxis: {
-					type: 'category',
-					data: ['노년', '중장년', '청년', '미성년']
-				},
-				series: [
-					{
-						name: '남자',
-						type: 'bar',
-						stack: 'total',
-						label: {
-							show: true
-						},
-						emphasis: {
-							focus: 'series'
-						},
-						itemStyle: { color: '#0f9faf' },
-						data: [seniorMale, middleMale, adultMale, youngMale]
-					},
-					{
-						name: '여자',
-						type: 'bar',
-						stack: 'total',
-						label: {
-							show: true
-						},
-						emphasis: {
-							focus: 'series'
-						},
-						itemStyle: { color: '#e8534c' },
-						data: [seniorFemale, middleFemale, adultFemale, youngFemale]
-					}
-				
-				]
-			};
-
-		//  차트 옵션 설정하기
-		human_chart.setOption(option)
+		/* 차량 막대차트 전역변수 시작*/
+		var carCount = ${DC_summaryVehicleList[0] != null ? DC_summaryVehicleList[0].carCount : 0};
+		var busCount = ${DC_summaryVehicleList[0] != null ? DC_summaryVehicleList[0].busCount : 0};
+		var truckCount = ${DC_summaryVehicleList[0] != null ? DC_summaryVehicleList[0].truckCount : 0};
+		var motocycleCount = ${DC_summaryVehicleList[0] != null ? DC_summaryVehicleList[0].motocycleCount : 0};
+		var bicycleCount = ${DC_summaryVehicleList[0] != null ? DC_summaryVehicleList[0].bicycleCount : 0};
+        /* 차량 막대차트 전역변수 끝*/
 	</script>
+
+
 
 
 	<%-- 전역변수 시작--%>

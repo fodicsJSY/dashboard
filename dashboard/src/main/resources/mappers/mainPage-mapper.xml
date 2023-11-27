@@ -77,6 +77,20 @@
 		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY
 		WHERE OCCU_DATE = CONVERT(varchar, GETDATE(), 112)
 	</select>
+
+	<!-- 메인페이지 차량 막대그래프 & 도넛그래프 (금일)-->
+	<select id="selectMainVehicleCount" resultMap="DailyCount_rm">
+		SELECT
+			SUM(CNT.VEHICLE_CAR) AS carCount,
+			SUM(CNT.VEHICLE_BUS) AS busCount,
+			SUM(CNT.VEHICLE_TRUCK) AS truckCount,
+			SUM(CNT.VEHICLE_MOTORCYCLE) AS motocycleCount,
+			SUM(CNT.VEHICLE_BICYCLE) AS bicycleCount
+		FROM "TB_AI_NVR_DASH_BOARD_DAILY_COUNT" CNT
+		WHERE SUBSTRING(CNT.OCCU_TIME, 1, 8) = CONVERT(varchar, GETDATE(), 112)
+	</select>
+	
+
 	
 	<!-- 시간대별 라인차트 (금일)-->
 	<select id="selectMainLineChart" resultMap="DailyCount_rm">
@@ -176,6 +190,18 @@
 		       ) AS TotalSum
 		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY
 		WHERE OCCU_DATE = #{occuDate}
+	</select>
+	
+		<!-- 메인페이지 차량 막대그래프 & 도넛그래프 (금일)-->
+	<select id="selectMainVehicleCountChange" resultMap="DailyCount_rm">
+		SELECT
+			SUM(CNT.VEHICLE_CAR) AS carCount,
+			SUM(CNT.VEHICLE_BUS) AS busCount,
+			SUM(CNT.VEHICLE_TRUCK) AS truckCount,
+			SUM(CNT.VEHICLE_MOTORCYCLE) AS motocycleCount,
+			SUM(CNT.VEHICLE_BICYCLE) AS bicycleCount
+		FROM "TB_AI_NVR_DASH_BOARD_DAILY_COUNT" CNT
+		WHERE SUBSTRING(CNT.OCCU_TIME, 1, 8) = #{occuDate}
 	</select>
 	
 	

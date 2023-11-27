@@ -22,6 +22,16 @@ public class MainDAO {
 	public List<DC_summary> selectMainHumanChart() {
 		return sql.selectList("mainPageMapper.selectMainHumanChart");
 	}
+	
+	/** 메인페이지 사람&도넛차트(금일)
+	 * @return list
+	 */
+	public List<DC_summary> selectMainVehicleChart() {
+		return sql.selectList("mainPageMapper.selectMainVehicleCount");
+	}
+
+	
+	
 
 	/** 메인페이지 사람차트 사람 누적 수 (금일)
 	 * @return count
@@ -76,6 +86,14 @@ public class MainDAO {
 		return sql.selectOne("mainPageMapper.humanCountChange", occuDate);
 	}
 	
+	/** 메인페이지 차량 막대그래프 & 도넛그래프(날짜 바꾸면~~)
+	 * @param occuDate
+	 * @return list
+	 */
+	public List<DC_summary> mainVehicleChartChange(String occuDate) {
+		return sql.selectList("mainPageMapper.selectMainVehicleCountChange", occuDate);
+	}
+	
 	
 	/** 시간대별 라인차트 (날짜 바꾸면~~)
 	 * @param occuDate
@@ -108,6 +126,9 @@ public class MainDAO {
 	public List<DailyCount> selectMainVehicleTableChange(String occuDate) {
 		return sql.selectList("mainPageMapper.selectMainVehicleTableChange", occuDate);
 	}
+
+
+
 
 
 

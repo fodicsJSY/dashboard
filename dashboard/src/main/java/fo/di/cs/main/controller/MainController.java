@@ -81,6 +81,10 @@ public class MainController {
 		 // 메인페이지 사람 막대 차트(금일)
 		 List<DC_summary> DC_summaryList = service.selectMainHumanChart();
 		 model.addAttribute("DC_summaryList", DC_summaryList);
+
+		 // 메인페이지 사람 막대 차트(금일)
+		 List<DC_summary> DC_summaryVehicleList = service.selectMainVehicleChart();
+		 model.addAttribute("DC_summaryVehicleList", DC_summaryVehicleList);
 		 
 		 
 		 // 메인페이지 사람 막대 차트 타이틀 사람 누적 수(금일)
@@ -135,6 +139,11 @@ public class MainController {
 		// 메인페이지 사람 막대 차트 타이틀 사람 누적 수(날짜 바꾸면~~)
 		int humanCountChange = service.humanCountChange(occuDate);
 		map.put("humanCountChange", humanCountChange);
+		
+		// 메인페이지 차량 막대 차트(날짜 바꾸면~~)
+		List<DC_summary> DC_summaryVehicleChangeList = service.mainVehicleChartChange(occuDate);
+		map.put("DC_summaryVehicleChangeList", DC_summaryVehicleChangeList);
+		
 		
 	
 		// 메인페이지 시간대별라인차트(날짜 바꾸면~~)
