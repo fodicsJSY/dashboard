@@ -32,6 +32,7 @@
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 10px;
+            
         }
 
 
@@ -174,7 +175,7 @@
         <%-- 헤더.E --%>
 
         <%-- 내용.S --%>		
-		<div class="container">
+		<div class="container" style=min-height:980px>
             <%-- side 영역.S --%>
 			<div id="side">
         
@@ -374,35 +375,50 @@
 							</div>	
                         </div>	
                     </div>
-                    <%-- 섹션 우측.E --%>
                 </div>
+                <%-- 섹션 우측.E --%>
             <%-- 여기까지 그리드 연습장 --%>
+
+
+
+
+
+        </div>
+        <%-- 로딩 --%>
+        <div id="loading"><img id="loading-image" src="../../resources/img/loading_animated.png" alt="Loading..." /></div>
+
+        <%-- 메인컨텐츠.E --%>
+        <div id="bottom" style="magin-left: 200px;">
+            <div>
+            <p class="Notice">※ 화면에 표시되는 모든 실시간 데이터는 1분마다 자동으로 업데이트 합니다. 다만 “시간대별 현황” 그래프의 실시간 데이터는 정시에 한 번씩 업데이트 합니다.</p>
+            </div>
+            <div class="madeFodics" style="margin: 0 40px 0 0;">포딕스시스템</div>
         </div>
 
 
 
     <script>
-        document.getElementById('sixInnerBox').addEventListener('click', function () {
-            document.querySelector('.contents').classList.remove('fourColumns');
-            document.querySelector('.contents').classList.add('sixColumns');
-            human_chart.resize();
-            mainVehicle.resize();
-            womanDountChart.resize();
-            manDountChart.resize();
-            eventChart.resize();
-            myChart.resize();
-        });
-
         document.getElementById('fourInnerBox').addEventListener('click', function () {
             document.querySelector('.contents').classList.remove('sixColumns');
             document.querySelector('.contents').classList.add('fourColumns');
             human_chart.resize();
-            mainVehicle.resize();
+            vehicleBarChart.resize();
             eventChart.resize();
             myChart.resize();
             womanDountChart.resize();
             manDountChart.resize();
         });
+        document.getElementById('sixInnerBox').addEventListener('click', function () {
+            document.querySelector('.contents').classList.remove('fourColumns');
+            document.querySelector('.contents').classList.add('sixColumns');
+            human_chart.resize();
+            vehicleBarChart.resize();
+            eventChart.resize();
+            myChart.resize();
+            manDountChart.resize();
+            womanDountChart.resize();
+        });
+
     </script>
 
     
@@ -815,6 +831,8 @@
 
 	<%-- main chart --%>
     <script src="../../../resources/js/main/main.js"></script>
+
+
 
 
 </body>
