@@ -1280,6 +1280,79 @@ function sendToServer(value) {
             
             });
             //----------------------------------------------------------------------
+            
+            //이벤트 발생 비율 차트(날짜 바꾸면~~)
+            var mainEventChart_changeList = response.mainEventChart_changeList;
+            //console.log(mainEventChart_changeList);
+            //for문 사용해서 요소 꺼내기
+            for (var i = 0; i < mainEventChart_changeList.length; i++) {
+                var currentItem = mainEventChart_changeList[i];
+
+
+                var invCntCountChange = currentItem.invCntCount || 0;
+                var lotCntCountChange = currentItem.lotCntCount || 0;
+                var cntCntCountChange = currentItem.cntCntCount || 0;
+                var falCntCountChange = currentItem.falCntCount || 0;
+
+            }
+
+            // 이벤트 발생 비율 도넛차트
+            var eventChartChange = echarts.init(document.getElementById('event_acc_wnd'))
+
+            var option = {
+                tooltip: {
+                    trigger: 'item'
+                },
+                legend: {
+                    top: '90%',
+                    data: ['침입', '배회', '카운트', '쓰러짐'],
+                    textStyle: {
+                        color: '#fff'
+                    }
+                },
+                series: [
+                    {
+                        name: '여성',
+                        type: 'pie',
+                        radius: ['23%', '76%'], // 첫 번째 도넛의 반지름 범위
+                        avoidLabelOverlap: false,
+                        itemStyle: {
+                            borderColor: 'black',
+                            borderWidth: 2,
+
+
+                        },
+                        label: {
+                            show: true,
+                            position: 'inside',
+                            formatter: '{c}',
+                            fontSize: 20,
+                            fontWeight: 'bold',
+                            fontColor: '#fff'
+
+
+                        },
+                        emphasis: {
+
+                        },
+                        labelLine: {
+                            show: false
+                        },
+                        data: [
+                            { value: invCntCountChange, name: '침입', itemStyle: { color: '#4176df' } },
+                            { value: lotCntCountChange, name: '배회', itemStyle: { color: '#fec070' } },
+                            { value: cntCntCountChange, name: '카운트', itemStyle: { color: '#ff7978' } },
+                            { value: falCntContChange, name: '쓰러짐', itemStyle: { color: '#52c3f7' } }
+                        ]
+                    }
+                ]
+            }
+            //  차트 옵션 설정하기
+            eventChartChange.setOption(option)
+
+
+
+            //----------------------------------------------------------------------
 
 
             document.getElementById('fourInnerBox').addEventListener('click', function () {

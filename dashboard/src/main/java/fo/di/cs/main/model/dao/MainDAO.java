@@ -157,6 +157,14 @@ public class MainDAO {
 		return sql.selectList("mainPageMapper.selectMainVehicleTableChange", occuDate);
 	}
 
+	/** 이벤트 발생 비율 차트(날짜 바꾸면~~)
+	 * @param occuDate
+	 * @return list
+	 */
+	public List<DailyCount> mainEventChart_changeList(String occuDate) {
+		return sql.selectList("mainPageMapper.mainEventChart_changeList", occuDate);
+	}
+
 
 
 

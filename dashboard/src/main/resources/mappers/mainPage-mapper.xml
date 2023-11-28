@@ -305,5 +305,16 @@
 	</select>
 	
 	
+	<!-- 이벤트 발생 비율 차트(날짜 바꾸면~~) --> 
+	<select id="mainEventChart_changeList" resultMap="DailyCount_rm">
+		SELECT
+			SUM(CNT.INV_CNT)  AS invCntCount   
+			, SUM(CNT.LOT_CNT)  AS lotCntCount   
+			, SUM(CNT.CNT_CNT)  AS cntCntCount   
+			, SUM(CNT.FAL_CNT)  AS falCntCont     
+		FROM "TB_AI_NVR_DASH_BOARD_DAILY_COUNT" CNT
+		WHERE SUBSTRING(CNT.OCCU_TIME, 1, 8) = #{occuDate}
+	</select>
+	
 	
 </mapper>

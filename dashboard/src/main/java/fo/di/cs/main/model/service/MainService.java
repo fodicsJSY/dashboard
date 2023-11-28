@@ -109,6 +109,13 @@ public interface MainService {
 	List<DailyCount> selectMainVehicleTableChange(String occuDate);
 
 
+	/** 이벤트 발생 비율 차트(날짜 바꾸면~~)
+	 * @param occuDate
+	 * @return list
+	 */
+	List<DailyCount> mainEventChart_changeList(String occuDate);
+
+
 
 
 

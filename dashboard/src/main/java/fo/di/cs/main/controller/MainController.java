@@ -172,6 +172,11 @@ public class MainController {
 		// 최다검지카메라 차량 테이블(날짜 바꾸면~~)
 		List<DailyCount> vehicleDailyCount_CNT_changeList = service.selectMainVehicleTableChange(occuDate);
 		map.put("vehicleDailyCount_CNT_changeList", vehicleDailyCount_CNT_changeList);
+
+		
+		// 이벤트 발생 비율 차트(날짜 바꾸면~~)
+		List<DailyCount> mainEventChart_changeList = service.mainEventChart_changeList(occuDate);
+		map.put("mainEventChart_changeList", mainEventChart_changeList);
 		 
 		
 	
