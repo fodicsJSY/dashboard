@@ -10,16 +10,16 @@
 
 
 	<%-- toust UI 시작--%>
-	<link rel="stylesheet" href="./node_modules/tui-chart/dist/toastui-chart.css">
+	<%-- <link rel="stylesheet" href="./node_modules/tui-chart/dist/toastui-chart.css">
 	<script src="./node_modules/tui-chart/dist/toastui-chart.js"></script>
 	<link rel="stylesheet" href="./node_modules/tui-grid/dist/tui-grid.css" />
 	<script src="./node_modules/tui-grid/dist/tui-grid.js"></script>    
 	<link rel="stylesheet" href="./node_modules/tui-date-picker/dist/tui-date-picker.css">
-	<script src="./node_modules/tui-date-picker/dist/tui-date-picker.js"></script> 
+	<script src="./node_modules/tui-date-picker/dist/tui-date-picker.js"></script>  --%>
 	<%-- toust UI 끝--%>
 
 
-	<script src="./node_modules/jquery/3.6.0/jquery.min.js"></script>
+	<script src="/resources/node_modules/jquery/3.6.0/jquery.min.js"></script>
 
 
     <%-- css --%>
@@ -32,6 +32,222 @@
 	<link rel="stylesheet" href="/resources/css/style_graph.css" />  
 	<%-- <link rel="stylesheet" href="font/nanumsquare.css"> --%>
 	<link rel="shortcut icon" href="/resources/img/favicon.ico" type="image/x-icon" />
+
+	<style>
+		.data {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2개씩 설정 */
+            gap: 15px;
+        }
+        
+        .today-part8 {
+            width: 500px; 
+            /* min-height: 170px;
+            max-width: 500px;
+            height: 170px;
+			*/
+        }
+
+        .contentsTitle {
+            /* margin: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9; */
+        }
+
+        .title h4 {
+            margin: 0;
+        }
+
+        @media (max-width: 600px) {
+            .data .today-part8 {
+                display: none;
+            }
+
+            .data.fourColumns .today-part8:nth-child(-n+4) {
+                display: block;
+            }
+
+            .data.sixColumns .today-part8 {
+                display: block;
+                max-width: none;
+            }
+        } 
+
+        @media (min-width: 601px) {
+            .data .today-part8 {
+				/* width: 500px;  */
+            }
+
+            /* 2개 */
+            .data.twoColumns .today-part8:nth-child(n+3) {
+                display: none;
+            }
+
+            .data.twoColumns .today-part8 {
+                width: 100%;
+                height: 832px;
+				display: flex;
+				flex-direction: column;
+				justify-content: start;
+            }
+
+			.data.twoColumns .todayTXT{
+                width: 100%;
+				height: 100px;
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				align-items: center;
+			}
+
+			.data.twoColumns .titleBox{
+				display: flex;
+				flex-direction: row;
+				justify-content: start;
+				align-items: center;
+			}
+
+			.data.twoColumns .contentsBox{
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				margin: 0 10px 0 0;
+			}
+
+			.data.twoColumns .todayIMG{
+				margin: 0 10px 0 0;
+			}
+
+
+
+            /* 4개 */
+            .data.fourColumns .today-part8:nth-child(n+5) {
+                display: none;
+            }
+
+            .data.fourColumns .today-part8 {
+                display: block;
+                min-width: 510px;
+                height: 400px;
+            }
+
+			.data.fourColumns .todayTXT{
+                width: 100%;
+				height: 100px;
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				align-items: center;
+				
+			}
+
+			.data.fourColumns .titleBox{
+				display: flex;
+				flex-direction: row;
+				justify-content: start;
+				align-items: center;
+			}
+
+			.data.fourColumns .contentsBox{
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				margin: 0 10px 0 0;
+			}
+
+			.data.fourColumns .todayIMG{
+				margin: 0 10px 0 0;
+			}
+
+
+            /* 6개 */
+            .data.sixColumns .today-part8 {
+                width: 100%;
+                height: 260px;
+            }
+            
+            .data.sixColumns .today-part8:nth-child(n+7) {
+                display: none;
+            }
+			
+			.data.sixColumns .todayTXT{
+                width: 100%;
+				height: 100px;
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				align-items: center;
+				
+			}
+
+			.data.sixColumns .titleBox{
+				display: flex;
+				flex-direction: row;
+				justify-content: start;
+				align-items: center;
+			}
+
+			.data.sixColumns .contentsBox{
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				margin: 0 10px 0 0;
+			}
+
+			.data.sixColumns .todayIMG{
+				margin: 0 10px 0 0;
+			}
+
+
+            /* 8개 */
+            .data.eightColumns {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2개씩 4줄설정 */
+                gap: 10px;
+            }
+            
+            .data.eightColumns .today-part8 {
+                width: 100%;
+                height: 193px;
+
+				
+            }
+
+			.data.eightColumns .today-part8 .todayTXT {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: start;
+			}
+
+			.data.eightColumns .titleBox{
+				display: flex;
+				flex-direction: column;
+				justify-content: start;
+				align-items: start;
+				text-align:left;
+				margin-left: 20px;
+			}
+
+			.data.eightColumns .titleBox *{
+				margin-bottom: 10px;
+			}
+
+			.data.eightColumns .contentsBox{
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				margin-left: 20px;
+			}
+			.data.eightColumns .contentsBox *{
+				margin-top: 5px;
+
+			}
+
+        }
+
+	</style>
 </head>
 <body>
     
@@ -106,126 +322,154 @@
 									<h4>TODAY</h4>								
 									
 								</div>
-								<%--
 								<div style="position: relative; left: 700px; float: left;">
-									<button type="button" style="margin-top: 3px" class ="btn" onClick="location.href='main_camera_part2.html'">2분할</button>
-									<button type="button" style="margin-top: 3px" class="btn" onClick="location.href='main_camera_part4.html'">4분할</button>
-									<button type="button" style="margin-top: 3px" class="btn" onClick="location.href='main_camera_part6.html'">6분할</button>
-									<button type="button" style="margin-top: 3px" class="btn" onClick="location.href='main_camera.html'">8분할</button> 
-								</div>--%>
+									<button type="button" style="margin-top: 3px" class ="btn" id="twoInnerBox" >2분할</button>
+									<button type="button" style="margin-top: 3px" class="btn" id="fourInnerBox" >4분할</button>
+									<button type="button" style="margin-top: 3px" class="btn" id="sixInnerBox" >6분할</button>
+									<button type="button" style="margin-top: 3px" class="btn" id="eightInnerBox" >8분할</button> 
+								</div>
 							</div>
 							<div class="data">
-								<ul>
-									<li class="today-part8" >
-										<a href="/mainCamera/mainCameraPart1Human">
-											<div class="todayTXT todayHuman" style="margin-right:0px; width: 40%;" >
-												<p class="todayIMG"><img src="/resources/img/icon_titleHuman.png"></p>
-												<p class="todayTitle color-Human">사람</p>
-												<p class="amount" id="total_person_cnt">0</p>
-												<p class="contrast">전일대비 <span class="lower"  id="compare_person_cnt">0</span></p>
+								<div class="today-part8" >
+									<a href="/mainCamera/mainCameraPart1Human">
+										<div class="todayTXT todayHuman" >
+											<div class="titleBox">
+												<img src="/resources/img/icon_titleHuman.png">
+												<div class="todayTitle color-Human">사람</div>
 											</div>
-										</a>
-										<a href="/mainCamera/subCamera">
-											<div id="Human_grid_area" style="width: 60%; float: left;">	
-											</div>								
-										</a>
-									</li>
-									<li class="today-part8" >
-										<a href="/mainCamera/mainCameraPart1Vehicle">
-											<div class="todayTXT todayCar"  style="margin-right:0px; width: 40%;">
-												<p class="todayIMG"><img src="/resources/img/icon_titleCar.png"></p>
-												<p class="todayTitle color-Car">차량</p>
-												<p class="amount" id="total_vehicle_cnt">0</p>
-												<p class="contrast">전일대비 <span class="upper" id="compare_vehicle_cnt">0</span></p>
+											<div class="contentsBox">
+												<div class="amount" id="total_person_cnt">0</div>
+												<div class="contrast">전일대비 <span class="lower"  id="compare_person_cnt">0</span></div>
 											</div>
-										</a>
-										<a href="/mainCamera/subCamera">
-											<div id="Car_grid_area" style="width: 60%; float: left;">
-											</div>
-										</a>
-									</li>
-									<li class="today-part8" >
-										<a href="/mainCamera/mainCameraPart1Face">
-											<div class="todayTXT todayFace"  style="margin-right:0px; width: 40%;">
-												<p class="todayIMG"><img src="/resources/img/icon_titleFace.png"></p>
-												<p class="todayTitle color-Face">얼굴</p>
-												<p class="amount" id="total_face_cnt">0</p>
-												<p class="contrast">전일대비 <span class="upper"  id="compare_face_cnt">0</span></p>
-											</div>
-										</a>
-										<a href="/mainCamera/subCamera">
-											<div id="Face_grid_area" style="width: 60%; float: left;">	
-											</div>
-										</a>
-									</li>
-									<li class="today-part8" >
-										<a href="/mainCamera/mainCameraPart1Counting">
-											<div class="todayTXT todayCounting"  style="margin-right:0px; width: 40%;">
-												<p class="todayIMG"><img src="/resources/img/icon_titleCounting.png"></p>
-												<p class="todayTitle color-Counting">카운팅</p>
-												<p class="amount" id="total_count_cnt">0</p>
-												<p class="contrast">전일대비 <span class="upper" id="compare_count_cnt">0</span></p>
-											</div>
-										</a>
-										<a href="/mainCamera/subCamera">
-											<div id="Counting_grid_area" style="width: 60%; float: left;">	
-											</div>
-										</a>
-									</li>
-									<li class="today-part8" >
-										<a href="/mainCamera/mainCameraPart1Loitering">
-											<div class="todayTXT todayIntrusion"  style="margin-right:0px; width: 40%;" >
-												<p class="todayIMG"><img src="/resources/img/icon_titleIntrusion.png"></p>
-												<p class="todayTitle color-Intrusion">침입</p>
-												<p class="amount" id="total_inv_cnt">0</p>
-												<p class="contrast">전일대비 <span class="lower" id="compare_inv_cnt">0</span></p>
-											</div>
-										</a>
-										<a href="/mainCamera/subCamera">
-											<div id="Invasion_grid_area" style="width: 60%; float: left;">		
-											</div>										
-										</a>
-									</li>									
-									<li class="today-part8" >
-										<a href="/mainCamera/mainCameraPart1Loitering">
-											<div class="todayTXT todayLoitering"  style="margin-right:0px; width: 40%;">
-												<p class="todayIMG"><img src="/resources/img/icon_titleLoitering.png"></p>
-												<p class="todayTitle color-Loitering">배회</p>
-												<p class="amount" id="total_lot_cnt">0</p>
-												<p class="contrast" >전일대비 <span class="lower" id="compare_lot_cnt">0</span></p>
-											</div>
-										</a>
-										<a href="/mainCamera/subCamera">
-											<div id="Loitering_grid_area" style="width: 60%; float: left;">		
-											</div>
-										</a>
-									</li>
-									<li class="today-part8">
-										<div class="todayTXT todayLPR"  style="margin-right:0px; width: 40%;">
-											<p class="todayIMG"><img src="/resources/img/icon_titleLPR.png"></p>
-											<p class="todayTitle color-LPR">차량 번호 인식</p>
-											<p class="amount">0</p>
-											<p class="contrast">전일대비 <span class="lower">0</span></p>
 										</div>
-										<a href="/mainCamera/subCamera">
-											<div id="LPR_grid_area" style="width: 60%; float: left;">	
+									</a>
+									<a href="/mainCamera/subCamera">
+										<div id="Human_grid_area" style="width: 60%; float: left;">	
+										</div>								
+									</a>
+								</div>
+								<div class="today-part8" >
+									<a href="/mainCamera/mainCameraPart1Vehicle">
+										<div class="todayTXT todayCar"  >
+											<div class="titleBox">
+												<img src="/resources/img/icon_titleCar.png">
+												<div class="todayTitle color-Car">차량</div>
 											</div>
-										</a>
-									</li>
-									<li class="today-part8">
-										<div class="todayTXT todayParking"  style="margin-right:0px; width: 40%;">
-											<p class="todayIMG"><img src="/resources/img/icon_titleNoParking.png"></p>
-											<p class="todayTitle color-Parking">불법 주·정차</p>
-											<p class="amount">0</p>
-											<p class="contrast">전일대비 <span class="lower">0</span></p>
+											<div class="contentsBox">
+												<div class="amount" id="total_vehicle_cnt">0</div>
+												<div class="contrast">전일대비 <span class="upper" id="compare_vehicle_cnt">0</span></div>
+											</div>
 										</div>
-										<a href="/mainCamera/subCamera">
-											<div id="Parking_grid_area" style="width: 60%; float: left'">	
+									</a>
+									<a href="/mainCamera/subCamera">
+										<div id="Car_grid_area" style="width: 60%; float: left;">
+										</div>
+									</a>
+								</div>
+								<div class="today-part8" >
+									<a href="/mainCamera/mainCameraPart1Face">
+										<div class="todayTXT todayFace"  >
+											<div class="titleBox">
+												<img src="/resources/img/icon_titleFace.png">
+												<div class="todayTitle color-Face">얼굴</div>
 											</div>
-										</a>
-									</li>
-								</ul>
-
+											<div class="contentsBox">
+												<div class="amount" id="total_face_cnt">0</div>
+												<div class="contrast">전일대비 <span class="upper"  id="compare_face_cnt">0</span></div>
+											</div>
+										</div>
+									</a>
+									<a href="/mainCamera/subCamera">
+										<div id="Face_grid_area" style="width: 60%; float: left;">	
+										</div>
+									</a>
+								</div>
+								<div class="today-part8" >
+									<a href="/mainCamera/mainCameraPart1Counting">
+										<div class="todayTXT todayCounting"  >
+											<div class="titleBox">
+												<img src="/resources/img/icon_titleCounting.png">
+												<div class="todayTitle color-Counting">카운팅</div>
+											</div>
+											<div class="contentsBox">
+												<div class="amount" id="total_count_cnt">0</div>
+												<div class="contrast">전일대비 <span class="upper" id="compare_count_cnt">0</span></div>
+											</div>
+										</div>
+									</a>
+									<a href="/mainCamera/subCamera">
+										<div id="Counting_grid_area" style="width: 60%; float: left;">	
+										</div>
+									</a>
+								</div>
+								<div class="today-part8" >
+									<a href="/mainCamera/mainCameraPart1Loitering">
+										<div class="todayTXT todayIntrusion"  >
+											<div class="titleBox">
+												<img src="/resources/img/icon_titleIntrusion.png">
+												<div class="todayTitle color-Intrusion">침입</div>
+											</div>
+											<div class="contentsBox">
+												<div class="amount" id="total_inv_cnt"></div>
+												<div class="contrast">전일대비 <span class="lower" id="compare_inv_cnt">0</span></div>
+											</div>
+										</div>
+									</a>
+									<a href="/mainCamera/subCamera">
+										<div id="Invasion_grid_area" style="width: 60%; float: left;">		
+										</div>										
+									</a>
+								</div>									
+								<div class="today-part8" >
+									<a href="/mainCamera/mainCameraPart1Loitering">
+										<div class="todayTXT todayLoitering" >
+											<div class="titleBox">
+												<img src="/resources/img/icon_titleLoitering.png">
+												<div class="todayTitle color-Loitering">배회</div>
+											</div>
+											<div class="contentsBox">
+												<div class="amount" id="total_lot_cnt">0</div>
+												<div class="contrast" >전일대비 <span class="lower" id="compare_lot_cnt">0</span></div>
+											</div>
+										</div>
+									</a>
+									<a href="/mainCamera/subCamera">
+										<div id="Loitering_grid_area" style="width: 60%; float: left;">		
+										</div>
+									</a>
+								</div>
+								<div class="today-part8">
+									<div class="todayTXT todayLPR"  >
+										<div class="titleBox">
+											<img src="/resources/img/icon_titleLPR.png">
+											<div class="todayTitle color-LPR">차량 번호 인식</div>
+										</div>
+										<div class="contentsBox">
+											<div class="amount">0</div>
+											<div class="contrast">전일대비 <span class="lower">0</span></div>
+										</div>
+									</div>
+									<a href="/mainCamera/subCamera">
+										<div id="LPR_grid_area" style="width: 60%; float: left;">	
+										</div>
+									</a>
+								</div>
+								<div class="today-part8">
+									<div class="todayTXT todayParking" >
+										<div class="titleBox">
+											<img src="/resources/img/icon_titleNoParking.png">
+											<div class="todayTitle color-Parking">불법 주·정차</div>
+										</div>
+										<div class="contentsBox">
+											<div class="amount">0</div>
+											<div class="contrast">전일대비 <span class="lower">0</span></div>
+										</div>
+									</div>
+									<a href="/mainCamera/subCamera">
+										<div id="Parking_grid_area" style="width: 60%; float: left'">	
+										</div>
+									</a>
+								</div>
 							</div>
 						</div>
 
@@ -311,6 +555,41 @@
 
 
     <%-- js --%>
+	<script>
+        document.getElementById('twoInnerBox').addEventListener('click', function () {
+            document.querySelector('.data').classList.add('twoColumns');
+            document.querySelector('.data').classList.remove('sixColumns');
+            document.querySelector('.data').classList.remove('fourColumns');
+            document.querySelector('.data').classList.remove('eightColumns');
+        });
+
+        document.getElementById('fourInnerBox').addEventListener('click', function () {
+            document.querySelector('.data').classList.remove('twoColumns');
+            document.querySelector('.data').classList.remove('sixColumns');
+            document.querySelector('.data').classList.add('fourColumns');
+            document.querySelector('.data').classList.remove('eightColumns');
+    
+            
+        });
+
+        document.getElementById('sixInnerBox').addEventListener('click', function () {
+            document.querySelector('.data').classList.remove('twoColumns');
+            document.querySelector('.data').classList.remove('fourColumns');
+            document.querySelector('.data').classList.add('sixColumns');
+            document.querySelector('.data').classList.remove('eightColumns');
+            
+        });
+        
+
+
+        document.getElementById('eightInnerBox').addEventListener('click', function () {
+            document.querySelector('.data').classList.remove('twoColumns');
+            document.querySelector('.data').classList.remove('sixColumns');
+            document.querySelector('.data').classList.remove('fourColumns');
+            document.querySelector('.data').classList.add('eightColumns');
+        });
+
+        </script>
 
 	<%-- echarts --%>
 	<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>

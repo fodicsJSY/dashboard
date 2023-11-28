@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .contents {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2개씩 설정 */
+            gap: 10px;
+        }
+        
+        .innerBox {
+            min-height: 170px;
+            height: 170px;
+            max-width: 500px;
+            width: 100%;
+            background-color: lightblue;
+            border: 1px solid blue;
+            box-sizing: border-box;
+        }
+
+        .contentsTitle {
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+
+        .title h4 {
+            margin: 0;
+        }
+
+        @media (max-width: 600px) {
+            .contents .innerBox {
+                display: none;
+            }
+
+            .contents.fourColumns .innerBox:nth-child(-n+4) {
+                display: block;
+            }
+
+            .contents.sixColumns .innerBox {
+                display: block;
+                max-width: none;
+            }
+        } 
+
+        @media (min-width: 601px) {
+            .contents .innerBox {
+                display: block;
+            }
+
+            /* 2개 */
+            .contents.twoColumns .innerBox:nth-child(n+3) {
+                display: none;
+            }
+
+            .contents.twoColumns .innerBox {
+                width: 100%;
+                height: 720px;
+            }
+
+            /* 4개 */
+            .contents.fourColumns .innerBox:nth-child(n+5) {
+                display: none;
+            }
+
+            .contents.fourColumns .innerBox {
+                display: block;
+                min-width: 510px;
+                height: 350px;
+            }
+
+
+
+            /* 6개 */
+            .contents.sixColumns .innerBox {
+                display: block;
+                min-width: 510px;
+                height: 230px;
+            }
+            
+            .contents.sixColumns .innerBox:nth-child(n+7) {
+                display: none;
+            }
+
+
+            /* 8개 */
+            .contents.eightColumns {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2개씩 4줄설정 */
+                gap: 10px;
+            }
+            
+            .contents.eightColumns .innerBox {
+                width: 100%;
+                height: 170px;
+            }
+
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <button id="twoInnerBox">2개</button>
+    <button id="fourInnerBox">4개</button>
+    <button id="sixInnerBox">6개</button>
+    <button id="eightInnerBox">8개</button>
+    <br><br>
+    <div class="contents">
+        <div class="innerBox"></div>
+        <div class="innerBox"></div>
+        <div class="innerBox"></div>
+        <div class="innerBox"></div>
+        <div class="innerBox"></div>
+        <div class="innerBox"></div>
+        <div class="innerBox"></div>
+        <div class="innerBox"></div>
+    </div>
+
+    <script>
+        document.getElementById('twoInnerBox').addEventListener('click', function () {
+            document.querySelector('.contents').classList.add('twoColumns');
+            document.querySelector('.contents').classList.remove('sixColumns');
+            document.querySelector('.contents').classList.remove('fourColumns');
+            document.querySelector('.contents').classList.remove('eightColumns');
+        });
+
+        document.getElementById('fourInnerBox').addEventListener('click', function () {
+            document.querySelector('.contents').classList.remove('twoColumns');
+            document.querySelector('.contents').classList.remove('sixColumns');
+            document.querySelector('.contents').classList.add('fourColumns');
+            document.querySelector('.contents').classList.remove('eightColumns');
+    
+            
+        });
+
+        document.getElementById('sixInnerBox').addEventListener('click', function () {
+            document.querySelector('.contents').classList.remove('twoColumns');
+            document.querySelector('.contents').classList.remove('fourColumns');
+            document.querySelector('.contents').classList.add('sixColumns');
+            document.querySelector('.contents').classList.remove('eightColumns');
+            
+        });
+        
+
+
+        document.getElementById('eightInnerBox').addEventListener('click', function () {
+            document.querySelector('.contents').classList.remove('twoColumns');
+            document.querySelector('.contents').classList.remove('sixColumns');
+            document.querySelector('.contents').classList.remove('fourColumns');
+            document.querySelector('.contents').classList.add('eightColumns');
+        });
+
+        </script>
+</body>
+
+</html>

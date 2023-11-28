@@ -1,9 +1,3 @@
-@charset "utf-8";
-@import url('reset.css');
-@import url('style.css');
-@import url('../font/nanumsquare.css');
-/* 리셋 */
-
 
  /* main03. 카메라우선 - 컨텐츠 구획별 */
 
@@ -36,30 +30,53 @@
 .todayLoitering {border-bottom:8px solid #fec070;}
 .todayIntrusion {border-bottom:8px solid #4176df;}
 
-.today {float:left; display:inline-block; height:200px; border:1px solid #333333; }
-.today .todayTXT {position:relative; display:block; width:100%; height:100px; margin-right:15px;  text-align:left; background:#282828;}
-.today .todayIMG {position:absolute; top:30px; padding-left:20px; font-size:20px;}
+.today { display:inline-block; height:200px; border:1px solid #333333; }
+.today .todayTXT {position:absolute;  width:100%; height:100px; text-align:left; background:#282828;}
+.today .todayIMG {position:absolute;  top:30px; padding-left:20px; font-size:20px;}
 .today .todayTitle {position:absolute; top:50px; padding-left:80px; font-size:20px;}
 .today .amount {position:absolute;  top:50px; width:100%;  padding-right:20px; text-align:right;  font-size:24px;}
 .today .contrast {position:absolute; top:19px;  width:100%; padding-right:18px; text-align:right; }
 
-.today-part8 {float:left; display:inline-block; width:49%; height:193px;margin-bottom:20px; border:1px solid #333333; }
-.today-part8:nth-child(1) {width:49%; float:left;}
-.today-part8:nth-child(2) {width:49%; float:right;}
-.today-part8:nth-child(3) {width:49%; float:left;}
-.today-part8:nth-child(4) {width:49%; float:right;}
-.today-part8:nth-child(5) {width:49%; float:left;}
-.today-part8:nth-child(6) {width:49%; float:right;}
-.today-part8:nth-child(7) {width:49%; float:left; margin-bottom:0; }
-.today-part8:nth-child(8) {width:49%; float:right; margin-bottom:0; }
+.today-part8 {float:left; width:100%; height:193px; border:1px solid #333333; }
 
-.today-part8 .todayTXT {position:relative;  display:block; float:left; width:200px; height:100%; margin-right:15px;text-align:left; background:#282828;}
-.today-part8 .todayTitle {position:absolute;  top:80px; padding-left:20px; font-size:20px;}
-.today-part8 .todayIMG {position:absolute; top:15px;  padding-left:20px;}
-.today-part8 .amount {position:absolute;   top:120px; width:100%;   padding-left:20px; font-size:24px;}
-.today-part8 .contrast {position:absolute;  top:160px; width:100%;   padding-left:20px;}
 
-.today-part1 {float:left; display:inline-block; width:40%; height:200px; border:1px solid #333333; }
+.today-part8 .todayTXT {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    width:200px; height:100%; text-align:left; background:#282828;
+}
+
+.titleBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    text-align:left;
+    margin-left: 20px;
+}
+
+.titleBox *{
+    margin-bottom: 10px;
+}
+
+.contentsBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 20px;
+}
+.contentsBox *{
+    margin-top: 5px;
+
+}
+
+.today-part8 .todayTitle {  font-size:20px;}
+
+.today-part8 .amount {font-size:24px;}
+
+.today-part1 { display:inline-block; width:40%; height:200px; border:1px solid #333333; }
 .today-part1 .todayTXT {position:relative; display:block; width:100%; height:100px; margin-right:15px;  text-align:left; background:#282828;}
 .today-part1 .todayIMG {position:absolute; top:30px; padding-left:20px; font-size:20px;}
 .today-part1 .todayTitle {position:absolute; top:50px; padding-left:80px; font-size:20px;}
@@ -69,7 +86,7 @@
 .upper {color:#eb6877;}
 .lower {color:#00b7ee;}
 
-.todayData {display:block; float:left; display:inline-block; margin-left:15px; border:1px solid #333333; }
+.todayData {display:block;  display:inline-block; margin-left:15px; border:1px solid #333333; }
 
 .todayBoard {display:block; float:left; height:200px; margin:20px; text-align:left;}
 .todayBoard dt {float:left; width:80%; height:24px; }
@@ -122,8 +139,8 @@
 .dataCompare:nth-child(1) {width:50%; float:left;}
 .dataCompare:nth-child(2) {width:50%; float:right;}
 
-.dataCompare-title {display:inline-block; float:left; width:100px; height:59px; padding-top:18px; padding-left:50px; background:#282828 url('../img/ico_titCompare.png') 15px 15px no-repeat; border:1px solid #666666;}
-.dataCompareSelect {display:inline-block; float:left; } 
+.dataCompare-title {display:inline-block;  width:100px; height:59px; padding-top:18px; padding-left:50px; background:#282828 url('../img/ico_titCompare.png') 15px 15px no-repeat; border:1px solid #666666;}
+.dataCompareSelect {display:inline-block; } 
 
 
 
