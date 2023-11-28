@@ -27,6 +27,7 @@ public interface MainService {
 	 * @return count
 	 */
 	int mainHumanCount();
+	
 
 	
 	/** 메인페이지 차량 막대차트 타이틀 누적 수(금일)
@@ -68,6 +69,12 @@ public interface MainService {
 	int humanCountChange(String occuDate);
 
 	
+	/** 메인페이지  차량 막대 차트 타이틀 차량 누적 수(날짜 바꾸면~~)
+	 * @param occuDate
+	 * @return count
+	 */
+	int vehicleCountChange(String occuDate);
+	
 	/** 메인페이지 차량 막대 차트(날짜 바꾸면~~)
 	 * @param occuDate
 	 * @return list
@@ -94,6 +101,9 @@ public interface MainService {
 	 * @return list
 	 */
 	List<DailyCount> selectMainVehicleTableChange(String occuDate);
+
+
+
 
 
 

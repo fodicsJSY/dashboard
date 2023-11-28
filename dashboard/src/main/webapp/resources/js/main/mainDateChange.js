@@ -606,6 +606,23 @@ function sendToServer(value) {
 
             // --------------------------------------------------------
 
+            // 사람 차트 타이틀 누적 수 변경   
+
+            var vehicleCountChange = response.vehicleCountChange;
+
+            const vehicleCount_c = document.getElementById("vehicleCount_c");
+
+            if(vehicleCount_c){
+                vehicleCount_c.innerHTML = ""; 
+            }
+
+            vehicleCount_c.innerHTML = vehicleCountChange; 
+
+
+
+            
+            // --------------------------------------------------------
+
 
 
             // 메인페이지 시간대별라인차트(날짜 바꾸면~~)

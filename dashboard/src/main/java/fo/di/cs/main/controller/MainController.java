@@ -148,6 +148,9 @@ public class MainController {
 		List<DC_summary> DC_summaryVehicleChangeList = service.mainVehicleChartChange(occuDate);
 		map.put("DC_summaryVehicleChangeList", DC_summaryVehicleChangeList);
 		
+		// 메인페이지 차량 막대 차트 타이틀 차량 누적 수(날짜 바꾸면~~)
+		int vehicleCountChange = service.vehicleCountChange(occuDate);
+		map.put("vehicleCountChange", vehicleCountChange);
 		
 	
 		// 메인페이지 시간대별라인차트(날짜 바꾸면~~)

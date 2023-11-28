@@ -283,7 +283,7 @@
 								<h4>차량</h4>
 								<p class="summary">
 									일 누적 
-									<span>
+									<span id="vehicleCount_c">
 										<c:choose>
 											<c:when test="${empty vehicleCount}">
 												<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->

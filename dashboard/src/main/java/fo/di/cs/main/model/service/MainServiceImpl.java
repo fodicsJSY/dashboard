@@ -113,6 +113,15 @@ public class MainServiceImpl implements MainService{
 	}
 	
 	
+	/**
+	 * 메인페이지 차량 막대 차트 타이틀 차량 누적 수(날짜 바꾸면~~)
+	 */
+	@Override
+	public int vehicleCountChange(String occuDate) {
+		return dao.vehicleCountChange(occuDate);
+	}
+	
+	
 	
 	/**
 	 * 시간대별 라인차트 (날짜 바꾸면~~)
