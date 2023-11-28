@@ -40,6 +40,14 @@ public class MainServiceImpl implements MainService{
 		return dao.mainHumanCount();
 	}
 	
+	/**
+	 *  메인페이지 차량 막대차트 타이틀 누적 수(금일)
+	 */
+	@Override
+	public int mainVehicleCount() {
+		return dao.mainVehicleCount();
+	}
+	
 	
 	/**
 	 * 메인페이지 라인 차트(금일)

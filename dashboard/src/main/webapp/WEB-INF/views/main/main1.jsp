@@ -281,7 +281,23 @@
                         <div class="contentsTitle">
 							<div class="title">
 								<h4>차량</h4>
-								<p class="summary">일 누적 <span>12,812</span>개</p>
+								<p class="summary">
+									일 누적 
+									<span>
+										<c:choose>
+											<c:when test="${empty vehicleCount}">
+												<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+												<span>0</span>
+											</c:when>
+											<c:otherwise>
+												<!-- 리스트의 요소 개수를 출력 -->
+												<span>${vehicleCount}</span>
+											</c:otherwise>
+										</c:choose>	
+									</span>
+									개
+								
+								</p>
 							</div>
 							<div class="partBTN">
 								<a class="changeGraph" id="vehicleGraphChange" onclick="OnCarGraphChange()"><img src="../../resources/img/btn_cangeDiagram.png"> <img src="../../resources/img/btn_cangeDiagram_hover.png" class="over"></a>									

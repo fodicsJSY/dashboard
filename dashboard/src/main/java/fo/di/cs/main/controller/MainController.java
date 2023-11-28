@@ -91,6 +91,10 @@ public class MainController {
 		 int humanCount = service.mainHumanCount();
 		 model.addAttribute("humanCount", humanCount);
 		 
+		 // 메인페이지 사람 막대 차트 타이틀 사람 누적 수(금일)
+		 int vehicleCount = service.mainVehicleCount();
+		 model.addAttribute("vehicleCount", vehicleCount);
+		 
 		 
 		 // 메인페이지 시간대별라인차트(금일)
 		 List<DailyCount> dailyCount = service.selectMainLineChart();

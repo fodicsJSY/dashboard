@@ -28,6 +28,12 @@ public interface MainService {
 	 */
 	int mainHumanCount();
 
+	
+	/** 메인페이지 차량 막대차트 타이틀 누적 수(금일)
+	 * @return count
+	 */
+	int mainVehicleCount();
+	
 	/** 메인페이지 라인차트(금일)
 	 * @return list
 	 */
@@ -88,6 +94,9 @@ public interface MainService {
 	 * @return list
 	 */
 	List<DailyCount> selectMainVehicleTableChange(String occuDate);
+
+
+
 
 
 

@@ -39,6 +39,16 @@ public class MainDAO {
 	public int mainHumanCount() {
 		return sql.selectOne("mainPageMapper.mainHumanCount");
 	}
+	
+	
+	/** 메인페이지 사람차트 차량 누적 수 (금일)
+	 * @return count
+	 */
+	public int mainVehicleCount() {
+		return sql.selectOne("mainPageMapper.mainVehicleCount");
+	}
+
+	
 
 	/** 메인페이지 라인차트(금일)
 	 * @return list
@@ -126,6 +136,7 @@ public class MainDAO {
 	public List<DailyCount> selectMainVehicleTableChange(String occuDate) {
 		return sql.selectList("mainPageMapper.selectMainVehicleTableChange", occuDate);
 	}
+
 
 
 
