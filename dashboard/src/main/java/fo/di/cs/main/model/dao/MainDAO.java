@@ -78,6 +78,18 @@ public class MainDAO {
 	public List<DailyCount> selectMainVehicleTable() {
 		return sql.selectList("mainPageMapper.selectMainVehicleTable");
 	}
+	
+	
+
+	/** 이벤트 발생 비율 차트(금일) 
+	 * @return list
+	 */
+	public List<DailyCount> selectMainEventChart() {
+		return sql.selectList("mainPageMapper.selectMainEventChart");
+	}
+
+	
+	
 
 	/** 메인페이지 사람 막대그래프 & 도넛그래프(날짜 바꾸면~~)
 	 * @param occuDate

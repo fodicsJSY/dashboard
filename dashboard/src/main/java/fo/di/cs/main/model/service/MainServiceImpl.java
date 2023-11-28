@@ -85,6 +85,15 @@ public class MainServiceImpl implements MainService{
 	}
 	
 	
+	/**
+	 * 이벤트 발생 비율 차트(금일) 
+	 */
+	@Override
+	public List<DailyCount> selectMainEventChart() {
+		return dao.selectMainEventChart();
+	}
+	
+	
 	
 	
 	/**

@@ -112,6 +112,10 @@ public class MainController {
 		 // 최다검지카메라 차량 테이블(금일)
 		 List<DailyCount> vehicleDailyCount_CNT = service.selectMainVehicleTable();
 		 model.addAttribute("vehicleDailyCount_CNT", vehicleDailyCount_CNT);
+
+		 // 이벤트 발생 비율 차트(금일) 
+		 List<DailyCount> selectMainEventList = service.selectMainEventChart();
+		 model.addAttribute("selectMainEventList", selectMainEventList);
 		 
 		 // list들어왔는지 확인
 //		System.out.println("DC_summaryList : "+ DC_summaryList);

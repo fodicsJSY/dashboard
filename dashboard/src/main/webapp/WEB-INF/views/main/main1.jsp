@@ -174,6 +174,7 @@
 	<c:set var="vehicleDailyCount_CNT_changeList" value="${map.vehicleDailyCount_CNT_changeList}"/>
 	<c:set var="DC_summaryChangeList" value="${DC_summaryChangeList}"/>
 	<c:set var="DC_summaryVehicleList" value="${DC_summaryVehicleList}"/>
+	<c:set var="selectMainEventList" value="${selectMainEventList}"/>
 
     <%-- 전체 wrap.S --%>
 	<div class="wrap" id="indexWrap">  
@@ -558,22 +559,22 @@
 	<script>
 		/* 사람 막대차트 전역변수 시작*/
 		var youngMale = ${summaryList[0] != null ? summaryList[0].face_youngMale : 0};
-		var youngFemale = ${summaryList[0] != null ? summaryList[0].face_youngFemale : 0};
-		var adultMale = ${summaryList[0] != null ? summaryList[0].face_adultMale : 0};
-		var adultFemale = ${summaryList[0] != null ? summaryList[0].face_adultFemale : 0};
-		var middleMale = ${summaryList[0] != null ? summaryList[0].face_middleMale : 0};
-		var middleFemale = ${summaryList[0] != null ? summaryList[0].face_middleFemale : 0};
-		var seniorMale = ${summaryList[0] != null ? summaryList[0].face_seniorMale : 0};
-		var seniorFemale = ${summaryList[0] != null ? summaryList[0].face_seniorFemale : 0};
+		var youngFemale = ${summaryList[1] != null ? summaryList[1].face_youngFemale : 0};
+		var adultMale = ${summaryList[2] != null ? summaryList[2].face_adultMale : 0};
+		var adultFemale = ${summaryList[3] != null ? summaryList[3].face_adultFemale : 0};
+		var middleMale = ${summaryList[4] != null ? summaryList[4].face_middleMale : 0};
+		var middleFemale = ${summaryList[5] != null ? summaryList[5].face_middleFemale : 0};
+		var seniorMale = ${summaryList[6] != null ? summaryList[6].face_seniorMale : 0};
+		var seniorFemale = ${summaryList[7] != null ? summaryList[7].face_seniorFemale : 0};
 		/* 사람 막대차트 전역변수 끝*/
 
 
 		/* 차량 막대차트 전역변수 시작*/
 		var carCount = ${DC_summaryVehicleList[0] != null ? DC_summaryVehicleList[0].carCount : 0};
-		var busCount = ${DC_summaryVehicleList[0] != null ? DC_summaryVehicleList[0].busCount : 0};
-		var truckCount = ${DC_summaryVehicleList[0] != null ? DC_summaryVehicleList[0].truckCount : 0};
-		var motocycleCount = ${DC_summaryVehicleList[0] != null ? DC_summaryVehicleList[0].motocycleCount : 0};
-		var bicycleCount = ${DC_summaryVehicleList[0] != null ? DC_summaryVehicleList[0].bicycleCount : 0};
+		var busCount = ${DC_summaryVehicleList[1] != null ? DC_summaryVehicleList[1].busCount : 0};
+		var truckCount = ${DC_summaryVehicleList[2] != null ? DC_summaryVehicleList[2].truckCount : 0};
+		var motocycleCount = ${DC_summaryVehicleList[3] != null ? DC_summaryVehicleList[3].motocycleCount : 0};
+		var bicycleCount = ${DC_summaryVehicleList[4] != null ? DC_summaryVehicleList[4].bicycleCount : 0};
         /* 차량 막대차트 전역변수 끝*/
 	</script>
 
@@ -875,6 +876,14 @@
 		var noMaskFemaleMiddle = ${DailyCount_summary[6] != null ? DailyCount_summary[6].faceNoMaskFemaleMiddle : 0};
 		var noMaskFemaleSenior = ${DailyCount_summary[7] != null ? DailyCount_summary[7].faceNoMaskFemaleSenior : 0};
 		/* 마스크 미착용자 성별/연령 비교 차트 전역변수 초기화 끝*/
+
+
+		/* 이벤트 발생 비율 차트(금일) 전역변수 초기화 시작*/
+		var invCntCount = ${selectMainEventList[0] != null ? selectMainEventList[0].invCntCount : 0};
+		var lotCntCount = ${selectMainEventList[1] != null ? selectMainEventList[1].lotCntCount : 0};
+		var cntCntCount = ${selectMainEventList[2] != null ? selectMainEventList[2].cntCntCount : 0};
+		var falCntCont = ${selectMainEventList[3] != null ? selectMainEventList[3].falCntCont : 0};
+		/* 이벤트 발생 비율 차트(금일) 전역변수 초기화 끝*/
 
 
 

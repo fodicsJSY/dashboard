@@ -54,6 +54,12 @@ public interface MainService {
 	 * @return list
 	 */
 	List<DailyCount> selectMainVehicleTable();
+	
+	
+	/** 이벤트 발생 비율 차트(금일) 
+	 * @return list
+	 */
+	List<DailyCount> selectMainEventChart();
 
 	
 	/** 메인페이지 사람 막대 차트(날짜 바꾸면~~)
@@ -101,6 +107,9 @@ public interface MainService {
 	 * @return list
 	 */
 	List<DailyCount> selectMainVehicleTableChange(String occuDate);
+
+
+
 
 
 
