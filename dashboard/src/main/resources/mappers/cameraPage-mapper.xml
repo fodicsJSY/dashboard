@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cameraPageMapper">
+
+
+<resultMap type="fo.di.cs.main.model.dto.DC_summary" id="DC_summary_rm">
+		 <result property="face_youngMale" column="FACE_YOUNGMALE" />
+      	<result property="face_youngFemale" column="FACE_YOUNGFEMALE" />
+      	<result property="face_adultMale" column="FACE_ADULTMALE" />
+      	<result property="face_adultFemale" column="FACE_ADULTFEMALE" />
+      	<result property="face_middleMale" column="FACE_MIDDLEMALE" />
+      	<result property="face_middleFemale" column="FACE_MIDDLEFEMALE" />
+      	<result property="face_seniorMale" column="FACE_SENIORMALE" />
+      	<result property="face_seniorFemale" column="FACE_SENIORFEMALE" />
+      	<result property="occuDate" column="FACE_SENIORFEMALE" />
+</resultMap> 
+
+
+<resultMap type="fo.di.cs.main.model.dto.DailyCount" id="DailyCount_rm">
+		 <result property="time" column="time" />
+		 <result property="person" column="PERSON" />
+      	<result property="vehicle" column="VEHICLE" />
+      	<result property="face" column="FACE" />
+      	<result property="lpr" column="LPR" />
+      	<result property="invCnt" column="INV_CNT" />
+      	<result property="lotCnt" column="LOT_CNT" />
+      	<result property="cntCnt" column="CNT_CNT" />
+      	<result property="fatCnt" column="FAL_CNT" />
+      	<result property="occuTime" column="OCCU_TIME" />
+      	<result property="cameraName" column="CAMERA_NAME" />
+      	<result property="personCount" column="personCount" />
+      	<result property="vehicleCount" column="vehicleCount" />
+      	<result property="faceCount" column="faceCount" />
+      	<result property="lprCount" column="lprCount" />
+      	<result property="invCntCount" column="invCntCount" />
+      	<result property="lotCntCount" column="lotCntCount" />
+      	<result property="cntCntCount" column="cntCntCount" />
+      	<result property="falCntCount" column="falCntCount" />
+</resultMap> 
+
+<resultMap type="fo.di.cs.main.model.dto.DailyCount_summary" id="DailyCount_summary_rm">
+		 <result property="faceNoMaskMaleYoung" column="FACE_NOMASKMALEYOUNG" />
+      	<result property="faceNoMaskMaleAdlut" column="FACE_NOMASKMALEADULT" />
+      	<result property="faceNoMaskMaleMiddle" column="FACE_NOMASKMALEMIDDLE" />
+      	<result property="faceNoMaskMaleSenior" column="FACE_NOMASKMALESENIOR" />
+      	<result property="faceNoMaskFemaleYoung" column="FACE_NOMASKFEMALEYOUNG" />
+      	<result property="faceNoMaskFemaleAdult" column="FACE_NOMASKFEMALEADULT" />
+      	<result property="faceNoMaskFemaleMiddle" column="FACE_NOMASKFEMALEMIDDLE" />
+      	<result property="faceNoMaskFemaleSenior" column="FACE_NOMASKFEMALESENIOR" />
+      	<result property="occuDate" column="OCCU_DATE" />
+</resultMap> 
+	
+<resultMap id="_int" type="java.lang.Integer" />
+	
+		
+	<!-- 메인카메라페이지 금일 누적 합계(공통)-->
+	<select id="selectMainCameraTodayList" resultMap="DailyCount_rm">
+		SELECT
+			COALESCE(SUM(CNT.PERSON), 0)   AS personCount     
+			, COALESCE(SUM(CNT.VEHICLE), 0)  AS vehicleCount   
+			, COALESCE(SUM(CNT.FACE), 0)   AS faceCount          
+			, COALESCE(SUM(CNT.LPR), 0)    AS lprCount           
+			, COALESCE(SUM(CNT.INV_CNT), 0)  AS invCntCount  
+			, COALESCE(SUM(CNT.LOT_CNT), 0)  AS lotCntCount  
+			, COALESCE(SUM(CNT.CNT_CNT), 0)  AS cntCntCount  
+			, COALESCE(SUM(CNT.FAL_CNT), 0)  AS falCntCount    
+		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT CNT
+		WHERE SUBSTRING(CNT.OCCU_TIME, 1, 8) = CONVERT(varchar, GETDATE(), 112)
+	</select>
+	
+	<!-- 메인카메라페이지 전일대비(공통)-->
+	<select id="selectNetChangeList" resultMap="DailyCount_rm">
+		WITH Today AS (
+		    SELECT
+		        COALESCE(SUM(CNT.PERSON), 0) AS PERSON,
+		        COALESCE(SUM(CNT.VEHICLE), 0) AS VEHICLE,
+		        COALESCE(SUM(CNT.FACE), 0) AS FACE,
+		        COALESCE(SUM(CNT.LPR), 0) AS LPR,
+		        COALESCE(SUM(CNT.INV_CNT), 0) AS INV_CNT,
+		        COALESCE(SUM(CNT.LOT_CNT), 0) AS LOT_CNT,
+		        COALESCE(SUM(CNT.CNT_CNT), 0) AS CNT_CNT,
+		        COALESCE(SUM(CNT.FAL_CNT), 0) AS FAL_CNT
+		    FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT CNT
+		    WHERE SUBSTRING(CNT.OCCU_TIME, 1, 8) = CONVERT(varchar, GETDATE(), 112)
+		),
+		Yesterday AS (
+		    SELECT
+		        COALESCE(SUM(CNT.PERSON), 0) AS PERSON,
+		        COALESCE(SUM(CNT.VEHICLE), 0) AS VEHICLE,
+		        COALESCE(SUM(CNT.FACE), 0) AS FACE,
+		        COALESCE(SUM(CNT.LPR), 0) AS LPR,
+		        COALESCE(SUM(CNT.INV_CNT), 0) AS INV_CNT,
+		        COALESCE(SUM(CNT.LOT_CNT), 0) AS LOT_CNT,
+		        COALESCE(SUM(CNT.CNT_CNT), 0) AS CNT_CNT,
+		        COALESCE(SUM(CNT.FAL_CNT), 0) AS FAL_CNT
+		    FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT CNT
+		    WHERE SUBSTRING(CNT.OCCU_TIME, 1, 8) = CONVERT(varchar, DATEADD(day, -1, GETDATE()), 112)
+		)
+		SELECT
+		    t.PERSON - y.PERSON AS PERSON_DIFF,
+		    t.VEHICLE - y.VEHICLE AS VEHICLE_DIFF,
+		    t.FACE - y.FACE AS FACE_DIFF,
+		    t.LPR - y.LPR AS LPR_DIFF,
+		    t.INV_CNT - y.INV_CNT AS INV_CNT_DIFF,
+		    t.LOT_CNT - y.LOT_CNT AS LOT_CNT_DIFF,
+		    t.CNT_CNT - y.CNT_CNT AS CNT_CNT_DIFF,
+		    t.FAL_CNT - y.FAL_CNT AS FAL_CNT_DIFF
+		FROM Today t
+		JOIN Yesterday y ON 1 = 1
+	</select>
+	
+	
+	
+</mapper>

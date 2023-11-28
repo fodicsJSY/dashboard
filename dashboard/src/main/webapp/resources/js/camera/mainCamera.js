@@ -46,10 +46,10 @@ var option = {
             show: false
         },
         data: [
-            { value: 1048, name: '미성년',  itemStyle: { color: '#d3f1f9' }},
-            { value: 735, name: '청년',  itemStyle: { color: '#3fd5e3' }},
-            { value: 580, name: '중장년',  itemStyle: { color: '#00a0de' } },
-            { value: 580, name: '노년',  itemStyle: { color: '#0174cf' } }
+            { value: youngFemale, name: '미성년',  itemStyle: { color: '#d3f1f9' }},
+            { value: adultFemale, name: '청년',  itemStyle: { color: '#3fd5e3' }},
+            { value: middleFemale, name: '중장년',  itemStyle: { color: '#00a0de' } },
+            { value: middleFemale, name: '노년',  itemStyle: { color: '#0174cf' } }
             
         ]
         },
@@ -73,10 +73,10 @@ var option = {
             show: false
         },
         data: [
-            { value: 1048, name: '미성년',  itemStyle: { color: '#d3f1f9' }},
-            { value: 735, name: '청년',  itemStyle: { color: '#3fd5e3' }},
-            { value: 580, name: '중장년',  itemStyle: { color: '#00a0de' } },
-            { value: 310, name: '노년',  itemStyle: { color: '#0174cf' } }
+            { value: youngMale, name: '미성년',  itemStyle: { color: '#d3f1f9' }},
+            { value: adultMale, name: '청년',  itemStyle: { color: '#3fd5e3' }},
+            { value: middleMale, name: '중장년',  itemStyle: { color: '#00a0de' } },
+            { value: seniorMale, name: '노년',  itemStyle: { color: '#0174cf' } }
         ]
         }
     ]
@@ -270,10 +270,10 @@ var option = {
             show: false
         },
         data: [
-            { value: 1048, name: '침입',  itemStyle: { color: '#4176df' }},
-            { value: 735, name: '배회',  itemStyle: { color: '#fec070' }},
-            { value: 580, name: '카운트',  itemStyle: { color: '#ff7978' } },
-            { value: 580, name: '쓰러짐',  itemStyle: { color: '#52c3f7' } }
+            { value: invCntCount, name: '침입',  itemStyle: { color: '#4176df' }},
+            { value: lotCntCount, name: '배회',  itemStyle: { color: '#fec070' }},
+            { value: cntCntCount, name: '카운트',  itemStyle: { color: '#ff7978' } },
+            { value: falCntCount, name: '쓰러짐',  itemStyle: { color: '#52c3f7' } }
         ]
         }
     ]

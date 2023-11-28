@@ -250,6 +250,8 @@
 	</style>
 </head>
 <body>
+	<c:set var="todayList" value="${todayList}"/>
+	<c:set var="netChangeList" value="${netChangeList}"/>
     
     <%-- 전체 wrap.S --%>
 	<div class="wrap" id="indexWrap">  
@@ -356,7 +358,9 @@
 												<div class="todayTitle color-Car">차량</div>
 											</div>
 											<div class="contentsBox">
-												<div class="amount" id="total_vehicle_cnt">0</div>
+												<div class="amount" id="total_vehicle_cnt">
+															${todayList[1].vehicleCount}
+												</div>
 												<div class="contrast">전일대비 <span class="upper" id="compare_vehicle_cnt">0</span></div>
 											</div>
 										</div>
@@ -410,7 +414,7 @@
 												<div class="todayTitle color-Intrusion">침입</div>
 											</div>
 											<div class="contentsBox">
-												<div class="amount" id="total_inv_cnt"></div>
+												<div class="amount" id="total_inv_cnt">0</div>
 												<div class="contrast">전일대비 <span class="lower" id="compare_inv_cnt">0</span></div>
 											</div>
 										</div>
@@ -516,21 +520,15 @@
                                         
                                     </div>		
                                 </div>
-
 							</div>
-
-
 						</div>		
-	
-						<%--<div class="innerBox divEvent" style="height:25vh;  min-height:435px;">--%>
 						<div class="innerBox divEvent" >
 							<div class="contentsTitle">
 								<div class="title">
 									<h4>이벤트 발생 비율</h4>
 								</div>
 							</div>
-							<div class="data">
-								<%--<div id = "event_acc_wnd" style="margin-top: 30px; width:100%; height:350px; "></div>--%>
+							<div class="data1">
 								<div id = "event_acc_wnd" style="margin-top: 30px; width:100%; height:350px; ">
 									<%-- 이벤트 발생 비율 도넛 차트 --%>
 								</div>
@@ -545,6 +543,7 @@
 					<div class="madeFodics">포딕스시스템</div>
 				</div>
 			</div>
+
 			<%-- 우측 메인.E --%>
 
 		</div>
@@ -596,7 +595,39 @@
 
 	<%-- 전역변수 시작--%>
 	<script>
-    
+    /* 연령별 출입자 현황 도넛차트 시작*/
+		var youngMale = ${summaryList[0] != null ? summaryList[0].face_youngMale : 0};
+		var youngFemale = ${summaryList[1] != null ? summaryList[1].face_youngFemale : 0};
+		var adultMale = ${summaryList[2] != null ? summaryList[2].face_adultMale : 0};
+		var adultFemale = ${summaryList[3] != null ? summaryList[3].face_adultFemale : 0};
+		var middleMale = ${summaryList[4] != null ? summaryList[4].face_middleMale : 0};
+		var middleFemale = ${summaryList[5] != null ? summaryList[5].face_middleFemale : 0};
+		var seniorMale = ${summaryList[6] != null ? summaryList[6].face_seniorMale : 0};
+		var seniorFemale = ${summaryList[7] != null ? summaryList[7].face_seniorFemale : 0};
+	/* 연령별 출입자 현황 도넛차트 끝*/
+
+
+	/* 이벤트 발생 비율 차트(금일) 전역변수 초기화 시작*/
+		var invCntCount = ${selectMainEventList[0] != null ? selectMainEventList[0].invCntCount : 0};
+		var lotCntCount = ${selectMainEventList[1] != null ? selectMainEventList[1].lotCntCount : 0};
+		var cntCntCount = ${selectMainEventList[2] != null ? selectMainEventList[2].cntCntCount : 0};
+		var falCntCount = ${selectMainEventList[3] != null ? selectMainEventList[3].falCntCount : 0};
+	/* 이벤트 발생 비율 차트(금일) 전역변수 초기화 끝*/
+
+	/* 금일누적 합계 전역변수 초기화 시작*/
+		var todayPersonCount = ${todayList[0] != null ? todayList[0].personCount : 0};
+		var todayVehicleCount = ${todayList[1] != null ? todayList[1].vehicleCount : 0};
+		var todayFaceCount = ${todayList[2] != null ? todayList[2].faceCount : 0};
+		var todayLprCount = ${todayList[3] != null ? todayList[3].lprCount : 0};
+		var todayInvCntCount = ${todayList[4] != null ? todayList[4].invCntCount : 0};
+		var todayLotCntCount = ${todayList[5] != null ? todayList[5].lotCntCount : 0};
+		var todayCntCntCount = ${todayList[6] != null ? todayList[6].cntCntCount : 0};
+		var todayFalCntCount = ${todayList[7] != null ? todayList[7].falCntCount : 0};
+		
+	/* 금일누적 합계 전역변수 초기화 끝*/
+
+
+
 	</script>
 	<%-- 전역변수 끝--%>
 

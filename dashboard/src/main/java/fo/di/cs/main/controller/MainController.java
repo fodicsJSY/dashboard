@@ -30,7 +30,7 @@ public class MainController {
 	
 	//초기화면(메인페이지)로 이동
 	 @GetMapping("/main")
-	 public String mainForward1(
+	 public String mainForward(
 			 Model model
 			 ) {
 		 

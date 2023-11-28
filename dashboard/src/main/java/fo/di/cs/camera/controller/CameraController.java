@@ -1,10 +1,14 @@
 package fo.di.cs.camera.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import fo.di.cs.camera.model.service.CameraService;
+import fo.di.cs.main.model.dto.DailyCount;
 
 
 @Controller
@@ -15,15 +19,25 @@ public class CameraController {
 	
 	//메인카메라페이지로 이동
 	@GetMapping("/mainCamera")
-	public String mainCameraForward() {
+	public String mainCameraForward(
+			Model model
+			) {
+		
+		//메인카메라페이지 금일 누적 합계(공통)
+		 List<DailyCount> todayList = service.selectMainCameraTodayList();
+		 model.addAttribute("todayList", todayList);
+
+		 //메인카메라페이지 전일대비(공통)
+		 List<DailyCount> netChangeList = service.selectNetChangeList();
+		 model.addAttribute("netChangeList", netChangeList);
+		 
+		 System.out.println("v : "+todayList);
+		 System.out.println("netChangeList : "+netChangeList);
+		
 		return "camera/mainCamera";
 	}
 
-	//메인카메라페이지로 이동
-	@GetMapping("/mainCamera1")
-	public String mainCameraForward1() {
-		return "camera/mainCamera1";
-	}
+
 	
 	//서브카메라페이지로 이동
 	@GetMapping("/mainCamera/subCamera")
