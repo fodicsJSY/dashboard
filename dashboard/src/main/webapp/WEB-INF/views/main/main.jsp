@@ -1,107 +1,49 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
-
-
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ai VinUS DASHBOARD</title>
 
 
-    <%-- toust UI 시작 --%>
-    <%--
-		<link rel="stylesheet" href="/resources/node_modules/tui-chart/dist/toastui-chart.css">
-		<script src="/resources/node_modules/tui-chart/dist/toastui-chart.js"></script>
-		<link rel="stylesheet" href="/resources/node_modules/tui-grid/dist/tui-grid.css" />
-		<script src="/resources/node_modules/tui-grid/dist/tui-grid.js"></script>      	
-		<link rel="stylesheet" href="/resources/node_modules/tui-date-picker/dist/tui-date-picker.css">
-		<script src="/resources/node_modules/tui-date-picker/dist/tui-date-picker.js"></script>
-	--%>
-    <%-- toust UI 끝 --%>
+        <%-- css --%>
+        <script src="/resources/node_modules/jquery/3.6.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="/resources/css/main/main.css">
+        <link rel="stylesheet" href="/resources/css/style.css">
+        <link rel="stylesheet" href="/resources/css/object.css">
+        <link rel="stylesheet" href="/resources/css/popup.css">
+        <link rel="stylesheet" href="/resources/css/style_scrollBar.css"> 
+        <link rel="stylesheet" href="/resources/font/nanumsquare.css">
+        <link rel="shortcut icon" href="/resources/img/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="/resources/css/style_grid.css">
 
-    <%--jquery--%>
-    <script src="/resources/node_modules/jquery/3.6.0/jquery.min.js"></script>
-    <script>
-		var toDay = new Date();
-		console.log(toDay);
-
-		// 년, 월, 일을 가져옵니다.
-		var year = toDay.getFullYear();
-		var month = String(toDay.getMonth() + 1).padStart(2, '0'); // 월은 0부터 시작하므로 1을 더하고 두 자리로 만듭니다.
-		var day = String(toDay.getDate()).padStart(2, '0'); // 일도 두 자리로 만듭니다.
+        <%-- bootstrap --%>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        
+        <%-- fontawesome --%>
+        <script src="https://kit.fontawesome.com/e75afc7597.js" crossorigin="anonymous"></script>
 
 
-		var occuDate = year + month + day;
-		console.log(occuDate);
-
-		/* 전역변수 보내기 시작 */
-		function sendToServer() {
-			// 형식을 YYYYMMDD로 변경
-			occuDate = formatToYYYYMMDD(forDate);
-			console.log('Sending occuDate to server:', occuDate); // 콘솔에 occuDate 값 로그 출력
-        // 서버로 데이터 전송
-        $.ajax({
-            url: '/main',
-            type: 'GET',
-            data: { occuDate: occuDate },
-            success: function(response) {
-                console.log('Data sent successfully to server!');
-            },
-            error: function(error) {
-                console.error('Error sending data to server:', error);
-            }
-        });
-    
-
-		
-
-		/* 날짜 형식화 함수 */
-		/* YYYYMMDD 형식으로 변환하는 함수 */
-		function formatToYYYYMMDD(dateString) {
-			var year = dateString.substring(0, 4);
-			var month = dateString.substring(5, 7);
-			var day = dateString.substring(8, 10);
-			return year + month + day;
-		}
-		}
-
-		/* 전역변수 보내기 끝 */
-	</script>
-	
+    <style>
+        .contents {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+            
+        }
 
 
-    <%-- css --%>
+        .innerBox {
+            height: 450px;
+            max-width: 580px;
+            width: 100%;
+            box-sizing: border-box;
+        }
 
-    <link rel="stylesheet" href="/resources/css/main/main.css">
-    <link rel="stylesheet" href="/resources/css/style.css">
-    <link rel="stylesheet" href="/resources/css/object.css">
-    <link rel="stylesheet" href="/resources/css/popup.css">
-    <link rel="stylesheet" href="/resources/css/style_scrollBar.css"> 
-    <link rel="stylesheet" href="/resources/font/nanumsquare.css">
-    <link rel="shortcut icon" href="/resources/img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="/resources/css/style_grid.css">
-
-    <%-- bootstrap --%>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    
-	<%-- fontawesome --%>
-	<script src="https://kit.fontawesome.com/e75afc7597.js" crossorigin="anonymous"></script>
-
-	<style>
-
-	/* 그리드로 차트 위치 변경 시작 */
-		.contents{
-			display: grid;
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-			grid-gap: 10px;
-		}
-
-
-		/* 막대 */
+        /* 막대 */
 		.innerBox:nth-child(1){
 			order:1;
 		}
@@ -118,7 +60,7 @@
 
 		/* 테이블 */
 		.innerBox:nth-child(4){
-			order:4;
+			order:6;
 		}
 
 		/* 도넛 */
@@ -128,16 +70,13 @@
 		
 		/* 이벤트 발생 비율 */
 		.innerBox:nth-child(6){
-			order:6;
+			order:4;
 		}
-	/* 그리드로 차트 위치 변경 끝 */
 
-
-		@media (max-width: 600px) {
+        @media (max-width: 600px) {
             .contents.fourColumns {
-				display: grid;
                 grid-template-columns: repeat(2, minmax(0, 1fr));
-				grid-gap: 10px;
+                gap: 10px;
             }
 
             .contents.fourColumns .innerBox {
@@ -157,94 +96,104 @@
         @media (min-width: 601px) {
             .contents.fourColumns {
                 grid-template-columns: repeat(2, minmax(0, 1fr)); /* 수정된 부분 */
-            }
-
-            .contents.fourColumns #manImg {
-                position: absolute; 
-				top: 160px; 
-				left: 155px; 
-				z-index: 0;
-            }
-
-            .contents.fourColumns #womanImg {
-                position: absolute; 
-				top: 160px; 
-				left: 155px; 
-				z-index: 0;
+                gap: 10px;
             }
 
             .contents.fourColumns .innerBox {
                 display: block;
+                max-width: 845px;
             }
 
             .contents.fourColumns .innerBox:nth-child(n+5) {
                 display: none;
             }
 
+            .contents.fourColumns #manImg{
+                position: absolute; 
+                top: 160px; 
+                left: 155px; 
+                z-index: 0;
+            }
+
+            .contents.fourColumns #womanImg{
+                position: absolute; 
+                top: 160px; 
+                left: 155px; 
+                z-index: 0;
+            }
+
             .contents.sixColumns {
                 grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 10px;
             }
 
             .contents.sixColumns .innerBox {
                 display: block;
-                max-width: 510px;
+                max-width: 560px;
             }
 
-			.contents.sixColumns #manImg {
-                position: absolute; 
-				top: 160px; 
-				left: 155px; 
-				z-index: 0;
-            }
-
-			.contents.sixColumns #womanImg {
-                position: absolute; 
-				top: 160px; 
-				left: 155px; 
-				z-index: 0;
+            .contents.sixColumns #mainFace1 {
+                width: 100%;
             }
 
             .contents.sixColumns .innerBox:nth-child(n+7) {
                 display: none;
             }
+
+            .contents.sixColumns #manImg{
+                position: absolute; 
+                top: 40%; 
+                left: 36%;
+                z-index: 0;
+            } 
+
+            .contents.sixColumns #womanImg{
+                position: absolute; 
+                top: 40%; 
+                left: 36%;
+                z-index: 0;
+            }
+
         }
-	
-
-	</style>
 
 
+        #bottom{
+            position: absolute;
+            display: table;
+            min-width: 1700px;
+            margin: 980px 15px 0 215px;
+        }
+    </style>
 </head>
 <body>
-
-	<c:set var="summaryList" value="${DC_summaryList}"/>
+    <c:set var="summaryList" value="${DC_summaryList}"/>
 	<c:set var="humanCount" value="${humanCount}"/>
 	<c:set var="dailyCount" value="${dailyCount}"/>
 	<c:set var="DailyCount_summary" value="${DailyCount_summary}"/>
 
 	<c:set var="vehicleDailyCount_CNT_changeList" value="${map.vehicleDailyCount_CNT_changeList}"/>
 	<c:set var="DC_summaryChangeList" value="${DC_summaryChangeList}"/>
-
-
+	<c:set var="DC_summaryVehicleList" value="${DC_summaryVehicleList}"/>
+	<c:set var="selectMainEventList" value="${selectMainEventList}"/>
 
     <%-- 전체 wrap.S --%>
 	<div class="wrap" id="indexWrap">  
 		<div file="Setting">
     </div>
-		
+
 		<%-- 헤더.S --%>
 		<header id="header"> 
 			<jsp:include page="/WEB-INF/views/common/dropdown.jsp"/>
 			<jsp:include page="/WEB-INF/views/common/inc_header.jsp"/>
 		</header>
-		<%-- 헤더.E --%>
-    
-		<%-- 내용.S --%>		
-		<div class="container">
+        <%-- 헤더.E --%>
 
-		<%-- side 영역.S --%>
+        <%-- 내용.S --%>		
+		<div class="container" style=min-height:980px>
+            <%-- side 영역.S --%>
 			<div id="side">
         
-        <%-- 좌측 네비.S --%>
+                <%-- 좌측 네비.S --%>
 				<div class="btn-navi" >
 					<a href="/main"><button type="button" class="btn_object_on">M A I N</button></a>
 					<%-- <a href="/main"><button type="button" class="btn_evnet">E V E N T</button></a> --%>
@@ -260,8 +209,7 @@
 			</div>
 			<%-- side 영역.E --%>
 
-
-			<%-- 우측 메인.S --%>
+            <%-- 우측 메인.S --%>
 			<div id="contentsWrap">
 				<%-- 상단 날짜,버튼 영역.S --%>
 				<form action="/main" method="get" >
@@ -281,8 +229,6 @@
 							<button type="button" class="btn-date" id="plusBtn"><i class="fa-solid fa-caret-right fa-xl" style="color: #ffffff;"></i></button>
 						</div>
 					</div>
-					<button id="sixInnerBox" style="width:50px; height:20px; margin-left:10px;">임시버튼6</button>
-					<button id="fourInnerBox" style="width:50px; height:20px; margin-left:10px;">임시버튼4</button>
 					<div class="btnArea">						
 						<%-- <a class="rollover" alt="csv파일" OnClick="OnCSV_Click()"><img src="img/btn-downCSV.png"> <img src="img/btn-downCSV_hover.png" class="over"></a> --%>
 						<a class="rollover" alt="csv파일" OnClick="OnCSV_Click()"><img src="../../resources/img/btn-downCSV.png"> <img src="../../resources/img/btn-downCSV_hover.png" class="over"></a>
@@ -292,14 +238,17 @@
 				</div>
 				</form>
 				<%-- 상단 날짜,버튼 영역.E --%>
+        
 
-				<%-- 메인컨텐츠.S --%>
-				<div class="contents">
-
-					<%-- 섹션 좌측.S --%>
-					<%--<div class="sectionBox">--%>
-					<div class="innerBox" id="human_rect">
-						<div class="contentsTitle">
+                <%-- 여기서 부터 그리드 연습장 --%>
+                <button id="sixInnerBox">6개</button>
+                <button id="fourInnerBox">4개</button>
+                <br><br>
+                <%-- 메인컨텐츠.S --%>
+                <div class="contents">
+                    <%-- 섹션 좌측.S --%>
+                    <div class="innerBox" id="human_rect">
+                        <div class="contentsTitle">
 							<div class="title" id="tableTitle">
 								<h4>사람</h4>
 								<p class="summary">일 누적 
@@ -328,31 +277,46 @@
 								</div>
 							</div>
 						</a>
-					</div>
-					<div class="innerBox" id="vehicle_rect" >
-						<div class="contentsTitle">
+                    </div>
+                    <div class="innerBox" id="vehicle_rect">
+                        <div class="contentsTitle">
 							<div class="title">
 								<h4>차량</h4>
-								<p class="summary">일 누적 <span>12,812</span>개</p>
+								<p class="summary">
+									일 누적 
+									<span id="vehicleCount_c">
+										<c:choose>
+											<c:when test="${empty vehicleCount}">
+												<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+												<span>0</span>
+											</c:when>
+											<c:otherwise>
+												<!-- 리스트의 요소 개수를 출력 -->
+												<span>${vehicleCount}</span>
+											</c:otherwise>
+										</c:choose>	
+									</span>
+									개
+								
+								</p>
 							</div>
 							<div class="partBTN">
-								<a class="changeGraph" onclick="OnCarGraphChange()"><img src="../../resources/img/btn_cangeDiagram.png"> <img src="../../resources/img/btn_cangeDiagram_hover.png" class="over"></a>									
+								<a class="changeGraph" id="vehicleGraphChange" onclick="OnCarGraphChange()"><img src="../../resources/img/btn_cangeDiagram.png"> <img src="../../resources/img/btn_cangeDiagram_hover.png" class="over"></a>									
 							</div>
 						</div>
-						<div class="data" style="margin-left : 20px; margin-top : 20px; width: 100%;" onclick="location.href='sub_object.html'">	
+						<div class="data" style="width: 100%;" onclick="location.href='sub_object.html'">	
 							<div id="mainVehicle" style="width: 100%; height: 350px;">
 							</div>					
 						</div>
-					</div> 
-				<%--</div>--%>
-					<div class="innerBox" id="nomask_rect" >
-						<div class="contentsTitle">
+                    </div>
+                    <div class="innerBox" id="nomask_rect">
+                        <div class="contentsTitle">
 							<div class="title">
 								<h4>마스크 미착용자 성별/연령 비교</h4>
 							</div>
 						</div>
 						<section class="chart">
-							<div class="data" id="mainFace1" style=" width: 100%; margin-left: 30px">
+							<div class="data" id="mainFace1" style=" width: 100%;">
 								<div class="manChart">
 									<a href="/sub_object">
 										<div id="mainFace1_chart" style="width: 100%; height: 390px">
@@ -374,42 +338,34 @@
 								</div>
 							</div>
 						</section>
-					</div>						
-					<%-- 섹션 좌측.E --%>
+                    </div>
+                    <%-- 섹션 좌측.E --%>
 
-					<%-- 섹션 우측.S --%>
-					<%--<div class="sectionBox">--%>
-						<div class="innerBox" id="event_acc_rect">
-							<div class="contentsTitle">
+                    <%-- 섹션 우측.S --%>
+                    <div class="innerBox" id="event_acc_rect">
+                        <div class="contentsTitle">
 								<div class="title">
 									<h4>이벤트 발생 비율</h4>
 								</div>
 							</div>
 							<div class="data" id="subEventRatio" style="margin-top: 20px; width: 100%;">
-								<div id = "event_acc_wnd" style="margin-top: 30px; width:100%; height:350px;">
-								</div>								
-							</div>
-						</div>	
-						
-						<div class="innerBox" id="time_rect" >
-							<div class="contentsTitle">
-								<div class="title">
-									<h4>시간대별 현황</h4>
-								</div>
-							</div>
-                            <%--
-                            <div>
-                                <canvas id="myChart"></canvas>
+                            <div id = "event_acc_wnd" style="margin-top: 30px; width:100%; height:350px;">
+                            </div>								
+                        </div>
+                    </div>
+                    <div class="innerBox">
+                        <div class="contentsTitle">
+                            <div class="title">
+                                <h4>시간대별 현황</h4>
                             </div>
-                            --%>
-                            <div class="data"  id="mainHourly" style="width: 100%; margin-top: 0px;">
-                                <%--  테이블 영역 샘플.s --%>							
-                                <div id="main" style="width: 100%; height: 400px"></div>
-                            </div>
-						</div>
-
-						<div class="innerBox" id="top10_rect" >
-							<div class="contentsTitle">
+                        </div>
+                        <div class="data"  id="mainHourly" style="width: 100%; margin-top: 0px;">
+                            <%--  테이블 영역 샘플.s --%>							
+                            <div id="main" style="width: 100%; height: 400px"></div>
+                        </div>
+                    </div>
+                    <div class="innerBox">
+                        <div class="contentsTitle">
 								<div class="title">
 									<h4>최다검지 카메라 TOP10 CH</h4>
 								</div>
@@ -446,54 +402,33 @@
 										
 									</tbody>
 								</table>
-							</div>		
+							</div>	
+                        </div>	
+                    </div>
+                </div>
+                <%-- 섹션 우측.E --%>
+                <%-- 여기까지 그리드 연습장 --%>
 
-							<%-- <div class="data" id="subTop10CamerasCar" style=" display: none;">
-								<table class="cameraTable">
-									<thead>
-										<tr>
-											<th scope="col">카메라명</th>
-											<th scope="col">자동차</th>
-											<th scope="col">버스</th>
-											<th scope="col">트럭</th>
-											<th scope="col">오토바이</th>
-											<th scope="col">자전거</th>
-										</tr>
-									</thead>
-									<tbody class="table-group-divider" id="vehicleTable">
-										<c:forEach items="${vehicleDailyCount_CNT}" var="vehicleDailyCount_CNT">
-											<tr>
-												<th scope="row" class="loadName">${vehicleDailyCount_CNT.carCount}</th>
-												<td>${vehicleDailyCount_CNT.busCount}</td>
-												<td>${vehicleDailyCount_CNT.faceCount}</td>
-												<td>${vehicleDailyCount_CNT.truckCount}</td>
-												<td>${vehicleDailyCount_CNT.motocycleCount}</td>
-												<td>${vehicleDailyCount_CNT.bicycleCount}</td>
-											</tr>
-										</c:forEach>
-										
-									</tbody>
-								</table>
-							</div> --%>
-						</div>
-					<%--</div>	--%>
-					<%-- 섹션 우측.E --%>
-				</div>
 
-				<%-- 로딩 --%>
-				<div id="loading"><img id="loading-image" src="../../resources/img/loading_animated.png" alt="Loading..." /></div>
 
-				<%-- 메인컨텐츠.E --%>
-				<div id="bottom">
-					<p class="Notice">※ 화면에 표시되는 모든 실시간 데이터는 1분마다 자동으로 업데이트 합니다. 다만 “시간대별 현황” 그래프의 실시간 데이터는 정시에 한 번씩 업데이트 합니다.</p>
-					<div class="madeFodics" style="margin: 0 40px 0 0;">포딕스시스템</div>
-				</div>
-				<%-- ${dailyCount_CNT}
-				${vehicleDailyCount_CNT_changeList}
-				${DC_summaryChangeList} --%>
 
-				<%-- CSV 대화상자 --%>
-				<dialog open id="csv_dialog" style = "display:none; background-color: rgba(30,30,30,1); color:rgba(192,192,192,1); width: 336px; padding: 0px; top:30px; left:900px;">		
+                </div>
+                <%-- 로딩 --%>
+                <div id="loading"><img id="loading-image" src="../../resources/img/loading_animated.png" alt="Loading..." /></div>
+
+                <%-- 메인컨텐츠.E --%>
+                <div id="bottom" >
+                    <div class="Notice">
+                    ※ 화면에 표시되는 모든 실시간 데이터는 1분마다 자동으로 업데이트 합니다. 다만 “시간대별 현황” 그래프의 실시간 데이터는 정시에 한 번씩 업데이트 합니다.
+                    </div>
+                    <div class="madeFodics">포딕스시스템</div>
+                </div>
+                <%-- ${DC_summaryVehicleList} --%>
+
+
+
+                <%-- CSV 대화상자 --%>
+				<dialog open id="csv_dialog" style = "display:none; background-color: rgba(30,30,30,1); color:rgba(192,192,192,1); width: 336px; padding: 0px; top:80px; left:980px;">		
 					<div style = "font-size: 14px; width: 330px; background-color: rgba(45,45,45,1); color:rgba(255,255,255,1); padding: 16px; ">
 						<p>.csv 파일로 내려받기를 원하시는 항목을 선택</p>						
 						<p style = "margin-top: 6px">하여 체크한 후 [확인] 버튼을 누르세요.</p>
@@ -511,8 +446,8 @@
 						<a class="rollover" alt="취소" OnClick="OnCSV_Cancel()"><img src="../../resources/img/btn_popCancel.png"> <img src="../../resources/img/btn_popCancel_hover.png" class="over"></a>
 					</div>
 				</dialog>
-<%-- BMP 대화상자 --%>
-				<dialog open id="bmp_dialog" style = "display:none; background-color: rgba(30,30,30,1); color:rgba(192,192,192,1); width: 336px; padding: 0px; top:30px; left:1070px;">		
+                <%-- BMP 대화상자 --%>
+				<dialog open id="bmp_dialog" style = "display:none; background-color: rgba(30,30,30,1); color:rgba(192,192,192,1); width: 336px; padding: 0px; top:80px; left:1150px;">		
 					<div style = "font-size: 14px; width: 330px; background-color: rgba(45,45,45,1); color:rgba(255,255,255,1); padding: 16px; ">
 						<p>.bmp 파일로 내려받기를 원하시는 항목을 선택</p>						
 						<p style = "margin-top: 6px">하여 체크한 후 [확인] 버튼을 누르세요.</p>
@@ -530,8 +465,8 @@
 						<a class="rollover" alt="취소" OnClick="OnBMP_Cancel()"><img src="../../resources/img/btn_popCancel.png"> <img src="../../resources/img/btn_popCancel_hover.png" class="over "></a>
 					</div>
 				</dialog>
-<%-- 출력 대화상자 --%>
-				<dialog open id="print_dialog" style = "display:none; background-color: rgba(30,30,30,1); color:rgba(192,192,192,1); width: 566px; padding: 0px; top:30px; left:1040px;">		
+                <%-- 출력 대화상자 --%>
+				<dialog open id="print_dialog" style = "display:none; background-color: rgba(30,30,30,1); color:rgba(192,192,192,1); width: 566px; padding: 0px; top:80px; left:1100px;">		
 					<div style = "font-size: 14px; width: 560px; background-color: rgba(45,45,45,1); color:rgba(255,255,255,1); padding: 16px; ">
 						<p>보고서 인쇄를 원하시는 항목을 선택하여</p>						
 						<p style = "margin-top: 6px"> 체크 한 후 [확인] 버튼을 누르세요.</p>
@@ -573,9 +508,33 @@
 
 
 
-
     <%-- js --%>
 
+    <script>
+        document.getElementById('fourInnerBox').addEventListener('click', function () {
+            document.querySelector('.contents').classList.remove('sixColumns');
+            document.querySelector('.contents').classList.add('fourColumns');
+            human_chart.resize();
+            vehicleBarChart.resize();
+            eventChart.resize();
+            myChart.resize();
+            womanDountChart.resize();
+            manDountChart.resize();
+        });
+        document.getElementById('sixInnerBox').addEventListener('click', function () {
+            document.querySelector('.contents').classList.remove('fourColumns');
+            document.querySelector('.contents').classList.add('sixColumns');
+            human_chart.resize();
+            vehicleBarChart.resize();
+            eventChart.resize();
+            myChart.resize();
+            manDountChart.resize();
+            womanDountChart.resize();
+        });
+
+    </script>
+
+    
 	<%-- refresh --%>
 	<script src="../../../resources/js/refresh.js"></script>
 
@@ -586,756 +545,40 @@
     
 
 
-
     <script src="../../../resources/js/main/loading.js"></script>
     <%-- <script src="../../../resources/js/main/vehicleTable.js"></script> --%>
     <script src="../../../resources/js/main/tableChange.js"></script>
     <script src="../../../resources/js/main/mainDateChange.js"></script>
+    <script src="../../../resources/js/main/dialog.js"></script>
 
-	
-
-
-    <script>
-
-		/*
-      // 어제
-    function OnPrevDate(){
-        move_day = move_day - 1;				
-        var yesterday = new Date();
-        yesterday.setDate(yesterday.getDate() + move_day);
-
-        // 날짜 양식 - 화면 출력
-        var year = yesterday.getFullYear();
-        var month = yesterday.getMonth() + 1;
-        var day = yesterday.getDate();	  			
-		datePicker1.setDate(yesterday); 			
-		}
-
-
-      // 오늘
-      function OnTodayDate(){	
-        move_day = 0;		
-        calendarPickerToday();
-
-        dailyCountFileName = "./data/dailyCount.json";
-        dailyCountByEveryHourFileName = "./data/dailyCountByEveryHour.json";
-        dailyCountByCameraFileName = "./data/dailyCountByCamera.json";		
     
-        jsonHandler();
-      }
-
-      // 내일
-      function OnNextDate(){	
-        move_day = move_day + 1;				
-        var yesterday = new Date();
-        yesterday.setDate(yesterday.getDate() + move_day);
-
-        // 날짜 양식 - 화면 출력
-        var year = yesterday.getFullYear();
-        var month = yesterday.getMonth() + 1;
-        var day = yesterday.getDate();	  			
-          datePicker1.setDate(yesterday);			
-      }
-
-
-      function calendarPickerToday() {
-        // 날짜
-        var today = new Date();
-        var year = today.getFullYear();
-        var month = today.getMonth() + 1;
-        var day = today.getDate();
-        // 날짜 및 캘린더
-        datePicker1.setDate(today);
-      }
-
-      function OnSelectDate(select_day)
-      {	
-        $('#loading').show();			
-
-        // 날짜 양식 - 화면 출력
-        var year = select_day.getFullYear();
-        var month = select_day.getMonth() + 1;
-        var day = select_day.getDate();	  			
-          datePicker1.setDate(select_day);
-
-        // 인자 작성 (날짜)
-        if (Number(month) < 10)
-          month = '0' + month;
-        if (Number(day) < 10)
-          day = '0' + day;
-        var startfullDate = String(year) + String(month) + String(day);
-
-        var xhttp = new XMLHttpRequest();
-        var param = 'getBackDateValue?';
-        param += 'startDate=' + startfullDate;
-        xhttp.onreadystatechange = function () {
-
-          if (this.readyState == 4 && this.status == 200) {
-            if (this.responseURL.includes('getBackDateValue')) {
-              
-              $('#loading').hide();						
-              var today_str = GetTodayStr();	
-              if( startfullDate == today_str)
-              {
-                sessionStorage.setItem('isToday', true);
-                dailyCountFileName = "/data/dailyCount.json";
-                dailyCountByEveryHourFileName = "/data/dailyCountByEveryHour.json";
-                dailyCountByCameraFileName = "/data/dailyCountByCamera.json";	
-              }
-              else
-              {
-                sessionStorage.setItem('isToday', false);
-                dailyCountFileName = "/data/dailyCountBack.json";
-                dailyCountByEveryHourFileName = "/data/dailyCountByEveryHourBack.json";
-                dailyCountByCameraFileName = "/data/dailyCountByCameraBack.json";
-              }
-
-              jsonHandler();
-            }
-          }				
-        }	
-        xhttp.open('GET', param, true);
-        xhttp.send();	
-      }
-
-	  */
-
-      /* CSV 대화상자 시작 */
-	function OnCSV_Click(){			
-        document.getElementById("csv_dialog").open = true;  
-        document.getElementById('csv_dialog').style.display='block';			
-        document.getElementById("bmp_dialog").open = false;  
-        document.getElementById('bmp_dialog').style.display='none';			
-        document.getElementById("print_dialog").open = false;  
-        document.getElementById('print_dialog').style.display='none';
-		}
-
-	function OnCSV_OK(){
-
-        document.getElementById("csv_dialog").open = false; 
-        document.getElementById('csv_dialog').style.display='none';	
-        
-        var chk_val = document.getElementById("chk_csv_human").checked; 
-        if(chk_val == true) OnCSV_Human_Select();
-
-        chk_val = document.getElementById("chk_csv_vehicle").checked; 
-        if(chk_val == true) OnCSV_Vehicle_Select();
-
-        chk_val = document.getElementById("chk_csv_event_acc").checked; 
-        if(chk_val == true) OnCSV_Event_Acc_Select();
-
-        chk_val = document.getElementById("chk_csv_unmask_sex").checked; 
-        if(chk_val == true) OnCSV_UnMask_Select();
-
-        chk_val = document.getElementById("chk_csv_time_chk").checked; 
-        if(chk_val == true) OnCSV_Time_Select();
-
-        chk_val = document.getElementById("chk_csv_camera_10ch_human").checked; 
-        if(chk_val == true){
-		setMainEventTop10();
-		setTimeout(() => OnCSV_camera_10_human_Select(), 1000);	
-        }
-        
-        chk_val = document.getElementById("chk_csv_camera_10ch_vehicle").checked; 
-        if(chk_val == true){
-		setMainVehicleTop10();
-          // 인쇄시 '차량' 페이지 전환이 되지 않은 상태에서 값을읽고 동시에 출력하면 버퍼가 빈상태일때가 있다.
-		setTimeout(() => OnCSV_camera_10_vehicle_Select(), 1000);			
-        }
-
-	}
-
-	function OnCSV_Human_Select(){
-			var itemsFormatted = [];
-			var itemsNotFormatted = [];
-
-			var headers_top = {						
-				FACE_SENIORMALE: '남성'.replace(/,/g, ''), // remove commas to avoid errors
-				FACE_MIDDLEMALE: '',
-				FACE_ADULTMALE: '',
-				FACE_YOUNGMALE: '',
-				FACE_SENIORFEMALE: '여성',
-				FACE_MIDDLEFEMALE: '',
-				FACE_ADULTFEMALE: '',
-				FACE_YOUNGFEMALE: '',
-			};
-			var headers = {						
-				FACE_SENIORMALE: '노년'.replace(/,/g, ''), // remove commas to avoid errors
-				FACE_MIDDLEMALE: '중년',
-				FACE_ADULTMALE: "청년",
-				FACE_YOUNGMALE: "미성년",
-				FACE_SENIORFEMALE: '노년',
-				FACE_MIDDLEFEMALE: '중년',
-				FACE_ADULTFEMALE: "청년",
-				FACE_YOUNGFEMALE: "미성년"
-			};
-
-			itemsNotFormatted = jsonDailyCount;			
-
-			// format the data
-			itemsNotFormatted.forEach((item) => {
-				itemsFormatted.push({
-					FACE_SENIORMALE: item.FACE_SENIORMALE.replace(/,/g, ''), // remove commas to avoid errors,
-					FACE_MIDDLEMALE: item.FACE_MIDDLEMALE,
-					FACE_ADULTMALE: item.FACE_ADULTMALE,
-					FACE_YOUNGMALE: item.FACE_YOUNGMALE,
-					FACE_SENIORFEMALE: item.FACE_SENIORFEMALE,
-					FACE_MIDDLEFEMALE: item.FACE_MIDDLEFEMALE,
-					FACE_ADULTFEMALE: item.FACE_ADULTFEMALE,
-					FACE_YOUNGFEMALE: item.FACE_YOUNGFEMALE,
-				});
-			});
-
-			var fileTitle = '사람_' + getDateStr();
-			exportCSVFile(headers_top, headers, itemsFormatted, fileTitle);	
-		}
-		
-		function OnCSV_Vehicle_Select(){
-			var itemsFormatted = [];
-			var itemsNotFormatted = [];
-			var headers_top = {};
-			var headers = {						
-				VEHICLE_CAR: '자동차'.replace(/,/g, ''), // remove commas to avoid errors
-				VEHICLE_BUS: '버스',
-				VEHICLE_TRUCK: "트럭",
-				VEHICLE_MOTORCYCLE: "오토바이",
-				VEHICLE_BICYCLE: '자전거',				
-			};
-
-			itemsNotFormatted = jsonDailyCount;			
-
-			// format the data
-			itemsNotFormatted.forEach((item) => {
-				itemsFormatted.push({
-					VEHICLE_CAR: item.VEHICLE_CAR.replace(/,/g, ''), // remove commas to avoid errors,
-					VEHICLE_BUS: item.VEHICLE_BUS,
-					VEHICLE_TRUCK: item.VEHICLE_TRUCK,
-					VEHICLE_MOTORCYCLE: item.VEHICLE_MOTORCYCLE,
-					VEHICLE_BICYCLE: item.VEHICLE_BICYCLE,
-					
-				});
-			});
-
-			var fileTitle = '차량_' + getDateStr();
-			exportCSVFile(headers_top, headers, itemsFormatted, fileTitle);	
-		}
-		
-		function OnCSV_Event_Acc_Select(){
-			var itemsFormatted = [];
-			var itemsNotFormatted = [];
-			var headers_top = {};
-			var headers = {						
-				INV_CNT: '침입'.replace(/,/g, ''), // remove commas to avoid errors
-				LOT_CNT: '배회',
-				CNT_CNT: "카운팅",
-				FAL_CNT: "쓰러짐",				
-			};
-
-			itemsNotFormatted = jsonDailyCount;			
-
-			// format the data
-			itemsNotFormatted.forEach((item) => {
-				itemsFormatted.push({
-					INV_CNT: item.INV_CNT.replace(/,/g, ''), // remove commas to avoid errors,
-					LOT_CNT: item.LOT_CNT,
-					CNT_CNT: item.CNT_CNT,
-					FAL_CNT: item.FAL_CNT,
-				});
-			});
-
-			var fileTitle = '이벤트발생_' + getDateStr();
-			exportCSVFile(headers_top, headers, itemsFormatted, fileTitle);	
-		}
-
-		function OnCSV_UnMask_Select(){
-			var itemsFormatted = [];
-			var itemsNotFormatted = [];
-			var headers_top = {						
-				FACE_NOMASKMALESENIOR: '남성'.replace(/,/g, ''), // remove commas to avoid errors
-				FACE_NOMASKMALEMIDDLE: '',
-				FACE_NOMASKMALEADULT: '',
-				FACE_NOMASKMALEYOUNG: '',
-				FACE_NOMASKFEMALESENIOR: '여성',
-				FACE_NOMASKFEMALEMIDDLE: '',
-				FACE_NOMASKFEMALEADULT: '',
-				FACE_NOMASKFEMALEYOUNG: '',
-			};
-			var headers = {						
-				FACE_NOMASKMALESENIOR: '노년'.replace(/,/g, ''), // remove commas to avoid errors
-				FACE_NOMASKMALEMIDDLE: '중년',
-				FACE_NOMASKMALEADULT: "청년",
-				FACE_NOMASKMALEYOUNG: "미성년",
-				FACE_NOMASKFEMALESENIOR: '노년',
-				FACE_NOMASKFEMALEMIDDLE: '중년',
-				FACE_NOMASKFEMALEADULT: "청년",
-				FACE_NOMASKFEMALEYOUNG: "미성년"
-			};
-
-			itemsNotFormatted = jsonDailyCount;			
-
-			// format the data
-			itemsNotFormatted.forEach((item) => {
-				itemsFormatted.push({
-					FACE_NOMASKMALESENIOR: item.FACE_NOMASKMALESENIOR.replace(/,/g, ''), // remove commas to avoid errors,
-					FACE_NOMASKMALEMIDDLE: item.FACE_NOMASKMALEMIDDLE,
-					FACE_NOMASKMALEADULT: item.FACE_NOMASKMALEADULT,
-					FACE_NOMASKMALEYOUNG: item.FACE_NOMASKMALEYOUNG,
-					FACE_NOMASKFEMALESENIOR: item.FACE_NOMASKFEMALESENIOR,
-					FACE_NOMASKFEMALEMIDDLE: item.FACE_NOMASKFEMALEMIDDLE,
-					FACE_NOMASKFEMALEADULT: item.FACE_NOMASKFEMALEADULT,
-					FACE_NOMASKFEMALEYOUNG: item.FACE_NOMASKFEMALEYOUNG,
-				});
-			});
-			var fileTitle = '마스크미착용자_' + getDateStr();
-			exportCSVFile(headers_top, headers, itemsFormatted, fileTitle);	
-		}
-		
-		function OnCSV_Time_Select(){
-			var itemsFormatted = [];
-			var itemsNotFormatted = [];
-			var headers_top = {};
-			var headers = {						
-				OCCU_TIME: '시간'.replace(/,/g, ''), // remove commas to avoid errors
-				PERSON: '사람',
-				VEHICLE: '차량',
-				FACE: '얼굴',
-				LPR: '번호판',				
-				INV_CNT: '침입',
-				LOT_CNT: '배회',
-				CNT_CNT: '카운팅',
-				FAL_CNT: '쓰러짐'
-			};
-
-			itemsNotFormatted = jsonHourlyCount;			
-
-			// format the data
-			itemsNotFormatted.forEach((item) => {
-				itemsFormatted.push({
-					OCCU_TIME: item.OCCU_TIME, // remove commas to avoid errors,
-					PERSON: item.PERSON,
-					VEHICLE: item.VEHICLE,
-					FACE: item.FACE,
-					LPR: item.LPR,
-					INV_CNT: item.INV_CNT,
-					LOT_CNT: item.LOT_CNT,
-					CNT_CNT: item.CNT_CNT,
-					FAL_CNT: item.FAL_CNT,					
-				});
-			});
-
-			var fileTitle = '시간대별현황_' + getDateStr();
-			exportCSVFile(headers_top, headers, itemsFormatted, fileTitle);	
-		}
-
-		function OnCSV_camera_10_human_Select(){	
-			var itemsFormatted = [];
-			var itemsNotFormatted = [];
-			var headers_top = {};
-			var headers = {						
-				CAMERA_NAME: '카메라명'.replace(/,/g, ''), // remove commas to avoid errors
-				PERSON: '사람',
-				FACE: "얼굴",
-				INV_CNT: "침입",				
-				LOT_CNT: "배회",
-				FAL_CNT: "쓰러짐",
-				CNT_CNT: "카운팅",				
-			};
-
-			itemsNotFormatted = jsonTop10CtrlCamera;			
-
-			// format the data
-			itemsNotFormatted.forEach((item) => {
-				itemsFormatted.push({
-					CAMERA_NAME: item.CAMERA_NAME.replace(/,/g, ''), // remove commas to avoid errors,
-					PERSON: item.PERSON,
-					FACE: item.FACE,
-					INV_CNT: item.INV_CNT,
-					LOT_CNT: item.LOT_CNT,
-					FAL_CNT: item.FAL_CNT,
-					CNT_CNT: item.CNT_CNT,
-				});
-			});
-
-			var fileTitle = '검지카메라_TOP10_사람' + getDateStr();
-			exportCSVFile(headers_top, headers, itemsFormatted, fileTitle);	
-			
-		}
-
-		function OnCSV_camera_10_vehicle_Select(){
-			var itemsFormatted = [];
-			var itemsNotFormatted = [];
-			var headers_top = {};
-			var headers = {						
-				CAMERA_NAME: '카메라명'.replace(/,/g, ''), // remove commas to avoid errors
-				VEHICLE_CAR: '자동차',
-				VEHICLE_BUS: "버스",
-				VEHICLE_TRUCK: "트럭",				
-				VEHICLE_MOTORCYCLE: "오토바이",
-				VEHICLE_BICYCLE: "자전거",				
-			};
-
-			itemsNotFormatted = jsonTop10VehicleCamera;			
-
-			// format the data
-			itemsNotFormatted.forEach((item) => {
-				itemsFormatted.push({
-					CAMERA_NAME: item.CAMERA_NAME.replace(/,/g, ''), // remove commas to avoid errors,
-					VEHICLE_CAR: item.VEHICLE_CAR,
-					VEHICLE_BUS: item.VEHICLE_BUS,
-					VEHICLE_TRUCK: item.VEHICLE_TRUCK,
-					VEHICLE_MOTORCYCLE: item.VEHICLE_MOTORCYCLE,
-					VEHICLE_BICYCLE: item.VEHICLE_BICYCLE,					
-				});
-			});
-
-			var fileTitle = '검지카메라_TOP10_차량_' + getDateStr();
-			exportCSVFile(headers_top, headers, itemsFormatted, fileTitle);	
-		}
-
-		function OnCSV_Cancel(){			
-			document.getElementById("csv_dialog").open = false;  
-			document.getElementById('csv_dialog').style.display='none';     
-		}
-		
-
-    // CSV 대화상자 
-		function OnBMP_Click(){			
-			document.getElementById("csv_dialog").open = false;  
-			document.getElementById('csv_dialog').style.display='none';	
-			document.getElementById("bmp_dialog").open = true;  
-			document.getElementById('bmp_dialog').style.display='block';	
-			document.getElementById("print_dialog").open = false;  
-			document.getElementById('print_dialog').style.display='none';	
-        }
-
-		
-
-		function saveAsFile(uri, filename) {
-			var link = document.createElement('a');
-			if (typeof link.download === 'string') {
-				link.href = uri;
-				link.download = filename;
-				document.body.appendChild(link);
-				link.click();
-				document.body.removeChild(link);
-			} else {
-				window.open(uri);
-			}
-		}
-
-		function OnBMP_Output_Select(id, fileTitle)
-		{
-			html2canvas($(id)[0]).then(function(canvas) {				
-				saveAsFile(canvas.toDataURL(), fileTitle);
-			});
-		}
-
-		function OnBMP_OK(){
-			var fileTitle; 
-			document.getElementById("bmp_dialog").open = false; 
-			document.getElementById('bmp_dialog').style.display='none';	
-			var chk_val = document.getElementById("chk_bmp_human").checked; 
-			if(chk_val == true){
-				fileTitle= '사람_이미지_' + getDateStr() + '.png';
-				OnBMP_Output_Select('#human_rect', fileTitle);
-			}
-
-			chk_val = document.getElementById("chk_bmp_vehicle").checked; 
-			if(chk_val == true) {
-				fileTitle= '차량_이미지_' + getDateStr() + '.png';
-				OnBMP_Output_Select('#vehicle_rect', fileTitle);
-			}
-			
-			chk_val = document.getElementById("chk_bmp_event_acc").checked; 
-			if(chk_val == true) {
-				fileTitle= '이벤트발생_이미지_' + getDateStr() + '.png';
-				OnBMP_Output_Select('#event_acc_rect', fileTitle);
-			}
-
-			chk_val = document.getElementById("chk_bmp_unmask_sex").checked; 
-			if(chk_val == true) {
-				fileTitle= '마스크미착용자_이미지_' + getDateStr() + '.png';
-				OnBMP_Output_Select('#nomask_rect', fileTitle);
-			}
-
-			chk_val = document.getElementById("chk_bmp_time_chk").checked; 
-			if(chk_val == true) {
-				fileTitle= '시간대별_이미지_' + getDateStr() + '.png';
-				OnBMP_Output_Select('#time_rect', fileTitle);
-			}
-
-			chk_val = document.getElementById("chk_bmp_camera_10ch_human").checked; 
-			if(chk_val == true){
-				setMainEventTop10();				
-				fileTitle= '카메라_사람_이미지_' + getDateStr() + '.png';
-				setTimeout(() => OnBMP_Output_Select('#top10_rect', fileTitle), 1500);
-			}
-			
-			chk_val = document.getElementById("chk_bmp_camera_10ch_vehicle").checked; 
-			if(chk_val == true){
-				setMainVehicleTop10();				
-				fileTitle= '카메라_차량_이미지_' + getDateStr() + '.png';
-				setTimeout(() => OnBMP_Output_Select('#top10_rect', fileTitle), 1500);					
-			}
-		}
-
-		function OnBMP_Cancel(){
-			document.getElementById("bmp_dialog").open = false;    
-			document.getElementById('bmp_dialog').style.display='none';   
-		}
-		
-		function chkHumanVehicleClick(element){
-			const checkboxes = document.getElementsByName("10ch");
-		
-			checkboxes.forEach((cb) => {
-				cb.checked = false;
-			})		
-			element.checked = true;
-		}	
-
-		function OnPrint_Click(){
-			document.getElementById("csv_dialog").open = false;  
-			document.getElementById('csv_dialog').style.display='none';			
-			document.getElementById("bmp_dialog").open = false;  
-			document.getElementById('bmp_dialog').style.display='none';			
-			document.getElementById("print_dialog").open = true;  
-			document.getElementById('print_dialog').style.display='block';			
-		}
-
-		function OnBMP_Output_Select(id, fileTitle)
-		{
-			html2canvas($(id)[0]).then(function(canvas) {				
-				saveAsFile(canvas.toDataURL(), fileTitle);
-			});
-		}
-
-		function OnPRINT_OK(){
-			var fileTitle = 'Graph_Temp.png';
-			document.getElementById("print_dialog").open = false; 
-			document.getElementById('print_dialog').style.display='none';	
-			var chk_val = document.getElementById("chk_print_human").checked; 
-			if(chk_val == true){				
-				OnPRT_Output_Select('#human_rect', fileTitle);				
-			}
-
-			chk_val = document.getElementById("chk_print_vehicle").checked; 
-			if(chk_val == true) {
-				OnPRT_Output_Select('#vehicle_rect', fileTitle);					
-			}
-			
-			chk_val = document.getElementById("chk_print_event_acc").checked; 
-			if(chk_val == true) {
-				OnPRT_Output_Select('#event_acc_rect', fileTitle);				
-			}
-
-			chk_val = document.getElementById("chk_print_unmask_sex").checked; 
-			if(chk_val == true) {
-				OnPRT_Output_Select('#nomask_rect', fileTitle);				
-			}
-
-			chk_val = document.getElementById("chk_print_time_chk").checked; 
-			if(chk_val == true) {
-				OnPRT_Output_Select('#time_rect', fileTitle);				
-			}
-
-			chk_val = document.getElementById("chk_print_camera_10ch_human").checked; 
-			if(chk_val == true){
-				setMainEventTop10();				
-				setTimeout(() => OnPRT_Output_Select('#top10_rect', fileTitle), 1500);
-			}
-			
-			chk_val = document.getElementById("chk_print_camera_10ch_vehicle").checked; 
-			if(chk_val == true){
-				setMainVehicleTop10();				
-				setTimeout(() => OnPRT_Output_Select('#top10_rect', fileTitle), 1500);					
-			}	
-			readFile();
-		}
-		
-		function saveToFile_Chrome(fileName, content) {
-			var blob = new Blob([content], { type: 'text/plain' });
-			objURL = window.URL.createObjectURL(blob);
-					
-			// 이전에 생성된 메모리 해제
-			if (window.__Xr_objURL_forCreatingFile__) {
-				window.URL.revokeObjectURL(window.__Xr_objURL_forCreatingFile__);
-			}
-			window.__Xr_objURL_forCreatingFile__ = objURL;
-			var a = document.createElement('a');
-			a.download = fileName;
-			a.href = objURL;
-			a.click();
-		}
-
-		// 소스보기 버튼 클릭
-		function readFile() {
-			event.preventDefault(); //submit 할때 새로고침 되는것을 방지
-			let fileObject = document.getElementById("input_file_yes");
-			let fileName = fileObject.files[0];
-
-			let fr = new FileReader();
-			fr.readAsText(fileName, "utf-8");
-
-			fr.onload = () => {
-				parseText(fr.result);
-			}
-		}
-
-		function parseText(text) {
-			
-			// 여기서 파일 데이터 가공
-			//
-			var manage_num = document.getElementById("manage_num").value;
-			var manage_agency = document.getElementById("manage_agency").value;
-			var manage_department = document.getElementById("manage_department").value;
-			var report_title = document.getElementById("report_title").value;
-			var report_name = document.getElementById("report_name").value;
-			var report_purpose = document.getElementById("report_purpose").value;
-						
-			var replaced_str = text.replace('manage_number', manage_num);
-			replaced_str = replaced_str.replace('manage_agency', manage_agency);
-			replaced_str = replaced_str.replace('manage_department', manage_department);
-			replaced_str = replaced_str.replace('report_title', report_title);
-			replaced_str = replaced_str.replace('report_name', report_name);
-			replaced_str = replaced_str.replace('report_purpose', report_purpose);
-			console.log(replaced_str);
-			
-			var temp_path = "보고서양식.html";
-			saveToFile_Chrome(temp_path, replaced_str);			
-		}
-
-		function OnPRT_Output_Select(id, fileTitle)
-		{	
-			console.log( window.location + fileTitle);									
-			html2canvas($(id)[0]).then(function(canvas) {				
-				saveAs(canvas.toDataURL(), fileTitle);
-			});			
-		}
-		
-		function chkPrintClick(element){
-			const checkboxes = document.getElementsByName("round");
-		
-			checkboxes.forEach((cb) => {
-				cb.checked = false;
-			})		
-			element.checked = true;
-		}	
-
-		function chkPaymentClick(element){
-			const checkboxes = document.getElementsByName("type");
-		
-			checkboxes.forEach((cb) => {
-				cb.checked = false;
-			})		
-			element.checked = true;
-		}	
-
-		function OnPRINT_Cancel(){
-			document.getElementById("print_dialog").open = false;   
-			document.getElementById('print_dialog').style.display='none';			    
-		}
-
-		/* CSV 대화상자 끝 */
-
-		 
-
-
-		
-
-
-
-
-
-</script>
-
-	
 
 	<%-- 메인페이지 사람 막대차트 전역변수(페이지 로딩 시 오늘날짜) --%>
 
-	<%-- 사람 막대차트 script --%>
+	<%-- 사람&차량 막대차트 script --%>
 	<script>
-		/* 사람 막대차트 전역변수 */
+		/* 사람 막대차트 전역변수 시작*/
 		var youngMale = ${summaryList[0] != null ? summaryList[0].face_youngMale : 0};
-		var youngFemale = ${summaryList[0] != null ? summaryList[0].face_youngFemale : 0};
-		var adultMale = ${summaryList[0] != null ? summaryList[0].face_adultMale : 0};
-		var adultFemale = ${summaryList[0] != null ? summaryList[0].face_adultFemale : 0};
-		var middleMale = ${summaryList[0] != null ? summaryList[0].face_middleMale : 0};
-		var middleFemale = ${summaryList[0] != null ? summaryList[0].face_middleFemale : 0};
-		var seniorMale = ${summaryList[0] != null ? summaryList[0].face_seniorMale : 0};
-		var seniorFemale = ${summaryList[0] != null ? summaryList[0].face_seniorFemale : 0};
-	
+		var youngFemale = ${summaryList[1] != null ? summaryList[1].face_youngFemale : 0};
+		var adultMale = ${summaryList[2] != null ? summaryList[2].face_adultMale : 0};
+		var adultFemale = ${summaryList[3] != null ? summaryList[3].face_adultFemale : 0};
+		var middleMale = ${summaryList[4] != null ? summaryList[4].face_middleMale : 0};
+		var middleFemale = ${summaryList[5] != null ? summaryList[5].face_middleFemale : 0};
+		var seniorMale = ${summaryList[6] != null ? summaryList[6].face_seniorMale : 0};
+		var seniorFemale = ${summaryList[7] != null ? summaryList[7].face_seniorFemale : 0};
+		/* 사람 막대차트 전역변수 끝*/
 
 
-		/* 사람 막대차트 */
-		//  준비한 DOM 컨테이너에서 echarts 초기화하기
-			var human_chart = echarts.init(document.getElementById('mainPerson_chart'))
-
-		// 차트 옵션 작성하기
-			option = {
-				color: ["#006699", "#e5323e"],
-				tooltip: {
-					trigger: 'axis',
-					axisPointer: {
-				// Use axis to trigger tooltip
-				type: 'shadow' // 'shadow' as default; can also be 'line' or 'shadow'
-					}
-				},
-				legend: {
-					bottom: 0,
-					data: ['남자', '여자'],
-					textStyle:{
-					color: "#fff"
-				},
-				padding: [50, 0, 0, 0], // 범례 위 아래에 마진을 추가
-
-				},
-				grid: {
-					left: '3%',
-					right: '4%',
-					bottom: '10%',
-					containLabel: true
-				},
-				xAxis: {
-					type: 'value',
-				},
-				yAxis: {
-					type: 'category',
-					data: ['노년', '중장년', '청년', '미성년']
-				},
-				series: [
-					{
-						name: '남자',
-						type: 'bar',
-						stack: 'total',
-						label: {
-							show: true
-						},
-						emphasis: {
-							focus: 'series'
-						},
-						itemStyle: { color: '#0f9faf' },
-						data: [seniorMale, middleMale, adultMale, youngMale]
-					},
-					{
-						name: '여자',
-						type: 'bar',
-						stack: 'total',
-						label: {
-							show: true
-						},
-						emphasis: {
-							focus: 'series'
-						},
-						itemStyle: { color: '#e8534c' },
-						data: [seniorFemale, middleFemale, adultFemale, youngFemale]
-					}
-				
-				]
-			};
-
-		//  차트 옵션 설정하기
-		human_chart.setOption(option)
+		/* 차량 막대차트 전역변수 시작*/
+		var carCount = ${DC_summaryVehicleList[0] != null ? DC_summaryVehicleList[0].carCount : 0};
+		var busCount = ${DC_summaryVehicleList[1] != null ? DC_summaryVehicleList[1].busCount : 0};
+		var truckCount = ${DC_summaryVehicleList[2] != null ? DC_summaryVehicleList[2].truckCount : 0};
+		var motocycleCount = ${DC_summaryVehicleList[3] != null ? DC_summaryVehicleList[3].motocycleCount : 0};
+		var bicycleCount = ${DC_summaryVehicleList[4] != null ? DC_summaryVehicleList[4].bicycleCount : 0};
+        /* 차량 막대차트 전역변수 끝*/
 	</script>
+
+
 
 
 	<%-- 전역변수 시작--%>
@@ -1635,10 +878,16 @@
 		/* 마스크 미착용자 성별/연령 비교 차트 전역변수 초기화 끝*/
 
 
+		/* 이벤트 발생 비율 차트(금일) 전역변수 초기화 시작*/
+		var invCntCount = ${selectMainEventList[0] != null ? selectMainEventList[0].invCntCount : 0};
+		var lotCntCount = ${selectMainEventList[1] != null ? selectMainEventList[1].lotCntCount : 0};
+		var cntCntCount = ${selectMainEventList[2] != null ? selectMainEventList[2].cntCntCount : 0};
+		var falCntCount = ${selectMainEventList[3] != null ? selectMainEventList[3].falCntCount : 0};
+		/* 이벤트 발생 비율 차트(금일) 전역변수 초기화 끝*/
+
+
 
 	</script>
-
-
     <%-- 전역변수 끝--%>
 
 
@@ -1647,31 +896,6 @@
 
 
 
-	<%-- media연습 시작 --%>
-	<script>
-		document.getElementById('sixInnerBox').addEventListener('click', function () {
-			console.log('Clicked on sixInnerBox');
-			var contentsElement = document.querySelector('.contents');
-			contentsElement.classList.remove('fourColumns');
-			contentsElement.classList.add('sixColumns');
 
-			// 차트 업데이트 함수 호출
-			updateChart();
-		});
-
-		document.getElementById('fourInnerBox').addEventListener('click', function () {
-			console.log('Clicked on fourInnerBox');
-			var contentsElement = document.querySelector('.contents');
-			contentsElement.classList.remove('sixColumns');
-			contentsElement.classList.add('fourColumns');
-
-			// 차트 업데이트 함수 호출
-			updateChart();
-		});
-
-
-    </script>
-	<%-- media연습 끝 --%>
-    
 </body>
 </html>
