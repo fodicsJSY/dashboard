@@ -882,7 +882,7 @@
 		var invCntCount = ${selectMainEventList[0] != null ? selectMainEventList[0].invCntCount : 0};
 		var lotCntCount = ${selectMainEventList[1] != null ? selectMainEventList[1].lotCntCount : 0};
 		var cntCntCount = ${selectMainEventList[2] != null ? selectMainEventList[2].cntCntCount : 0};
-		var falCntCont = ${selectMainEventList[3] != null ? selectMainEventList[3].falCntCont : 0};
+		var falCntCount = ${selectMainEventList[3] != null ? selectMainEventList[3].falCntCount : 0};
 		/* 이벤트 발생 비율 차트(금일) 전역변수 초기화 끝*/
 
 

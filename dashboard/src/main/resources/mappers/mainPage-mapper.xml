@@ -148,7 +148,7 @@
 			, SUM(CNT.INV_CNT)  AS invCntCount   
 			, SUM(CNT.LOT_CNT)  AS lotCntCount   
 			, SUM(CNT.CNT_CNT)  AS cntCntCount   
-			, SUM(CNT.FAL_CNT)  AS falCntCont     
+			, SUM(CNT.FAL_CNT)  AS falCntCount     
 		FROM "TB_AI_NVR_DASH_BOARD_DAILY_COUNT" CNT
 		WHERE SUBSTRING(CNT.OCCU_TIME, 1, 8) = CONVERT(varchar, GETDATE(), 112)
 		GROUP BY CNT.CAMERA_NAME
@@ -179,7 +179,7 @@
 			SUM(CNT.INV_CNT)  AS invCntCount   
 			, SUM(CNT.LOT_CNT)  AS lotCntCount   
 			, SUM(CNT.CNT_CNT)  AS cntCntCount   
-			, SUM(CNT.FAL_CNT)  AS falCntCont     
+			, SUM(CNT.FAL_CNT)  AS falCntCount     
 		FROM "TB_AI_NVR_DASH_BOARD_DAILY_COUNT" CNT
 		WHERE SUBSTRING(CNT.OCCU_TIME, 1, 8) = CONVERT(varchar, GETDATE(), 112)
 	</select>
@@ -280,7 +280,7 @@
 			, SUM(CNT.INV_CNT)  AS invCntCount   
 			, SUM(CNT.LOT_CNT)  AS lotCntCount   
 			, SUM(CNT.CNT_CNT)  AS cntCntCount   
-			, SUM(CNT.FAL_CNT)  AS falCntCont     
+			, SUM(CNT.FAL_CNT)  AS falCntCount     
 		FROM "TB_AI_NVR_DASH_BOARD_DAILY_COUNT" CNT
 		WHERE SUBSTRING(CNT.OCCU_TIME, 1, 8) = #{occuDate}
 		GROUP BY CNT.CAMERA_NAME
@@ -311,7 +311,7 @@
 			SUM(CNT.INV_CNT)  AS invCntCount   
 			, SUM(CNT.LOT_CNT)  AS lotCntCount   
 			, SUM(CNT.CNT_CNT)  AS cntCntCount   
-			, SUM(CNT.FAL_CNT)  AS falCntCont     
+			, SUM(CNT.FAL_CNT)  AS falCntCount     
 		FROM "TB_AI_NVR_DASH_BOARD_DAILY_COUNT" CNT
 		WHERE SUBSTRING(CNT.OCCU_TIME, 1, 8) = #{occuDate}
 	</select>

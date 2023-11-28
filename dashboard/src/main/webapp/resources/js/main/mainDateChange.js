@@ -1342,7 +1342,7 @@ function sendToServer(value) {
                             { value: invCntCountChange, name: '침입', itemStyle: { color: '#4176df' } },
                             { value: lotCntCountChange, name: '배회', itemStyle: { color: '#fec070' } },
                             { value: cntCntCountChange, name: '카운트', itemStyle: { color: '#ff7978' } },
-                            { value: falCntContChange, name: '쓰러짐', itemStyle: { color: '#52c3f7' } }
+                            { value: falCntCountChange, name: '쓰러짐', itemStyle: { color: '#52c3f7' } }
                         ]
                     }
                 ]
