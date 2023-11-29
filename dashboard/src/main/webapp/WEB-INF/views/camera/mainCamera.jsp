@@ -340,8 +340,32 @@
 												<div class="todayTitle color-Human">사람</div>
 											</div>
 											<div class="contentsBox">
-												<div class="amount" id="total_person_cnt">0</div>
-												<div class="contrast">전일대비 <span class="lower"  id="compare_person_cnt">0</span></div>
+												<div class="amount" id="total_person_cnt">
+													<c:choose>
+														<c:when test="${empty todayList[11].personCount}">
+															<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+															<span>0</span>
+														</c:when>
+														<c:otherwise>
+															<!-- 리스트의 요소 개수를 출력 -->
+															<span>${todayList[11].personCount}</span>
+														</c:otherwise>
+													</c:choose>	
+												</div>
+												<div class="contrast">전일대비 
+													<span class="lower"  id="compare_person_cnt">
+														<c:choose>
+															<c:when test="${empty netChangeList[24].personCount_DIFF}">
+																<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+																<span>0</span>
+															</c:when>
+															<c:otherwise>
+																<!-- 리스트의 요소 개수를 출력 -->
+																<span>${netChangeList[24].personCount_DIFF}</span>
+															</c:otherwise>
+														</c:choose>	
+													</span>
+												</div>
 											</div>
 										</div>
 									</a>
@@ -359,9 +383,31 @@
 											</div>
 											<div class="contentsBox">
 												<div class="amount" id="total_vehicle_cnt">
-															${todayList[1].vehicleCount}
+													<c:choose>
+														<c:when test="${empty todayList[12].vehicleCount}">
+															<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+															<span>0</span>
+														</c:when>
+														<c:otherwise>
+															<!-- 리스트의 요소 개수를 출력 -->
+															<span>${todayList[12].vehicleCount}</span>
+														</c:otherwise>
+													</c:choose>	
 												</div>
-												<div class="contrast">전일대비 <span class="upper" id="compare_vehicle_cnt">0</span></div>
+												<div class="contrast">전일대비 
+													<span class="upper" id="compare_vehicle_cnt">
+														<c:choose>
+															<c:when test="${empty netChangeList[25].vehicleCount_DIFF}">
+																<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+																<span>0</span>
+															</c:when>
+															<c:otherwise>
+																<!-- 리스트의 요소 개수를 출력 -->
+																<span>${netChangeList[25].vehicleCount_DIFF}</span>
+															</c:otherwise>
+														</c:choose>	
+													</span>
+												</div>
 											</div>
 										</div>
 									</a>
@@ -378,8 +424,32 @@
 												<div class="todayTitle color-Face">얼굴</div>
 											</div>
 											<div class="contentsBox">
-												<div class="amount" id="total_face_cnt">0</div>
-												<div class="contrast">전일대비 <span class="upper"  id="compare_face_cnt">0</span></div>
+												<div class="amount" id="total_face_cnt">
+													<c:choose>
+														<c:when test="${empty todayList[13].faceCount}">
+															<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+															<span>0</span>
+														</c:when>
+														<c:otherwise>
+															<!-- 리스트의 요소 개수를 출력 -->
+															<span>${todayList[13].faceCount}</span>
+														</c:otherwise>
+													</c:choose>	
+												</div>
+												<div class="contrast">전일대비 
+													<span class="upper"  id="compare_face_cnt">
+														<c:choose>
+															<c:when test="${empty netChangeList[26].faceCount_DIFF}">
+																<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+																<span>0</span>
+															</c:when>
+															<c:otherwise>
+																<!-- 리스트의 요소 개수를 출력 -->
+																<span>${netChangeList[26].faceCount_DIFF}</span>
+															</c:otherwise>
+														</c:choose>	
+													</span>
+												</div>
 											</div>
 										</div>
 									</a>
@@ -396,8 +466,32 @@
 												<div class="todayTitle color-Counting">카운팅</div>
 											</div>
 											<div class="contentsBox">
-												<div class="amount" id="total_count_cnt">0</div>
-												<div class="contrast">전일대비 <span class="upper" id="compare_count_cnt">0</span></div>
+												<div class="amount" id="total_count_cnt">
+													<c:choose>
+														<c:when test="${empty todayList[17].cntCntCount}">
+															<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+															<span>0</span>
+														</c:when>
+														<c:otherwise>
+															<!-- 리스트의 요소 개수를 출력 -->
+															<span>${todayList[17].cntCntCount}</span>
+														</c:otherwise>
+													</c:choose>	
+												</div>
+												<div class="contrast">전일대비 
+													<span class="upper" id="compare_count_cnt">
+														<c:choose>
+															<c:when test="${empty netChangeList[30].cntCntCount_DIFF}">
+																<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+																<span>0</span>
+															</c:when>
+															<c:otherwise>
+																<!-- 리스트의 요소 개수를 출력 -->
+																<span>${netChangeList[30].cntCntCount_DIFF}</span>
+															</c:otherwise>
+														</c:choose>	
+													</span>
+												</div>
 											</div>
 										</div>
 									</a>
@@ -414,8 +508,32 @@
 												<div class="todayTitle color-Intrusion">침입</div>
 											</div>
 											<div class="contentsBox">
-												<div class="amount" id="total_inv_cnt">0</div>
-												<div class="contrast">전일대비 <span class="lower" id="compare_inv_cnt">0</span></div>
+												<div class="amount" id="total_inv_cnt">
+													<c:choose>
+														<c:when test="${empty todayList[15].invCntCount}">
+															<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+															<span>0</span>
+														</c:when>
+														<c:otherwise>
+															<!-- 리스트의 요소 개수를 출력 -->
+															<span>${todayList[15].invCntCount}</span>
+														</c:otherwise>
+													</c:choose>	
+												</div>
+												<div class="contrast">전일대비 
+													<span class="lower" id="compare_inv_cnt">
+														<c:choose>
+															<c:when test="${empty netChangeList[28].invCntCount_DIFF}">
+																<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+																<span>0</span>
+															</c:when>
+															<c:otherwise>
+																<!-- 리스트의 요소 개수를 출력 -->
+																<span>${netChangeList[28].invCntCount_DIFF}</span>
+															</c:otherwise>
+														</c:choose>	
+													</span>
+												</div>
 											</div>
 										</div>
 									</a>
@@ -432,8 +550,32 @@
 												<div class="todayTitle color-Loitering">배회</div>
 											</div>
 											<div class="contentsBox">
-												<div class="amount" id="total_lot_cnt">0</div>
-												<div class="contrast" >전일대비 <span class="lower" id="compare_lot_cnt">0</span></div>
+												<div class="amount" id="total_lot_cnt">
+													<c:choose>
+														<c:when test="${empty todayList[16].lotCntCount}">
+															<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+															<span>0</span>
+														</c:when>
+														<c:otherwise>
+															<!-- 리스트의 요소 개수를 출력 -->
+															<span>${todayList[16].lotCntCount}</span>
+														</c:otherwise>
+													</c:choose>	
+												</div>
+												<div class="contrast" >전일대비 
+													<span class="lower" id="compare_lot_cnt">
+														<c:choose>
+															<c:when test="${empty netChangeList[29].lotCntCount_DIFF}">
+																<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+																<span>0</span>
+															</c:when>
+															<c:otherwise>
+																<!-- 리스트의 요소 개수를 출력 -->
+																<span>${netChangeList[29].lotCntCount_DIFF}</span>
+															</c:otherwise>
+														</c:choose>	
+													</span>
+												</div>
 											</div>
 										</div>
 									</a>
@@ -449,8 +591,32 @@
 											<div class="todayTitle color-LPR">차량 번호 인식</div>
 										</div>
 										<div class="contentsBox">
-											<div class="amount">0</div>
-											<div class="contrast">전일대비 <span class="lower">0</span></div>
+											<div class="amount">
+												<c:choose>
+													<c:when test="${empty todayList[14].lprCount}">
+														<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+														<span>0</span>
+													</c:when>
+													<c:otherwise>
+														<!-- 리스트의 요소 개수를 출력 -->
+														<span>${todayList[14].lprCount}</span>
+													</c:otherwise>
+												</c:choose>	
+											</div>
+											<div class="contrast">전일대비 
+												<span class="lower">
+													<c:choose>
+														<c:when test="${empty netChangeList[27].lprCount_DIFF}">
+															<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+															<span>0</span>
+														</c:when>
+														<c:otherwise>
+															<!-- 리스트의 요소 개수를 출력 -->
+															<span>${netChangeList[27].lprCount_DIFF}</span>
+														</c:otherwise>
+													</c:choose>	
+												</span>
+											</div>
 										</div>
 									</div>
 									<a href="/mainCamera/subCamera">
@@ -543,9 +709,8 @@
 					<div class="madeFodics">포딕스시스템</div>
 				</div>
 			</div>
-
+			<%-- ${todayList} --%>
 			<%-- 우측 메인.E --%>
-
 		</div>
 		<%--  내용.E --%>
 	</div>
@@ -615,15 +780,14 @@
 	/* 이벤트 발생 비율 차트(금일) 전역변수 초기화 끝*/
 
 	/* 금일누적 합계 전역변수 초기화 시작*/
-		var todayPersonCount = ${todayList[0] != null ? todayList[0].personCount : 0};
-		var todayVehicleCount = ${todayList[1] != null ? todayList[1].vehicleCount : 0};
-		var todayFaceCount = ${todayList[2] != null ? todayList[2].faceCount : 0};
-		var todayLprCount = ${todayList[3] != null ? todayList[3].lprCount : 0};
-		var todayInvCntCount = ${todayList[4] != null ? todayList[4].invCntCount : 0};
-		var todayLotCntCount = ${todayList[5] != null ? todayList[5].lotCntCount : 0};
-		var todayCntCntCount = ${todayList[6] != null ? todayList[6].cntCntCount : 0};
-		var todayFalCntCount = ${todayList[7] != null ? todayList[7].falCntCount : 0};
-		
+		var todayPersonCount = ${todayList[24] != null ? todayList[24].personCount : 0};
+		var todayVehicleCount = ${todayList[25] != null ? todayList[25].vehicleCount : 0};
+		var todayFaceCount = ${todayList[26] != null ? todayList[26].faceCount : 0};
+		var todayLprCount = ${todayList[27] != null ? todayList[27].lprCount : 0};
+		var todayInvCntCount = ${todayList[28] != null ? todayList[28].invCntCount : 0};
+		var todayLotCntCount = ${todayList[29] != null ? todayList[29].lotCntCount : 0};
+		var todayCntCntCount = ${todayList[30] != null ? todayList[30].cntCntCount : 0};
+		var todayFalCntCount = ${todayList[31] != null ? todayList[31].falCntCount : 0};
 	/* 금일누적 합계 전역변수 초기화 끝*/
 
 

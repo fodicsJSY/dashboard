@@ -36,6 +36,14 @@
       	<result property="lotCntCount" column="lotCntCount" />
       	<result property="cntCntCount" column="cntCntCount" />
       	<result property="falCntCount" column="falCntCount" />
+      	<result property="personCount_DIFF" column="personCount_DIFF" />
+      	<result property="vehicleCount_DIFF" column="vehicleCount_DIFF" />
+      	<result property="faceCount_DIFF" column="faceCount_DIFF" />
+      	<result property="lprCount_DIFF" column="lprCount_DIFF" />
+      	<result property="invCntCount_DIFF" column="invCntCount_DIFF" />
+      	<result property="lotCntCount_DIFF" column="lotCntCount_DIFF" />
+      	<result property="cntCntCount_DIFF" column="cntCntCount_DIFF" />
+      	<result property="falCntCount_DIFF" column="falCntCount_DIFF" />
 </resultMap> 
 
 <resultMap type="fo.di.cs.main.model.dto.DailyCount_summary" id="DailyCount_summary_rm">
@@ -72,39 +80,39 @@
 	<select id="selectNetChangeList" resultMap="DailyCount_rm">
 		WITH Today AS (
 		    SELECT
-		        COALESCE(SUM(CNT.PERSON), 0) AS PERSON,
-		        COALESCE(SUM(CNT.VEHICLE), 0) AS VEHICLE,
-		        COALESCE(SUM(CNT.FACE), 0) AS FACE,
-		        COALESCE(SUM(CNT.LPR), 0) AS LPR,
-		        COALESCE(SUM(CNT.INV_CNT), 0) AS INV_CNT,
-		        COALESCE(SUM(CNT.LOT_CNT), 0) AS LOT_CNT,
-		        COALESCE(SUM(CNT.CNT_CNT), 0) AS CNT_CNT,
-		        COALESCE(SUM(CNT.FAL_CNT), 0) AS FAL_CNT
+		        COALESCE(SUM(CNT.PERSON), 0) AS personCount,
+		        COALESCE(SUM(CNT.VEHICLE), 0) AS vehicleCount,
+		        COALESCE(SUM(CNT.FACE), 0) AS faceCount,
+		        COALESCE(SUM(CNT.LPR), 0) AS lprCount,
+		        COALESCE(SUM(CNT.INV_CNT), 0) AS invCntCount,
+		        COALESCE(SUM(CNT.LOT_CNT), 0) AS lotCntCount,
+		        COALESCE(SUM(CNT.CNT_CNT), 0) AS cntCntCount,
+		        COALESCE(SUM(CNT.FAL_CNT), 0) AS falCntCount
 		    FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT CNT
 		    WHERE SUBSTRING(CNT.OCCU_TIME, 1, 8) = CONVERT(varchar, GETDATE(), 112)
 		),
 		Yesterday AS (
 		    SELECT
-		        COALESCE(SUM(CNT.PERSON), 0) AS PERSON,
-		        COALESCE(SUM(CNT.VEHICLE), 0) AS VEHICLE,
-		        COALESCE(SUM(CNT.FACE), 0) AS FACE,
-		        COALESCE(SUM(CNT.LPR), 0) AS LPR,
-		        COALESCE(SUM(CNT.INV_CNT), 0) AS INV_CNT,
-		        COALESCE(SUM(CNT.LOT_CNT), 0) AS LOT_CNT,
-		        COALESCE(SUM(CNT.CNT_CNT), 0) AS CNT_CNT,
-		        COALESCE(SUM(CNT.FAL_CNT), 0) AS FAL_CNT
+		        COALESCE(SUM(CNT.PERSON), 0) AS personCount,
+		        COALESCE(SUM(CNT.VEHICLE), 0) AS vehicleCount,
+		        COALESCE(SUM(CNT.FACE), 0) AS faceCount,
+		        COALESCE(SUM(CNT.LPR), 0) AS lprCount,
+		        COALESCE(SUM(CNT.INV_CNT), 0) AS invCntCount,
+		        COALESCE(SUM(CNT.LOT_CNT), 0) AS lotCntCount,
+		        COALESCE(SUM(CNT.CNT_CNT), 0) AS cntCntCount,
+		        COALESCE(SUM(CNT.FAL_CNT), 0) AS falCntCount
 		    FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT CNT
 		    WHERE SUBSTRING(CNT.OCCU_TIME, 1, 8) = CONVERT(varchar, DATEADD(day, -1, GETDATE()), 112)
 		)
 		SELECT
-		    t.PERSON - y.PERSON AS PERSON_DIFF,
-		    t.VEHICLE - y.VEHICLE AS VEHICLE_DIFF,
-		    t.FACE - y.FACE AS FACE_DIFF,
-		    t.LPR - y.LPR AS LPR_DIFF,
-		    t.INV_CNT - y.INV_CNT AS INV_CNT_DIFF,
-		    t.LOT_CNT - y.LOT_CNT AS LOT_CNT_DIFF,
-		    t.CNT_CNT - y.CNT_CNT AS CNT_CNT_DIFF,
-		    t.FAL_CNT - y.FAL_CNT AS FAL_CNT_DIFF
+		    t.personCount - y.personCount AS personCount_DIFF,
+		    t.vehicleCount - y.vehicleCount AS vehicleCount_DIFF,
+		    t.faceCount - y.faceCount AS faceCount_DIFF,
+		    t.lprCount - y.lprCount AS lprCount_DIFF,
+		    t.invCntCount - y.invCntCount AS invCntCount_DIFF,
+		    t.lotCntCount - y.lotCntCount AS lotCntCount_DIFF,
+		    t.cntCntCount - y.cntCntCount AS cntCntCount_DIFF,
+		    t.falCntCount - y.falCntCount AS falCntCount_DIFF
 		FROM Today t
 		JOIN Yesterday y ON 1 = 1
 	</select>

@@ -31,8 +31,10 @@ public class CameraController {
 		 List<DailyCount> netChangeList = service.selectNetChangeList();
 		 model.addAttribute("netChangeList", netChangeList);
 		 
-		 System.out.println("v : "+todayList);
+		 System.out.println("todayList : "+todayList);
 		 System.out.println("netChangeList : "+netChangeList);
+		 
+		 
 		
 		return "camera/mainCamera";
 	}

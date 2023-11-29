@@ -45,4 +45,16 @@ public class DailyCount {
 	private int motocycleCount; // 오토바이 수
 	private int bicycleCount; // 자전거 수
 	
+	
+	// 메인카메라페이지 전일대비(공통)
+	private int personCount_DIFF; // 사람 수 전일대비
+	private int vehicleCount_DIFF; // 차량 수 전일대비
+	private int faceCount_DIFF; // 얼굴 수 전일대비
+	private int lprCount_DIFF; // 차량번호판 수 전일대비
+	private int invCntCount_DIFF; // 침입 수 전일대비
+	private int lotCntCount_DIFF; // 배회 수 전일대비
+	private int cntCntCount_DIFF; // 카운팅 수 전일대비
+	private int falCntCount_DIFF; // 쓰러짐 수 전일대비
+	
+	
 }
