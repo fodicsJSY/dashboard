@@ -42,8 +42,8 @@ option = {
           show: false
         },
         data: [
-          { value: 3894, name: '남성', itemStyle: { color: '#0f9faf' } },
-          { value: 4300, name: '여성', itemStyle: { color: '#e8534c' } }
+          { value: maleSum, name: '남성', itemStyle: { color: '#0f9faf' } },
+          { value: femaleSum, name: '여성', itemStyle: { color: '#e8534c' } }
   
         ]
       }

@@ -20,6 +20,8 @@ public class DC_summary {
 	private int face_seniorMale; // 노년 남자
 	private int face_seniorFemale; // 노년 여자
 	private String occuDate; //날짜
+	private int personMale; // 남자 합
+	private int personFemale; // 여자 합
 	
 	
 

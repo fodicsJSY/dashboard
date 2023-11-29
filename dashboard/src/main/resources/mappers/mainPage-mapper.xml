@@ -70,12 +70,9 @@
 	
 	<!-- 메인페이지 사람 막대그래프 & 도넛그래프 사람 수 누적합계(금일)-->
 	<select id="mainHumanCount" resultMap="_int">
-		SELECT ISNULL(
-		           SUM(FACE_YOUNGMALE + FACE_YOUNGFEMALE + FACE_ADULTMALE + FACE_ADULTFEMALE + FACE_MIDDLEMALE + FACE_MIDDLEFEMALE + FACE_SENIORMALE + FACE_SENIORFEMALE),
-		           0
-		       ) AS TotalSum
-		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY
-		WHERE OCCU_DATE = CONVERT(varchar, GETDATE(), 112)
+		SELECT COALESCE(SUM(PERSON),0)             
+		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT
+		WHERE SUBSTRING(OCCU_TIME, 1, 8) = CONVERT(varchar, GETDATE(), 112)
 	</select>
 
 	<!-- 메인페이지 차량 막대그래프 & 도넛그래프 (금일)-->
@@ -93,13 +90,9 @@
 	
 		<!-- 메인페이지 차량 막대그래프 & 도넛그래프 차량 수 누적합계(금일)-->
 	<select id="mainVehicleCount" resultMap="_int">
-		SELECT 
-		    ISNULL(
-		        SUM(CNT.VEHICLE_CAR + CNT.VEHICLE_BUS + CNT.VEHICLE_TRUCK + CNT.VEHICLE_MOTORCYCLE + CNT.VEHICLE_BICYCLE),
-		        0
-		    ) AS TotalSum
-		FROM "TB_AI_NVR_DASH_BOARD_DAILY_COUNT" CNT
-		WHERE SUBSTRING(CNT.OCCU_TIME, 1, 8) = CONVERT(varchar, GETDATE(), 112)
+		SELECT COALESCE(SUM(VEHICLE),0)             
+		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT
+		WHERE SUBSTRING(OCCU_TIME, 1, 8) =  CONVERT(varchar, GETDATE(), 112)
 	</select>
 	
 
@@ -204,12 +197,9 @@
 	
 	<!-- 메인페이지 사람 막대그래프 & 도넛그래프 사람 수 누적합계(날짜 바꾸면~~)-->
 	<select id="humanCountChange" resultMap="_int">
-		SELECT ISNULL(
-		           SUM(FACE_YOUNGMALE + FACE_YOUNGFEMALE + FACE_ADULTMALE + FACE_ADULTFEMALE + FACE_MIDDLEMALE + FACE_MIDDLEFEMALE + FACE_SENIORMALE + FACE_SENIORFEMALE),
-		           0
-		       ) AS TotalSum
-		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY
-		WHERE OCCU_DATE = #{occuDate}
+		SELECT COALESCE(SUM(PERSON),0)             
+		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT
+		WHERE SUBSTRING(OCCU_TIME, 1, 8) =  #{occuDate}
 	</select>
 	
 		<!-- 메인페이지 차량 막대그래프 & 도넛그래프 (날짜 바꾸면~~)-->
@@ -226,13 +216,9 @@
 	
 		<!-- 메인페이지 차량 막대그래프 & 도넛그래프 차량 수 누적합계(날짜 바꾸면~~)-->
 	<select id="vehicleCountChange" resultMap="_int">
-		SELECT 
-		    ISNULL(
-		        SUM(CNT.VEHICLE_CAR + CNT.VEHICLE_BUS + CNT.VEHICLE_TRUCK + CNT.VEHICLE_MOTORCYCLE + CNT.VEHICLE_BICYCLE),
-		        0
-		    ) AS TotalSum
-		FROM "TB_AI_NVR_DASH_BOARD_DAILY_COUNT" CNT
-		WHERE SUBSTRING(CNT.OCCU_TIME, 1, 8) = #{occuDate}
+		SELECT COALESCE(SUM(VEHICLE),0)             
+		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT
+		WHERE SUBSTRING(OCCU_TIME, 1, 8) =  #{occuDate}
 	</select>
 	
 	

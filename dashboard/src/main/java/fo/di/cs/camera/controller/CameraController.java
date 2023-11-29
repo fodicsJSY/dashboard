@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import fo.di.cs.camera.model.service.CameraService;
+import fo.di.cs.main.model.dto.DC_summary;
 import fo.di.cs.main.model.dto.DailyCount;
 
 
@@ -66,7 +67,16 @@ public class CameraController {
 	
 	//사람 메인카메라페이지로 이동
 	@GetMapping("/mainCamera/mainCameraPart1Human")
-	public String humanMainCameraForward() {
+	public String humanMainCameraForward(
+			Model model
+			) {
+	
+		// 휴먼페이지 성별 도넛 차트
+		List<DC_summary> genderTotalList = service.genderTotalList();
+		model.addAttribute("genderTotalList", genderTotalList);	
+	
+		 System.out.println("genderTotalList : "+genderTotalList);
+		
 		return "camera/main_camera_part1_human";
 	}
 	

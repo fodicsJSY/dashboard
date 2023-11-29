@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import fo.di.cs.camera.model.dao.CameraDAO;
+import fo.di.cs.main.model.dto.DC_summary;
 import fo.di.cs.main.model.dto.DailyCount;
 
 @Service
@@ -48,6 +49,15 @@ public class CameraServiceImpl implements CameraService{
 	@Override
 	public int maskWomanCount() {
 		return dao.maskWomanCount();
+	}
+	
+	
+	/**
+	 * 휴먼페이지 성별 도넛 차트
+	 */
+	@Override
+	public List<DC_summary> genderTotalList() {
+		return dao.genderTotalList();
 	}
 	
 }

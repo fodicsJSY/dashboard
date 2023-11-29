@@ -13,6 +13,8 @@
       	<result property="face_seniorMale" column="FACE_SENIORMALE" />
       	<result property="face_seniorFemale" column="FACE_SENIORFEMALE" />
       	<result property="occuDate" column="FACE_SENIORFEMALE" />
+      	<result property="personMale" column="PERSON_MALE" />
+      	<result property="personFemale" column="PERSON_FEMALE" />
 </resultMap> 
 
 
@@ -56,6 +58,14 @@
       	<result property="faceNoMaskFemaleMiddle" column="FACE_NOMASKFEMALEMIDDLE" />
       	<result property="faceNoMaskFemaleSenior" column="FACE_NOMASKFEMALESENIOR" />
       	<result property="occuDate" column="OCCU_DATE" />
+      	<result property="person" column="PERSON" />
+      	<result property="vehicle" column="VEHICLE" />
+      	<result property="face" column="FACE" />
+      	<result property="lpr" column="LPR" />
+      	<result property="invCnt" column="INV_CNT" />
+      	<result property="lotCnt" column="LOT_CNT" />
+      	<result property="cntCnt" column="CNT_CNT" />
+      	<result property="falCnt" column="FAL_CNT" />
 </resultMap> 
 	
 <resultMap id="_int" type="java.lang.Integer" />
@@ -63,56 +73,34 @@
 		
 	<!-- 메인카메라페이지 금일 누적 합계(공통)-->
 	<select id="selectMainCameraTodayList" resultMap="DailyCount_rm">
-		SELECT
-			COALESCE(SUM(CNT.PERSON), 0)   AS personCount     
-			, COALESCE(SUM(CNT.VEHICLE), 0)  AS vehicleCount   
-			, COALESCE(SUM(CNT.FACE), 0)   AS faceCount          
-			, COALESCE(SUM(CNT.LPR), 0)    AS lprCount           
-			, COALESCE(SUM(CNT.INV_CNT), 0)  AS invCntCount  
-			, COALESCE(SUM(CNT.LOT_CNT), 0)  AS lotCntCount  
-			, COALESCE(SUM(CNT.CNT_CNT), 0)  AS cntCntCount  
-			, COALESCE(SUM(CNT.FAL_CNT), 0)  AS falCntCount    
-		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT CNT
-		WHERE SUBSTRING(CNT.OCCU_TIME, 1, 8) = CONVERT(varchar, GETDATE(), 112)
+		SELECT PERSON, VEHICLE, FACE, LPR, INV_CNT, LOT_CNT, CNT_CNT, FAL_CNT  
+		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY
+		WHERE OCCU_DATE = CONVERT(varchar, GETDATE(), 112)
 	</select>
 	
 	<!-- 메인카메라페이지 전일대비(공통)-->
-	<select id="selectNetChangeList" resultMap="DailyCount_rm">
+	<select id="selectNetChangeList" resultMap="DailyCount_summary_rm">
 		WITH Today AS (
 		    SELECT
-		        COALESCE(SUM(CNT.PERSON), 0) AS personCount,
-		        COALESCE(SUM(CNT.VEHICLE), 0) AS vehicleCount,
-		        COALESCE(SUM(CNT.FACE), 0) AS faceCount,
-		        COALESCE(SUM(CNT.LPR), 0) AS lprCount,
-		        COALESCE(SUM(CNT.INV_CNT), 0) AS invCntCount,
-		        COALESCE(SUM(CNT.LOT_CNT), 0) AS lotCntCount,
-		        COALESCE(SUM(CNT.CNT_CNT), 0) AS cntCntCount,
-		        COALESCE(SUM(CNT.FAL_CNT), 0) AS falCntCount
-		    FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT CNT
-		    WHERE SUBSTRING(CNT.OCCU_TIME, 1, 8) = CONVERT(varchar, GETDATE(), 112)
+			PERSON, VEHICLE, FACE, LPR, INV_CNT, LOT_CNT, CNT_CNT, FAL_CNT  
+				FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY
+				WHERE OCCU_DATE = CONVERT(varchar, GETDATE(), 112)
 		),
 		Yesterday AS (
 		    SELECT
-		        COALESCE(SUM(CNT.PERSON), 0) AS personCount,
-		        COALESCE(SUM(CNT.VEHICLE), 0) AS vehicleCount,
-		        COALESCE(SUM(CNT.FACE), 0) AS faceCount,
-		        COALESCE(SUM(CNT.LPR), 0) AS lprCount,
-		        COALESCE(SUM(CNT.INV_CNT), 0) AS invCntCount,
-		        COALESCE(SUM(CNT.LOT_CNT), 0) AS lotCntCount,
-		        COALESCE(SUM(CNT.CNT_CNT), 0) AS cntCntCount,
-		        COALESCE(SUM(CNT.FAL_CNT), 0) AS falCntCount
-		    FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT CNT
-		    WHERE SUBSTRING(CNT.OCCU_TIME, 1, 8) = CONVERT(varchar, DATEADD(day, -1, GETDATE()), 112)
+		        PERSON, VEHICLE, FACE, LPR, INV_CNT, LOT_CNT, CNT_CNT, FAL_CNT  
+				FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY
+				WHERE OCCU_DATE = CONVERT(varchar, DATEADD(day, -1, GETDATE()), 112)
 		)
 		SELECT
-		    t.personCount - y.personCount AS personCount_DIFF,
-		    t.vehicleCount - y.vehicleCount AS vehicleCount_DIFF,
-		    t.faceCount - y.faceCount AS faceCount_DIFF,
-		    t.lprCount - y.lprCount AS lprCount_DIFF,
-		    t.invCntCount - y.invCntCount AS invCntCount_DIFF,
-		    t.lotCntCount - y.lotCntCount AS lotCntCount_DIFF,
-		    t.cntCntCount - y.cntCntCount AS cntCntCount_DIFF,
-		    t.falCntCount - y.falCntCount AS falCntCount_DIFF
+		    t.PERSON - y.PERSON AS personCount_DIFF,
+		    t.VEHICLE - y.VEHICLE AS vehicleCount_DIFF,
+		    t.FACE - y.FACE AS faceCount_DIFF,
+		    t.LPR - y.LPR AS lprCount_DIFF,
+		    t.INV_CNT - y.INV_CNT AS invCntCount_DIFF,
+		    t.LOT_CNT - y.LOT_CNT AS lotCntCount_DIFF,
+		    t.CNT_CNT - y.CNT_CNT AS cntCntCount_DIFF,
+		    t.FAL_CNT - y.FAL_CNT AS falCntCount_DIFF
 		FROM Today t
 		JOIN Yesterday y ON 1 = 1
 	</select>
@@ -120,23 +108,42 @@
 	<!-- 마스크를 착용한 남자의 비율 계산(금일)-->
 	<select id="maskManCount" resultMap="_int">
 		SELECT
-		    ISNULL((1 - nomask_male_faces / NULLIF(total_male_faces, 0)) * 100, 0) AS mask_wearing_male_ratio
-		FROM (
-		    SELECT
-		        (SELECT SUM(FACE_YOUNGMALE + FACE_ADULTMALE + FACE_MIDDLEMALE + FACE_SENIORMALE) FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY WHERE OCCU_DATE = CONVERT(varchar, DATEADD(day, -1, GETDATE()), 112)) AS total_male_faces,
-		        (SELECT SUM(FACE_NOMASKMALEYOUNG + FACE_NOMASKMALEADULT + FACE_NOMASKMALEMIDDLE + FACE_NOMASKMALESENIOR) FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY WHERE OCCU_DATE = CONVERT(varchar, DATEADD(day, -1, GETDATE()), 112)) AS nomask_male_faces
-		) AS subquery
+		    COALESCE(
+		        CASE
+		            WHEN COUNT(*) > 0 THEN
+		                (SUM(CASE WHEN FACE_MALE > 0 THEN FACE_MASKMALE ELSE 0 END) * 100.0 / SUM(FACE_MALE))
+		            ELSE
+		                0
+		        END,
+		        0
+		    ) AS mask_wearing_male_ratio
+		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY
+		WHERE OCCU_DATE = CONVERT(varchar, GETDATE(), 112)
+
 	</select>
 	
 	<!-- 마스크를 착용한 여자의 비율 계산(금일)-->
 	<select id="maskWomanCount" resultMap="_int">
 		SELECT
-		    ISNULL((1 - total_female_faces / NULLIF(total_female_faces, 0)) * 100, 0) AS mask_wearing_female_ratio
-		FROM (
-		    SELECT
-		        (SELECT SUM(FACE_YOUNGFEMALE + FACE_ADULTFEMALE + FACE_MIDDLEFEMALE + FACE_SENIORFEMALE) FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY WHERE OCCU_DATE = CONVERT(varchar, DATEADD(day, -1, GETDATE()), 112)) AS total_female_faces,
-		        (SELECT SUM(FACE_NOMASKFEMALEYOUNG + FACE_NOMASKFEMALEADULT + FACE_NOMASKFEMALEMIDDLE + FACE_NOMASKFEMALESENIOR) FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY WHERE OCCU_DATE = CONVERT(varchar, DATEADD(day, -1, GETDATE()), 112)) AS nomask_female_faces
-		) AS subquery
+		    COALESCE(
+		        CASE
+		            WHEN COUNT(*) > 0 THEN
+		                (SUM(CASE WHEN FACE_FEMALE > 0 THEN FACE_MASKFEMALE ELSE 0 END) * 100.0 / SUM(FACE_FEMALE))
+		            ELSE
+		                0
+		        END,
+		        0
+		    ) AS mask_wearing_female_ratio
+		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY
+		WHERE OCCU_DATE = CONVERT(varchar, GETDATE(), 112)
+	</select>
+
+	<!-- 휴먼페이지 성별 도넛 차트-->
+	<select id="genderTotalList" resultMap="DC_summary_rm">
+	SELECT
+	    PERSON_FEMALE, PERSON_MALE
+	FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY
+	WHERE OCCU_DATE = CONVERT(varchar, GETDATE(), 112)
 	</select>
 	
 	

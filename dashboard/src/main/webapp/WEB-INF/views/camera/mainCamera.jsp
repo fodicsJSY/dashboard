@@ -344,13 +344,13 @@
 											<div class="contentsBox">
 												<div class="amount" id="total_person_cnt">
 													<c:choose>
-														<c:when test="${empty todayList[11].personCount}">
+														<c:when test="${empty todayList[11].person}">
 															<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
 															<span>0</span>
 														</c:when>
 														<c:otherwise>
 															<!-- 리스트의 요소 개수를 출력 -->
-															<span>${todayList[11].personCount}</span>
+															<span>${todayList[11].person}</span>
 														</c:otherwise>
 													</c:choose>	
 												</div>
@@ -386,13 +386,13 @@
 											<div class="contentsBox">
 												<div class="amount" id="total_vehicle_cnt">
 													<c:choose>
-														<c:when test="${empty todayList[12].vehicleCount}">
+														<c:when test="${empty todayList[12].vehicle}">
 															<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
 															<span>0</span>
 														</c:when>
 														<c:otherwise>
 															<!-- 리스트의 요소 개수를 출력 -->
-															<span>${todayList[12].vehicleCount}</span>
+															<span>${todayList[12].vehicle}</span>
 														</c:otherwise>
 													</c:choose>	
 												</div>
@@ -428,13 +428,13 @@
 											<div class="contentsBox">
 												<div class="amount" id="total_face_cnt">
 													<c:choose>
-														<c:when test="${empty todayList[13].faceCount}">
+														<c:when test="${empty todayList[13].face}">
 															<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
 															<span>0</span>
 														</c:when>
 														<c:otherwise>
 															<!-- 리스트의 요소 개수를 출력 -->
-															<span>${todayList[13].faceCount}</span>
+															<span>${todayList[13].face}</span>
 														</c:otherwise>
 													</c:choose>	
 												</div>
@@ -470,13 +470,13 @@
 											<div class="contentsBox">
 												<div class="amount" id="total_count_cnt">
 													<c:choose>
-														<c:when test="${empty todayList[17].cntCntCount}">
+														<c:when test="${empty todayList[17].cntCnt}">
 															<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
 															<span>0</span>
 														</c:when>
 														<c:otherwise>
 															<!-- 리스트의 요소 개수를 출력 -->
-															<span>${todayList[17].cntCntCount}</span>
+															<span>${todayList[17].cntCnt}</span>
 														</c:otherwise>
 													</c:choose>	
 												</div>
@@ -512,13 +512,13 @@
 											<div class="contentsBox">
 												<div class="amount" id="total_inv_cnt">
 													<c:choose>
-														<c:when test="${empty todayList[15].invCntCount}">
+														<c:when test="${empty todayList[15].invCnt}">
 															<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
 															<span>0</span>
 														</c:when>
 														<c:otherwise>
 															<!-- 리스트의 요소 개수를 출력 -->
-															<span>${todayList[15].invCntCount}</span>
+															<span>${todayList[15].invCnt}</span>
 														</c:otherwise>
 													</c:choose>	
 												</div>
@@ -554,13 +554,13 @@
 											<div class="contentsBox">
 												<div class="amount" id="total_lot_cnt">
 													<c:choose>
-														<c:when test="${empty todayList[16].lotCntCount}">
+														<c:when test="${empty todayList[16].lotCnt}">
 															<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
 															<span>0</span>
 														</c:when>
 														<c:otherwise>
 															<!-- 리스트의 요소 개수를 출력 -->
-															<span>${todayList[16].lotCntCount}</span>
+															<span>${todayList[16].lotCnt}</span>
 														</c:otherwise>
 													</c:choose>	
 												</div>
@@ -595,13 +595,13 @@
 										<div class="contentsBox">
 											<div class="amount">
 												<c:choose>
-													<c:when test="${empty todayList[14].lprCount}">
+													<c:when test="${empty todayList[14].lpr}">
 														<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
 														<span>0</span>
 													</c:when>
 													<c:otherwise>
 														<!-- 리스트의 요소 개수를 출력 -->
-														<span>${todayList[14].lprCount}</span>
+														<span>${todayList[14].lpr}</span>
 													</c:otherwise>
 												</c:choose>	
 											</div>

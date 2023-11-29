@@ -2,6 +2,7 @@ package fo.di.cs.camera.model.service;
 
 import java.util.List;
 
+import fo.di.cs.main.model.dto.DC_summary;
 import fo.di.cs.main.model.dto.DailyCount;
 
 public interface CameraService {
@@ -25,5 +26,13 @@ public interface CameraService {
 	 * @return int
 	 */
 	int maskWomanCount();
+
+	
+	/** 휴먼페이지 성별 도넛 차트
+	 * @return list
+	 */
+	List<DC_summary> genderTotalList();
+
+
 
 }

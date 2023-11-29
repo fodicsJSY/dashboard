@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import fo.di.cs.main.model.dto.DC_summary;
 import fo.di.cs.main.model.dto.DailyCount;
 
 @Repository
@@ -41,6 +42,13 @@ public class CameraDAO {
 	 */
 	public int maskWomanCount() {
 		return sql.selectOne("cameraPageMapper.maskWomanCount");
+	}
+
+	/** 휴먼페이지 성별 도넛 차트
+	 * @return list
+	 */
+	public List<DC_summary> genderTotalList() {
+		return sql.selectList("cameraPageMapper.genderTotalList");
 	}
 	
 	

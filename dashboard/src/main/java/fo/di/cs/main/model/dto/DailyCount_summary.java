@@ -22,5 +22,14 @@ public class DailyCount_summary {
 	private String occuDate; //날짜
 	
 	
+	private int person; // 사람 
+	private int vehicle; // 차량
+	private int face; // 얼굴
+	private int lpr; // 차량번호판
+	private int invCnt; // 침입
+	private int lotCnt; // 베회
+	private int cntCnt; // 카운팅
+	private int falCnt; // 쓰러짐
+	
 
 }
