@@ -39,10 +39,10 @@ public class CameraController {
 		 int maskWomanCount= service.maskWomanCount();
 		 model.addAttribute("maskWomanCount", maskWomanCount);
 		 
-		 System.out.println("todayList : "+todayList);
-		 System.out.println("netChangeList : "+netChangeList);
-		 System.out.println("maskManCount : "+maskManCount);
-		 System.out.println("maskWomanCount : "+maskWomanCount);
+//		 System.out.println("todayList : "+todayList);
+//		 System.out.println("netChangeList : "+netChangeList);
+//		 System.out.println("maskManCount : "+maskManCount);
+//		 System.out.println("maskWomanCount : "+maskWomanCount);
 		 
 		 
 		

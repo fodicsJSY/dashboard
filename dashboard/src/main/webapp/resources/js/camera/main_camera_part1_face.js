@@ -176,7 +176,6 @@ ageLineChart.setOption(option)
 
 
 
-
 // 연령별 출입자 현황 더블 도넛차트
 var myChart = echarts.init(document.getElementById('chart_radial_age'))
 
@@ -219,10 +218,10 @@ series: [
         show: false
     },
     data: [
-        { value: 1048, name: '미성년',  itemStyle: { color: '#d3f1f9' }},
-        { value: 735, name: '청년',  itemStyle: { color: '#3fd5e3' }},
-        { value: 580, name: '중장년',  itemStyle: { color: '#00a0de' } },
-        { value: 580, name: '노년',  itemStyle: { color: '#0174cf' } }
+        { value: youngFemale, name: '미성년',  itemStyle: { color: '#d3f1f9' }},
+        { value: adultFemale, name: '청년',  itemStyle: { color: '#3fd5e3' }},
+        { value: middleFemale, name: '중장년',  itemStyle: { color: '#00a0de' } },
+        { value: seniorFemale, name: '노년',  itemStyle: { color: '#0174cf' } }
         
     ]
     },
@@ -246,10 +245,10 @@ series: [
         show: false
     },
     data: [
-        { value: 1048, name: '미성년',  itemStyle: { color: '#d3f1f9' }},
-        { value: 735, name: '청년',  itemStyle: { color: '#3fd5e3' }},
-        { value: 580, name: '중장년',  itemStyle: { color: '#00a0de' } },
-        { value: 310, name: '노년',  itemStyle: { color: '#0174cf' } }
+        { value: youngMale, name: '미성년',  itemStyle: { color: '#d3f1f9' }},
+        { value: adultMale, name: '청년',  itemStyle: { color: '#3fd5e3' }},
+        { value: middleMale, name: '중장년',  itemStyle: { color: '#00a0de' } },
+        { value: seniorMale, name: '노년',  itemStyle: { color: '#0174cf' } }
     ]
     }
 ]
@@ -262,70 +261,70 @@ myChart.setOption(option)
 // 남성 마스크착용비율 도넛차트
 var manMaskChart = echarts.init(document.getElementById('chart_pie_donut'))
 const gaugeData1 = [
-{
-    value: 20,
-    title: {
-    offsetCenter: ['0%', '-30%']
-    },
-    detail: {
-    valueAnimation: true,
-    offsetCenter: ['0%', '-20%']
-    }
-}
-];
-option = {
-series: [
     {
-        type: 'gauge',
-        startAngle: 90,
-        endAngle: -270,
-        pointer: {
-            show: false
-        },
-        progress: {
-            show: true,
-            overlap: false,
-            roundCap: false,
-            clip: false,
-            itemStyle: {
-            // borderWidth: 1,
-            // borderColor: '#464646'
-            color: '#0f9faf'
-            }
-        },
-        axisLine: {
-            lineStyle: {
-            width: 15
-            }
-        },
-        splitLine: {
-            show: false,
-            distance: 0,
-            length: 10
-        },
-        axisTick: {
-            show: false
-        },
-        axisLabel: {
-            show: false,
-            distance: 50
-        },
-        data: gaugeData1,
+        value: maskManCount,
         title: {
-            fontSize: 20
+        offsetCenter: ['0%', '-30%']
         },
         detail: {
-            width: 50,
-            height: 14,
-            fontSize: 20,
-            color: '#fff',
-            borderColor: 'inherit',
-            formatter: '{value}%'
+        valueAnimation: true,
+        offsetCenter: ['0%', '-20%']
         }
     }
-],
-width: '50%',  // 너비 설정 (예: 80%)
-height: '50%'
+];
+option = {
+    series: [
+        {
+            type: 'gauge',
+            startAngle: 90,
+            endAngle: -270,
+            pointer: {
+                show: false
+            },
+            progress: {
+                show: true,
+                overlap: false,
+                roundCap: false,
+                clip: false,
+                itemStyle: {
+                // borderWidth: 1,
+                // borderColor: '#464646'
+                color: '#0f9faf'
+                }
+            },
+            axisLine: {
+                lineStyle: {
+                width: 15
+                }
+            },
+            splitLine: {
+                show: false,
+                distance: 0,
+                length: 10
+            },
+            axisTick: {
+                show: false
+            },
+            axisLabel: {
+                show: false,
+                distance: 50
+            },
+            data: gaugeData1,
+            title: {
+                fontSize: 20
+            },
+            detail: {
+                width: 50,
+                height: 14,
+                fontSize: 20,
+                color: '#fff',
+                borderColor: 'inherit',
+                formatter: '{value}%'
+            }
+        }
+    ],
+    width: '50%',  // 너비 설정 (예: 80%)
+    height: '50%'
 };
 //  차트 옵션 설정하기
 manMaskChart.setOption(option)
@@ -334,67 +333,67 @@ manMaskChart.setOption(option)
 // 여성 마스크착용비율 도넛차트
 var manMaskChart = echarts.init(document.getElementById('chart_pie_donut2'))
 const gaugeData2 = [
-{
-    value: 80,
-    title: {
-    offsetCenter: ['0%', '-30%']
-    },
-    detail: {
-    valueAnimation: true,
-    offsetCenter: ['0%', '-20%']
-    }
-}
-];
-option = {
-series: [
     {
-        type: 'gauge',
-        startAngle: 90,
-        endAngle: -270,
-        pointer: {
-            show: false
-        },
-        progress: {
-            show: true,
-            overlap: false,
-            roundCap: false,
-            clip: false,
-            itemStyle: {
-            // borderWidth: 1,
-            // borderColor: '#464646'
-                color: '#e8534c'
-            }
-        },
-        axisLine: {
-            lineStyle: {
-            width: 15
-            }
-        },
-        splitLine: {
-            show: false,
-            distance: 0,
-            length: 10
-        },
-        axisTick: {
-            show: false
-        },
-        axisLabel: {
-            show: false,
-            distance: 50
-        },
-        data: gaugeData2,
+        value: maskWomanCount,
         title: {
-            fontSize: 20
+        offsetCenter: ['0%', '-30%']
         },
         detail: {
-            width: 50,
-            height: 14,
-            fontSize: 20,
-            color: '#fff',
-            formatter: '{value}%'
+        valueAnimation: true,
+        offsetCenter: ['0%', '-20%']
         }
     }
-]
+];
+option = {
+    series: [
+        {
+            type: 'gauge',
+            startAngle: 90,
+            endAngle: -270,
+            pointer: {
+                show: false
+            },
+            progress: {
+                show: true,
+                overlap: false,
+                roundCap: false,
+                clip: false,
+                itemStyle: {
+                // borderWidth: 1,
+                // borderColor: '#464646'
+                    color: '#e8534c'
+                }
+            },
+            axisLine: {
+                lineStyle: {
+                width: 15
+                }
+            },
+            splitLine: {
+                show: false,
+                distance: 0,
+                length: 10
+            },
+            axisTick: {
+                show: false
+            },
+            axisLabel: {
+                show: false,
+                distance: 50
+            },
+            data: gaugeData2,
+            title: {
+                fontSize: 20
+            },
+            detail: {
+                width: 50,
+                height: 14,
+                fontSize: 20,
+                color: '#fff',
+                formatter: '{value}%'
+            }
+        }
+    ]
 };
 //  차트 옵션 설정하기
 manMaskChart.setOption(option)
@@ -444,10 +443,10 @@ var option = {
             show: false
         },
         data: [
-            { value: 1048, name: '침입',  itemStyle: { color: '#4176df' }},
-            { value: 735, name: '배회',  itemStyle: { color: '#fec070' }},
-            { value: 580, name: '카운트',  itemStyle: { color: '#ff7978' } },
-            { value: 580, name: '쓰러짐',  itemStyle: { color: '#52c3f7' } }
+            { value: invCntCount, name: '침입',  itemStyle: { color: '#4176df' }},
+            { value: lotCntCount, name: '배회',  itemStyle: { color: '#fec070' }},
+            { value: cntCntCount, name: '카운트',  itemStyle: { color: '#ff7978' } },
+            { value: falCntCount, name: '쓰러짐',  itemStyle: { color: '#52c3f7' } }
         ]
         }
     ]
