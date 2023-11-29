@@ -82,7 +82,7 @@ public class CameraController {
 	
 		
 		
-		 System.out.println("genderTotalList : "+genderTotalList);
+//		 System.out.println("genderTotalList : "+genderTotalList);
 		
 		return "camera/main_camera_part1_human";
 	}
