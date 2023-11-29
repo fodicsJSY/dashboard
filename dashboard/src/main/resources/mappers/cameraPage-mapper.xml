@@ -128,7 +128,6 @@
 		    ) AS mask_wearing_male_ratio
 		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY
 		WHERE OCCU_DATE = CONVERT(varchar, GETDATE(), 112)
-
 	</select>
 	
 	<!-- 마스크를 착용한 여자의 비율 계산(금일)-->
@@ -149,10 +148,10 @@
 
 	<!-- 휴먼페이지 성별 도넛 차트-->
 	<select id="genderTotalList" resultMap="DC_summary_rm">
-	SELECT
-	    PERSON_FEMALE, PERSON_MALE
-	FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY
-	WHERE OCCU_DATE = CONVERT(varchar, GETDATE(), 112)
+		SELECT
+		    PERSON_FEMALE, PERSON_MALE
+		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY
+		WHERE OCCU_DATE = CONVERT(varchar, GETDATE(), 112)
 	</select>
 	
 	
@@ -160,13 +159,13 @@
 	
 	<!-- 휴먼페이지 성별 악세사리 막대&라인 혼합 차트-->
 	<select id="genderAccList" resultMap="DailyCount_summary_rm">
-	SELECT
-		PERSON_HATMALE 
-		, PERSON_BAGMALE 
-		, PERSON_HATFEMALE 
-		, PERSON_BAGFEMALE 
-	FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY
-	WHERE OCCU_DATE = CONVERT(varchar, GETDATE(), 112)
+		SELECT
+			PERSON_HATMALE 
+			, PERSON_BAGMALE 
+			, PERSON_HATFEMALE 
+			, PERSON_BAGFEMALE 
+		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY
+		WHERE OCCU_DATE = CONVERT(varchar, GETDATE(), 112)
 	</select>
 	
 	
