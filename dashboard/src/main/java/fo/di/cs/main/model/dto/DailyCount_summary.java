@@ -31,5 +31,10 @@ public class DailyCount_summary {
 	private int cntCnt; // 카운팅
 	private int falCnt; // 쓰러짐
 	
+	private int car; // 자동차
+	private int bus; // 버스
+	private int truck; // 트럭
+	private int motocycle; // 오토바이
+	private int bicycle; // 자전거
 
 }

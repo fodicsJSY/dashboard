@@ -38,7 +38,7 @@ public class MainController {
 		 List<DC_summary> DC_summaryList = service.selectMainHumanChart();
 		 model.addAttribute("DC_summaryList", DC_summaryList);
 
-		 // 메인페이지 사람 막대 차트(금일)
+		 // 메인페이지 차량 막대 차트(금일)
 		 List<DC_summary> DC_summaryVehicleList = service.selectMainVehicleChart();
 		 model.addAttribute("DC_summaryVehicleList", DC_summaryVehicleList);
 		 
@@ -79,7 +79,7 @@ public class MainController {
 //		System.out.println("DailyCount_summary : "+ DailyCount_summary);
 //		System.out.println("dailyCount_CNT : "+ dailyCount_CNT);
 //		System.out.println("vehicleDailyCount_CNT : "+ vehicleDailyCount_CNT);
-		System.out.println("selectMainEventList : "+ selectMainEventList);
+//		System.out.println("DC_summaryVehicleList : "+ DC_summaryVehicleList);
 		 
 		 return "main/main";
 	 }
@@ -144,7 +144,7 @@ public class MainController {
 //		System.out.println("dailyCount_CNT_changeList : "+ dailyCount_CNT_changeList);
 //		System.out.println("vehicleDailyCount_CNT_changeList : "+ vehicleDailyCount_CNT_changeList);
 //		System.out.println("map"+map);
-//		System.out.println("humanCountChange : "+humanCountChange);
+//		System.out.println("DC_summaryVehicleChangeList : "+DC_summaryVehicleChangeList);
 		
 		
 	    return map;

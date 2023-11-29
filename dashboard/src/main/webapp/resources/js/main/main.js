@@ -120,11 +120,11 @@ option = {
         {
             type: 'bar',
             data: [
-                { value: carCount, name: '자동차', itemStyle: { color: 'rgba(240,120,95,1)' } },
-                { value: busCount, name: '버스', itemStyle: { color: 'rgba(86,109,245,1)' } },
-                { value: truckCount, name: '트럭', itemStyle: { color: 'rgba(165,245,60,1)' } },
-                { value: motocycleCount, name: '오토바이', itemStyle: { color: 'rgba(73,245,170,1)' } },
-                { value: bicycleCount, name: '자전거', itemStyle: { color: 'rgba(255,204,69,1)' } }
+                { value: car, name: '자동차', itemStyle: { color: 'rgba(240,120,95,1)' } },
+                { value: bus, name: '버스', itemStyle: { color: 'rgba(86,109,245,1)' } },
+                { value: truck, name: '트럭', itemStyle: { color: 'rgba(165,245,60,1)' } },
+                { value: motocycle, name: '오토바이', itemStyle: { color: 'rgba(73,245,170,1)' } },
+                { value: bicycle, name: '자전거', itemStyle: { color: 'rgba(255,204,69,1)' } }
             ],
             barWidth: 50 // 바의 넓이를 조절합니다.
         },
@@ -595,11 +595,11 @@ function showVehicleChart(){
             {
                 type: 'bar',
                 data: [
-                    { value: carCount, name: '자동차', itemStyle: { color: 'rgba(240,120,95,1)' } },
-                    { value: busCount, name: '버스', itemStyle: { color: 'rgba(86,109,245,1)' } },
-                    { value: truckCount, name: '트럭', itemStyle: { color: 'rgba(165,245,60,1)' } },
-                    { value: motocycleCount, name: '오토바이', itemStyle: { color: 'rgba(73,245,170,1)' } },
-                    { value: bicycleCount, name: '자전거', itemStyle: { color: 'rgba(255,204,69,1)' } }
+                    { value: car, name: '자동차', itemStyle: { color: 'rgba(240,120,95,1)' } },
+                    { value: bus, name: '버스', itemStyle: { color: 'rgba(86,109,245,1)' } },
+                    { value: truck, name: '트럭', itemStyle: { color: 'rgba(165,245,60,1)' } },
+                    { value: motocycle, name: '오토바이', itemStyle: { color: 'rgba(73,245,170,1)' } },
+                    { value: bicycle, name: '자전거', itemStyle: { color: 'rgba(255,204,69,1)' } }
                 ],
                 barWidth: 50 // 바의 넓이를 조절합니다.
             },
@@ -657,11 +657,11 @@ function showCarPieChart(){
                     show: false
                 },
                 data: [
-                    { value: carCount, name: '자동차', itemStyle: { color: 'rgba(240,120,95,1)' } },
-                    { value: busCount, name: '버스', itemStyle: { color: 'rgba(86,109,245,1)' } },
-                    { value: truckCount, name: '트럭', itemStyle: { color: 'rgba(165,245,60,1)' } },
-                    { value: motocycleCount, name: '오토바이', itemStyle: { color: 'rgba(73,245,170,1)' } },
-                    { value: bicycleCount, name: '자전거', itemStyle: { color: 'rgba(255,204,69,1)' } }
+                    { value: car, name: '자동차', itemStyle: { color: 'rgba(240,120,95,1)' } },
+                    { value: bus, name: '버스', itemStyle: { color: 'rgba(86,109,245,1)' } },
+                    { value: truck, name: '트럭', itemStyle: { color: 'rgba(165,245,60,1)' } },
+                    { value: motocycle, name: '오토바이', itemStyle: { color: 'rgba(73,245,170,1)' } },
+                    { value: bicycle, name: '자전거', itemStyle: { color: 'rgba(255,204,69,1)' } }
                 ]
             }
         ]

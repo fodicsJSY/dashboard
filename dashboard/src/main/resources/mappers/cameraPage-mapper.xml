@@ -66,6 +66,11 @@
       	<result property="lotCnt" column="LOT_CNT" />
       	<result property="cntCnt" column="CNT_CNT" />
       	<result property="falCnt" column="FAL_CNT" />
+ 	    <result property="car" column="VEHICLE_CAR" />
+      	<result property="bus" column="VEHICLE_BUS" />
+      	<result property="truck" column="VEHICLE_TRUCK" />
+      	<result property="motocycle" column="VEHICLE_MOTORCYCLE" />
+      	<result property="bicycle" column="VEHICLE_BICYCLE" />
 </resultMap> 
 	
 <resultMap id="_int" type="java.lang.Integer" />

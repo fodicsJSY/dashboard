@@ -48,6 +48,20 @@
       	<result property="faceNoMaskFemaleMiddle" column="FACE_NOMASKFEMALEMIDDLE" />
       	<result property="faceNoMaskFemaleSenior" column="FACE_NOMASKFEMALESENIOR" />
       	<result property="occuDate" column="OCCU_DATE" />
+      	<result property="person" column="PERSON" />
+      	<result property="vehicle" column="VEHICLE" />
+      	<result property="face" column="FACE" />
+      	<result property="lpr" column="LPR" />
+      	<result property="invCnt" column="INV_CNT" />
+      	<result property="lotCnt" column="LOT_CNT" />
+      	<result property="cntCnt" column="CNT_CNT" />
+      	<result property="falCnt" column="FAL_CNT" />
+      	<result property="car" column="VEHICLE_CAR" />
+      	<result property="bus" column="VEHICLE_BUS" />
+      	<result property="truck" column="VEHICLE_TRUCK" />
+      	<result property="motocycle" column="VEHICLE_MOTORCYCLE" />
+      	<result property="bicycle" column="VEHICLE_BICYCLE" />
+      	
 </resultMap> 
 	
 <resultMap id="_int" type="java.lang.Integer" />
@@ -76,15 +90,15 @@
 	</select>
 
 	<!-- 메인페이지 차량 막대그래프 & 도넛그래프 (금일)-->
-	<select id="selectMainVehicleCount" resultMap="DailyCount_rm">
+	<select id="selectMainVehicleCount" resultMap="DailyCount_summary_rm">
 		SELECT
-			SUM(CNT.VEHICLE_CAR) AS carCount,
-			SUM(CNT.VEHICLE_BUS) AS busCount,
-			SUM(CNT.VEHICLE_TRUCK) AS truckCount,
-			SUM(CNT.VEHICLE_MOTORCYCLE) AS motocycleCount,
-			SUM(CNT.VEHICLE_BICYCLE) AS bicycleCount
-		FROM "TB_AI_NVR_DASH_BOARD_DAILY_COUNT" CNT
-		WHERE SUBSTRING(CNT.OCCU_TIME, 1, 8) = CONVERT(varchar, GETDATE(), 112)
+			VEHICLE_CAR 
+			, VEHICLE_BUS 
+			, VEHICLE_TRUCK 
+			, VEHICLE_MOTORCYCLE 
+			, VEHICLE_BICYCLE 
+		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY
+		WHERE OCCU_DATE = CONVERT(varchar, GETDATE(), 112)
 	</select>
 	
 	
@@ -174,7 +188,7 @@
 			, CNT_CNT 
 			, FAL_CNT   
 		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY
-		WHERE OCCU_DATE = '20231110'
+		WHERE OCCU_DATE = CONVERT(varchar, GETDATE(), 112)
 	</select>
 	
 	
@@ -203,15 +217,15 @@
 	</select>
 	
 		<!-- 메인페이지 차량 막대그래프 & 도넛그래프 (날짜 바꾸면~~)-->
-	<select id="selectMainVehicleCountChange" resultMap="DailyCount_rm">
+	<select id="selectMainVehicleCountChange" resultMap="DailyCount_summary_rm">
 		SELECT
-			SUM(CNT.VEHICLE_CAR) AS carCount,
-			SUM(CNT.VEHICLE_BUS) AS busCount,
-			SUM(CNT.VEHICLE_TRUCK) AS truckCount,
-			SUM(CNT.VEHICLE_MOTORCYCLE) AS motocycleCount,
-			SUM(CNT.VEHICLE_BICYCLE) AS bicycleCount
-		FROM "TB_AI_NVR_DASH_BOARD_DAILY_COUNT" CNT
-		WHERE SUBSTRING(CNT.OCCU_TIME, 1, 8) = #{occuDate}
+			VEHICLE_CAR 
+			, VEHICLE_BUS 
+			, VEHICLE_TRUCK 
+			, VEHICLE_MOTORCYCLE 
+			, VEHICLE_BICYCLE 
+		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY
+		WHERE OCCU_DATE = #{occuDate}
 	</select>
 	
 		<!-- 메인페이지 차량 막대그래프 & 도넛그래프 차량 수 누적합계(날짜 바꾸면~~)-->
@@ -294,12 +308,12 @@
 	<!-- 이벤트 발생 비율 차트(날짜 바꾸면~~) --> 
 	<select id="mainEventChart_changeList" resultMap="DailyCount_rm">
 		SELECT
-			SUM(CNT.INV_CNT)  AS invCntCount   
-			, SUM(CNT.LOT_CNT)  AS lotCntCount   
-			, SUM(CNT.CNT_CNT)  AS cntCntCount   
-			, SUM(CNT.FAL_CNT)  AS falCntCount     
-		FROM "TB_AI_NVR_DASH_BOARD_DAILY_COUNT" CNT
-		WHERE SUBSTRING(CNT.OCCU_TIME, 1, 8) = #{occuDate}
+			INV_CNT
+			, LOT_CNT
+			, CNT_CNT 
+			, FAL_CNT   
+		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY
+		WHERE OCCU_DATE = #{occuDate}
 	</select>
 	
 	

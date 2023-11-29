@@ -439,15 +439,15 @@ function sendToServer(value) {
             
             // 차량 막대&도넛차트 
             var DC_summaryVehicleChangeList = response.DC_summaryVehicleChangeList;
-
+            console.log(DC_summaryVehicleChangeList);
             for (var i = 0; i < DC_summaryVehicleChangeList.length; i++) {
                 var currentItem = DC_summaryVehicleChangeList[i];
 
-                var carCountChange = currentItem.carCount || 0;
-                var busCountChange = currentItem.busCount || 0;
-                var truckCountChange = currentItem.truckCount || 0;
-                var motocycleCountChange = currentItem.motocycleCount || 0;
-                var bicycleCountChange = currentItem.bicycleCount || 0;
+                var carCountChange = currentItem.car || 0;
+                var busCountChange = currentItem.bus || 0;
+                var truckCountChange = currentItem.truck || 0;
+                var motocycleCountChange = currentItem.motocycle || 0;
+                var bicycleCountChange = currentItem.bicycle || 0;
             }
             
             // 차량 막대차트
@@ -851,7 +851,7 @@ function sendToServer(value) {
 
                          /* 남자 도넛 그래프 */
                     //  준비한 DOM 컨테이너에서 echarts 초기화하기
-                    var manDountChangeChart = echarts.init(document.getElementById('mainFace1_chart'))
+                    var manDountChangeChart1 = echarts.init(document.getElementById('mainFace1_chart'))
 
                     // 차트 옵션 작성하기
                     option = {
@@ -906,7 +906,7 @@ function sendToServer(value) {
                     };
 
                     //  차트 옵션 설정하기
-                    manDountChangeChart.setOption(option)
+                    manDountChangeChart1.setOption(option)
             
 
                 }
@@ -1289,10 +1289,10 @@ function sendToServer(value) {
                 var currentItem = mainEventChart_changeList[i];
 
 
-                var invCntCountChange = currentItem.invCntCount || 0;
-                var lotCntCountChange = currentItem.lotCntCount || 0;
-                var cntCntCountChange = currentItem.cntCntCount || 0;
-                var falCntCountChange = currentItem.falCntCount || 0;
+                var invCntCountChange = currentItem.invCnt || 0;
+                var lotCntCountChange = currentItem.lotCnt || 0;
+                var cntCntCountChange = currentItem.cntCnt || 0;
+                var falCntCountChange = currentItem.falCnt || 0;
 
             }
 
@@ -1362,15 +1362,16 @@ function sendToServer(value) {
                 human_chartChange.resize();
                 lineChart.resize();
                 womanDountChangeChart.resize();
-                manDountChangeChart.resize();
+                manDountChangeChart1.resize();
             });
+
             document.getElementById('sixInnerBox').addEventListener('click', function () {
                 document.querySelector('.contents').classList.remove('fourColumns');
                 document.querySelector('.contents').classList.add('sixColumns');
                 human_radial_bar_chartChange.resize();
                 human_chartChange.resize();
                 lineChart.resize();
-                manDountChangeChart.resize();
+                manDountChangeChart1.resize();
                 womanDountChangeChart.resize();
             });
     

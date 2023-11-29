@@ -570,11 +570,11 @@
 
 
 		/* 차량 막대차트 전역변수 시작*/
-		var carCount = ${DC_summaryVehicleList[0] != null ? DC_summaryVehicleList[0].carCount : 0};
-		var busCount = ${DC_summaryVehicleList[1] != null ? DC_summaryVehicleList[1].busCount : 0};
-		var truckCount = ${DC_summaryVehicleList[2] != null ? DC_summaryVehicleList[2].truckCount : 0};
-		var motocycleCount = ${DC_summaryVehicleList[3] != null ? DC_summaryVehicleList[3].motocycleCount : 0};
-		var bicycleCount = ${DC_summaryVehicleList[4] != null ? DC_summaryVehicleList[4].bicycleCount : 0};
+		var car = ${DC_summaryVehicleList[0] != null ? DC_summaryVehicleList[0].car : 0};
+		var bus = ${DC_summaryVehicleList[1] != null ? DC_summaryVehicleList[1].bus : 0};
+		var truck = ${DC_summaryVehicleList[2] != null ? DC_summaryVehicleList[2].truck : 0};
+		var motocycle = ${DC_summaryVehicleList[3] != null ? DC_summaryVehicleList[3].motocycle : 0};
+		var bicycle = ${DC_summaryVehicleList[4] != null ? DC_summaryVehicleList[4].bicycle : 0};
         /* 차량 막대차트 전역변수 끝*/
 	</script>
 
