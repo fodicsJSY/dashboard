@@ -252,6 +252,8 @@
 <body>
 	<c:set var="todayList" value="${todayList}"/>
 	<c:set var="netChangeList" value="${netChangeList}"/>
+	<c:set var="maskManCount" value="${maskManCount}"/>
+	<c:set var="maskWomanCount" value="${maskWomanCount}"/>
     
     <%-- 전체 wrap.S --%>
 	<div class="wrap" id="indexWrap">  
@@ -779,18 +781,18 @@
 		var falCntCount = ${selectMainEventList[3] != null ? selectMainEventList[3].falCntCount : 0};
 	/* 이벤트 발생 비율 차트(금일) 전역변수 초기화 끝*/
 
-	/* 금일누적 합계 전역변수 초기화 시작*/
-		var todayPersonCount = ${todayList[24] != null ? todayList[24].personCount : 0};
-		var todayVehicleCount = ${todayList[25] != null ? todayList[25].vehicleCount : 0};
-		var todayFaceCount = ${todayList[26] != null ? todayList[26].faceCount : 0};
-		var todayLprCount = ${todayList[27] != null ? todayList[27].lprCount : 0};
-		var todayInvCntCount = ${todayList[28] != null ? todayList[28].invCntCount : 0};
-		var todayLotCntCount = ${todayList[29] != null ? todayList[29].lotCntCount : 0};
-		var todayCntCntCount = ${todayList[30] != null ? todayList[30].cntCntCount : 0};
-		var todayFalCntCount = ${todayList[31] != null ? todayList[31].falCntCount : 0};
-	/* 금일누적 합계 전역변수 초기화 끝*/
+
+	/* 마스크를 착용한 남자의 비율 계산(금일) 전역변수 초기화 시작*/
+		var maskManCount = ${maskManCount != null ? maskManCount : 0};
+	/* 마스크를 착용한 남자의 비율 계산(금일) 전역변수 초기화 끝*/
+
+	/* 마스크를 착용한 남자의 비율 계산(금일) 전역변수 초기화 시작*/
+		var maskWomanCount = ${maskWomanCount != null ? maskWomanCount : 0};
+	/* 마스크를 착용한 남자의 비율 계산(금일) 전역변수 초기화 끝*/
 
 
+
+	
 
 	</script>
 	<%-- 전역변수 끝--%>

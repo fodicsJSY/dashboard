@@ -16,4 +16,14 @@ public interface CameraService {
 	 */
 	List<DailyCount> selectNetChangeList();
 
+	/** 마스크를 착용한 남자의 비율 계산(금일)
+	 * @return int
+	 */
+	int maskManCount();
+
+	/** 마스크를 착용한 여자의 비율 계산(금일)
+	 * @return int
+	 */
+	int maskWomanCount();
+
 }

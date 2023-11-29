@@ -31,8 +31,18 @@ public class CameraController {
 		 List<DailyCount> netChangeList = service.selectNetChangeList();
 		 model.addAttribute("netChangeList", netChangeList);
 		 
+		 //마스크를 착용한 남자의 비율 계산(금일)
+		 int maskManCount= service.maskManCount();
+		 model.addAttribute("maskManCount", maskManCount);
+
+		 //마스크를 착용한 여자의 비율 계산(금일)
+		 int maskWomanCount= service.maskWomanCount();
+		 model.addAttribute("maskWomanCount", maskWomanCount);
+		 
 		 System.out.println("todayList : "+todayList);
 		 System.out.println("netChangeList : "+netChangeList);
+		 System.out.println("maskManCount : "+maskManCount);
+		 System.out.println("maskWomanCount : "+maskWomanCount);
 		 
 		 
 		

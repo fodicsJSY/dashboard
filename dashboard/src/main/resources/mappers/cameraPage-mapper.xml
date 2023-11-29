@@ -117,6 +117,29 @@
 		JOIN Yesterday y ON 1 = 1
 	</select>
 	
+	<!-- 마스크를 착용한 남자의 비율 계산(금일)-->
+	<select id="maskManCount" resultMap="_int">
+		SELECT
+		    ISNULL((1 - nomask_male_faces / NULLIF(total_male_faces, 0)) * 100, 0) AS mask_wearing_male_ratio
+		FROM (
+		    SELECT
+		        (SELECT SUM(FACE_YOUNGMALE + FACE_ADULTMALE + FACE_MIDDLEMALE + FACE_SENIORMALE) FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY WHERE OCCU_DATE = CONVERT(varchar, DATEADD(day, -1, GETDATE()), 112)) AS total_male_faces,
+		        (SELECT SUM(FACE_NOMASKMALEYOUNG + FACE_NOMASKMALEADULT + FACE_NOMASKMALEMIDDLE + FACE_NOMASKMALESENIOR) FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY WHERE OCCU_DATE = CONVERT(varchar, DATEADD(day, -1, GETDATE()), 112)) AS nomask_male_faces
+		) AS subquery
+	</select>
+	
+	<!-- 마스크를 착용한 여자의 비율 계산(금일)-->
+	<select id="maskWomanCount" resultMap="_int">
+		SELECT
+		    ISNULL((1 - total_female_faces / NULLIF(total_female_faces, 0)) * 100, 0) AS mask_wearing_female_ratio
+		FROM (
+		    SELECT
+		        (SELECT SUM(FACE_YOUNGFEMALE + FACE_ADULTFEMALE + FACE_MIDDLEFEMALE + FACE_SENIORFEMALE) FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY WHERE OCCU_DATE = CONVERT(varchar, DATEADD(day, -1, GETDATE()), 112)) AS total_female_faces,
+		        (SELECT SUM(FACE_NOMASKFEMALEYOUNG + FACE_NOMASKFEMALEADULT + FACE_NOMASKFEMALEMIDDLE + FACE_NOMASKFEMALESENIOR) FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY WHERE OCCU_DATE = CONVERT(varchar, DATEADD(day, -1, GETDATE()), 112)) AS nomask_female_faces
+		) AS subquery
+	</select>
+	
+	
 	
 	
 </mapper>

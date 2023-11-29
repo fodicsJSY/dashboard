@@ -90,7 +90,7 @@ myChart.setOption(option)
 var manMaskChart = echarts.init(document.getElementById('chart_pie_donut'))
 const gaugeData1 = [
     {
-        value: 20,
+        value: maskManCount,
         title: {
         offsetCenter: ['0%', '-30%']
         },
@@ -162,7 +162,7 @@ manMaskChart.setOption(option)
 var manMaskChart = echarts.init(document.getElementById('chart_pie_donut2'))
 const gaugeData2 = [
     {
-        value: 80,
+        value: maskWomanCount,
         title: {
         offsetCenter: ['0%', '-30%']
         },
