@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import fo.di.cs.camera.model.service.CameraService;
 import fo.di.cs.main.model.dto.DC_summary;
 import fo.di.cs.main.model.dto.DailyCount;
+import fo.di.cs.main.model.dto.DailyCount_summary;
 
 
 @Controller
@@ -74,7 +75,13 @@ public class CameraController {
 		// 휴먼페이지 성별 도넛 차트
 		List<DC_summary> genderTotalList = service.genderTotalList();
 		model.addAttribute("genderTotalList", genderTotalList);	
+
+		// 휴먼페이지 성별 악세사리 막대&라인 혼합 차트
+		List<DailyCount_summary> genderAccList = service.genderAccList();
+		model.addAttribute("genderAccList", genderAccList);	
 	
+		
+		
 		 System.out.println("genderTotalList : "+genderTotalList);
 		
 		return "camera/main_camera_part1_human";

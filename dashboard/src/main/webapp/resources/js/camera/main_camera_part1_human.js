@@ -118,13 +118,13 @@ option = {
         name: '모자착용',
         type: 'bar',
         barWidth: 30,
-        data: [500, 4580],
+        data: [hatMale, hatFemale],
         itemStyle: { color: 'rgba(0,189,159,1)'}
       },
       {
         name: '가방착용',
         type: 'line',
-        data: [500, 4580],
+        data: [bagMale, bagFemale],
         itemStyle: { color: 'rgba(236,190,66,1)'}
       }
     ]

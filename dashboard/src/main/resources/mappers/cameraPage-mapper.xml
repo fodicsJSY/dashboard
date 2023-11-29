@@ -71,6 +71,10 @@
       	<result property="truck" column="VEHICLE_TRUCK" />
       	<result property="motocycle" column="VEHICLE_MOTORCYCLE" />
       	<result property="bicycle" column="VEHICLE_BICYCLE" />
+      	<result property="hatMale" column="PERSON_HATMALE" />
+      	<result property="bagMale" column="PERSON_BAGMALE" />
+      	<result property="hatFemale" column="PERSON_HATFEMALE" />
+      	<result property="bagFemale" column="PERSON_BAGFEMALE" />
 </resultMap> 
 	
 <resultMap id="_int" type="java.lang.Integer" />
@@ -150,6 +154,23 @@
 	FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY
 	WHERE OCCU_DATE = CONVERT(varchar, GETDATE(), 112)
 	</select>
+	
+	
+	
+	
+	<!-- 휴먼페이지 성별 악세사리 막대&라인 혼합 차트-->
+	<select id="genderAccList" resultMap="DailyCount_summary_rm">
+	SELECT
+		PERSON_HATMALE 
+		, PERSON_BAGMALE 
+		, PERSON_HATFEMALE 
+		, PERSON_BAGFEMALE 
+	FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY
+	WHERE OCCU_DATE = CONVERT(varchar, GETDATE(), 112)
+	</select>
+	
+	
+	
 	
 	
 	

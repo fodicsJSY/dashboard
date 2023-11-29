@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import fo.di.cs.camera.model.dao.CameraDAO;
 import fo.di.cs.main.model.dto.DC_summary;
 import fo.di.cs.main.model.dto.DailyCount;
+import fo.di.cs.main.model.dto.DailyCount_summary;
 
 @Service
 public class CameraServiceImpl implements CameraService{
@@ -58,6 +59,16 @@ public class CameraServiceImpl implements CameraService{
 	@Override
 	public List<DC_summary> genderTotalList() {
 		return dao.genderTotalList();
+	}
+	
+	
+	
+	/**
+	 * 휴먼페이지 성별 악세사리 막대&라인 혼합 차트
+	 */
+	@Override
+	public List<DailyCount_summary> genderAccList() {
+		return dao.genderAccList();
 	}
 	
 }

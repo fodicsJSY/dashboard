@@ -570,11 +570,11 @@
 
 
 		/* 차량 막대차트 전역변수 시작*/
-		var car = ${DC_summaryVehicleList[0] != null ? DC_summaryVehicleList[0].car : 0};
-		var bus = ${DC_summaryVehicleList[1] != null ? DC_summaryVehicleList[1].bus : 0};
-		var truck = ${DC_summaryVehicleList[2] != null ? DC_summaryVehicleList[2].truck : 0};
-		var motocycle = ${DC_summaryVehicleList[3] != null ? DC_summaryVehicleList[3].motocycle : 0};
-		var bicycle = ${DC_summaryVehicleList[4] != null ? DC_summaryVehicleList[4].bicycle : 0};
+		var car = ${DC_summaryVehicleList[17] != null ? DC_summaryVehicleList[17].car : 0};
+		var bus = ${DC_summaryVehicleList[18] != null ? DC_summaryVehicleList[18].bus : 0};
+		var truck = ${DC_summaryVehicleList[19] != null ? DC_summaryVehicleList[19].truck : 0};
+		var motocycle = ${DC_summaryVehicleList[20] != null ? DC_summaryVehicleList[20].motocycle : 0};
+		var bicycle = ${DC_summaryVehicleList[21] != null ? DC_summaryVehicleList[21].bicycle : 0};
         /* 차량 막대차트 전역변수 끝*/
 	</script>
 

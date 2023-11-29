@@ -4,6 +4,7 @@ import java.util.List;
 
 import fo.di.cs.main.model.dto.DC_summary;
 import fo.di.cs.main.model.dto.DailyCount;
+import fo.di.cs.main.model.dto.DailyCount_summary;
 
 public interface CameraService {
 
@@ -32,6 +33,11 @@ public interface CameraService {
 	 * @return list
 	 */
 	List<DC_summary> genderTotalList();
+
+	/** 휴먼페이지 성별 악세사리 막대&라인 혼합 차트
+	 * @return list
+	 */
+	List<DailyCount_summary> genderAccList();
 
 
 

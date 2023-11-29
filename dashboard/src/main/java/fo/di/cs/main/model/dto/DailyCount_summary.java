@@ -37,4 +37,8 @@ public class DailyCount_summary {
 	private int motocycle; // 오토바이
 	private int bicycle; // 자전거
 
+	private int hatMale; // 
+	private int bagMale; // 
+	private int hatFemale; // 
+	private int bagFemale; // 
 }

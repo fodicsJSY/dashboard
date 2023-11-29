@@ -38,6 +38,7 @@
 
  <body>
 	<c:set var="genderTotalList" value="${genderTotalList}"/>
+	<c:set var="genderAccList" value="${genderAccList}"/>
 	
 	<%-- 전체 wrap.S --%>
 	<div class="wrap" id="indexWrap">  
@@ -411,6 +412,13 @@
 		var maleSum = ${genderTotalList[9] != null ? genderTotalList[9].personMale : 0};
 		var femaleSum = ${genderTotalList[10] != null ? genderTotalList[10].personFemale : 0};
 	/* 휴먼페이지 성별 도넛 차트 전역변수 초기화 끝*/
+	
+	/* 휴먼페이지 성별 악세사리 막대&라인 혼합 차트 전역변수 초기화 시작*/
+		var hatMale = ${genderAccList[22] != null ? genderAccList[23].hatMale : 0};
+		var bagMale = ${genderAccList[23] != null ? genderAccList[24].bagMale : 0};
+		var hatFemale = ${genderAccList[24] != null ? genderAccList[25].hatFemale : 0};
+		var bagFemale = ${genderAccList[25] != null ? genderAccList[26].bagFemale : 0};
+	/* 휴먼페이지 성별 악세사리 막대&라인 혼합 차트 전역변수 초기화 끝*/
 
 
 
