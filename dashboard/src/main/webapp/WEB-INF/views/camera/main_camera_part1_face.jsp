@@ -346,10 +346,10 @@
 
 
 	/* 이벤트 발생 비율 차트(금일) 전역변수 초기화 시작*/
-		var invCntCount = ${selectMainEventList[0] != null ? selectMainEventList[0].invCntCount : 0};
-		var lotCntCount = ${selectMainEventList[1] != null ? selectMainEventList[1].lotCntCount : 0};
-		var cntCntCount = ${selectMainEventList[2] != null ? selectMainEventList[2].cntCntCount : 0};
-		var falCntCount = ${selectMainEventList[3] != null ? selectMainEventList[3].falCntCount : 0};
+		var invCnt = ${selectMainEventList[13] != null ? selectMainEventList[13].invCnt : 0};
+		var lotCnt = ${selectMainEventList[14] != null ? selectMainEventList[14].lotCnt : 0};
+		var cntCnt = ${selectMainEventList[15] != null ? selectMainEventList[15].cntCnt : 0};
+		var falCnt = ${selectMainEventList[16] != null ? selectMainEventList[16].falCnt : 0};
 	/* 이벤트 발생 비율 차트(금일) 전역변수 초기화 끝*/
 
 

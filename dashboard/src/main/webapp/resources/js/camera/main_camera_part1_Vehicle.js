@@ -378,10 +378,10 @@ var option = {
             show: false
         },
         data: [
-            { value: invCntCount, name: '침입',  itemStyle: { color: '#4176df' }},
-            { value: lotCntCount, name: '배회',  itemStyle: { color: '#fec070' }},
-            { value: cntCntCount, name: '카운트',  itemStyle: { color: '#ff7978' } },
-            { value: falCntCount, name: '쓰러짐',  itemStyle: { color: '#52c3f7' } }
+            { value: invCnt, name: '침입',  itemStyle: { color: '#4176df' }},
+            { value: lotCnt, name: '배회',  itemStyle: { color: '#fec070' }},
+            { value: cntCnt, name: '카운트',  itemStyle: { color: '#ff7978' } },
+            { value: falCnt, name: '쓰러짐',  itemStyle: { color: '#52c3f7' } }
         ]
         }
     ]

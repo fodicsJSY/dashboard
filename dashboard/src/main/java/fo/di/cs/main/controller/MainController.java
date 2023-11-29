@@ -79,7 +79,7 @@ public class MainController {
 //		System.out.println("DailyCount_summary : "+ DailyCount_summary);
 //		System.out.println("dailyCount_CNT : "+ dailyCount_CNT);
 //		System.out.println("vehicleDailyCount_CNT : "+ vehicleDailyCount_CNT);
-//		System.out.println("humanCount : "+ humanCount);
+		System.out.println("selectMainEventList : "+ selectMainEventList);
 		 
 		 return "main/main";
 	 }
