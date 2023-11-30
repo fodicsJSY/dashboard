@@ -71,4 +71,83 @@ public class CameraServiceImpl implements CameraService{
 		return dao.genderAccList();
 	}
 	
+	/**
+	 * 긴 상의 남성 비율
+	 */
+	@Override
+	public int longTopWearMan() {
+		return dao.longTopWearMan();
+	}
+	
+	/**
+	 * 짧은 상의 남성 비율
+	 */
+	@Override
+	public int shortTopWearMan() {
+		return dao.shortTopWearMan();
+	}
+	
+	/**
+	 * 긴 하의 남성 비율
+	 */
+	@Override
+	public int longBottomWearMan() {
+		return dao.longBottomWearMan();
+	}
+	
+	/**
+	 * 짧은 하의 남성 비율
+	 */
+	@Override
+	public int shortBottomWearMan() {
+		return dao.shortBottomWearMan();
+	}
+	
+	/**
+	 *긴 상의 여성 비율
+	 */
+	@Override
+	public int longTopWearWoman() {
+		return dao.longTopWearWoman();
+	}
+	
+	/**
+	 *짧은 상의 여성 비율
+	 */
+	@Override
+	public int shortTopWearWoman() {
+		return dao.shortTopWearWoman();
+	}
+	
+	/**
+	 *긴 하의 여성 비율
+	 */
+	@Override
+	public int longBottomWearWoman() {
+		return dao.longBottomWearWoman();
+	}
+	
+	/**
+	 * 짧은 하의 여성 비율
+	 */
+	@Override
+	public int shortBottomWearWoman() {
+		return dao.shortBottomWearWoman();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

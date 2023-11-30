@@ -39,6 +39,7 @@
  <body>
 	<c:set var="genderTotalList" value="${genderTotalList}"/>
 	<c:set var="genderAccList" value="${genderAccList}"/>
+	<c:set var="wearList" value="${wearList}"/>
 	
 	<%-- 전체 wrap.S --%>
 	<div class="wrap" id="indexWrap">  
@@ -392,7 +393,7 @@
 				</div>
 			</div>
 			<%-- 우측 메인.E --%>
-
+${wearList}
 		</div>
 		<%--  내용.E --%>
 	</div>
