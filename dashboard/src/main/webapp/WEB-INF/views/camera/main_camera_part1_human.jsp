@@ -39,7 +39,13 @@
  <body>
 	<c:set var="genderTotalList" value="${genderTotalList}"/>
 	<c:set var="genderAccList" value="${genderAccList}"/>
-	<c:set var="wearList" value="${wearList}"/>
+	<c:set var="longTopWearMan" value="${longTopWearMan}"/>
+	<c:set var="shortTopWearMan" value="${shortTopWearMan}"/>
+	<c:set var="longBottomWearMan" value="${longBottomWearMan}"/>
+	<c:set var="shortBottomWearMan" value="${shortBottomWearMan}"/>
+	<c:set var="shortTopWearWoman" value="${shortTopWearWoman}"/>
+	<c:set var="longBottomWearWoman" value="${longBottomWearWoman}"/>
+	<c:set var="shortBottomWearWoman" value="${shortBottomWearWoman}"/>
 	
 	<%-- 전체 wrap.S --%>
 	<div class="wrap" id="indexWrap">  
@@ -265,8 +271,26 @@
 														</tr>
 														<tr>
 															<th>상의 길이</th>
-															<td></td>
-															<td></td>
+															<td>
+																<c:choose>
+																	<c:when test="${longTopWearMan > shortTopWearMan}">
+																		긴팔 우의(${longTopWearMan}%)
+																	</c:when>
+																	<c:otherwise>
+																		반팔 우의(${shortTopWearMan}%)
+																	</c:otherwise>
+																</c:choose>
+															</td>
+															<td>
+																<c:choose>
+																	<c:when test="${longTopWearWoman > shortTopWearWoman}">
+																		긴팔 우의(${longTopWearWoman}%)
+																	</c:when>
+																	<c:otherwise>
+																		반팔 우의(${shortTopWearWoman}%)
+																	</c:otherwise>
+																</c:choose>
+															</td>
 														</tr>
 														<tr>
 															<th>상의 색 비중</th>
@@ -279,8 +303,26 @@
 														</tr>
 														<tr>
 															<th>하의 길이</th>
-															<td></td>
-															<td></td>
+															<td>
+																<c:choose>
+																	<c:when test="${longBottomWearMan > shortBottomWearMan}">
+																		긴바지 우의(${longBottomWearMan}%)
+																	</c:when>
+																	<c:otherwise>
+																		반바지 우의(${shortBottomWearMan}%)
+																	</c:otherwise>
+																</c:choose>
+															</td>
+															<td>
+																<c:choose>
+																	<c:when test="${longBottomWearWoman > shortBottomWearWoman}">
+																		긴바지 우의(${longBottomWearWoman}%)
+																	</c:when>
+																	<c:otherwise>
+																		반바지 우의(${shortBottomWearWoman}%)
+																	</c:otherwise>
+																</c:choose>
+															</td>
 														</tr>
 														<tr>
 															<th>하의 색 비중</th>
@@ -393,7 +435,7 @@
 				</div>
 			</div>
 			<%-- 우측 메인.E --%>
-${wearList}
+
 		</div>
 		<%--  내용.E --%>
 	</div>

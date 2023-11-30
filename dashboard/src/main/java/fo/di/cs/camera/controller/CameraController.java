@@ -86,45 +86,44 @@ public class CameraController {
 		
 		// 긴 상의 남성 비율
 		int longTopWearMan = service.longTopWearMan();
+		model.addAttribute("longTopWearMan", longTopWearMan);
 		
 		// 짧은 상의 남성 비율
 		int shortTopWearMan = service.shortTopWearMan();
+		model.addAttribute("shortTopWearMan", shortTopWearMan);
 
 		// 긴 하의 남성 비율
 		int longBottomWearMan = service.longBottomWearMan();
+		model.addAttribute("longBottomWearMan", longBottomWearMan);
 		
 		// 짧은 하의 남성 비율
 		int shortBottomWearMan = service.shortBottomWearMan();
+		model.addAttribute("shortBottomWearMan", shortBottomWearMan);
 		
 		// 긴 상의 여성 비율
 		int longTopWearWoman = service.longTopWearWoman();
+		model.addAttribute("longTopWearWoman", longTopWearWoman);
 		
 		// 짧은 상의 여성 비율
 		int shortTopWearWoman = service.shortTopWearWoman();
+		model.addAttribute("shortTopWearWoman", shortTopWearWoman);
 		
 		// 긴 하의 여성 비율
 		int longBottomWearWoman = service.longBottomWearWoman();
+		model.addAttribute("longBottomWearWoman", longBottomWearWoman);
 		
 		// 짧은 하의 여성 비율
 		int shortBottomWearWoman = service.shortBottomWearWoman();
+		model.addAttribute("shortBottomWearWoman", shortBottomWearWoman);
 
 
-		int[] wearList = {longTopWearMan, shortTopWearMan, longBottomWearMan, shortBottomWearMan, longTopWearWoman, shortTopWearWoman, longBottomWearWoman, shortBottomWearWoman};
-		System.out.println("wearList : "+wearList);
-		
-		model.addAttribute("wearList", Arrays.toString(wearList));
+//		int[] wearList = {longTopWearMan, shortTopWearMan, longBottomWearMan, shortBottomWearMan, longTopWearWoman, shortTopWearWoman, longBottomWearWoman, shortBottomWearWoman};
+//		System.out.println("wearList : "+wearList);
 		
 		
-		System.out.println("wearList : "+wearList);
+		
 		System.out.println("model : "+model);
 		
-		System.out.println("longTopWearMan : "+longTopWearMan);
-		System.out.println("shortTopWearMan : "+shortTopWearMan);
-		System.out.println("longBottomWearMan : "+longBottomWearMan);
-		System.out.println("shortBottomWearMan : "+shortBottomWearMan);
-		System.out.println("longTopWearWoman : "+longTopWearWoman);
-		System.out.println("shortTopWearWoman : "+shortTopWearWoman);
-		 System.out.println("longBottomWearWoman : "+longBottomWearWoman);
 		 System.out.println("shortBottomWearWoman : "+shortBottomWearWoman);
 		
 		return "camera/main_camera_part1_human";
