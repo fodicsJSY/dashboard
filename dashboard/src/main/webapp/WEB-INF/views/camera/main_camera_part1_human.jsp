@@ -295,10 +295,12 @@
 														<tr>
 															<th>상의 색 비중</th>
 															<td>
-																<div id = "man_top_color_rate" style="width: 178.32px; height: 50px;"></div>																</div>
+																<div id = "man_top_color_rate" style="width: 178.32px; height: 50px;">
+																</div>
 															</td>
 															<td>
-																<div id = "woman_top_color_rate" style="width: 178.32px; height: 50px;"></div>	
+																<div id = "woman_top_color_rate" style="width: 178.32px; height: 50px;">
+																</div>	
 															</td>
 														</tr>
 														<tr>
@@ -327,10 +329,12 @@
 														<tr>
 															<th>하의 색 비중</th>
 															<td>
-																<div id = "man_down_color_rate" style="width: 178.32px; height: 50px;"></div>
+																<div id = "man_down_color_rate" style="width: 178.32px; height: 50px;">
+																</div>
 															</td>
 															<td>
-																<div id = "woman_down_color_rate" style="width: 178.32px; height: 50px;"></div>
+																<div id = "woman_down_color_rate" style="width: 178.32px; height: 50px;">
+																</div>
 															</td>
 														</tr>
 		

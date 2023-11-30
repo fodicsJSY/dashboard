@@ -6,6 +6,10 @@ import fo.di.cs.main.model.dto.DC_summary;
 import fo.di.cs.main.model.dto.DailyCount;
 import fo.di.cs.main.model.dto.DailyCount_summary;
 
+/**
+ * @author RND-NEW2
+ *
+ */
 public interface CameraService {
 
 	/** 메인카메라페이지 금일 누적 합계(공통)
@@ -80,6 +84,66 @@ public interface CameraService {
 	 * @return int
 	 */
 	int shortBottomWearWoman();
+
+	/** 무채색 상의 남성
+	 * @return int
+	 */
+	double monoTopWearMan();
+
+	/** 난색 상의 남성
+	 * @return int
+	 */
+	double polyTopWearMan();
+ 
+	/** 한색 상의 남성
+	 * @return int
+	 */
+	double huesTopWearMan();
+
+	/** 무채색 하의 남성
+	 * @return int
+	 */
+	double monoBottomWearMan();
+
+	/** 난색 하의 남성
+	 * @return int
+	 */
+	double polyBottomWearMan();
+
+	/** 한색 하의 남성
+	 * @return int
+	 */
+	double huesBottomWearMan();
+
+	/** 무채색 상의 여성
+	 * @return int
+	 */
+	double monoTopWearWoman();
+
+	/** 난색 상의 여성
+	 * @return int
+	 */
+	double polyTopWearWoman();
+
+	/** 한색 상의 여성
+	 * @return int
+	 */
+	double huesTopWearWoman();
+
+	/** 무채색 하의 여성
+	 * @return int
+	 */
+	double monoBottomWearWoman();
+
+	/** 난색 하의 여성
+	 * @return int
+	 */
+	double polyBottomWearWoman();
+
+	/** 한색 하의 여성
+	 * @return int
+	 */
+	double huesBottomWearWoman();
 	
 	
 

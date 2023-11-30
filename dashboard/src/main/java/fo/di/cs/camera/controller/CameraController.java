@@ -116,15 +116,56 @@ public class CameraController {
 		int shortBottomWearWoman = service.shortBottomWearWoman();
 		model.addAttribute("shortBottomWearWoman", shortBottomWearWoman);
 
+		
+		// 무채색 상의 남성
+		double monoTopWearMan = service.monoTopWearMan();
+		
+		// 난색 상의 남성
+		double polyTopWearMan = service.polyTopWearMan();
+		
+		// 한색 상의 남성
+		double huesTopWearMan = service.huesTopWearMan();
+		
+		//무채색 하의 남성
+		double monoBottomWearMan = service.monoBottomWearMan();
+		
+		// 난색 하의 남성
+		double polyBottomWearMan = service.polyBottomWearMan();
+		
+		// 한색 하의 남성
+		double huesBottomWearMan = service.huesBottomWearMan();
+		
+		// 무채색 상의 여성
+		double monoTopWearWoman = service.monoTopWearWoman();
+		
+		
+		// 난색 상의 여성
+		double polyTopWearWoman = service.polyTopWearWoman();
+		
+		// 한색 상의 여성
+		double huesTopWearWoman = service.huesTopWearWoman();
+		
+		// 무채색 하의 여성
+		double monoBottomWearWoman = service.monoBottomWearWoman();
+		
+		// 난색 하의 여성
+		double polyBottomWearWoman = service.polyBottomWearWoman();
+		
+		// 한색 하의 여성
+		double huesBottomWearWoman = service.huesBottomWearWoman();
+		
 
-//		int[] wearList = {longTopWearMan, shortTopWearMan, longBottomWearMan, shortBottomWearMan, longTopWearWoman, shortTopWearWoman, longBottomWearWoman, shortBottomWearWoman};
-//		System.out.println("wearList : "+wearList);
+		double[] wearColorList = {monoTopWearMan, polyTopWearMan, huesTopWearMan
+		, monoBottomWearMan, polyBottomWearMan, huesBottomWearMan, monoTopWearWoman, polyTopWearWoman, huesTopWearWoman, monoBottomWearWoman, polyBottomWearWoman, huesBottomWearWoman};
+		model.addAttribute("wearColorList", wearColorList);
+
+		System.out.println("wearColorList : "+wearColorList);
 		
 		
 		
 		System.out.println("model : "+model);
 		
-		 System.out.println("shortBottomWearWoman : "+shortBottomWearWoman);
+//		 System.out.println("shortBottomWearWoman : "+shortBottomWearWoman);
 		
 		return "camera/main_camera_part1_human";
 	}

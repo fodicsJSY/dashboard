@@ -114,6 +114,92 @@ public class CameraDAO {
 	public int shortBottomWearWoman() {
 		return sql.selectOne("cameraPageMapper.shortBottomWearWoman");
 	}
+
+	/**무채색 상의 남성
+	 * @return int
+	 */
+	public double monoTopWearMan() {
+		return sql.selectOne("cameraPageMapper.monoTopWearMan");
+	}
+
+	/**난색 상의 남성
+	 * @return int
+	 */
+	public double polyTopWearMan() {
+		return sql.selectOne("cameraPageMapper.polyTopWearMan");
+	}
+
+	/** 한색 상의 남성
+	 * @return int
+	 */
+	public double huesTopWearMan() {
+		return sql.selectOne("cameraPageMapper.huesTopWearMan");
+	}
+
+	/**무채색 하의 남성
+	 * @return int
+	 */
+	public double monoBottomWearMan() {
+		return sql.selectOne("cameraPageMapper.monoBottomWearMan");
+	}
+
+	/**난색 하의 남성
+	 * @return int
+	 */
+	public double polyBottomWearMan() {
+		return sql.selectOne("cameraPageMapper.polyBottomWearMan");
+	}
+
+	/** 한색 하의 남성
+	 * @return int
+	 */
+	public double huesBottomWearMan() {
+		return sql.selectOne("cameraPageMapper.huesBottomWearMan");
+	}
+
+	/**
+	 *  무채색 상의 여성
+	 * @return int
+	 */
+	public double monoTopWearWoman() {
+		return sql.selectOne("cameraPageMapper.monoTopWearWoman");
+	}
+
+	/**난색 상의 여성
+	 * @return int
+	 */
+	public double polyTopWearWoman() {
+		return sql.selectOne("cameraPageMapper.polyTopWearWoman");
+	}
+
+	/**한색 상의 여성
+	 * @return int
+	 */
+	public double huesTopWearWoman() {
+		return sql.selectOne("cameraPageMapper.huesTopWearWoman");
+	}
+
+	/**
+	 *무채색 하의 여성
+	 * @return int
+	 */
+	public double monoBottomWearWoman() {
+		return sql.selectOne("cameraPageMapper.monoBottomWearWoman");
+	}
+
+	/**난색 하의 여성
+	 * @return int
+	 */
+	public double polyBottomWearWoman() {
+		return sql.selectOne("cameraPageMapper.polyBottomWearWoman");
+	}
+
+	/**한색 하의 여성
+	 * @return int
+	 */
+	public double huesBottomWearWoman() {
+		return sql.selectOne("cameraPageMapper.huesBottomWearWoman");
+	}
 	
 	
 	

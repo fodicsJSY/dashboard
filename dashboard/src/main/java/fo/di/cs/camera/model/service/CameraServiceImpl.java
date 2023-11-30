@@ -137,8 +137,102 @@ public class CameraServiceImpl implements CameraService{
 	
 	
 	
+	/**
+	 *무채색 상의 남성
+	 */
+	@Override
+	public double monoTopWearMan() {
+		return dao.monoTopWearMan();
+	}
+
 	
+	/**
+	 *난색 상의 남성
+	 */
+	@Override
+	public double polyTopWearMan() {
+		return dao.polyTopWearMan();
+	}
 	
+	/**
+	 *한색 상의 남성
+	 */
+	@Override
+	public double huesTopWearMan() {
+		return dao.huesTopWearMan();
+	}
+	
+	/**
+	 *무채색 하의 남성
+	 */
+	@Override
+	public double monoBottomWearMan() {
+		return dao.monoBottomWearMan();
+	}
+	
+	/**
+	 *난색 하의 남성
+	 */
+	@Override
+	public double polyBottomWearMan() {
+		return dao.polyBottomWearMan();
+	}
+	
+	/**
+	 * 한색 하의 남성
+	 */
+	@Override
+	public double huesBottomWearMan() {
+		return dao.huesBottomWearMan();
+	}
+	
+	/**
+	 * 무채색 상의 여성
+	 */
+	@Override
+	public double monoTopWearWoman() {
+		return dao.monoTopWearWoman();
+	}
+	
+	/**
+	 *난색 상의 여성
+	 */
+	@Override
+	public double polyTopWearWoman() {
+		return dao.polyTopWearWoman();
+	}
+	
+	/**
+	 *한색 상의 여성
+	 */
+	@Override
+	public double huesTopWearWoman() {
+		return dao.huesTopWearWoman();
+	}
+	
+	/**
+	 *무채색 하의 여성
+	 */
+	@Override
+	public double monoBottomWearWoman() {
+		return dao.monoBottomWearWoman();
+	}
+	
+	/**
+	 *난색 하의 여성
+	 */
+	@Override
+	public double polyBottomWearWoman() {
+		return dao.polyBottomWearWoman();
+	}
+	
+	/**
+	 *한색 하의 여성
+	 */
+	@Override
+	public double huesBottomWearWoman() {
+		return dao.huesBottomWearWoman();
+	}
 	
 	
 	
