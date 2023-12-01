@@ -442,7 +442,7 @@
 			</div>
 			<%-- 우측 메인.E --%>
 			<%-- ${wearColorList} --%>
-			${wearColorList[0]}
+			<%-- ${wearColorList[0]} --%>
 		</div>
 		<%--  내용.E --%>
 	</div>
