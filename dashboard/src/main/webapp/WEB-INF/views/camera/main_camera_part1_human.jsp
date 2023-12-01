@@ -120,8 +120,32 @@
 									<div class="todayTXT todayHuman">
 										<p class="todayIMG"><img src="/resources/img/icon_titleHuman.png"></p>
 										<p class="todayTitle color-Human" style="color:#94e9ec">사람</p>
-										<p class="contrast">전일대비 <span class="lower" id="compare_cnt">0</span></p>
-										<p class="amount" id="total_person_cnt">0</p>
+										<p class="contrast">전일대비 
+											<span class="lower" id="compare_cnt">
+												<c:choose>
+													<c:when test="${empty netChangeList[24].personCount_DIFF}">
+														<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+														<span>0</span>
+													</c:when>
+													<c:otherwise>
+														<!-- 리스트의 요소 개수를 출력 -->
+														<span>${netChangeList[24].personCount_DIFF}</span>
+													</c:otherwise>
+												</c:choose>	
+											</span>
+										</p>
+										<p class="amount" id="total_person_cnt">
+											<c:choose>
+												<c:when test="${empty todayList[11].person}">
+													<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+													<span>0</span>
+												</c:when>
+												<c:otherwise>
+													<!-- 리스트의 요소 개수를 출력 -->
+													<span>${todayList[11].person}</span>
+												</c:otherwise>
+											</c:choose>	
+										</p>
 
 									</div>
 									<div>
