@@ -46,6 +46,8 @@
 	<c:set var="shortTopWearWoman" value="${shortTopWearWoman}"/>
 	<c:set var="longBottomWearWoman" value="${longBottomWearWoman}"/>
 	<c:set var="shortBottomWearWoman" value="${shortBottomWearWoman}"/>
+	<c:set var="wearColorList" value="${wearColorList}" />
+
 	
 	<%-- 전체 wrap.S --%>
 	<div class="wrap" id="indexWrap">  
@@ -439,7 +441,8 @@
 				</div>
 			</div>
 			<%-- 우측 메인.E --%>
-
+			<%-- ${wearColorList} --%>
+			${wearColorList[0]}
 		</div>
 		<%--  내용.E --%>
 	</div>
@@ -499,6 +502,22 @@
 		var maskWomanCount = ${maskWomanCount != null ? maskWomanCount : 0};
 	/* 마스크를 착용한 남자의 비율 계산(금일) 전역변수 초기화 끝*/
 
+
+
+	/* 의류선호도 컬러비중 전역변수 초기화 시작*/
+		var monoTopWearMan = ${wearColorList[0] != null ? wearColorList[0] : 0};
+		var polyTopWearMan = ${wearColorList[1] != null ? wearColorList[1] : 0};
+		var huesTopWearMan = ${wearColorList[2] != null ? wearColorList[2] : 0};
+		var monoBottomWearMan = ${wearColorList[3] != null ? wearColorList[3] : 0};
+		var polyBottomWearMan = ${wearColorList[4] != null ? wearColorList[4] : 0};
+		var huesBottomWearMan = ${wearColorList[5] != null ? wearColorList[5] : 0};
+		var monoTopWearWoman = ${wearColorList[6] != null ? wearColorList[6] : 0};
+		var polyTopWearWoman = ${wearColorList[7] != null ? wearColorList[7] : 0};
+		var huesTopWearWoman = ${wearColorList[8] != null ? wearColorList[8] : 0};
+		var monoBottomWearWoman = ${wearColorList[9] != null ? wearColorList[9] : 0};
+		var polyBottomWearWoman = ${wearColorList[10] != null ? wearColorList[10] : 0};
+		var huesBottomWearWoman = ${wearColorList[11] != null ? wearColorList[11] : 0};
+	/* 의류선호도 컬러비중 전역변수 초기화 끝*/
 
 
 	

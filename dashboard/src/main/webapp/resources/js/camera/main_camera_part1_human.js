@@ -178,7 +178,7 @@ option = {
       emphasis: {
         focus: 'series'
       },
-      data: [320],
+      data: [monoTopWearMan],
       itemStyle:{
         color:'#d2d2d2'
       }
@@ -193,7 +193,7 @@ option = {
       emphasis: {
         focus: 'series'
       },
-      data: [120],
+      data: [polyTopWearMan],
        itemStyle:{
         color:'#f5715b'
       }
@@ -208,7 +208,7 @@ option = {
       emphasis: {
         focus: 'series'
       },
-      data: [220],
+      data: [huesTopWearMan],
        itemStyle:{
         color:'#25b8e9'
       }
@@ -263,7 +263,7 @@ option = {
       emphasis: {
         focus: 'series'
       },
-      data: [320],
+      data: [monoTopWearWoman],
       itemStyle:{
         color:'#d2d2d2'
       }
@@ -278,7 +278,7 @@ option = {
       emphasis: {
         focus: 'series'
       },
-      data: [120],
+      data: [polyTopWearWoman],
        itemStyle:{
         color:'#f5715b'
       }
@@ -293,7 +293,7 @@ option = {
       emphasis: {
         focus: 'series'
       },
-      data: [220],
+      data: [huesTopWearWoman],
        itemStyle:{
         color:'#25b8e9'
       }
@@ -350,7 +350,7 @@ option = {
       emphasis: {
         focus: 'series'
       },
-      data: [320],
+      data: [monoBottomWearMan],
       itemStyle:{
         color:'#d2d2d2'
       }
@@ -365,7 +365,7 @@ option = {
       emphasis: {
         focus: 'series'
       },
-      data: [120],
+      data: [polyBottomWearMan],
        itemStyle:{
         color:'#f5715b'
       }
@@ -380,7 +380,7 @@ option = {
       emphasis: {
         focus: 'series'
       },
-      data: [220],
+      data: [huesBottomWearMan],
        itemStyle:{
         color:'#25b8e9'
       }
@@ -439,7 +439,7 @@ option = {
       emphasis: {
         focus: 'series'
       },
-      data: [320],
+      data: [monoBottomWearWoman],
       itemStyle:{
         color:'#d2d2d2'
       }
@@ -454,7 +454,7 @@ option = {
       emphasis: {
         focus: 'series'
       },
-      data: [120],
+      data: [polyBottomWearWoman],
        itemStyle:{
         color:'#f5715b'
       }
@@ -469,7 +469,7 @@ option = {
       emphasis: {
         focus: 'series'
       },
-      data: [220],
+      data: [huesBottomWearWoman],
        itemStyle:{
         color:'#25b8e9'
       }

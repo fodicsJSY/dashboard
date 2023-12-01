@@ -156,7 +156,8 @@ public class CameraController {
 		
 
 		double[] wearColorList = {monoTopWearMan, polyTopWearMan, huesTopWearMan
-		, monoBottomWearMan, polyBottomWearMan, huesBottomWearMan, monoTopWearWoman, polyTopWearWoman, huesTopWearWoman, monoBottomWearWoman, polyBottomWearWoman, huesBottomWearWoman};
+		, monoBottomWearMan, polyBottomWearMan, huesBottomWearMan, monoTopWearWoman, 
+		polyTopWearWoman, huesTopWearWoman, monoBottomWearWoman, polyBottomWearWoman, huesBottomWearWoman};
 		model.addAttribute("wearColorList", wearColorList);
 
 		System.out.println("wearColorList : "+wearColorList);
