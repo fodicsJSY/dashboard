@@ -48,13 +48,6 @@
 			*/
         }
 
-        .contentsTitle {
-            /* margin: 10px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            background-color: #f9f9f9; */
-        }
-
         .title h4 {
             margin: 0;
         }
@@ -75,10 +68,6 @@
         } 
 
         @media (min-width: 601px) {
-            .data .today-part8 {
-				/* width: 500px;  */
-            }
-
 
 		   /* 2개 */
 			.data.twoColumns .today-part8:nth-child(n+3){
@@ -122,8 +111,6 @@
 				margin: 0 10px 0 0;
 			}
 
-
-
 			.data.twoColumns .tableCon{
 				width: 500px;
 				height: 730px;
@@ -131,16 +118,11 @@
 				flex-direction: row;
 				justify-content: space-around;
 				padding:10px 0 0 0; 
-				overflow-y: scroll;
+				overflow: auto;
 			}
 
 
-
-
-
-
             /* 4개 */
-
 
             .data.fourColumns .today-part8{
                 display: flex;
@@ -185,7 +167,7 @@
 				flex-direction: row;
 				justify-content: space-around;
 				padding:10px 0 0 0; 
-				overflow-y: scroll;
+				overflow: auto;
 			}
 
 
@@ -243,7 +225,7 @@
 				flex-direction: row;
 				justify-content: space-around;
 				padding:10px 0 0 0; 
-				overflow-y: scroll;
+				overflow: auto;
 			}
 
 
@@ -253,7 +235,7 @@
             .data.eightColumns {
                 display: grid;
                 grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2개씩 4줄설정 */
-                gap: 10px;
+                gap: 15px;
             }
             
             .data.eightColumns .today-part8 {
@@ -297,9 +279,7 @@
 			}
 
 			
-			.data.eightColumns .tableCon{
-				width: 300px;
-			}
+
 		
 
         }
