@@ -619,7 +619,7 @@
 		            0
 		     END AS carPer
 		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY
-		WHERE OCCU_DATE =  '20231110'
+		WHERE OCCU_DATE =  CONVERT(varchar, GETDATE(), 112)
 	</select>
 		
 	<!-- 버스비율 -->
@@ -634,7 +634,7 @@
 		            0
 		     END AS busPer
 		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY
-		WHERE OCCU_DATE =  '20231110'
+		WHERE OCCU_DATE =  CONVERT(varchar, GETDATE(), 112)
 	</select>
 		
 	<!-- 트럭비율 -->
@@ -649,7 +649,7 @@
 		            0
 		     END AS truckPer
 		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY
-		WHERE OCCU_DATE =  '20231110'
+		WHERE OCCU_DATE =  CONVERT(varchar, GETDATE(), 112)
 	</select>
 		
 	<!-- 오토바이비율 -->
@@ -664,7 +664,7 @@
 		            0
 		     END AS motorcyclePer
 		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY
-		WHERE OCCU_DATE =  '20231110'
+		WHERE OCCU_DATE =  CONVERT(varchar, GETDATE(), 112)
 	</select>
 		
 	<!-- 자전거비율 -->
@@ -679,7 +679,7 @@
 		            0
 		     END AS cyclePer
 		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY
-		WHERE OCCU_DATE =  '20231110'
+		WHERE OCCU_DATE =  CONVERT(varchar, GETDATE(), 112)
 	</select>
 	
 	
