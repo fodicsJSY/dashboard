@@ -1,24 +1,18 @@
 
 #count_display_wnd{
     height: 715px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding:10px 0 0 0; 
     overflow: auto;
 }
 
 
-.faceCount{
-    width: 100%;
-    font-family: NanumSquareEB; 
-    font-size: 11pt; 
-}
 
 
-.faceCount *{
-    height: 40px;
-    vertical-align: middle;
-}
-
-.faceCount tr>td:nth-child(2){
-    color: #b4a1d8; 
+.faceCountRow{
+    color: #b4a1d8;
 }
 
 

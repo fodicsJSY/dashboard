@@ -9,14 +9,7 @@
 	<title>Ai VinUS DASHBOARD</title>
 
 
-    <%-- toust UI 시작 --%>
-	<link rel="stylesheet" href="./node_modules/tui-chart/dist/toastui-chart.css">
-	<script src="./node_modules/tui-chart/dist/toastui-chart.js"></script>
-	<link rel="stylesheet" href="./node_modules/tui-grid/dist/tui-grid.css" />
-	<script src="./node_modules/tui-grid/dist/tui-grid.js"></script>    
-	<link rel="stylesheet" href="./node_modules/tui-date-picker/dist/tui-date-picker.css">
-	<script src="./node_modules/tui-date-picker/dist/tui-date-picker.js"></script>
-	<%-- toust UI 끝 --%>
+
 
 	<script src="./node_modules/jquery/3.6.0/jquery.min.js"></script>
 
@@ -114,149 +107,26 @@
 											<p class="amount"  id="total_inv_cnt">0</p>
 										</div>
 										<a href="/mainCamera/subCamera">
-											<div id="Inv_grid_area">											
-												<table class="invasionTable">
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-												</table>
+											<div id="Inv_grid_area">
+												<c:choose>
+													<c:when test="${empty dailyInvCntCount[0]}">
+														<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+														<div>카메라 없음</div>
+														<div class="invCountRow">0</div>
+													</c:when>
+													<c:otherwise>
+														<!-- 리스트의 요소 개수를 출력 -->
+														<div>${dailyInvCntCount[0].cameraName}</div>
+														<c:choose>
+															<c:when test="${empty dailyInvCntCount[0].invCntCount}">
+																<div class="invCountRow">0</div>
+															</c:when>
+															<c:otherwise>
+																<div class="invCountRow">${dailyInvCntCount[0].invCntCount}</div>
+															</c:otherwise>
+														</c:choose>
+													</c:otherwise>
+												</c:choose>
 											</div>
 										</a>
 										<div class="invasion_display">
@@ -271,152 +141,25 @@
 										</div>
 										<a href="/mainCamera/subCamera">
 											<div id="Lot_grid_area" >											
-												<table class="loiteringTable">
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>123</td>
-													</tr>
-												</table>
+												<c:choose>
+													<c:when test="${empty dailyLotCntCount[0]}">
+														<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+														<div>카메라 없음</div>
+														<div class="lotCountRow">0</div>
+													</c:when>
+													<c:otherwise>
+														<!-- 리스트의 요소 개수를 출력 -->
+														<div>${dailyLotCntCount[0].cameraName}</div>
+														<c:choose>
+															<c:when test="${empty dailyLotCntCount[0].lotCntCount}">
+																<div class="lotCountRow">0</div>
+															</c:when>
+															<c:otherwise>
+																<div class="lotCountRow">${dailyLotCntCount[0].lotCntCount}</div>
+															</c:otherwise>
+														</c:choose>
+													</c:otherwise>
+												</c:choose>
 											</div>
 										</a>
 									</li>

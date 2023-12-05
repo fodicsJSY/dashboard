@@ -1,23 +1,16 @@
 
 #count_vehicle_display_wnd{
     height: 715px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding:10px 0 0 0; 
     overflow: auto;
 }
 
-.vehicleCount{
-    width: 100%;
-    font-family: NanumSquareEB; 
-    font-size: 11pt; 
-}
 
-
-.vehicleCount *{
-    height: 40px;
-    vertical-align: middle;
-}
-
-.vehicleCount tr>td:nth-child(2){
-    color: #d4e079; 
+.vehicleCountRow{
+    color: #d4e079;
 }
 
 

@@ -113,101 +113,25 @@
 										</div>
 										<div>
 											<div style = "width:100%;"  id = "count_vehicle_display_wnd">
-												<table class="vehicleCount">
-													<tr>
-														<td>신촌사거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>가정오거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>장수사거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>연수사거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>남동IC</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>숭의로타리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>간석사거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>학익사거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>원당사거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>남동공단입구사거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>작전역 사거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>부평IC</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>길병원사거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>매뜰사거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>부평사거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>부평사거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>부평사거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>부평사거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>부평사거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>부평사거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>부평사거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>부평사거리</td>
-														<td>164</td>
-													</tr>
-													<tr>
-														<td>부평사거리</td>
-														<td>164</td>
-													</tr>
-													
-												</table>
+												<c:choose>
+													<c:when test="${empty dailyVehicleCount[0]}">
+														<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+														<div>카메라 없음</div>
+														<div class="vehicleCountRow">0</div>
+													</c:when>
+													<c:otherwise>
+														<!-- 리스트의 요소 개수를 출력 -->
+														<div>${dailyVehicleCount[0].cameraName}</div>
+														<c:choose>
+															<c:when test="${empty dailyVehicleCount[0].vehicleCount}">
+																<div class="vehicleCountRow">0</div>
+															</c:when>
+															<c:otherwise>
+																<div class="vehicleCountRow">${dailyVehicleCount[0].vehicleCount}</div>
+															</c:otherwise>
+														</c:choose>
+													</c:otherwise>
+												</c:choose>
 											</div>
 										</div>
 									</li>

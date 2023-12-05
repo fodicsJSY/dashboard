@@ -117,93 +117,25 @@
 										</div>
 										<div>
 											<div style = "width:100%;"  id = "count_display_wnd">
-												<table class="faceCount">
-													<tr>
-														<td>신복사거리</td>
-														<td>156</td>
-													</tr>
-													<tr>
-														<td>신복사거리</td>
-														<td>156</td>
-													</tr>
-													<tr>
-														<td>신복사거리</td>
-														<td>156</td>
-													</tr>
-													<tr>
-														<td>신복사거리</td>
-														<td>156</td>
-													</tr>
-													<tr>
-														<td>신복사거리</td>
-														<td>156</td>
-													</tr>
-													<tr>
-														<td>신복사거리</td>
-														<td>156</td>
-													</tr>
-													<tr>
-														<td>신복사거리</td>
-														<td>156</td>
-													</tr>
-													<tr>
-														<td>신복사거리</td>
-														<td>156</td>
-													</tr>
-													<tr>
-														<td>신복사거리</td>
-														<td>156</td>
-													</tr>
-													<tr>
-														<td>신복사거리</td>
-														<td>156</td>
-													</tr>
-													<tr>
-														<td>신복사거리</td>
-														<td>156</td>
-													</tr>
-													<tr>
-														<td>신복사거리</td>
-														<td>156</td>
-													</tr>
-													<tr>
-														<td>신복사거리</td>
-														<td>156</td>
-													</tr>
-													<tr>
-														<td>신복사거리</td>
-														<td>156</td>
-													</tr>
-													<tr>
-														<td>신복사거리</td>
-														<td>156</td>
-													</tr>
-													<tr>
-														<td>신복사거리</td>
-														<td>156</td>
-													</tr>
-													<tr>
-														<td>신복사거리</td>
-														<td>156</td>
-													</tr>
-													<tr>
-														<td>신복사거리</td>
-														<td>156</td>
-													</tr>
-													<tr>
-														<td>신복사거리</td>
-														<td>156</td>
-													</tr>
-													<tr>
-														<td>신복사거리</td>
-														<td>156</td>
-													</tr>
-													<tr>
-														<td>신복사거리</td>
-														<td>156</td>
-													</tr>
-												</table>
-
+												<c:choose>
+													<c:when test="${empty dailyFaceCount[0]}">
+														<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+														<div>카메라 없음</div>
+														<div class="faceCountRow">0</div>
+													</c:when>
+													<c:otherwise>
+														<!-- 리스트의 요소 개수를 출력 -->
+														<div>${dailyFaceCount[0].cameraName}</div>
+														<c:choose>
+															<c:when test="${empty dailyCntCntCount[0].faceCount}">
+																<div class="faceCountRow">0</div>
+															</c:when>
+															<c:otherwise>
+																<div class="faceCountRow">${dailyFaceCount[0].faceCount}</div>
+															</c:otherwise>
+														</c:choose>
+													</c:otherwise>
+												</c:choose>
 											</div>
 										</div>
 									</li>

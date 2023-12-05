@@ -1,20 +1,24 @@
 #Inv_grid_area{
     height: 715px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding:10px 0 0 0; 
     overflow: auto;
 }
 
 
 
-.invasionTable{
+/* .invasionTable{
     width: 100%;
     font-family: NanumSquareEB; 
     font-size: 11pt; 
-}
+} */
 
 
 
 
-.invasionTable *{
+/* .invasionTable *{
     height: 40px;
     vertical-align: middle;
 }
@@ -23,17 +27,27 @@
 
 .invasionTable td:nth-child(2){
     color: #4176df; 
+} */
+
+
+.invCountRow{
+    color: #4176df;
 }
-
-
+.lotCountRow{
+    color: #fec070;
+}
 
 
 #Lot_grid_area{
     height: 715px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding:10px 0 0 0; 
     overflow: auto;
 }
 
-.loiteringTable{
+/* .loiteringTable{
     width: 100%;
     font-family: NanumSquareEB; 
     font-size: 11pt; 
@@ -49,7 +63,7 @@
 
 .loiteringTable td:nth-child(2){
     color: #fec070; 
-}
+} */
 
 
 /* 우측섹션 */
