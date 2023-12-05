@@ -313,7 +313,6 @@
 	<c:set var="maskManCount" value="${maskManCount}"/>
 	<c:set var="maskWomanCount" value="${maskWomanCount}"/>
 	<c:set var="dailyPersonCount" value="${dailyPersonCount}"/>
-	<c:out value="${dailyPersonCount[11]}" />
 
     
     <%-- 전체 wrap.S --%>
@@ -405,26 +404,26 @@
 											<div class="contentsBox">
 												<div class="amount" id="total_person_cnt">
 													<c:choose>
-														<c:when test="${empty todayList[11].person}">
+														<c:when test="${empty todayList[0].person}">
 															<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
 															<span>0</span>
 														</c:when>
 														<c:otherwise>
 															<!-- 리스트의 요소 개수를 출력 -->
-															<span>${todayList[11].person}</span>
+															<span>${todayList[0].person}</span>
 														</c:otherwise>
 													</c:choose>	
 												</div>
 												<div class="contrast">전일대비 
 													<span class="lower"  id="compare_person_cnt">
 														<c:choose>
-															<c:when test="${empty netChangeList[24].personCount_DIFF}">
+															<c:when test="${empty netChangeList[0].personCount_DIFF}">
 																<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
 																<span>0</span>
 															</c:when>
 															<c:otherwise>
 																<!-- 리스트의 요소 개수를 출력 -->
-																<span>${netChangeList[24].personCount_DIFF}</span>
+																<span>${netChangeList[0].personCount_DIFF}</span>
 															</c:otherwise>
 														</c:choose>	
 													</span>
@@ -433,7 +432,7 @@
 										</div>
 									</a>	
 									<c:choose>
-										<c:when test="${empty dailyPersonCount[10]}">
+										<c:when test="${empty dailyPersonCount[0]}">
 											<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
 											<div class="tableCon">
 												<div>카메라 없음</div>
@@ -443,8 +442,15 @@
 										<c:otherwise>
 											<!-- 리스트의 요소 개수를 출력 -->
 											<div class="tableCon">
-												<div>${dailyPersonCount1[10]}</div>
-												<div class="humanCountRow">${dailyPersonCount1[11]}</div>
+												<div>${dailyPersonCount[0].cameraName}</div>
+												<c:choose>
+													<c:when test="${empty dailyPersonCount[0].personCount}">
+														<div class="humanCountRow">0</div>
+													</c:when>
+													<c:otherwise>
+														<div class="humanCountRow">${dailyPersonCount[0].personCount}</div>
+													</c:otherwise>
+												</c:choose>
 											</div>
 										</c:otherwise>
 									</c:choose>
@@ -463,26 +469,26 @@
 										<div class="contentsBox">
 											<div class="amount" id="total_vehicle_cnt">
 												<c:choose>
-													<c:when test="${empty todayList[12].vehicle}">
+													<c:when test="${empty todayList[0].vehicle}">
 														<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
 														<span>0</span>
 													</c:when>
 													<c:otherwise>
 														<!-- 리스트의 요소 개수를 출력 -->
-														<span>${todayList[12].vehicle}</span>
+														<span>${todayList[0].vehicle}</span>
 													</c:otherwise>
 												</c:choose>	
 											</div>
 											<div class="contrast">전일대비 
 												<span class="upper" id="compare_vehicle_cnt">
 													<c:choose>
-														<c:when test="${empty netChangeList[25].vehicleCount_DIFF}">
+														<c:when test="${empty netChangeList[0].vehicleCount_DIFF}">
 															<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
 															<span>0</span>
 														</c:when>
 														<c:otherwise>
 															<!-- 리스트의 요소 개수를 출력 -->
-															<span>${netChangeList[25].vehicleCount_DIFF}</span>
+															<span>${netChangeList[0].vehicleCount_DIFF}</span>
 														</c:otherwise>
 													</c:choose>	
 												</span>
@@ -491,7 +497,7 @@
 									</div>
 									</a>
 									<c:choose>
-										<c:when test="${empty dailyVehicleCount[10]}">
+										<c:when test="${empty dailyVehicleCount[0]}">
 											<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
 											<div class="tableCon">
 												<div>카메라 없음</div>
@@ -501,8 +507,15 @@
 										<c:otherwise>
 											<!-- 리스트의 요소 개수를 출력 -->
 											<div class="tableCon">
-												<div>${dailyVehicleCount[10]}</div>
-												<div class="vehicleCountRow">${dailyVehicleCount[11]}</div>
+												<div>${dailyVehicleCount[0].cameraName}</div>
+												<c:choose>
+													<c:when test="${empty dailyVehicleCount[0].vehicleCount}">
+														<div class="vehicleCountRow">0</div>
+													</c:when>
+													<c:otherwise>
+														<div class="vehicleCountRow">${dailyVehicleCount[0].vehicleCount}</div>
+													</c:otherwise>
+												</c:choose>
 											</div>
 										</c:otherwise>
 									</c:choose>
@@ -521,26 +534,26 @@
 											<div class="contentsBox">
 												<div class="amount" id="total_face_cnt">
 													<c:choose>
-														<c:when test="${empty todayList[13].face}">
+														<c:when test="${empty todayList[0].face}">
 															<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
 															<span>0</span>
 														</c:when>
 														<c:otherwise>
 															<!-- 리스트의 요소 개수를 출력 -->
-															<span>${todayList[13].face}</span>
+															<span>${todayList[0].face}</span>
 														</c:otherwise>
 													</c:choose>	
 												</div>
 												<div class="contrast">전일대비 
 													<span class="upper"  id="compare_face_cnt">
 														<c:choose>
-															<c:when test="${empty netChangeList[26].faceCount_DIFF}">
+															<c:when test="${empty netChangeList[0].faceCount_DIFF}">
 																<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
 																<span>0</span>
 															</c:when>
 															<c:otherwise>
 																<!-- 리스트의 요소 개수를 출력 -->
-																<span>${netChangeList[26].faceCount_DIFF}</span>
+																<span>${netChangeList[0].faceCount_DIFF}</span>
 															</c:otherwise>
 														</c:choose>	
 													</span>
@@ -549,7 +562,7 @@
 										</div>
 									</a>
 									<c:choose>
-										<c:when test="${empty dailyFaceCount[10]}">
+										<c:when test="${empty dailyFaceCount[0]}">
 											<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
 											<div class="tableCon">
 												<div>카메라 없음</div>
@@ -559,8 +572,15 @@
 										<c:otherwise>
 											<!-- 리스트의 요소 개수를 출력 -->
 											<div class="tableCon">
-												<div>${dailyFaceCount[10]}</div>
-												<div class="faceCountRow">${dailyFaceCount[11]}</div>
+												<div>${dailyFaceCount[0].cameraName}</div>
+												<c:choose>
+													<c:when test="${empty dailyCntCntCount[0].faceCount}">
+														<div class="faceCountRow">0</div>
+													</c:when>
+													<c:otherwise>
+														<div class="faceCountRow">${dailyFaceCount[0].faceCount}</div>
+													</c:otherwise>
+												</c:choose>
 											</div>
 										</c:otherwise>
 									</c:choose>
@@ -580,26 +600,26 @@
 										<div class="contentsBox">
 											<div class="amount" id="total_count_cnt">
 												<c:choose>
-													<c:when test="${empty todayList[17].cntCnt}">
+													<c:when test="${empty todayList[0].cntCnt}">
 														<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
 														<span>0</span>
 													</c:when>
 													<c:otherwise>
 														<!-- 리스트의 요소 개수를 출력 -->
-														<span>${todayList[17].cntCnt}</span>
+														<span>${todayList[0].cntCnt}</span>
 													</c:otherwise>
 												</c:choose>	
 											</div>
 											<div class="contrast">전일대비 
 												<span class="upper" id="compare_count_cnt">
 													<c:choose>
-														<c:when test="${empty netChangeList[30].cntCntCount_DIFF}">
+														<c:when test="${empty netChangeList[0].cntCntCount_DIFF}">
 															<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
 															<span>0</span>
 														</c:when>
 														<c:otherwise>
 															<!-- 리스트의 요소 개수를 출력 -->
-															<span>${netChangeList[30].cntCntCount_DIFF}</span>
+															<span>${netChangeList[0].cntCntCount_DIFF}</span>
 														</c:otherwise>
 													</c:choose>	
 												</span>
@@ -608,7 +628,7 @@
 									</div>
 									</a>
 									<c:choose>
-										<c:when test="${empty dailyCntCntCount[10]}">
+										<c:when test="${empty dailyCntCntCount[0]}">
 											<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
 											<div class="tableCon">
 												<div>카메라 없음</div>
@@ -618,8 +638,15 @@
 										<c:otherwise>
 											<!-- 리스트의 요소 개수를 출력 -->
 											<div class="tableCon">
-												<div>${dailyCntCntCount[10]}</div>
-												<div class="countingCountRow">${dailyCntCntCount[11]}</div>
+												<div>${dailyCntCntCount[0].cameraName}</div>
+												<c:choose>
+													<c:when test="${empty dailyCntCntCount[0].cntCntCount}">
+														<div class="countingCountRow">0</div>
+													</c:when>
+													<c:otherwise>
+														<div class="countingCountRow">${dailyCntCntCount[0].cntCntCount}</div>
+													</c:otherwise>
+												</c:choose>
 											</div>
 										</c:otherwise>
 									</c:choose>
@@ -638,26 +665,26 @@
 										<div class="contentsBox">
 											<div class="amount" id="total_inv_cnt">
 												<c:choose>
-													<c:when test="${empty todayList[15].invCnt}">
+													<c:when test="${empty todayList[0].invCnt}">
 														<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
 														<span>0</span>
 													</c:when>
 													<c:otherwise>
 														<!-- 리스트의 요소 개수를 출력 -->
-														<span>${todayList[15].invCnt}</span>
+														<span>${todayList[0].invCnt}</span>
 													</c:otherwise>
 												</c:choose>	
 											</div>
 											<div class="contrast">전일대비 
 												<span class="lower" id="compare_inv_cnt">
 													<c:choose>
-														<c:when test="${empty netChangeList[28].invCntCount_DIFF}">
+														<c:when test="${empty netChangeList[0].invCntCount_DIFF}">
 															<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
 															<span>0</span>
 														</c:when>
 														<c:otherwise>
 															<!-- 리스트의 요소 개수를 출력 -->
-															<span>${netChangeList[28].invCntCount_DIFF}</span>
+															<span>${netChangeList[0].invCntCount_DIFF}</span>
 														</c:otherwise>
 													</c:choose>	
 												</span>
@@ -666,7 +693,7 @@
 									</div>
 									</a>
 									<c:choose>
-										<c:when test="${empty dailyInvCntCount[10]}">
+										<c:when test="${empty dailyInvCntCount[0]}">
 											<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
 											<div class="tableCon">
 												<div>카메라 없음</div>
@@ -676,8 +703,16 @@
 										<c:otherwise>
 											<!-- 리스트의 요소 개수를 출력 -->
 											<div class="tableCon">
-												<div>${dailyInvCntCount[10]}</div>
-												<div class="invCountRow">${dailyInvCntCount[11]}</div>
+												<div>${dailyInvCntCount[0].cameraName}</div>
+												
+												<c:choose>
+													<c:when test="${empty dailyInvCntCount[0].invCntCount}">
+														<div class="invCountRow">0</div>
+													</c:when>
+													<c:otherwise>
+														<div class="invCountRow">${dailyInvCntCount[0].invCntCount}</div>
+													</c:otherwise>
+												</c:choose>
 											</div>
 										</c:otherwise>
 									</c:choose>
@@ -697,26 +732,26 @@
 										<div class="contentsBox">
 											<div class="amount" id="total_lot_cnt">
 												<c:choose>
-													<c:when test="${empty todayList[16].lotCnt}">
+													<c:when test="${empty todayList[0].lotCnt}">
 														<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
 														<span>0</span>
 													</c:when>
 													<c:otherwise>
 														<!-- 리스트의 요소 개수를 출력 -->
-														<span>${todayList[16].lotCnt}</span>
+														<span>${todayList[0].lotCnt}</span>
 													</c:otherwise>
 												</c:choose>	
 											</div>
 											<div class="contrast" >전일대비 
 												<span class="lower" id="compare_lot_cnt">
 													<c:choose>
-														<c:when test="${empty netChangeList[29].lotCntCount_DIFF}">
+														<c:when test="${empty netChangeList[0].lotCntCount_DIFF}">
 															<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
 															<span>0</span>
 														</c:when>
 														<c:otherwise>
 															<!-- 리스트의 요소 개수를 출력 -->
-															<span>${netChangeList[29].lotCntCount_DIFF}</span>
+															<span>${netChangeList[0].lotCntCount_DIFF}</span>
 														</c:otherwise>
 													</c:choose>	
 												</span>
@@ -725,7 +760,7 @@
 									</div>
 									</a>
 									<c:choose>
-										<c:when test="${empty dailyLotCntCount[10]}">
+										<c:when test="${empty dailyLotCntCount[0]}">
 											<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
 											<div class="tableCon">
 												<div>카메라 없음</div>
@@ -735,8 +770,15 @@
 										<c:otherwise>
 											<!-- 리스트의 요소 개수를 출력 -->
 											<div class="tableCon">
-												<div>${dailyLotCntCount[10]}</div>
-												<div class="lotCountRow">${dailyLotCntCount[11]}</div>
+												<div>${dailyLotCntCount[0].cameraName}</div>
+												<c:choose>
+													<c:when test="${empty dailyLotCntCount[0].lotCntCount}">
+														<div class="lotCountRow">0</div>
+													</c:when>
+													<c:otherwise>
+														<div class="lotCountRow">${dailyLotCntCount[0].lotCntCount}</div>
+													</c:otherwise>
+												</c:choose>
 											</div>
 										</c:otherwise>
 									</c:choose>
@@ -755,26 +797,26 @@
 										<div class="contentsBox">
 											<div class="amount">
 												<c:choose>
-													<c:when test="${empty todayList[14].lpr}">
+													<c:when test="${empty todayList[0].lpr}">
 														<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
 														<span>0</span>
 													</c:when>
 													<c:otherwise>
 														<!-- 리스트의 요소 개수를 출력 -->
-														<span>${todayList[14].lpr}</span>
+														<span>${todayList[0].lpr}</span>
 													</c:otherwise>
 												</c:choose>	
 											</div>
 											<div class="contrast">전일대비 
 												<span class="lower">
 													<c:choose>
-														<c:when test="${empty netChangeList[27].lprCount_DIFF}">
+														<c:when test="${empty netChangeList[0].lprCount_DIFF}">
 															<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
 															<span>0</span>
 														</c:when>
 														<c:otherwise>
 															<!-- 리스트의 요소 개수를 출력 -->
-															<span>${netChangeList[27].lprCount_DIFF}</span>
+															<span>${netChangeList[0].lprCount_DIFF}</span>
 														</c:otherwise>
 													</c:choose>	
 												</span>
@@ -782,7 +824,7 @@
 										</div>
 									</div>
 									<c:choose>
-										<c:when test="${empty dailyLprCount[10]}">
+										<c:when test="${empty dailyLprCount[0]}">
 											<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
 											<div class="tableCon">
 												<div>카메라 없음</div>
@@ -792,8 +834,15 @@
 										<c:otherwise>
 											<!-- 리스트의 요소 개수를 출력 -->
 											<div class="tableCon">
-												<div>${dailyLprCount[10]}</div>
-												<div class="lprCountRow">${dailyLprCount[11]}</div>
+												<div>${dailyLprCount[0].cameraName}</div>
+												<c:choose>
+													<c:when test="${empty dailyLprCount[0].lprCount}">
+														<div class="lprCountRow">0</div>
+													</c:when>
+													<c:otherwise>
+														<div class="lprCountRow">${dailyLprCount[0].lprCount}</div>
+													</c:otherwise>
+												</c:choose>
 											</div>
 										</c:otherwise>
 									</c:choose>
@@ -824,7 +873,6 @@
 								</div>
 							</div>
 						</div>
-
 					</div>
 					<%-- 섹션 좌측.E --%>
 
@@ -891,7 +939,6 @@
 					<div class="madeFodics">포딕스시스템</div>
 				</div>
 			</div>
-
 			<%-- ${dailyPersonCount[11].personCount} --%>
 
 			<%-- 우측 메인.E --%>

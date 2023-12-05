@@ -46,37 +46,37 @@ public class CameraController {
 		 // 사람
 		 List<DailyCount> dailyPersonCount = service.dailyPersonCount();
 		 model.addAttribute("dailyPersonCount", dailyPersonCount);
-		 System.out.println("dailyPersonCount : "+dailyPersonCount);
+//		 System.out.println("dailyPersonCount : "+dailyPersonCount);
 		 
 		 // 차량
 		 List<DailyCount> dailyVehicleCount = service.dailyVehicleCount();
 		 model.addAttribute("dailyVehicleCount", dailyVehicleCount);
-		 System.out.println("dailyVehicleCount : "+dailyVehicleCount);
+//		 System.out.println("dailyVehicleCount : "+dailyVehicleCount);
 		 
 		 // 얼굴
 		 List<DailyCount> dailyFaceCount = service.dailyFaceCount();
 		 model.addAttribute("dailyFaceCount", dailyFaceCount);
-		 System.out.println("dailyFaceCount : "+dailyFaceCount);
+//		 System.out.println("dailyFaceCount : "+dailyFaceCount);
 		 
 		 // 차량 번호판
 		 List<DailyCount> dailyLprCount = service.dailyLprCount();
 		 model.addAttribute("dailyLprCount", dailyLprCount);
-		 System.out.println("dailyLprCount : "+dailyLprCount);
+//		 System.out.println("dailyLprCount : "+dailyLprCount);
 		 
 		 // 침입
 		 List<DailyCount> dailyInvCntCount = service.dailyInvCntCount();
 		 model.addAttribute("dailyInvCntCount", dailyInvCntCount);
-		 System.out.println("dailyInvCntCount : "+dailyInvCntCount);
+//		 System.out.println("dailyInvCntCount : "+dailyInvCntCount);
 		 
 		 // 배회
 		 List<DailyCount> dailyLotCntCount = service.dailyLotCntCount();
 		 model.addAttribute("dailyLotCntCount", dailyLotCntCount);
-		 System.out.println("dailyLotCntCount : "+dailyLotCntCount);
+//		 System.out.println("dailyLotCntCount : "+dailyLotCntCount);
 		 
 		 // 카운팅
 		 List<DailyCount> dailyCntCntCount = service.dailyCntCntCount();
 		 model.addAttribute("dailyCntCntCount", dailyCntCntCount);
-		 System.out.println("dailyCntCntCount : "+dailyCntCntCount);
+//		 System.out.println("dailyCntCntCount : "+dailyCntCntCount);
 		 
 
 		 
