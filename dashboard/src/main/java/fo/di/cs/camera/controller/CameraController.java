@@ -1,6 +1,5 @@
 package fo.di.cs.camera.controller;
 
-import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,13 +79,6 @@ public class CameraController {
 		 
 
 		 
-//		 System.out.println("todayList : "+todayList);
-//		 System.out.println("netChangeList : "+netChangeList);
-//		 System.out.println("maskManCount : "+maskManCount);
-//		 System.out.println("maskWomanCount : "+maskWomanCount);
-		 
-		 
-		
 		return "camera/mainCamera";
 	}
 
@@ -119,11 +111,6 @@ public class CameraController {
 		List<DailyCount_summary> genderAccList = service.genderAccList();
 		model.addAttribute("genderAccList", genderAccList);	
 		
-		// 사람
-//		 List<DailyCount> dailyPersonCount1 = service.dailyPersonCount();
-//		 model.addAttribute("dailyPersonCount1", dailyPersonCount1);
-//		 System.out.println("dailyPersonCount1 : "+dailyPersonCount1);
-
 		
 		//*** 의류 선호도 ***
 		
@@ -204,8 +191,6 @@ public class CameraController {
 		model.addAttribute("wearColorList", wearColorList);
 
 //		System.out.println("wearColorList : "+wearColorList);
-//		System.out.println("model : "+model);
-//		 System.out.println("shortBottomWearWoman : "+shortBottomWearWoman);
 		
 		return "camera/main_camera_part1_human";
 	}
@@ -221,28 +206,22 @@ public class CameraController {
 		// 자동차비율
 		double carPercentage = service.carPercentage();
 		model.addAttribute("carPercentage",carPercentage);
-		System.out.println("carPercentage : " + carPercentage);
 		
 		// 버스비율
 		double busPercentage = service.busPercentage();
 		model.addAttribute("busPercentage",busPercentage);
-		System.out.println("busPercentage : " + busPercentage);
 		
 		// 트럭비율
 		double truckPercentage = service.truckPercentage();
 		model.addAttribute("truckPercentage",truckPercentage);
-		System.out.println("truckPercentage : " + truckPercentage);
 		
 		// 오토바이비율
 		double motorcyclePercentage = service.motorcyclePercentage();
 		model.addAttribute("motorcyclePercentage",motorcyclePercentage);
-		System.out.println("motorcyclePercentage : " + motorcyclePercentage);
 		
 		// 자전거비율
 		double cyclePercentage = service.cyclePercentage();
 		model.addAttribute("cyclePercentage",cyclePercentage);
-		System.out.println("cyclePercentage : " + cyclePercentage);
-		
 		
 		
 		return "camera/main_camera_part1_Vehicle";
