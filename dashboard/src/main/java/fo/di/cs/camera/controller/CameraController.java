@@ -42,6 +42,44 @@ public class CameraController {
 		 int maskWomanCount= service.maskWomanCount();
 		 model.addAttribute("maskWomanCount", maskWomanCount);
 		 
+		 
+		 // 사람
+		 List<DailyCount> dailyPersonCount = service.dailyPersonCount();
+		 model.addAttribute("dailyPersonCount", dailyPersonCount);
+		 System.out.println("dailyPersonCount : "+dailyPersonCount);
+		 
+		 // 차량
+		 List<DailyCount> dailyVehicleCount = service.dailyVehicleCount();
+		 model.addAttribute("dailyVehicleCount", dailyVehicleCount);
+		 System.out.println("dailyVehicleCount : "+dailyVehicleCount);
+		 
+		 // 얼굴
+		 List<DailyCount> dailyFaceCount = service.dailyFaceCount();
+		 model.addAttribute("dailyFaceCount", dailyFaceCount);
+		 System.out.println("dailyFaceCount : "+dailyFaceCount);
+		 
+		 // 차량 번호판
+		 List<DailyCount> dailyLprCount = service.dailyLprCount();
+		 model.addAttribute("dailyLprCount", dailyLprCount);
+		 System.out.println("dailyLprCount : "+dailyLprCount);
+		 
+		 // 침입
+		 List<DailyCount> dailyInvCntCount = service.dailyInvCntCount();
+		 model.addAttribute("dailyInvCntCount", dailyInvCntCount);
+		 System.out.println("dailyInvCntCount : "+dailyInvCntCount);
+		 
+		 // 배회
+		 List<DailyCount> dailyLotCntCount = service.dailyLotCntCount();
+		 model.addAttribute("dailyLotCntCount", dailyLotCntCount);
+		 System.out.println("dailyLotCntCount : "+dailyLotCntCount);
+		 
+		 // 카운팅
+		 List<DailyCount> dailyCntCntCount = service.dailyCntCntCount();
+		 model.addAttribute("dailyCntCntCount", dailyCntCntCount);
+		 System.out.println("dailyCntCntCount : "+dailyCntCntCount);
+		 
+
+		 
 //		 System.out.println("todayList : "+todayList);
 //		 System.out.println("netChangeList : "+netChangeList);
 //		 System.out.println("maskManCount : "+maskManCount);
@@ -80,7 +118,12 @@ public class CameraController {
 		// 휴먼페이지 성별 악세사리 막대&라인 혼합 차트
 		List<DailyCount_summary> genderAccList = service.genderAccList();
 		model.addAttribute("genderAccList", genderAccList);	
-	
+		
+		// 사람
+		 List<DailyCount> dailyPersonCount1 = service.dailyPersonCount();
+		 model.addAttribute("dailyPersonCount1", dailyPersonCount1);
+		 System.out.println("dailyPersonCount1 : "+dailyPersonCount1);
+
 		
 		//*** 의류 선호도 ***
 		
@@ -160,12 +203,8 @@ public class CameraController {
 		polyTopWearWoman, huesTopWearWoman, monoBottomWearWoman, polyBottomWearWoman, huesBottomWearWoman};
 		model.addAttribute("wearColorList", wearColorList);
 
-		System.out.println("wearColorList : "+wearColorList);
-		
-		
-		
-		System.out.println("model : "+model);
-		
+//		System.out.println("wearColorList : "+wearColorList);
+//		System.out.println("model : "+model);
 //		 System.out.println("shortBottomWearWoman : "+shortBottomWearWoman);
 		
 		return "camera/main_camera_part1_human";

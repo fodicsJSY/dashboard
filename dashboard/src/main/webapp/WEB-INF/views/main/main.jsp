@@ -399,7 +399,6 @@
 												<td>${dailyCount_CNT.falCntCount}</td>
 											</tr>
 										</c:forEach>
-										
 									</tbody>
 								</table>
 							</div>	

@@ -79,18 +79,21 @@
 				/* width: 500px;  */
             }
 
-            /* 2개 */
-            .data.twoColumns .today-part8:nth-child(n+3) {
-                display: none;
-            }
 
-            .data.twoColumns .today-part8 {
-                width: 100%;
+		   /* 2개 */
+			.data.twoColumns .today-part8:nth-child(n+3){
+				display: none;
+			}
+	
+            .data.twoColumns .today-part8{
+				width: 100%;
                 height: 832px;
 				display: flex;
 				flex-direction: column;
 				justify-content: start;
+				
             }
+
 
 			.data.twoColumns .todayTXT{
                 width: 100%;
@@ -121,14 +124,28 @@
 
 
 
-            /* 4개 */
-            .data.fourColumns .today-part8:nth-child(n+5) {
-                display: none;
-            }
+			.data.twoColumns .tableCon{
+				width: 500px;
+				height: 730px;
+				display: flex;
+				flex-direction: row;
+				justify-content: space-around;
+				padding:10px 0 0 0; 
+				overflow-y: scroll;
+			}
 
-            .data.fourColumns .today-part8 {
-                display: block;
-                min-width: 510px;
+
+
+
+
+
+            /* 4개 */
+
+
+            .data.fourColumns .today-part8{
+                display: flex;
+				flex-direction: column;
+                min-width: 500px;
                 height: 400px;
             }
 
@@ -161,10 +178,29 @@
 			}
 
 
+			.data.fourColumns .tableCon{
+				width: 500px;
+				height: 300px;
+				display: flex;
+				flex-direction: row;
+				justify-content: space-around;
+				padding:10px 0 0 0; 
+				overflow-y: scroll;
+			}
+
+
+
+			.data.fourColumns .today-part8:nth-child(n+5) {
+                display: none;
+            }
+
+
             /* 6개 */
             .data.sixColumns .today-part8 {
                 width: 100%;
                 height: 260px;
+				display: flex;
+				flex-direction: column;
             }
             
             .data.sixColumns .today-part8:nth-child(n+7) {
@@ -199,6 +235,19 @@
 				margin: 0 10px 0 0;
 			}
 
+			
+			.data.sixColumns .tableCon{
+				width:500px;
+				height: 160px;
+				display: flex;
+				flex-direction: row;
+				justify-content: space-around;
+				padding:10px 0 0 0; 
+				overflow-y: scroll;
+			}
+
+
+
 
             /* 8개 */
             .data.eightColumns {
@@ -210,7 +259,9 @@
             .data.eightColumns .today-part8 {
                 width: 100%;
                 height: 193px;
-
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
 				
             }
 
@@ -240,12 +291,19 @@
 				justify-content: center;
 				margin-left: 20px;
 			}
+
 			.data.eightColumns .contentsBox *{
 				margin-top: 5px;
-
 			}
 
+			
+			.data.eightColumns .tableCon{
+				width: 300px;
+			}
+		
+
         }
+
 
 	</style>
 </head>
@@ -254,6 +312,9 @@
 	<c:set var="netChangeList" value="${netChangeList}"/>
 	<c:set var="maskManCount" value="${maskManCount}"/>
 	<c:set var="maskWomanCount" value="${maskWomanCount}"/>
+	<c:set var="dailyPersonCount" value="${dailyPersonCount}"/>
+	<c:out value="${dailyPersonCount[11]}" />
+
     
     <%-- 전체 wrap.S --%>
 	<div class="wrap" id="indexWrap">  
@@ -334,9 +395,9 @@
 								</div>
 							</div>
 							<div class="data">
-								<div class="today-part8" >
+								<div class="today-part8 partBox" >
 									<a href="/mainCamera/mainCameraPart1Human">
-										<div class="todayTXT todayHuman" >
+										<div class="todayTXT todayHuman">
 											<div class="titleBox">
 												<img src="/resources/img/icon_titleHuman.png">
 												<div class="todayTitle color-Human">사람</div>
@@ -370,54 +431,86 @@
 												</div>
 											</div>
 										</div>
-									</a>
-									<a href="/mainCamera/subCamera">
+									</a>	
+									<c:choose>
+										<c:when test="${empty dailyPersonCount[10]}">
+											<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+											<div class="tableCon">
+												<div>카메라 없음</div>
+												<div class="humanCountRow">0</div>
+											</div>
+										</c:when>
+										<c:otherwise>
+											<!-- 리스트의 요소 개수를 출력 -->
+											<div class="tableCon">
+												<div>${dailyPersonCount1[10]}</div>
+												<div class="humanCountRow">${dailyPersonCount1[11]}</div>
+											</div>
+										</c:otherwise>
+									</c:choose>
+									<%-- <a href="/mainCamera/subCamera">
 										<div id="Human_grid_area" style="width: 60%; float: left;">	
 										</div>								
-									</a>
+									</a> --%>
 								</div>
 								<div class="today-part8" >
 									<a href="/mainCamera/mainCameraPart1Vehicle">
-										<div class="todayTXT todayCar"  >
-											<div class="titleBox">
-												<img src="/resources/img/icon_titleCar.png">
-												<div class="todayTitle color-Car">차량</div>
+									<div class="todayTXT todayCar">
+										<div class="titleBox">
+											<img src="/resources/img/icon_titleCar.png">
+											<div class="todayTitle color-Car">차량</div>
+										</div>
+										<div class="contentsBox">
+											<div class="amount" id="total_vehicle_cnt">
+												<c:choose>
+													<c:when test="${empty todayList[12].vehicle}">
+														<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+														<span>0</span>
+													</c:when>
+													<c:otherwise>
+														<!-- 리스트의 요소 개수를 출력 -->
+														<span>${todayList[12].vehicle}</span>
+													</c:otherwise>
+												</c:choose>	
 											</div>
-											<div class="contentsBox">
-												<div class="amount" id="total_vehicle_cnt">
+											<div class="contrast">전일대비 
+												<span class="upper" id="compare_vehicle_cnt">
 													<c:choose>
-														<c:when test="${empty todayList[12].vehicle}">
+														<c:when test="${empty netChangeList[25].vehicleCount_DIFF}">
 															<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
 															<span>0</span>
 														</c:when>
 														<c:otherwise>
 															<!-- 리스트의 요소 개수를 출력 -->
-															<span>${todayList[12].vehicle}</span>
+															<span>${netChangeList[25].vehicleCount_DIFF}</span>
 														</c:otherwise>
 													</c:choose>	
-												</div>
-												<div class="contrast">전일대비 
-													<span class="upper" id="compare_vehicle_cnt">
-														<c:choose>
-															<c:when test="${empty netChangeList[25].vehicleCount_DIFF}">
-																<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
-																<span>0</span>
-															</c:when>
-															<c:otherwise>
-																<!-- 리스트의 요소 개수를 출력 -->
-																<span>${netChangeList[25].vehicleCount_DIFF}</span>
-															</c:otherwise>
-														</c:choose>	
-													</span>
-												</div>
+												</span>
 											</div>
 										</div>
+									</div>
 									</a>
-									<a href="/mainCamera/subCamera">
-										<div id="Car_grid_area" style="width: 60%; float: left;">
-										</div>
-									</a>
+									<c:choose>
+										<c:when test="${empty dailyVehicleCount[10]}">
+											<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+											<div class="tableCon">
+												<div>카메라 없음</div>
+												<div class="vehicleCountRow">0</div>
+											</div>
+										</c:when>
+										<c:otherwise>
+											<!-- 리스트의 요소 개수를 출력 -->
+											<div class="tableCon">
+												<div>${dailyVehicleCount[10]}</div>
+												<div class="vehicleCountRow">${dailyVehicleCount[11]}</div>
+											</div>
+										</c:otherwise>
+									</c:choose>
 								</div>
+								<%-- <a href="/mainCamera/subCamera">
+									<div id="Car_grid_area" style="width: 60%; float: left;">
+									</div>
+								</a> --%>
 								<div class="today-part8" >
 									<a href="/mainCamera/mainCameraPart1Face">
 										<div class="todayTXT todayFace"  >
@@ -455,137 +548,204 @@
 											</div>
 										</div>
 									</a>
-									<a href="/mainCamera/subCamera">
-										<div id="Face_grid_area" style="width: 60%; float: left;">	
-										</div>
-									</a>
+									<c:choose>
+										<c:when test="${empty dailyFaceCount[10]}">
+											<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+											<div class="tableCon">
+												<div>카메라 없음</div>
+												<div class="faceCountRow">0</div>
+											</div>
+										</c:when>
+										<c:otherwise>
+											<!-- 리스트의 요소 개수를 출력 -->
+											<div class="tableCon">
+												<div>${dailyFaceCount[10]}</div>
+												<div class="faceCountRow">${dailyFaceCount[11]}</div>
+											</div>
+										</c:otherwise>
+									</c:choose>
+								<%-- <a href="/mainCamera/subCamera">
+									<div id="Face_grid_area" style="width: 60%; float: left;">	
+									</div>
+								</a> --%>
 								</div>
+							
 								<div class="today-part8" >
 									<a href="/mainCamera/mainCameraPart1Counting">
-										<div class="todayTXT todayCounting"  >
-											<div class="titleBox">
-												<img src="/resources/img/icon_titleCounting.png">
-												<div class="todayTitle color-Counting">카운팅</div>
+									<div class="todayTXT todayCounting"  >
+										<div class="titleBox">
+											<img src="/resources/img/icon_titleCounting.png">
+											<div class="todayTitle color-Counting">카운팅</div>
+										</div>
+										<div class="contentsBox">
+											<div class="amount" id="total_count_cnt">
+												<c:choose>
+													<c:when test="${empty todayList[17].cntCnt}">
+														<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+														<span>0</span>
+													</c:when>
+													<c:otherwise>
+														<!-- 리스트의 요소 개수를 출력 -->
+														<span>${todayList[17].cntCnt}</span>
+													</c:otherwise>
+												</c:choose>	
 											</div>
-											<div class="contentsBox">
-												<div class="amount" id="total_count_cnt">
+											<div class="contrast">전일대비 
+												<span class="upper" id="compare_count_cnt">
 													<c:choose>
-														<c:when test="${empty todayList[17].cntCnt}">
+														<c:when test="${empty netChangeList[30].cntCntCount_DIFF}">
 															<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
 															<span>0</span>
 														</c:when>
 														<c:otherwise>
 															<!-- 리스트의 요소 개수를 출력 -->
-															<span>${todayList[17].cntCnt}</span>
+															<span>${netChangeList[30].cntCntCount_DIFF}</span>
 														</c:otherwise>
 													</c:choose>	
-												</div>
-												<div class="contrast">전일대비 
-													<span class="upper" id="compare_count_cnt">
-														<c:choose>
-															<c:when test="${empty netChangeList[30].cntCntCount_DIFF}">
-																<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
-																<span>0</span>
-															</c:when>
-															<c:otherwise>
-																<!-- 리스트의 요소 개수를 출력 -->
-																<span>${netChangeList[30].cntCntCount_DIFF}</span>
-															</c:otherwise>
-														</c:choose>	
-													</span>
-												</div>
+												</span>
 											</div>
 										</div>
+									</div>
 									</a>
-									<a href="/mainCamera/subCamera">
-										<div id="Counting_grid_area" style="width: 60%; float: left;">	
-										</div>
-									</a>
+									<c:choose>
+										<c:when test="${empty dailyCntCntCount[10]}">
+											<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+											<div class="tableCon">
+												<div>카메라 없음</div>
+												<div class="countingCountRow">0</div>
+											</div>
+										</c:when>
+										<c:otherwise>
+											<!-- 리스트의 요소 개수를 출력 -->
+											<div class="tableCon">
+												<div>${dailyCntCntCount[10]}</div>
+												<div class="countingCountRow">${dailyCntCntCount[11]}</div>
+											</div>
+										</c:otherwise>
+									</c:choose>
+								<%-- <a href="/mainCamera/subCamera">
+									<div id="Counting_grid_area" style="width: 60%; float: left;">	
+									</div>
+								</a> --%>
 								</div>
 								<div class="today-part8" >
 									<a href="/mainCamera/mainCameraPart1Loitering">
-										<div class="todayTXT todayIntrusion"  >
-											<div class="titleBox">
-												<img src="/resources/img/icon_titleIntrusion.png">
-												<div class="todayTitle color-Intrusion">침입</div>
+									<div class="todayTXT todayIntrusion"  >
+										<div class="titleBox">
+											<img src="/resources/img/icon_titleIntrusion.png">
+											<div class="todayTitle color-Intrusion">침입</div>
+										</div>
+										<div class="contentsBox">
+											<div class="amount" id="total_inv_cnt">
+												<c:choose>
+													<c:when test="${empty todayList[15].invCnt}">
+														<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+														<span>0</span>
+													</c:when>
+													<c:otherwise>
+														<!-- 리스트의 요소 개수를 출력 -->
+														<span>${todayList[15].invCnt}</span>
+													</c:otherwise>
+												</c:choose>	
 											</div>
-											<div class="contentsBox">
-												<div class="amount" id="total_inv_cnt">
+											<div class="contrast">전일대비 
+												<span class="lower" id="compare_inv_cnt">
 													<c:choose>
-														<c:when test="${empty todayList[15].invCnt}">
+														<c:when test="${empty netChangeList[28].invCntCount_DIFF}">
 															<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
 															<span>0</span>
 														</c:when>
 														<c:otherwise>
 															<!-- 리스트의 요소 개수를 출력 -->
-															<span>${todayList[15].invCnt}</span>
+															<span>${netChangeList[28].invCntCount_DIFF}</span>
 														</c:otherwise>
 													</c:choose>	
-												</div>
-												<div class="contrast">전일대비 
-													<span class="lower" id="compare_inv_cnt">
-														<c:choose>
-															<c:when test="${empty netChangeList[28].invCntCount_DIFF}">
-																<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
-																<span>0</span>
-															</c:when>
-															<c:otherwise>
-																<!-- 리스트의 요소 개수를 출력 -->
-																<span>${netChangeList[28].invCntCount_DIFF}</span>
-															</c:otherwise>
-														</c:choose>	
-													</span>
-												</div>
+												</span>
 											</div>
 										</div>
+									</div>
 									</a>
-									<a href="/mainCamera/subCamera">
-										<div id="Invasion_grid_area" style="width: 60%; float: left;">		
-										</div>										
-									</a>
+									<c:choose>
+										<c:when test="${empty dailyInvCntCount[10]}">
+											<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+											<div class="tableCon">
+												<div>카메라 없음</div>
+												<div class="invCountRow">0</div>
+											</div>
+										</c:when>
+										<c:otherwise>
+											<!-- 리스트의 요소 개수를 출력 -->
+											<div class="tableCon">
+												<div>${dailyInvCntCount[10]}</div>
+												<div class="invCountRow">${dailyInvCntCount[11]}</div>
+											</div>
+										</c:otherwise>
+									</c:choose>
+								<%-- <a href="/mainCamera/subCamera">
+									<div id="Invasion_grid_area" style="width: 60%; float: left;">		
+									</div>										
+								</a> --%>
 								</div>									
+							
 								<div class="today-part8" >
 									<a href="/mainCamera/mainCameraPart1Loitering">
-										<div class="todayTXT todayLoitering" >
-											<div class="titleBox">
-												<img src="/resources/img/icon_titleLoitering.png">
-												<div class="todayTitle color-Loitering">배회</div>
+									<div class="todayTXT todayLoitering" >
+										<div class="titleBox">
+											<img src="/resources/img/icon_titleLoitering.png">
+											<div class="todayTitle color-Loitering">배회</div>
+										</div>
+										<div class="contentsBox">
+											<div class="amount" id="total_lot_cnt">
+												<c:choose>
+													<c:when test="${empty todayList[16].lotCnt}">
+														<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+														<span>0</span>
+													</c:when>
+													<c:otherwise>
+														<!-- 리스트의 요소 개수를 출력 -->
+														<span>${todayList[16].lotCnt}</span>
+													</c:otherwise>
+												</c:choose>	
 											</div>
-											<div class="contentsBox">
-												<div class="amount" id="total_lot_cnt">
+											<div class="contrast" >전일대비 
+												<span class="lower" id="compare_lot_cnt">
 													<c:choose>
-														<c:when test="${empty todayList[16].lotCnt}">
+														<c:when test="${empty netChangeList[29].lotCntCount_DIFF}">
 															<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
 															<span>0</span>
 														</c:when>
 														<c:otherwise>
 															<!-- 리스트의 요소 개수를 출력 -->
-															<span>${todayList[16].lotCnt}</span>
+															<span>${netChangeList[29].lotCntCount_DIFF}</span>
 														</c:otherwise>
 													</c:choose>	
-												</div>
-												<div class="contrast" >전일대비 
-													<span class="lower" id="compare_lot_cnt">
-														<c:choose>
-															<c:when test="${empty netChangeList[29].lotCntCount_DIFF}">
-																<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
-																<span>0</span>
-															</c:when>
-															<c:otherwise>
-																<!-- 리스트의 요소 개수를 출력 -->
-																<span>${netChangeList[29].lotCntCount_DIFF}</span>
-															</c:otherwise>
-														</c:choose>	
-													</span>
-												</div>
+												</span>
 											</div>
 										</div>
+									</div>
 									</a>
-									<a href="/mainCamera/subCamera">
-										<div id="Loitering_grid_area" style="width: 60%; float: left;">		
-										</div>
-									</a>
+									<c:choose>
+										<c:when test="${empty dailyLotCntCount[10]}">
+											<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+											<div class="tableCon">
+												<div>카메라 없음</div>
+												<div class="lotCountRow">0</div>
+											</div>
+										</c:when>
+										<c:otherwise>
+											<!-- 리스트의 요소 개수를 출력 -->
+											<div class="tableCon">
+												<div>${dailyLotCntCount[10]}</div>
+												<div class="lotCountRow">${dailyLotCntCount[11]}</div>
+											</div>
+										</c:otherwise>
+									</c:choose>
+								<%-- <a href="/mainCamera/subCamera">
+									<div id="Loitering_grid_area" style="width: 60%; float: left;">		
+									</div>
+								</a> --%>
 								</div>
+								
 								<div class="today-part8">
 									<div class="todayTXT todayLPR"  >
 										<div class="titleBox">
@@ -621,6 +781,22 @@
 											</div>
 										</div>
 									</div>
+									<c:choose>
+										<c:when test="${empty dailyLprCount[10]}">
+											<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+											<div class="tableCon">
+												<div>카메라 없음</div>
+												<div class="lprCountRow">0</div>
+											</div>
+										</c:when>
+										<c:otherwise>
+											<!-- 리스트의 요소 개수를 출력 -->
+											<div class="tableCon">
+												<div>${dailyLprCount[10]}</div>
+												<div class="lprCountRow">${dailyLprCount[11]}</div>
+											</div>
+										</c:otherwise>
+									</c:choose>
 									<a href="/mainCamera/subCamera">
 										<div id="LPR_grid_area" style="width: 60%; float: left;">	
 										</div>
@@ -637,10 +813,14 @@
 											<div class="contrast">전일대비 <span class="lower">0</span></div>
 										</div>
 									</div>
-									<a href="/mainCamera/subCamera">
+									<div class="tableCon">
+										<div>카메라 없음</div>
+										<div class="pkCountRow">0</div>
+									</div>
+									<%-- <a href="/mainCamera/subCamera">
 										<div id="Parking_grid_area" style="width: 60%; float: left'">	
 										</div>
-									</a>
+									</a> --%>
 								</div>
 							</div>
 						</div>
@@ -711,7 +891,9 @@
 					<div class="madeFodics">포딕스시스템</div>
 				</div>
 			</div>
-			<%-- ${todayList} --%>
+
+			<%-- ${dailyPersonCount[11].personCount} --%>
+
 			<%-- 우측 메인.E --%>
 		</div>
 		<%--  내용.E --%>
@@ -723,30 +905,25 @@
     <%-- js --%>
 	<script>
         document.getElementById('twoInnerBox').addEventListener('click', function () {
-            document.querySelector('.data').classList.add('twoColumns');
-            document.querySelector('.data').classList.remove('sixColumns');
             document.querySelector('.data').classList.remove('fourColumns');
+			document.querySelector('.data').classList.remove('sixColumns');
             document.querySelector('.data').classList.remove('eightColumns');
+            document.querySelector('.data').classList.add('twoColumns');
         });
 
         document.getElementById('fourInnerBox').addEventListener('click', function () {
             document.querySelector('.data').classList.remove('twoColumns');
             document.querySelector('.data').classList.remove('sixColumns');
-            document.querySelector('.data').classList.add('fourColumns');
             document.querySelector('.data').classList.remove('eightColumns');
-    
-            
+            document.querySelector('.data').classList.add('fourColumns');
         });
 
         document.getElementById('sixInnerBox').addEventListener('click', function () {
             document.querySelector('.data').classList.remove('twoColumns');
             document.querySelector('.data').classList.remove('fourColumns');
-            document.querySelector('.data').classList.add('sixColumns');
             document.querySelector('.data').classList.remove('eightColumns');
-            
+            document.querySelector('.data').classList.add('sixColumns');
         });
-        
-
 
         document.getElementById('eightInnerBox').addEventListener('click', function () {
             document.querySelector('.data').classList.remove('twoColumns');
@@ -754,8 +931,7 @@
             document.querySelector('.data').classList.remove('fourColumns');
             document.querySelector('.data').classList.add('eightColumns');
         });
-
-        </script>
+    </script>
 
 	<%-- echarts --%>
 	<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>

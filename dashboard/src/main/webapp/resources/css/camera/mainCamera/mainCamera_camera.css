@@ -37,7 +37,7 @@
 .today .amount {position:absolute;  top:50px; width:100%;  padding-right:20px; text-align:right;  font-size:24px;}
 .today .contrast {position:absolute; top:19px;  width:100%; padding-right:18px; text-align:right; }
 
-.today-part8 {float:left; width:100%; height:193px; border:1px solid #333333; }
+.today-part8 { width:100%; height:193px; border:1px solid #333333; }
 
 
 .today-part8 .todayTXT {

@@ -170,8 +170,87 @@
 	</select>
 	
 	
+	<!-- 사람 -->
+	<select id="dailyPersonCount" resultMap="DailyCount_rm">
+		SELECT
+			CNT.CAMERA_NAME   
+			, SUM(CNT.PERSON)   AS personCount   
+		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT CNT
+		WHERE SUBSTRING(CNT.OCCU_TIME, 1, 8) = '20231110'
+		GROUP BY CNT.CAMERA_NAME
+		ORDER BY SUM(CNT.TOT_CNT)
+	</select>
 	
-		<!-- 긴 상의 남성 비율 -->
+	<!-- 차량 -->
+	<select id="dailyVehicleCount" resultMap="DailyCount_rm">
+		SELECT
+			CNT.CAMERA_NAME   
+			, SUM(CNT.VEHICLE)  AS vehicleCount     
+		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT CNT
+		WHERE SUBSTRING(CNT.OCCU_TIME, 1, 8) = '20231110'
+		GROUP BY CNT.CAMERA_NAME
+		ORDER BY SUM(CNT.TOT_CNT)
+	</select>
+	
+	<!-- 얼굴 -->
+	<select id="dailyFaceCount" resultMap="DailyCount_rm">
+		SELECT
+			CNT.CAMERA_NAME   
+			, SUM(CNT.FACE)   AS faceCount          
+		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT CNT
+		WHERE SUBSTRING(CNT.OCCU_TIME, 1, 8) = '20231110'
+		GROUP BY CNT.CAMERA_NAME
+		ORDER BY SUM(CNT.TOT_CNT)
+	</select>
+	
+	<!-- 차량번호판 -->
+	<select id="dailyLprCount" resultMap="DailyCount_rm">
+		SELECT
+			CNT.CAMERA_NAME   
+			, SUM(CNT.LPR)    AS lprCount             
+		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT CNT
+		WHERE SUBSTRING(CNT.OCCU_TIME, 1, 8) = '20231110'
+		GROUP BY CNT.CAMERA_NAME
+		ORDER BY SUM(CNT.TOT_CNT)
+	</select>
+	
+	<!-- 침입 -->
+	<select id="dailyInvCntCount" resultMap="DailyCount_rm">
+		SELECT
+			CNT.CAMERA_NAME   
+			, SUM(CNT.INV_CNT)  AS invCntCount    
+		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT CNT
+		WHERE SUBSTRING(CNT.OCCU_TIME, 1, 8) = '20231110'
+		GROUP BY CNT.CAMERA_NAME
+		ORDER BY SUM(CNT.TOT_CNT)
+	</select>
+	
+	<!-- 배회 -->
+	<select id="dailyLotCntCount" resultMap="DailyCount_rm">
+		SELECT
+			CNT.CAMERA_NAME   
+			, SUM(CNT.LOT_CNT)  AS lotCntCount    
+		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT CNT
+		WHERE SUBSTRING(CNT.OCCU_TIME, 1, 8) = '20231110'
+		GROUP BY CNT.CAMERA_NAME
+		ORDER BY SUM(CNT.TOT_CNT)
+	</select>
+	
+	<!-- 카운팅 -->
+	<select id="dailyCntCntCount" resultMap="DailyCount_rm">
+		SELECT
+			CNT.CAMERA_NAME   
+			, SUM(CNT.CNT_CNT)  AS cntCntCount  
+		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT CNT
+		WHERE SUBSTRING(CNT.OCCU_TIME, 1, 8) = '20231110'
+		GROUP BY CNT.CAMERA_NAME
+		ORDER BY SUM(CNT.TOT_CNT)
+	</select>
+	
+
+	
+	
+	<!-- 긴 상의 남성 비율 -->
 	<select id="longTopWearMan" resultMap="_int">
 		SELECT
 		    CASE

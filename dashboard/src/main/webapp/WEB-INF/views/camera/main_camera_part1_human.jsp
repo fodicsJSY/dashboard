@@ -47,6 +47,7 @@
 	<c:set var="longBottomWearWoman" value="${longBottomWearWoman}"/>
 	<c:set var="shortBottomWearWoman" value="${shortBottomWearWoman}"/>
 	<c:set var="wearColorList" value="${wearColorList}" />
+	<c:set var="dailyPersonCount1" value="${dailyPersonCount1}" />
 
 	
 	<%-- 전체 wrap.S --%>
@@ -151,6 +152,26 @@
 									<div>
 										<div style = "width:100%;"  id = "count_human_display_wnd">
 											<table class="humanCount">
+												<%-- <c:choose>
+														<c:when test="${empty dailyPersonCount1[10]}">
+															<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+															<table>
+																<tr>
+																	<td>카메라 없음</td>
+																	<td>0</td>
+																</tr>
+															</table>
+														</c:when>
+														<c:otherwise>
+															<!-- 리스트의 요소 개수를 출력 -->
+															<table>
+																<tr>
+																	<td>${dailyPersonCount1[10]}</td>
+																	<td>${dailyPersonCount1[11]}</td>
+																</tr>
+															</table>
+														</c:otherwise>
+													</c:choose>	 --%>
 												<tr>
 													<td>신촌사거리</td>
 													<td>164</td>
@@ -452,7 +473,6 @@
 										<%-- 이벤트 발생 비율 도넛 차트 --%>
 									</div>
 								</div>
-								
 							</div>
 						</div>	
 					</div>	

@@ -10,6 +10,10 @@ import fo.di.cs.main.model.dto.DailyCount_summary;
  * @author RND-NEW2
  *
  */
+/**
+ * @author RND-NEW2
+ *
+ */
 public interface CameraService {
 
 	/** 메인카메라페이지 금일 누적 합계(공통)
@@ -31,6 +35,45 @@ public interface CameraService {
 	 * @return int
 	 */
 	int maskWomanCount();
+	
+
+	/** 사람
+	 * @return int
+	 */
+	List<DailyCount> dailyPersonCount();
+
+	/** 차량
+	 * @return int
+	 */
+	List<DailyCount> dailyVehicleCount();
+
+	/** 얼굴
+	 * @return int
+	 */
+	List<DailyCount> dailyFaceCount();
+
+	/** 차량 번호판
+	 * @return int
+	 */
+	List<DailyCount> dailyLprCount();
+
+	/** 침입
+	 * @return int
+	 */
+	List<DailyCount> dailyInvCntCount();
+
+	/** 배회
+	 * @return int
+	 */
+	List<DailyCount> dailyLotCntCount();
+
+	/** 카운팅
+	 * @return int
+	 */
+	List<DailyCount> dailyCntCntCount();
+	
+	
+	
 
 	
 	/** 휴먼페이지 성별 도넛 차트
@@ -144,7 +187,7 @@ public interface CameraService {
 	 * @return int
 	 */
 	double huesBottomWearWoman();
-	
+
 	
 
 

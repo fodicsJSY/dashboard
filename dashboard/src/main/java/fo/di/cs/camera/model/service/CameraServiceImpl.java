@@ -54,6 +54,64 @@ public class CameraServiceImpl implements CameraService{
 	
 	
 	/**
+	 * 사람
+	 */
+	@Override
+	public List<DailyCount> dailyPersonCount() {
+		return dao.dailyPersonCount();
+	}
+	
+	/**
+	 * 차량
+	 */
+	@Override
+	public List<DailyCount> dailyVehicleCount() {
+		return dao.dailyVehicleCount();
+	}
+	
+	/**
+	 * 얼굴
+	 */
+	@Override
+	public List<DailyCount> dailyFaceCount() {
+		return dao.dailyFaceCount();
+	}
+	
+	/**
+	 * 차량번호판
+	 */
+	@Override
+	public List<DailyCount> dailyLprCount() {
+		return dao.dailyLprCount();
+	}
+	
+	/**
+	 * 침입
+	 */
+	@Override
+	public List<DailyCount> dailyInvCntCount() {
+		return dao.dailyInvCntCount();
+	}
+	
+	/**
+	 * 배회
+	 */
+	@Override
+	public List<DailyCount> dailyLotCntCount() {
+		return dao.dailyLotCntCount();
+	}
+	
+	/**
+	 * 카운팅
+	 */
+	@Override
+	public List<DailyCount> dailyCntCntCount() {
+		return dao.dailyCntCntCount();
+	}
+	
+	
+	
+	/**
 	 * 휴먼페이지 성별 도넛 차트
 	 */
 	@Override

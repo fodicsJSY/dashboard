@@ -44,6 +44,60 @@ public class CameraDAO {
 	public int maskWomanCount() {
 		return sql.selectOne("cameraPageMapper.maskWomanCount");
 	}
+	
+	
+	
+	/** 사람
+	 * @return int
+	 */
+	public List<DailyCount> dailyPersonCount() {
+		return sql.selectList("cameraPageMapper.dailyPersonCount");
+	}
+
+	/** 차량
+	 * @return int
+	 */
+	public List<DailyCount> dailyVehicleCount() {
+		return sql.selectList("cameraPageMapper.dailyVehicleCount");
+	}
+
+	/** 얼굴
+	 * @return int
+	 */
+	public List<DailyCount> dailyFaceCount() {
+		return sql.selectList("cameraPageMapper.dailyFaceCount");
+	}
+
+	/** 차량번호판
+	 * @return int
+	 */
+	public List<DailyCount> dailyLprCount() {
+		return sql.selectList("cameraPageMapper.dailyLprCount");
+	}
+
+	/** 침입
+	 * @return int
+	 */
+	public List<DailyCount> dailyInvCntCount() {
+		return sql.selectList("cameraPageMapper.dailyInvCntCount");
+	}
+
+	/** 배회
+	 * @return int
+	 */
+	public List<DailyCount> dailyLotCntCount() {
+		return sql.selectList("cameraPageMapper.dailyLotCntCount");
+	}
+
+	/** 카운팅
+	 * @return int
+	 */
+	public List<DailyCount> dailyCntCntCount() {
+		return sql.selectList("cameraPageMapper.dailyCntCntCount");
+	}
+	
+	
+	
 
 	/** 휴먼페이지 성별 도넛 차트
 	 * @return list
@@ -200,6 +254,7 @@ public class CameraDAO {
 	public double huesBottomWearWoman() {
 		return sql.selectOne("cameraPageMapper.huesBottomWearWoman");
 	}
+
 	
 	
 	
