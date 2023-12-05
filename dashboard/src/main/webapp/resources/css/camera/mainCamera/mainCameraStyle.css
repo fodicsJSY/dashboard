@@ -375,6 +375,11 @@ ul.tabs li.tabsON {position:relative; height:40px;  color:#ffffff; font-weight:5
 
 	.tableCon{
 		width: 300px;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		padding:10px 0 0 0; 
+		overflow-y: scroll;
 	}
 
 
