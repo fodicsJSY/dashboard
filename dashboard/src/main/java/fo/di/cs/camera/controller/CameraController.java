@@ -120,9 +120,9 @@ public class CameraController {
 		model.addAttribute("genderAccList", genderAccList);	
 		
 		// 사람
-		 List<DailyCount> dailyPersonCount1 = service.dailyPersonCount();
-		 model.addAttribute("dailyPersonCount1", dailyPersonCount1);
-		 System.out.println("dailyPersonCount1 : "+dailyPersonCount1);
+//		 List<DailyCount> dailyPersonCount1 = service.dailyPersonCount();
+//		 model.addAttribute("dailyPersonCount1", dailyPersonCount1);
+//		 System.out.println("dailyPersonCount1 : "+dailyPersonCount1);
 
 		
 		//*** 의류 선호도 ***

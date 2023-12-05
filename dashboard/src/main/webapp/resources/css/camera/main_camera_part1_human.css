@@ -5,28 +5,19 @@
 
 #count_human_display_wnd{
     height: 715px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding:10px 0 0 0; 
     overflow: auto;
 }
 
-.humanCount{
-    width: 100%;
-    font-family: NanumSquareEB; 
-    font-size: 11pt; 
+
+
+            
+.humanCountRow{
+    color: #94e9ec;
 }
-
-
-.humanCount *{
-    height: 40px;
-    vertical-align: middle;
-}
-
-
-
-.humanCount tr>td:nth-child(2){
-    color: #94e9ec; 
-}
-
-
 
 
 

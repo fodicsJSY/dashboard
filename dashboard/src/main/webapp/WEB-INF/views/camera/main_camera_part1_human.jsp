@@ -47,7 +47,7 @@
 	<c:set var="longBottomWearWoman" value="${longBottomWearWoman}"/>
 	<c:set var="shortBottomWearWoman" value="${shortBottomWearWoman}"/>
 	<c:set var="wearColorList" value="${wearColorList}" />
-	<c:set var="dailyPersonCount1" value="${dailyPersonCount1}" />
+	<c:set var="dailyPersonCount" value="${dailyPersonCount}" />
 
 	
 	<%-- 전체 wrap.S --%>
@@ -124,26 +124,26 @@
 										<p class="contrast">전일대비 
 											<span class="lower" id="compare_cnt">
 												<c:choose>
-													<c:when test="${empty netChangeList[24].personCount_DIFF}">
+													<c:when test="${empty netChangeList[0].personCount_DIFF}">
 														<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
 														<span>0</span>
 													</c:when>
 													<c:otherwise>
 														<!-- 리스트의 요소 개수를 출력 -->
-														<span>${netChangeList[24].personCount_DIFF}</span>
+														<span>${netChangeList[0].personCount_DIFF}</span>
 													</c:otherwise>
 												</c:choose>	
 											</span>
 										</p>
 										<p class="amount" id="total_person_cnt">
 											<c:choose>
-												<c:when test="${empty todayList[11].person}">
+												<c:when test="${empty todayList[0].person}">
 													<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
 													<span>0</span>
 												</c:when>
 												<c:otherwise>
 													<!-- 리스트의 요소 개수를 출력 -->
-													<span>${todayList[11].person}</span>
+													<span>${todayList[0].person}</span>
 												</c:otherwise>
 											</c:choose>	
 										</p>
@@ -151,121 +151,25 @@
 									</div>
 									<div>
 										<div style = "width:100%;"  id = "count_human_display_wnd">
-											<table class="humanCount">
-												<%-- <c:choose>
-														<c:when test="${empty dailyPersonCount1[10]}">
-															<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
-															<table>
-																<tr>
-																	<td>카메라 없음</td>
-																	<td>0</td>
-																</tr>
-															</table>
+											<c:choose>
+												<c:when test="${empty dailyPersonCount[0]}">
+													<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+													<div>카메라 없음</div>
+													<div class="humanCountRow">0</div>
+												</c:when>
+												<c:otherwise>
+													<!-- 리스트의 요소 개수를 출력 -->
+													<div>${dailyPersonCount[0].cameraName}</div>
+													<c:choose>
+														<c:when test="${empty dailyPersonCount[0].personCount}">
+															<div class="humanCountRow">0</div>
 														</c:when>
 														<c:otherwise>
-															<!-- 리스트의 요소 개수를 출력 -->
-															<table>
-																<tr>
-																	<td>${dailyPersonCount1[10]}</td>
-																	<td>${dailyPersonCount1[11]}</td>
-																</tr>
-															</table>
+															<div class="humanCountRow">${dailyPersonCount[0].personCount}</div>
 														</c:otherwise>
-													</c:choose>	 --%>
-												<tr>
-													<td>신촌사거리</td>
-													<td>164</td>
-												</tr>
-												<tr>
-													<td>가정오거리</td>
-													<td>164</td>
-												</tr>
-												<tr>
-													<td>장수사거리</td>
-													<td>164</td>
-												</tr>
-												<tr>
-													<td>연수사거리</td>
-													<td>164</td>
-												</tr>
-												<tr>
-													<td>남동IC</td>
-													<td>164</td>
-												</tr>
-												<tr>
-													<td>숭의로타리</td>
-													<td>164</td>
-												</tr>
-												<tr>
-													<td>간석사거리</td>
-													<td>164</td>
-												</tr>
-												<tr>
-													<td>학익사거리</td>
-													<td>164</td>
-												</tr>
-												<tr>
-													<td>원당사거리</td>
-													<td>164</td>
-												</tr>
-												<tr>
-													<td>남동공단입구사거리</td>
-													<td>164</td>
-												</tr>
-												<tr>
-													<td>작전역 사거리</td>
-													<td>164</td>
-												</tr>
-												<tr>
-													<td>부평IC</td>
-													<td>164</td>
-												</tr>
-												<tr>
-													<td>길병원사거리</td>
-													<td>164</td>
-												</tr>
-												<tr>
-													<td>매뜰사거리</td>
-													<td>164</td>
-												</tr>
-												<tr>
-													<td>부평사거리</td>
-													<td>164</td>
-												</tr>
-												<tr>
-													<td>부평사거리</td>
-													<td>164</td>
-												</tr>
-												<tr>
-													<td>부평사거리</td>
-													<td>164</td>
-												</tr>
-												<tr>
-													<td>부평사거리</td>
-													<td>164</td>
-												</tr>
-												<tr>
-													<td>부평사거리</td>
-													<td>164</td>
-												</tr>
-												<tr>
-													<td>부평사거리</td>
-													<td>164</td>
-												</tr>
-												<tr>
-													<td>부평사거리</td>
-													<td>164</td>
-												</tr>
-												<tr>
-													<td>부평사거리</td>
-													<td>164</td>
-												</tr>
-												<tr>
-													<td>부평사거리</td>
-													<td>164</td>
-												</tr>
-												
-											</table>
+													</c:choose>
+												</c:otherwise>
+											</c:choose>	
 										</div>
 									</div>
 								</li>
