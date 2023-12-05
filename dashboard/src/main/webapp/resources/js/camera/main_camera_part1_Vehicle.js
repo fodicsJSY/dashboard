@@ -48,9 +48,9 @@ option = {
           show: false
         },
         data: [
-          { value: 32.7, name: '자동차',  itemStyle: { color: 'rgba(240,120,95,1)' } },
-          { value: 33.86, name: '버스', itemStyle: { color: 'rgba(86,109,245,1)' } },
-          { value: 33.44, name: '트럭', itemStyle: { color: 'rgba(165,245,60,1)' } }
+          { value: carPercentage, name: '자동차',  itemStyle: { color: 'rgba(240,120,95,1)' } },
+          { value: busPercentage, name: '버스', itemStyle: { color: 'rgba(86,109,245,1)' } },
+          { value: truckPercentage, name: '트럭', itemStyle: { color: 'rgba(165,245,60,1)' } }
   
         ]
       }
@@ -101,8 +101,8 @@ option = {
           show: false
         },
         data: [
-          { value: 1983, name: '오토바이', itemStyle:{color: 'rgba(73,245,170,1)'} },
-          { value: 1916, name: '자전거', itemStyle:{color: 'rgba(255,204,69,1)'} }
+          { value: motorcyclePercentage, name: '오토바이', itemStyle:{color: 'rgba(73,245,170,1)'} },
+          { value: cyclePercentage, name: '자전거', itemStyle:{color: 'rgba(255,204,69,1)'} }
         ]
       }
     ]

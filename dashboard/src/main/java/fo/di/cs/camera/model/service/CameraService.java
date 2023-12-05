@@ -129,64 +129,89 @@ public interface CameraService {
 	int shortBottomWearWoman();
 
 	/** 무채색 상의 남성
-	 * @return int
+	 * @return double
 	 */
 	double monoTopWearMan();
 
 	/** 난색 상의 남성
-	 * @return int
+	 * @return double
 	 */
 	double polyTopWearMan();
  
 	/** 한색 상의 남성
-	 * @return int
+	 * @return double
 	 */
 	double huesTopWearMan();
 
 	/** 무채색 하의 남성
-	 * @return int
+	 * @return double
 	 */
 	double monoBottomWearMan();
 
 	/** 난색 하의 남성
-	 * @return int
+	 * @return double
 	 */
 	double polyBottomWearMan();
 
 	/** 한색 하의 남성
-	 * @return int
+	 * @return double
 	 */
 	double huesBottomWearMan();
 
 	/** 무채색 상의 여성
-	 * @return int
+	 * @return double
 	 */
 	double monoTopWearWoman();
 
 	/** 난색 상의 여성
-	 * @return int
+	 * @return double
 	 */
 	double polyTopWearWoman();
 
 	/** 한색 상의 여성
-	 * @return int
+	 * @return double
 	 */
 	double huesTopWearWoman();
 
 	/** 무채색 하의 여성
-	 * @return int
+	 * @return double
 	 */
 	double monoBottomWearWoman();
 
 	/** 난색 하의 여성
-	 * @return int
+	 * @return double
 	 */
 	double polyBottomWearWoman();
 
 	/** 한색 하의 여성
-	 * @return int
+	 * @return double
 	 */
 	double huesBottomWearWoman();
+
+	/** 자동차비율
+	 * @return double
+	 */
+	double carPercentage();
+
+	/** 버스비율
+	 * @return lidoublest
+	 */
+	double busPercentage();
+
+	/** 트럭비율
+	 * @return double
+	 */
+	double truckPercentage();
+
+	/** 오토바이비율
+	 * @return double
+	 */
+	double motorcyclePercentage();
+
+	/** 자전거비율
+	 * @return double
+	 */
+	double cyclePercentage();
 
 	
 

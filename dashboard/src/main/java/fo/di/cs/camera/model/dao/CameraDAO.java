@@ -255,6 +255,41 @@ public class CameraDAO {
 		return sql.selectOne("cameraPageMapper.huesBottomWearWoman");
 	}
 
+	/** 자동차비율
+	 * @return double
+	 */
+	public double carPercentage() {
+		return sql.selectOne("cameraPageMapper.carPercentage");
+	}
+
+	/** 버스비율
+	 * @return double
+	 */
+	public double busPercentage() {
+		return sql.selectOne("cameraPageMapper.busPercentage");
+	}
+
+	/** 트럭비율
+	 * @return double
+	 */
+	public double truckPercentage() {
+		return sql.selectOne("cameraPageMapper.truckPercentage");
+	}
+
+	/** 오토바이비율
+	 * @return double
+	 */
+	public double motorcyclePercentage() {
+		return sql.selectOne("cameraPageMapper.motorcyclePercentage");
+	}
+ 
+	/** 자전거비율
+	 * @return double
+	 */
+	public double cyclePercentage() {
+		return sql.selectOne("cameraPageMapper.cyclePercentage");
+	}
+
 	
 	
 	

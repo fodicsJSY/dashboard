@@ -607,7 +607,80 @@
 	
 
 		
-	
+	<!-- 자동차비율 -->
+	<select id="carPercentage" resultMap="_decimal">
+		SELECT
+		    CASE
+		        WHEN SUM(VEHICLE_CAR + VEHICLE_BUS + VEHICLE_TRUCK) > 0 THEN
+		            (SUM(CASE WHEN VEHICLE_CAR > 0 
+		                THEN VEHICLE_CAR ELSE 0 END) * 100.0 /
+		                SUM(VEHICLE_CAR + VEHICLE_BUS + VEHICLE_TRUCK))
+		        ELSE
+		            0
+		     END AS carPer
+		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY
+		WHERE OCCU_DATE =  '20231110'
+	</select>
+		
+	<!-- 버스비율 -->
+	<select id="busPercentage" resultMap="_decimal">
+		SELECT
+		    CASE
+		        WHEN SUM(VEHICLE_CAR + VEHICLE_BUS + VEHICLE_TRUCK) > 0 THEN
+		            (SUM(CASE WHEN VEHICLE_BUS > 0 
+		                THEN VEHICLE_BUS ELSE 0 END) * 100.0 /
+		                SUM(VEHICLE_CAR + VEHICLE_BUS + VEHICLE_TRUCK))
+		        ELSE
+		            0
+		     END AS busPer
+		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY
+		WHERE OCCU_DATE =  '20231110'
+	</select>
+		
+	<!-- 트럭비율 -->
+	<select id="truckPercentage" resultMap="_decimal">
+		SELECT
+		    CASE
+		        WHEN SUM(VEHICLE_CAR + VEHICLE_BUS + VEHICLE_TRUCK) > 0 THEN
+		            (SUM(CASE WHEN VEHICLE_TRUCK > 0 
+		                THEN VEHICLE_TRUCK ELSE 0 END) * 100.0 /
+		                SUM(VEHICLE_CAR + VEHICLE_BUS + VEHICLE_TRUCK))
+		        ELSE
+		            0
+		     END AS truckPer
+		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY
+		WHERE OCCU_DATE =  '20231110'
+	</select>
+		
+	<!-- 오토바이비율 -->
+	<select id="motorcyclePercentage" resultMap="_decimal">
+		SELECT
+		    CASE
+		        WHEN SUM(VEHICLE_MOTORCYCLE + VEHICLE_BICYCLE) > 0 THEN
+		            (SUM(CASE WHEN VEHICLE_MOTORCYCLE > 0 
+		                THEN VEHICLE_MOTORCYCLE ELSE 0 END) * 100.0 /
+		                SUM(VEHICLE_MOTORCYCLE + VEHICLE_BICYCLE))
+		        ELSE
+		            0
+		     END AS motorcyclePer
+		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY
+		WHERE OCCU_DATE =  '20231110'
+	</select>
+		
+	<!-- 자전거비율 -->
+	<select id="cyclePercentage" resultMap="_decimal">
+		SELECT
+		    CASE
+		        WHEN SUM(VEHICLE_MOTORCYCLE + VEHICLE_BICYCLE) > 0 THEN
+		            (SUM(CASE WHEN VEHICLE_BICYCLE > 0 
+		                THEN VEHICLE_BICYCLE ELSE 0 END) * 100.0 /
+		                SUM(VEHICLE_MOTORCYCLE + VEHICLE_BICYCLE))
+		        ELSE
+		            0
+		     END AS cyclePer
+		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY
+		WHERE OCCU_DATE =  '20231110'
+	</select>
 	
 	
 </mapper>

@@ -214,7 +214,37 @@ public class CameraController {
 	
 	//차량 메인 카메라페이지로 이동
 	@GetMapping("/mainCamera/mainCameraPart1Vehicle")
-	public String vehicleMainCameraForward() {
+	public String vehicleMainCameraForward(
+			Model model
+			) {
+		
+		// 자동차비율
+		double carPercentage = service.carPercentage();
+		model.addAttribute("carPercentage",carPercentage);
+		System.out.println("carPercentage : " + carPercentage);
+		
+		// 버스비율
+		double busPercentage = service.busPercentage();
+		model.addAttribute("busPercentage",busPercentage);
+		System.out.println("busPercentage : " + busPercentage);
+		
+		// 트럭비율
+		double truckPercentage = service.truckPercentage();
+		model.addAttribute("truckPercentage",truckPercentage);
+		System.out.println("truckPercentage : " + truckPercentage);
+		
+		// 오토바이비율
+		double motorcyclePercentage = service.motorcyclePercentage();
+		model.addAttribute("motorcyclePercentage",motorcyclePercentage);
+		System.out.println("motorcyclePercentage : " + motorcyclePercentage);
+		
+		// 자전거비율
+		double cyclePercentage = service.cyclePercentage();
+		model.addAttribute("cyclePercentage",cyclePercentage);
+		System.out.println("cyclePercentage : " + cyclePercentage);
+		
+		
+		
 		return "camera/main_camera_part1_Vehicle";
 	}
 

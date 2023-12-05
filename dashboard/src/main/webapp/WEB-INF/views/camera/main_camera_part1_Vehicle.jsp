@@ -35,6 +35,12 @@
 </head>
 
 <body>
+	<c:set var="carPercentage" value="${carPercentage}"/>
+	<c:set var="busPercentage" value="${busPercentage}"/>
+	<c:set var="truckPercentage" value="${truckPercentage}"/>
+	<c:set var="motorcyclePercentage" value="${motorcyclePercentage}"/>
+	<c:set var="cyclePercentage" value="${cyclePercentage}"/>
+
 	<%-- 전체 wrap.S --%>
 	<div class="wrap"  id="indexWrap">  
 		<%-- 헤더.S --%>
@@ -238,7 +244,6 @@
 				</div>
 			</div>
 			<%-- 우측 메인.E --%>
-
 		</div>
 		<%--  내용.E --%>
 	</div>
@@ -253,6 +258,16 @@
 
 	<%-- 전역변수 시작--%>
 	<script>
+    /* 차량&이륜차 종류별 감지 건(수) 도넛차트 전역변수 초기화 시작*/
+		var carPercentage = ${carPercentage != null ? carPercentage : 0};
+		var busPercentage = ${busPercentage != null ? busPercentage : 0};
+		var truckPercentage = ${truckPercentage != null ? truckPercentage : 0};
+		var motorcyclePercentage = ${motorcyclePercentage != null ? motorcyclePercentage : 0};
+		var cyclePercentage = ${cyclePercentage != null ? cyclePercentage : 0};
+	/* 차량&이륜차 종류별 감지 건(수) 도넛차트  전역변수 초기화  끝*/
+
+
+
     /* 연령별 출입자 현황 도넛차트 시작*/
 		var youngMale = ${summaryList[0] != null ? summaryList[0].face_youngMale : 0};
 		var youngFemale = ${summaryList[1] != null ? summaryList[1].face_youngFemale : 0};

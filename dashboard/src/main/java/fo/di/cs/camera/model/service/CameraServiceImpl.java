@@ -295,7 +295,45 @@ public class CameraServiceImpl implements CameraService{
 	
 	
 	
+	/**
+	 * 자동차비율
+	 */
+	@Override
+	public double carPercentage() {
+		return dao.carPercentage();
+	}
 	
+	/**
+	 * 버스비율
+	 */
+	@Override
+	public double busPercentage() {
+		return dao.busPercentage();
+	}
+	
+	/**
+	 * 트럭비율
+	 */
+	@Override
+	public double truckPercentage() {
+		return dao.truckPercentage();
+	}
+	
+	/**
+	 * 오토바이비율
+	 */
+	@Override
+	public double motorcyclePercentage() {
+		return dao.motorcyclePercentage();
+	}
+	
+	/**
+	 * 자전거비율
+	 */
+	@Override
+	public double cyclePercentage() {
+		return dao.cyclePercentage();
+	}
 	
 	
 	
