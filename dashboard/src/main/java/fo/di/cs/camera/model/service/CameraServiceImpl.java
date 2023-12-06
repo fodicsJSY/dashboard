@@ -336,7 +336,22 @@ public class CameraServiceImpl implements CameraService{
 	}
 	
 	
+	/**
+	 * 얼굴페이지 남녀 얼궇 수 도넛 차트
+	 */
+	@Override
+	public List<DailyCount_summary> facePageCount() {
+		return dao.facePageCount();
+	}
 	
+	
+	/**
+	 *  얼굴페이지 악세사리 막대&라인 혼합차트
+	 */
+	@Override
+	public List<DailyCount_summary> dailyFaceAcc() {
+		return dao.dailyFaceAcc();
+	}
 	
 	
 	

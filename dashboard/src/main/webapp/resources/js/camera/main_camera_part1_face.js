@@ -44,8 +44,8 @@ option = {
           show: false
         },
         data: [
-          { value: 4414, name: '남성', itemStyle:{color:'#0f9faf'}},
-          { value: 3756, name: '여성', itemStyle:{color:'#e8534c'}}
+          { value: maleFace, name: '남성', itemStyle:{color:'#0f9faf'}},
+          { value: femaleFace, name: '여성', itemStyle:{color:'#e8534c'}}
         ]
       }
     ]
@@ -102,9 +102,9 @@ option = {
     yAxis: [
       {
         type: 'value',
-        min: 0,
-        max: 5000,
-        interval: 1000,
+        // min: 0,
+        // max: 5000,
+        // interval: 1000,
         
       }
     ],
@@ -112,7 +112,7 @@ option = {
       {
         name: '남성',
         type: 'bar',
-        data: [200, 200, 200],
+        data: [faceHatMale, faceGrassesMale, faceMaskMale],
         barWidth: 25,
         itemStyle:{
           color: 'rgba(165,245,60,1)'
@@ -122,7 +122,7 @@ option = {
       {
         name: '여성',
         type: 'line',
-        data: [4200, 4200, 4200],
+        data: [faceHatFemale, faceGrassesFemale, faceMaskFemale],
         itemStyle:{
           color: 'rgba(236,190,66,1)'
         }
@@ -156,14 +156,14 @@ option = {
     series: [
       {
         name: '남성',
-        data: [1980, 1800, 50, 0],
+        data: [youngMale, adultMale, middleMale, seniorMale],
         type: 'line',
         areaStyle: {},
         itemStyle:{color: 'rgba(70,115,200,1)'}
       },
           {
         name: '여성',
-        data: [0, 50, 2100, 2300],
+        data: [youngFemale, adultFemale, middleFemale, seniorFemale],
         type: 'line',
         areaStyle: {},
         itemStyle:{color: 'rgba(255,106,107,1)'}

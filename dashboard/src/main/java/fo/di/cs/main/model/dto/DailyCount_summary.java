@@ -41,4 +41,17 @@ public class DailyCount_summary {
 	private int bagMale; // 가방 맨 남성
 	private int hatFemale; // 모자 쓴 여성
 	private int bagFemale; // 가방 맨 여성
+	
+	private int femaleFace; // 여자얼굴
+	private int maleFace; // 남자얼굴
+	
+	private int faceHatMale; // 모자 쓴 남자얼굴
+	private int faceHatFemale; // 모자 쓴 여자얼굴
+	private int faceGrassesMale; // 안경 쓴 남자얼굴
+	private int faceGrassesFemale; // 안경 쓴 여자얼굴
+	private int faceMaskMale; // 마스크 쓴 남자얼굴
+	private int faceMaskFemale; // 마스크 쓴 여자얼굴
+	
+	
+	
 }

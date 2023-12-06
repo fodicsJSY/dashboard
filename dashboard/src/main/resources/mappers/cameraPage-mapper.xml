@@ -75,6 +75,14 @@
       	<result property="bagMale" column="PERSON_BAGMALE" />
       	<result property="hatFemale" column="PERSON_HATFEMALE" />
       	<result property="bagFemale" column="PERSON_BAGFEMALE" />
+      	<result property="maleFace" column="FACE_MALE" />
+      	<result property="femaleFace" column="FACE_FEMALE" />
+      	<result property="faceHatMale" column="FACE_HATMALE" />
+      	<result property="faceHatFemale" column="FACE_HATFEMALE" />
+      	<result property="faceGrassesMale" column="FACE_GLASSESMALE" />
+      	<result property="faceGrassesFemale" column="FACE_GLASSESFEMALE" />
+      	<result property="faceMaskMale" column="FACE_MASKMALE" />
+      	<result property="faceMaskFemale" column="FACE_MASKFEMALE" />
 </resultMap> 
 	
 <resultMap id="_int" type="java.lang.Integer" />
@@ -681,6 +689,25 @@
 		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY
 		WHERE OCCU_DATE =  CONVERT(varchar, GETDATE(), 112)
 	</select>
+	
+	
+	<!-- 얼굴페이지 남녀 얼궇 수 도넛 차트 -->
+	<select id="facePageCount" resultMap="DailyCount_summary_rm">
+		SELECT
+		    FACE_FEMALE, FACE_MALE
+		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY
+		WHERE OCCU_DATE = '20231110'
+	</select>
+	
+	<!-- 얼굴페이지 악세사리 막대&라인 혼합차트 -->
+	<select id="dailyFaceAcc" resultMap="DailyCount_summary_rm">
+		SELECT
+		    FACE_HATMALE, FACE_HATFEMALE, FACE_GLASSESMALE, FACE_GLASSESFEMALE, FACE_MASKMALE, FACE_MASKFEMALE
+		FROM TB_AI_NVR_DASH_BOARD_DAILY_COUNT_SUMMARY
+		WHERE OCCU_DATE = '20231110'
+	</select>
+	
+	
 	
 	
 </mapper>

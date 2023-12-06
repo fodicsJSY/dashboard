@@ -265,6 +265,37 @@
 	
 	<%-- 전역변수 시작--%>
 	<script>
+
+	/* 사람 막대차트 전역변수 시작*/
+		var youngMale = ${summaryList[0] != null ? summaryList[0].face_youngMale : 0};
+		var youngFemale = ${summaryList[1] != null ? summaryList[1].face_youngFemale : 0};
+		var adultMale = ${summaryList[2] != null ? summaryList[2].face_adultMale : 0};
+		var adultFemale = ${summaryList[3] != null ? summaryList[3].face_adultFemale : 0};
+		var middleMale = ${summaryList[4] != null ? summaryList[4].face_middleMale : 0};
+		var middleFemale = ${summaryList[5] != null ? summaryList[5].face_middleFemale : 0};
+		var seniorMale = ${summaryList[6] != null ? summaryList[6].face_seniorMale : 0};
+		var seniorFemale = ${summaryList[7] != null ? summaryList[7].face_seniorFemale : 0};
+	/* 사람 막대차트 전역변수 끝*/
+
+
+	/* 얼굴페이지 남녀 얼궇 수 도넛 차트 전역변수 시작*/
+		var femaleFace = ${FacePageCountList[0] != null ? FacePageCountList[0].femaleFace : 0};
+		var maleFace = ${FacePageCountList[0] != null ? FacePageCountList[0].maleFace : 0};
+	/* 얼굴페이지 남녀 얼궇 수 도넛 차트 전역변수 끝*/
+
+
+	/* 얼굴페이지 악세사리 막대&라인 혼합차트 전역변수 시작*/
+		var faceHatMale = ${dailyFaceAccList[0] != null ? dailyFaceAccList[0].faceHatMale : 0};
+		var faceHatFemale = ${dailyFaceAccList[0] != null ? dailyFaceAccList[0].faceHatFemale : 0};
+		var faceGrassesMale = ${dailyFaceAccList[0] != null ? dailyFaceAccList[0].faceGrassesMale : 0};
+		var faceGrassesFemale = ${dailyFaceAccList[0] != null ? dailyFaceAccList[0].faceGrassesFemale : 0};
+		var faceMaskMale = ${dailyFaceAccList[0] != null ? dailyFaceAccList[0].faceMaskMale : 0};
+		var faceMaskFemale = ${dailyFaceAccList[0] != null ? dailyFaceAccList[0].faceMaskFemale : 0};
+	/* 얼굴페이지 악세사리 막대&라인 혼합차트 전역변수 끝*/
+
+
+
+
     /* 연령별 출입자 현황 도넛차트 시작*/
 		var youngMale = ${summaryList[0] != null ? summaryList[0].face_youngMale : 0};
 		var youngFemale = ${summaryList[1] != null ? summaryList[1].face_youngFemale : 0};
