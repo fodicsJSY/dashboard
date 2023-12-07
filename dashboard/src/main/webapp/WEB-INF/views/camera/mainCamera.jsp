@@ -411,7 +411,7 @@
 											</div>
 										</div>
 									</a>	
-									<div>
+									<div class="dataSection" >
 										<a href="/mainCamera/subCamera">
 												<c:choose>
 													<c:when test="${empty dailyPersonCount[0]}">
@@ -476,7 +476,7 @@
 										</div>
 									</div>
 									</a>
-									<div>
+									<div  class="dataSection" >
 										<a href="/mainCamera/subCamera">
 										<c:choose>
 											<c:when test="${empty dailyVehicleCount[0]}">
@@ -541,7 +541,7 @@
 											</div>
 										</div>
 									</a>
-									<div>
+									<div class="dataSection" >
 										<a href="/mainCamera/subCamera">
 											<c:choose>
 												<c:when test="${empty dailyFaceCount[0]}">
@@ -606,7 +606,7 @@
 										</div>
 									</div>
 									</a>
-									<div>
+									<div class="dataSection" >
 										<a href="/mainCamera/subCamera">
 											<c:choose>
 												<c:when test="${empty dailyCntCntCount[0]}">
@@ -671,7 +671,7 @@
 										</div>
 									</div>
 									</a>
-									<div>
+									<div class="dataSection" >
 										<a href="/mainCamera/subCamera">
 											<c:choose>
 												<c:when test="${empty dailyInvCntCount[0]}">
@@ -737,7 +737,7 @@
 										</div>
 									</div>
 									</a>
-									<div>
+									<div class="dataSection" >
 										<a href="/mainCamera/subCamera">
 											<c:choose>
 												<c:when test="${empty dailyLotCntCount[0]}">
@@ -800,7 +800,7 @@
 											</div>
 										</div>
 									</div>
-									<div>
+									<div class="dataSection" >
 										<a href="/mainCamera/subCamera">
 											<c:choose>
 												<c:when test="${empty dailyLprCount[0]}">
@@ -839,7 +839,7 @@
 											<div class="contrast">전일대비 <span class="lower">0</span></div>
 										</div>
 									</div>
-									<div>	
+									<div class="dataSection" >	
 										<a href="/mainCamera/subCamera">
 											<div class="tableCon">
 												<div>카메라 없음</div>
