@@ -375,6 +375,7 @@ ul.tabs li.tabsON {position:relative; height:40px;  color:#ffffff; font-weight:5
 
 	.tableCon{
 		width: 300px;
+		height: 100%;
 		display: flex;
 		flex-direction: row;
 		justify-content: space-around;

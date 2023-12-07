@@ -411,33 +411,33 @@
 											</div>
 										</div>
 									</a>	
-									<c:choose>
-										<c:when test="${empty dailyPersonCount[0]}">
-											<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
-											<div class="tableCon">
-												<div>카메라 없음</div>
-												<div class="humanCountRow">0</div>
-											</div>
-										</c:when>
-										<c:otherwise>
-											<!-- 리스트의 요소 개수를 출력 -->
-											<div class="tableCon">
-												<div>${dailyPersonCount[0].cameraName}</div>
+									<div>
+										<a href="/mainCamera/subCamera">
 												<c:choose>
-													<c:when test="${empty dailyPersonCount[0].personCount}">
-														<div class="humanCountRow">0</div>
+													<c:when test="${empty dailyPersonCount[0]}">
+														<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+														<div class="tableCon">
+															<div>카메라 없음</div>
+															<div class="humanCountRow">0</div>
+														</div>
 													</c:when>
 													<c:otherwise>
-														<div class="humanCountRow">${dailyPersonCount[0].personCount}</div>
+														<!-- 리스트의 요소 개수를 출력 -->
+														<div class="tableCon">
+															<div>${dailyPersonCount[0].cameraName}</div>
+															<c:choose>
+																<c:when test="${empty dailyPersonCount[0].personCount}">
+																	<div class="humanCountRow">0</div>
+																</c:when>
+																<c:otherwise>
+																	<div class="humanCountRow">${dailyPersonCount[0].personCount}</div>
+																</c:otherwise>
+															</c:choose>
+														</div>
 													</c:otherwise>
 												</c:choose>
-											</div>
-										</c:otherwise>
-									</c:choose>
-									<%-- <a href="/mainCamera/subCamera">
-										<div id="Human_grid_area" style="width: 60%; float: left;">	
-										</div>								
-									</a> --%>
+										</a>
+									</div>
 								</div>
 								<div class="today-part8" >
 									<a href="/mainCamera/mainCameraPart1Vehicle">
@@ -476,34 +476,34 @@
 										</div>
 									</div>
 									</a>
-									<c:choose>
-										<c:when test="${empty dailyVehicleCount[0]}">
-											<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
-											<div class="tableCon">
-												<div>카메라 없음</div>
-												<div class="vehicleCountRow">0</div>
-											</div>
-										</c:when>
-										<c:otherwise>
-											<!-- 리스트의 요소 개수를 출력 -->
-											<div class="tableCon">
-												<div>${dailyVehicleCount[0].cameraName}</div>
-												<c:choose>
-													<c:when test="${empty dailyVehicleCount[0].vehicleCount}">
-														<div class="vehicleCountRow">0</div>
-													</c:when>
-													<c:otherwise>
-														<div class="vehicleCountRow">${dailyVehicleCount[0].vehicleCount}</div>
-													</c:otherwise>
-												</c:choose>
-											</div>
-										</c:otherwise>
-									</c:choose>
-								</div>
-								<%-- <a href="/mainCamera/subCamera">
-									<div id="Car_grid_area" style="width: 60%; float: left;">
+									<div>
+										<a href="/mainCamera/subCamera">
+										<c:choose>
+											<c:when test="${empty dailyVehicleCount[0]}">
+												<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+												<div class="tableCon">
+													<div>카메라 없음</div>
+													<div class="vehicleCountRow">0</div>
+												</div>
+											</c:when>
+											<c:otherwise>
+												<!-- 리스트의 요소 개수를 출력 -->
+												<div class="tableCon">
+													<div>${dailyVehicleCount[0].cameraName}</div>
+													<c:choose>
+														<c:when test="${empty dailyVehicleCount[0].vehicleCount}">
+															<div class="vehicleCountRow">0</div>
+														</c:when>
+														<c:otherwise>
+															<div class="vehicleCountRow">${dailyVehicleCount[0].vehicleCount}</div>
+														</c:otherwise>
+													</c:choose>
+												</div>
+											</c:otherwise>
+										</c:choose>
+										</a> 
 									</div>
-								</a> --%>
+								</div>
 								<div class="today-part8" >
 									<a href="/mainCamera/mainCameraPart1Face">
 										<div class="todayTXT todayFace"  >
@@ -541,35 +541,34 @@
 											</div>
 										</div>
 									</a>
-									<c:choose>
-										<c:when test="${empty dailyFaceCount[0]}">
-											<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
-											<div class="tableCon">
-												<div>카메라 없음</div>
-												<div class="faceCountRow">0</div>
-											</div>
-										</c:when>
-										<c:otherwise>
-											<!-- 리스트의 요소 개수를 출력 -->
-											<div class="tableCon">
-												<div>${dailyFaceCount[0].cameraName}</div>
-												<c:choose>
-													<c:when test="${empty dailyCntCntCount[0].faceCount}">
+									<div>
+										<a href="/mainCamera/subCamera">
+											<c:choose>
+												<c:when test="${empty dailyFaceCount[0]}">
+													<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+													<div class="tableCon">
+														<div>카메라 없음</div>
 														<div class="faceCountRow">0</div>
-													</c:when>
-													<c:otherwise>
-														<div class="faceCountRow">${dailyFaceCount[0].faceCount}</div>
-													</c:otherwise>
-												</c:choose>
-											</div>
-										</c:otherwise>
-									</c:choose>
-								<%-- <a href="/mainCamera/subCamera">
-									<div id="Face_grid_area" style="width: 60%; float: left;">	
+													</div>
+												</c:when>
+												<c:otherwise>
+													<!-- 리스트의 요소 개수를 출력 -->
+													<div class="tableCon">
+														<div>${dailyFaceCount[0].cameraName}</div>
+														<c:choose>
+															<c:when test="${empty dailyCntCntCount[0].faceCount}">
+																<div class="faceCountRow">0</div>
+															</c:when>
+															<c:otherwise>
+																<div class="faceCountRow">${dailyFaceCount[0].faceCount}</div>
+															</c:otherwise>
+														</c:choose>
+													</div>
+												</c:otherwise>
+											</c:choose>
+										</a> 
 									</div>
-								</a> --%>
 								</div>
-							
 								<div class="today-part8" >
 									<a href="/mainCamera/mainCameraPart1Counting">
 									<div class="todayTXT todayCounting"  >
@@ -607,33 +606,33 @@
 										</div>
 									</div>
 									</a>
-									<c:choose>
-										<c:when test="${empty dailyCntCntCount[0]}">
-											<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
-											<div class="tableCon">
-												<div>카메라 없음</div>
-												<div class="countingCountRow">0</div>
-											</div>
-										</c:when>
-										<c:otherwise>
-											<!-- 리스트의 요소 개수를 출력 -->
-											<div class="tableCon">
-												<div>${dailyCntCntCount[0].cameraName}</div>
-												<c:choose>
-													<c:when test="${empty dailyCntCntCount[0].cntCntCount}">
+									<div>
+										<a href="/mainCamera/subCamera">
+											<c:choose>
+												<c:when test="${empty dailyCntCntCount[0]}">
+													<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+													<div class="tableCon">
+														<div>카메라 없음</div>
 														<div class="countingCountRow">0</div>
-													</c:when>
-													<c:otherwise>
-														<div class="countingCountRow">${dailyCntCntCount[0].cntCntCount}</div>
-													</c:otherwise>
-												</c:choose>
-											</div>
-										</c:otherwise>
-									</c:choose>
-								<%-- <a href="/mainCamera/subCamera">
-									<div id="Counting_grid_area" style="width: 60%; float: left;">	
+													</div>
+												</c:when>
+												<c:otherwise>
+													<!-- 리스트의 요소 개수를 출력 -->
+													<div class="tableCon">
+														<div>${dailyCntCntCount[0].cameraName}</div>
+														<c:choose>
+															<c:when test="${empty dailyCntCntCount[0].cntCntCount}">
+																<div class="countingCountRow">0</div>
+															</c:when>
+															<c:otherwise>
+																<div class="countingCountRow">${dailyCntCntCount[0].cntCntCount}</div>
+															</c:otherwise>
+														</c:choose>
+													</div>
+												</c:otherwise>
+											</c:choose>
+										</a> 
 									</div>
-								</a> --%>
 								</div>
 								<div class="today-part8" >
 									<a href="/mainCamera/mainCameraPart1Loitering">
@@ -672,36 +671,35 @@
 										</div>
 									</div>
 									</a>
-									<c:choose>
-										<c:when test="${empty dailyInvCntCount[0]}">
-											<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
-											<div class="tableCon">
-												<div>카메라 없음</div>
-												<div class="invCountRow">0</div>
-											</div>
-										</c:when>
-										<c:otherwise>
-											<!-- 리스트의 요소 개수를 출력 -->
-											<div class="tableCon">
-												<div>${dailyInvCntCount[0].cameraName}</div>
-												
-												<c:choose>
-													<c:when test="${empty dailyInvCntCount[0].invCntCount}">
+									<div>
+										<a href="/mainCamera/subCamera">
+											<c:choose>
+												<c:when test="${empty dailyInvCntCount[0]}">
+													<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+													<div class="tableCon">
+														<div>카메라 없음</div>
 														<div class="invCountRow">0</div>
-													</c:when>
-													<c:otherwise>
-														<div class="invCountRow">${dailyInvCntCount[0].invCntCount}</div>
-													</c:otherwise>
-												</c:choose>
-											</div>
-										</c:otherwise>
-									</c:choose>
-								<%-- <a href="/mainCamera/subCamera">
-									<div id="Invasion_grid_area" style="width: 60%; float: left;">		
-									</div>										
-								</a> --%>
+													</div>
+												</c:when>
+												<c:otherwise>
+													<!-- 리스트의 요소 개수를 출력 -->
+													<div class="tableCon">
+														<div>${dailyInvCntCount[0].cameraName}</div>
+														
+														<c:choose>
+															<c:when test="${empty dailyInvCntCount[0].invCntCount}">
+																<div class="invCountRow">0</div>
+															</c:when>
+															<c:otherwise>
+																<div class="invCountRow">${dailyInvCntCount[0].invCntCount}</div>
+															</c:otherwise>
+														</c:choose>
+													</div>
+												</c:otherwise>
+											</c:choose>
+										</a> 
+									</div>
 								</div>									
-							
 								<div class="today-part8" >
 									<a href="/mainCamera/mainCameraPart1Loitering">
 									<div class="todayTXT todayLoitering" >
@@ -739,35 +737,34 @@
 										</div>
 									</div>
 									</a>
-									<c:choose>
-										<c:when test="${empty dailyLotCntCount[0]}">
-											<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
-											<div class="tableCon">
-												<div>카메라 없음</div>
-												<div class="lotCountRow">0</div>
-											</div>
-										</c:when>
-										<c:otherwise>
-											<!-- 리스트의 요소 개수를 출력 -->
-											<div class="tableCon">
-												<div>${dailyLotCntCount[0].cameraName}</div>
-												<c:choose>
-													<c:when test="${empty dailyLotCntCount[0].lotCntCount}">
+									<div>
+										<a href="/mainCamera/subCamera">
+											<c:choose>
+												<c:when test="${empty dailyLotCntCount[0]}">
+													<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+													<div class="tableCon">
+														<div>카메라 없음</div>
 														<div class="lotCountRow">0</div>
-													</c:when>
-													<c:otherwise>
-														<div class="lotCountRow">${dailyLotCntCount[0].lotCntCount}</div>
-													</c:otherwise>
-												</c:choose>
-											</div>
-										</c:otherwise>
-									</c:choose>
-								<%-- <a href="/mainCamera/subCamera">
-									<div id="Loitering_grid_area" style="width: 60%; float: left;">		
+													</div>
+												</c:when>
+												<c:otherwise>
+													<!-- 리스트의 요소 개수를 출력 -->
+													<div class="tableCon">
+														<div>${dailyLotCntCount[0].cameraName}</div>
+														<c:choose>
+															<c:when test="${empty dailyLotCntCount[0].lotCntCount}">
+																<div class="lotCountRow">0</div>
+															</c:when>
+															<c:otherwise>
+																<div class="lotCountRow">${dailyLotCntCount[0].lotCntCount}</div>
+															</c:otherwise>
+														</c:choose>
+													</div>
+												</c:otherwise>
+											</c:choose>
+										</a>
 									</div>
-								</a> --%>
 								</div>
-								
 								<div class="today-part8">
 									<div class="todayTXT todayLPR"  >
 										<div class="titleBox">
@@ -803,33 +800,33 @@
 											</div>
 										</div>
 									</div>
-									<c:choose>
-										<c:when test="${empty dailyLprCount[0]}">
-											<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
-											<div class="tableCon">
-												<div>카메라 없음</div>
-												<div class="lprCountRow">0</div>
-											</div>
-										</c:when>
-										<c:otherwise>
-											<!-- 리스트의 요소 개수를 출력 -->
-											<div class="tableCon">
-												<div>${dailyLprCount[0].cameraName}</div>
-												<c:choose>
-													<c:when test="${empty dailyLprCount[0].lprCount}">
+									<div>
+										<a href="/mainCamera/subCamera">
+											<c:choose>
+												<c:when test="${empty dailyLprCount[0]}">
+													<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+													<div class="tableCon">
+														<div>카메라 없음</div>
 														<div class="lprCountRow">0</div>
-													</c:when>
-													<c:otherwise>
-														<div class="lprCountRow">${dailyLprCount[0].lprCount}</div>
-													</c:otherwise>
-												</c:choose>
-											</div>
-										</c:otherwise>
-									</c:choose>
-									<a href="/mainCamera/subCamera">
-										<div id="LPR_grid_area" style="width: 60%; float: left;">	
-										</div>
-									</a>
+													</div>
+												</c:when>
+												<c:otherwise>
+													<!-- 리스트의 요소 개수를 출력 -->
+													<div class="tableCon">
+														<div>${dailyLprCount[0].cameraName}</div>
+														<c:choose>
+															<c:when test="${empty dailyLprCount[0].lprCount}">
+																<div class="lprCountRow">0</div>
+															</c:when>
+															<c:otherwise>
+																<div class="lprCountRow">${dailyLprCount[0].lprCount}</div>
+															</c:otherwise>
+														</c:choose>
+													</div>
+												</c:otherwise>
+											</c:choose>
+										</a>
+									</div>
 								</div>
 								<div class="today-part8">
 									<div class="todayTXT todayParking" >
@@ -842,14 +839,14 @@
 											<div class="contrast">전일대비 <span class="lower">0</span></div>
 										</div>
 									</div>
-									<div class="tableCon">
-										<div>카메라 없음</div>
-										<div class="pkCountRow">0</div>
+									<div>	
+										<a href="/mainCamera/subCamera">
+											<div class="tableCon">
+												<div>카메라 없음</div>
+												<div class="pkCountRow">0</div>
+											</div>
+										</a>
 									</div>
-									<%-- <a href="/mainCamera/subCamera">
-										<div id="Parking_grid_area" style="width: 60%; float: left'">	
-										</div>
-									</a> --%>
 								</div>
 							</div>
 						</div>
