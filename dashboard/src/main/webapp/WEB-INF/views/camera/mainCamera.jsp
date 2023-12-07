@@ -112,8 +112,8 @@
 			}
 
 			.data.twoColumns .tableCon{
-				width: 500px;
-				height: 730px;
+				/* width: 500px; */
+				height: 100%;
 				display: flex;
 				flex-direction: row;
 				justify-content: space-around;
@@ -161,8 +161,8 @@
 
 
 			.data.fourColumns .tableCon{
-				width: 500px;
-				height: 300px;
+				/* width: 500px; */
+				height: 100%;
 				display: flex;
 				flex-direction: row;
 				justify-content: space-around;
@@ -219,8 +219,8 @@
 
 			
 			.data.sixColumns .tableCon{
-				width:500px;
-				height: 160px;
+				/* width:500px; */
+				height: 100%;
 				display: flex;
 				flex-direction: row;
 				justify-content: space-around;
@@ -800,7 +800,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="dataSection" >
+									<div class="dataSection"  style="width: 300px">
 										<a href="/mainCamera/subCamera">
 											<c:choose>
 												<c:when test="${empty dailyLprCount[0]}">
@@ -839,7 +839,7 @@
 											<div class="contrast">전일대비 <span class="lower">0</span></div>
 										</div>
 									</div>
-									<div class="dataSection" >	
+									<div class="dataSection" style="width: 300px">	
 										<a href="/mainCamera/subCamera">
 											<div class="tableCon">
 												<div>카메라 없음</div>

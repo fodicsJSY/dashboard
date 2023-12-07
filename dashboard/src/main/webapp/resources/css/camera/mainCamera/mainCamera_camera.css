@@ -24,7 +24,9 @@
 .todayHuman {border-bottom:8px solid #94e9ec;}
 .todayCar {border-bottom:8px solid #d4e079;}
 .todayFace {border-bottom:8px solid #b4a1d8;}
-.todayParking {border-bottom:8px solid #aecf61;}
+.todayParking {border-bottom:8px solid #aecf61;
+    width: 200px;
+}
 .todayCounting {border-bottom:8px solid #ff7978;}
 .todayLPR {border-bottom:8px solid #f19ec2;}
 .todayLoitering {border-bottom:8px solid #fec070;}
