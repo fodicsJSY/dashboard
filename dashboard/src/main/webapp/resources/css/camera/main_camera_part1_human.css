@@ -5,14 +5,18 @@
 
 #count_human_display_wnd{
     height: 715px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding:10px 0 0 0; 
+    padding:10px 0 10px 0; 
     overflow: auto;
 }
 
 
+.tableCon{
+    width:100%; 
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-around; 
+    padding:10px 0 0 0; 
+}
 
             
 .humanCountRow{

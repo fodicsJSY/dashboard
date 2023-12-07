@@ -118,24 +118,28 @@
 
 										</div>
 										<div>
-											<div style = "width:100%;"  id = "count_vehicle_display_wnd">
+											<div id = "count_vehicle_display_wnd">
 												<c:choose>
 													<c:when test="${empty dailyVehicleCount[0]}">
 														<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
-														<div>카메라 없음</div>
-														<div class="vehicleCountRow">0</div>
+														<div class="tableCon">
+															<div>카메라 없음</div>
+															<div class="vehicleCountRow">0</div>
+														</div>
 													</c:when>
 													<c:otherwise>
-														<!-- 리스트의 요소 개수를 출력 -->
-														<div>${dailyVehicleCount[0].cameraName}</div>
-														<c:choose>
-															<c:when test="${empty dailyVehicleCount[0].vehicleCount}">
-																<div class="vehicleCountRow">0</div>
-															</c:when>
-															<c:otherwise>
-																<div class="vehicleCountRow">${dailyVehicleCount[0].vehicleCount}</div>
-															</c:otherwise>
-														</c:choose>
+														<div class="tableCon">
+															<!-- 리스트의 요소 개수를 출력 -->
+															<div>${dailyVehicleCount[0].cameraName}</div>
+															<c:choose>
+																<c:when test="${empty dailyVehicleCount[0].vehicleCount}">
+																	<div class="vehicleCountRow">0</div>
+																</c:when>
+																<c:otherwise>
+																	<div class="vehicleCountRow">${dailyVehicleCount[0].vehicleCount}</div>
+																</c:otherwise>
+															</c:choose>
+														</div>
 													</c:otherwise>
 												</c:choose>
 											</div>

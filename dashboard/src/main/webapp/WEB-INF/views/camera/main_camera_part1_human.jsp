@@ -149,15 +149,17 @@
 										</p>
 
 									</div>
-									<div>
-										<div style = "width:100%;"  id = "count_human_display_wnd">
-											<c:choose>
-												<c:when test="${empty dailyPersonCount[0]}">
-													<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
-													<div>카메라 없음</div>
-													<div class="humanCountRow">0</div>
-												</c:when>
-												<c:otherwise>
+									<div id = "count_human_display_wnd">
+										<c:choose>
+											<c:when test="${empty dailyPersonCount[0]}">
+												<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
+											<div class="tableCon">
+												<div>카메라 없음</div>
+												<div class="humanCountRow">0</div>
+											</div>	
+											</c:when>
+											<c:otherwise>
+												<div class="tableCon">
 													<!-- 리스트의 요소 개수를 출력 -->
 													<div>${dailyPersonCount[0].cameraName}</div>
 													<c:choose>
@@ -168,9 +170,9 @@
 															<div class="humanCountRow">${dailyPersonCount[0].personCount}</div>
 														</c:otherwise>
 													</c:choose>
-												</c:otherwise>
-											</c:choose>	
-										</div>
+												</div>
+											</c:otherwise>
+										</c:choose>	
 									</div>
 								</li>
 
@@ -292,27 +294,6 @@
 													</table>
 												</div>
 											</div>
-										<%-- 토스트 Grid 테마 중복으로 인해 CSS Grid 사용 --%>
-										<%--
-										<div class="grid-container" style = "padding-left:3%; padding-top:13%; width:98%; height:100px; " id = "cloth_wnd"> 	
-											<div class="grid-item_header"> </div>
-											<div class="grid-item_header"><img src="/resources/img/icon_titleMale.png" style = "margin-top: -5px; margin-left: 60px; float:left;"><div style = "margin-top: 3px; text-align: left;">&nbsp;&nbsp;남자</div></div>
-											<div class="grid-item_header"><img src="/resources/img/icon_titleFemale.png" style = "margin-top: -5px; margin-left: 60px; float:left;"><div style = "margin-top: 3px; text-align: left;">&nbsp;&nbsp;여성</div></div>
-											<div class="grid-item">상의 길이</div>
-											<div class="grid-item" id = "man_top_win"></div>
-											<div class="grid-item" id = "woman_top_win"></div>
-											<div class="grid-item">상의 색 비중</div>
-											<div class="grid-item" id = "man_top_color_rate">
-											</div>
-											<div class="grid-item" id = "woman_top_color_rate"></div>											
-											<div class="grid-item">하의 길이</div>											
-											<div class="grid-item" id = "man_down_win"></div>											
-											<div class="grid-item" id = "woman_down_win"></div>											
-											<div class="grid-item">하의 색 비중</div>											
-											<div class="grid-item" id = "man_down_color_rate"></div>
-											<div class="grid-item" id = "woman_down_color_rate"></div>
-										</div >				
-										--%>
 									</div>  
 								</div>
 							</div>

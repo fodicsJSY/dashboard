@@ -882,4 +882,4 @@ function GetTodayStr()
 
 
 // input date태그 기본값 변경
-document.getElementById('tui-date-picker-target').value = new Date().toISOString().substring(0, 10);;
+document.getElementById('tui-date-picker-target').value = new Date().toISOString().substring(0, 10);

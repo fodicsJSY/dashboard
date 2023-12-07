@@ -11,8 +11,7 @@
 
 
 
-	<script src="./node_modules/jquery/3.6.0/jquery.min.js"></script>
-
+<script src="/resources/node_modules/jquery/3.6.0/jquery.min.js"></script>
 	<%-- css --%>
 	<link rel="stylesheet" href="/resources/css/camera/main_camera_part1_loitering.css">
 
@@ -111,10 +110,13 @@
 												<c:choose>
 													<c:when test="${empty dailyInvCntCount[0]}">
 														<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
-														<div>카메라 없음</div>
-														<div class="invCountRow">0</div>
-													</c:when>
+														<div class="tableCon">
+															<div>카메라 없음</div>
+															<div class="invCountRow">0</div>
+														</div>
+												</c:when>
 													<c:otherwise>
+													<div class="tableCon">
 														<!-- 리스트의 요소 개수를 출력 -->
 														<div>${dailyInvCntCount[0].cameraName}</div>
 														<c:choose>
@@ -125,6 +127,7 @@
 																<div class="invCountRow">${dailyInvCntCount[0].invCntCount}</div>
 															</c:otherwise>
 														</c:choose>
+													</div>
 													</c:otherwise>
 												</c:choose>
 											</div>
@@ -144,20 +147,24 @@
 												<c:choose>
 													<c:when test="${empty dailyLotCntCount[0]}">
 														<!-- 리스트가 null이거나 비어 있을 경우 0 출력 -->
-														<div>카메라 없음</div>
-														<div class="lotCountRow">0</div>
+														<div class="tableCon">
+															<div>카메라 없음</div>
+															<div class="lotCountRow">0</div>
+														</div>
 													</c:when>
 													<c:otherwise>
-														<!-- 리스트의 요소 개수를 출력 -->
-														<div>${dailyLotCntCount[0].cameraName}</div>
-														<c:choose>
-															<c:when test="${empty dailyLotCntCount[0].lotCntCount}">
-																<div class="lotCountRow">0</div>
-															</c:when>
-															<c:otherwise>
-																<div class="lotCountRow">${dailyLotCntCount[0].lotCntCount}</div>
-															</c:otherwise>
-														</c:choose>
+														<div class="tableCon">
+															<!-- 리스트의 요소 개수를 출력 -->
+															<div>${dailyLotCntCount[0].cameraName}</div>
+															<c:choose>
+																<c:when test="${empty dailyLotCntCount[0].lotCntCount}">
+																	<div class="lotCountRow">0</div>
+																</c:when>
+																<c:otherwise>
+																	<div class="lotCountRow">${dailyLotCntCount[0].lotCntCount}</div>
+																</c:otherwise>
+															</c:choose>
+														</div>
 													</c:otherwise>
 												</c:choose>
 											</div>
@@ -290,12 +297,8 @@
 
 	<%-- js --%>
 	<script src="/resources/js/camera/main_camera_part1_loitering.js"></script>    
-	<script src="/resources/js/commonFunctions.js"></script>    
-	<script src="/resources/js/EventAccPieChart.js"></script>
-	<script src="/resources/js/EventChart.js"></script>
+	<%-- <script src="/resources/js/commonFunctions.js"></script>     --%>
 	<script src="/resources/js/tabcontent.js"></script>
-	<script src="/resources/js/popupSetting.js"></script>
-	<script src="/resources/dashboard_config.json"></script> 
 	<%--
 	<script>
 		const chart = toastui.Chart;
